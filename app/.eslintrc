@@ -2,7 +2,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "overrides": [],
   "parser": "@typescript-eslint/parser",
@@ -16,7 +16,7 @@
   "plugins": [
     "react",
     "react-hooks",
-    "@typescript-eslint",
+    "@typescript-eslint"
   ],
   "rules": {
     "@typescript-eslint/no-var-requires": 0,
