@@ -1,5 +1,6 @@
 import React from 'react'
 import { Box, Link } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const boxProps = {
   display: 'flex',
@@ -25,6 +26,7 @@ const linkSx = {
 }
 
 const Navbar = () => {
+  const navigate = useNavigate()
   return (
     <Box
      sx={boxProps}
@@ -44,7 +46,7 @@ const Navbar = () => {
       </Box>
 
       <Link variant={'button'} underline={'none'}
-            href={'/ReactModule/nodes'}
+            onClick={() => navigate('/ReactModule/nodes')}
       sx={linkSx}>Nodes</Link>
     </Box>
   )
