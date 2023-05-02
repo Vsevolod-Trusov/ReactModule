@@ -1,11 +1,26 @@
 import React from 'react';
-import { Button, styled } from '@mui/material';
+import { Outlet } from 'react-router-dom';
+import { Box } from '@mui/material';
+
+import Navbar from './components/composites/Navbar/Navbar';
 
 function App() {
   return (
-    <div className='App'>
-      <Button variant='contained'>Hello World</Button>
-    </div>
+    <Box className='App'
+         sx={{
+           fontFamily: 'Montserrat'
+         }}
+    >
+      <Box sx={{ display: 'flex' }}>
+        <Box sx={{ flex: '0.2' }}>
+          <Navbar />
+        </Box>
+
+        <Box sx={{ flex: '0.8' }}>
+          <Outlet />
+        </Box>
+      </Box>
+    </Box>
   );
 }
 
