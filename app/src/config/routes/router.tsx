@@ -12,7 +12,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: '/ReactModule/nodes',
+        path: '/ReactModule/nodes/',
         element: <NodesPage />,
         errorElement: <ErrorPage />,
       }
