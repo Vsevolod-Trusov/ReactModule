@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/ReactModule/static/js/main.408f9ec0.js",
+    "main.js": "/ReactModule/static/js/main.f28afea3.js",
     "static/media/Montserrat.woff": "/ReactModule/static/media/Montserrat.cce37fdc8e6fa456e7e4.woff",
     "static/media/Montserrat.woff2": "/ReactModule/static/media/Montserrat.1c57a4b310025b122f28.woff2",
     "index.html": "/ReactModule/index.html",
-    "main.408f9ec0.js.map": "/ReactModule/static/js/main.408f9ec0.js.map"
+    "main.f28afea3.js.map": "/ReactModule/static/js/main.f28afea3.js.map"
   },
   "entrypoints": [
-    "static/js/main.408f9ec0.js"
+    "static/js/main.f28afea3.js"
   ]
 }
