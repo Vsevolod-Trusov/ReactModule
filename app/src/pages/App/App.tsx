@@ -1,11 +1,18 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
-import { Box } from '@mui/material';
 
-import Navbar from './components/composites/Navbar/Navbar';
-import { appStyled, navbarStyle, navbarWrapper } from './styled';
+import {
+  Outlet,
+  Box,
+  Navbar,
 
-function App() {
+  appStyled,
+  navbarStyle,
+  navbarWrapper,
+  outletStyle,
+
+} from './index';
+
+export const App = () => {
   return (
     <Box className='App'
          sx={appStyled}
@@ -15,12 +22,12 @@ function App() {
           <Navbar />
         </Box>
 
-        <Box sx={{ flex: '0.8' }}>
+        <Box sx={outletStyle}>
           <Outlet />
         </Box>
       </Box>
     </Box>
   );
-}
+};
 
-export default App;
+
