@@ -17,5 +17,5 @@ export const handleEditNote = ({notes, selectedNoteIndex, description, setNotes}
 
 export const handleSubmit = (event: React.FormEvent, navigate:  NavigateFunction) => {
   event.preventDefault();
-  navigate('')
+  navigate('/ReactModule/nodes')
 };
