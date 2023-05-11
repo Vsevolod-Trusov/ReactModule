@@ -1,3 +1,5 @@
+import React from 'react'
+import { NavigateFunction } from 'react-router-dom';
 import { IHandleEditNote } from './interfaces';
 
 export const handleEditNote = ({notes, selectedNoteIndex, description, setNotes}: IHandleEditNote) => {
@@ -11,4 +13,9 @@ export const handleEditNote = ({notes, selectedNoteIndex, description, setNotes}
   updatedNotes[selectedNoteIndex] = updatedNote;
 
   setNotes(updatedNotes);
+};
+
+export const handleSubmit = (event: React.FormEvent, navigate:  NavigateFunction) => {
+  event.preventDefault();
+  navigate('')
 };
