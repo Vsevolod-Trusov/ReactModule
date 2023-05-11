@@ -5,6 +5,6 @@ export interface IHandleEditNote {
   notes: TNode[],
   selectedNoteIndex: number,
   description: string,
-  setNotes: React.Dispatch<React.SetStateAction<TNode[]>>
+  setNotes: React.Dispatch<React.SetStateAction<TNode[]>>,
 }
 

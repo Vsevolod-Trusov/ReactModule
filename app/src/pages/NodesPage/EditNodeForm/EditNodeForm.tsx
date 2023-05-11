@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import { useNavigate } from 'react-router-dom';
 
 import { fieldsContainer } from './styled';
 import { IEditNodeProps } from './interfaces';
-import { handleEditNote, handleSubmit } from './EditNodeFormApi/editNodeForm.api';
+import { handleEditNote } from './EditNodeFormApi/editNodeForm.api';
 
 export const EditNodeForm = ({ nodeTitle, nodeDate, nodeText, setNotes, notes, selectedNoteIndex }: IEditNodeProps) => {
-  const navigate = useNavigate()
   const [description, setDescription] = useState<string>(nodeText);
 
   useEffect(() => {
@@ -17,8 +15,7 @@ export const EditNodeForm = ({ nodeTitle, nodeDate, nodeText, setNotes, notes, s
   }, [nodeText]);
 
   return (
-    <form>
-      <Box sx={fieldsContainer} onSubmit={(event) => handleSubmit(event, navigate)}>
+      <Box sx={fieldsContainer} >
         <TextField
           label='Title'
           value={nodeTitle}
@@ -52,12 +49,12 @@ export const EditNodeForm = ({ nodeTitle, nodeDate, nodeText, setNotes, notes, s
           <Button variant='contained' color='primary' type='submit' onClick={() => handleEditNote({notes: notes,
             selectedNoteIndex: selectedNoteIndex,
             description: description,
-            setNotes: setNotes})}>
+            setNotes: setNotes,
+          })}>
             Edit
           </Button>
         </Box>
       </Box>
-    </form>
   );
 };
 
