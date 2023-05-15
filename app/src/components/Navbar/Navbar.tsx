@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { boxProps, headerContent, headerWrapper, linkSx } from './styled';
 
 
-export const Navbar = () => {
+const Navbar = () => {
   const navigate = useNavigate()
   return (
     <Box
@@ -23,3 +23,4 @@ export const Navbar = () => {
   )
 }
 
+export default Navbar
