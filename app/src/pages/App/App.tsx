@@ -1,9 +1,10 @@
 import React from 'react';
 
+import {default as Navbar} from '../../components/Navbar/index'
+
 import {
   Outlet,
   Box,
-  Navbar,
 
   appStyled,
   navbarStyle,
