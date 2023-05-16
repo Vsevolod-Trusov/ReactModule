@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 import MontserratWoff from '../fonts/Montserrat/Montserrat.woff';
 import MontserratWoff2 from '../fonts/Montserrat/Montserrat.woff2';
 
-export const globalStyles = () => {
+const globalStyles = () => {
   return createGlobalStyle`
       * {
         margin: 0;
@@ -20,4 +20,6 @@ export const globalStyles = () => {
 
     `;
 };
+
+export default globalStyles
 
