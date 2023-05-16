@@ -4,7 +4,7 @@ import Box from '@mui/material/Box/Box';
 import { TSelectedNode } from './types';
 import { StyledEditWrapper, StyledSelectedNode } from './styled';
 import { SELECT_NODE } from './constants';
-import EditNoteContainer from './components/EditNodeForm/index';
+import EditNoteContainer from './components/EditNoteForm/index';
 
 const SelectedNote = ({ note, setNotes, notes }: TSelectedNode) => {
 
