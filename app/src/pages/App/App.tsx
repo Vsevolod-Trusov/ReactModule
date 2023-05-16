@@ -1,31 +1,23 @@
 import React from 'react';
 
+import { Outlet } from 'react-router-dom';
+
+import { StyledApp, StyledNavbarWrapper, StyledOutlet } from './styled';
 import {default as NavbarContainer} from '../../components/Navbar/index'
 
-import {
-  Outlet,
-  Box,
-
-  appStyled,
-  navbarWrapper,
-  outletStyle,
-
-} from './index';
-
-export const App = () => {
+const App = () => {
   return (
-    <Box className='App'
-         sx={appStyled}
-    >
-      <Box sx={navbarWrapper}>
+    <StyledApp className='App'>
+      <StyledNavbarWrapper>
           <NavbarContainer />
 
-        <Box sx={outletStyle}>
+        <StyledOutlet>
           <Outlet />
-        </Box>
-      </Box>
-    </Box>
+        </StyledOutlet>
+      </StyledNavbarWrapper>
+    </StyledApp>
   );
 };
 
+export default App
 
