@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
 
-import {
-  RouterProvider,
-  globalStyles,
-  router,
-} from './pages/Index';
+import { default as globalStyles } from './styles/index';
+import { default as router } from './config/routes/index';
 
 const Global = globalStyles();
 
