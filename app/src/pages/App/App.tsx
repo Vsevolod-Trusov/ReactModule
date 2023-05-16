@@ -1,13 +1,12 @@
 import React from 'react';
 
-import {default as Navbar} from '../../components/Navbar/index'
+import {default as NavbarContainer} from '../../components/Navbar/index'
 
 import {
   Outlet,
   Box,
 
   appStyled,
-  navbarStyle,
   navbarWrapper,
   outletStyle,
 
@@ -19,9 +18,7 @@ export const App = () => {
          sx={appStyled}
     >
       <Box sx={navbarWrapper}>
-        <Box sx={navbarStyle}>
-          <Navbar />
-        </Box>
+          <NavbarContainer />
 
         <Box sx={outletStyle}>
           <Outlet />

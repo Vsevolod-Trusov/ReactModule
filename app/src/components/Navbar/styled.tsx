@@ -1,4 +1,8 @@
-export const boxProps = {
+import { Link } from '@mui/material';
+import Box from '@mui/material/Box/Box';
+import styled from 'styled-components';
+
+const StyledNavbar = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -6,21 +10,23 @@ export const boxProps = {
 
   borderRight: '1px solid #0b31be',
   outline: '1px solid #0b31be',
-};
+})
 
-export const headerWrapper = {
+const StyledNavbarBox = styled(Box)({
+  flex: '0.2',
+});
+
+const StyledHeaderWrapper = styled(Box)({
   width: '100%',
 
   backgroundColor: '#0b31be',
   color: '#fff',
-};
 
-export const headerContent = {
   padding: '0.8rem 0',
   textAlign: 'center',
-};
+})
 
-export const linkSx = {
+const StyledLink = styled(Link)({
   width: '100%',
   padding: '1rem 0',
   textAlign: 'center',
@@ -31,4 +37,7 @@ export const linkSx = {
     backgroundColor: '#ece9e9',
     transition: '.2s',
   },
-};
+})
+
+export {StyledNavbarBox, StyledNavbar, StyledHeaderWrapper, StyledLink}
+
