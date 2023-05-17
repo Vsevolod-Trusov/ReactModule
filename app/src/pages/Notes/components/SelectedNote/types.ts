@@ -2,8 +2,8 @@ import { Dispatch, SetStateAction } from 'react';
 import { TNode } from '../../types';
 
 export type TSelectedNode = {
-  note: TNode,
+  note?: TNode,
   dateCreation?: string,
-  setNotes:  Dispatch<SetStateAction<TNode[]>>,
+  setNotes?:  Dispatch<SetStateAction<TNode[]>>,
   notes: TNode[]
 }
