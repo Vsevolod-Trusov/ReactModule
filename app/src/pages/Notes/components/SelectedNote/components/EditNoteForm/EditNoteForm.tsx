@@ -35,9 +35,7 @@ const EditNoteForm: FC<IEditNodeForm> = ({
         label='Text Area'
         value={description}
         name={'nodeText'}
-        onChange={handleSetDescription // (event) => {
-          // setDescription(event.target.value);}
-        }
+        onChange={handleSetDescription}
         variant='outlined'
         fullWidth
         multiline
@@ -45,23 +43,12 @@ const EditNoteForm: FC<IEditNodeForm> = ({
         margin='normal'
       />
       <Box>
-        <Button variant='contained' color='primary' type='submit' onClick={
-          () =>  handleEditNote({
-            description: description,
-          })
-        }>
+        <Button variant='contained' color='primary' type='submit' onClick={() => handleEditNote({description: description})}>
           Edit
         </Button>
       </Box>
     </StyledEditNodeForm>
   );
 };
-
-//() => handleEditNote({
-//           notes: notes,
-//           selectedNoteIndex: selectedNoteIndex,
-//           description: description,
-//           setNotes: setNotes,
-//         })
 
 export default EditNoteForm;

@@ -2,12 +2,12 @@ import { Dispatch, SetStateAction, ChangeEvent } from 'react';
 import { TNode } from '../../../../types';
 
 export interface IEditNodeProps {
-  note: TNode,
-  setNotes:  Dispatch<SetStateAction<TNode[]>>
-  notes: TNode[],
+  note?: TNode,
+  setNotes?:  Dispatch<SetStateAction<TNode[]>>
+  notes?: TNode[],
 }
 
-export interface IHandleEditNote {
+export interface  IHandleEditNote{
   description: string,
 }
 
