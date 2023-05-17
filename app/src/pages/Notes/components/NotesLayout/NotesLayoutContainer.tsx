@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Box from '@mui/material/Box';
 
 import { INodesLayout } from './types';
@@ -8,8 +8,7 @@ import { sliceText } from '../../../../utils/formatText';
 import { EMPTY_LINE, SLICE_POSITION } from '../../constants';
 import { formatDate } from '../../../../utils/formatDate';
 
-const NotesLayoutContainer = ({ notes, setSelectedNode }: INodesLayout) => {
-
+const NotesLayoutContainer: FC<INodesLayout> = ({ notes, handleSetSelectedNote }) => {
   /*   const handleIsSelected = (item: TNode, title: string) => (
      {
        ...currentItemWrapper,
@@ -21,9 +20,9 @@ const NotesLayoutContainer = ({ notes, setSelectedNode }: INodesLayout) => {
   return (
     <StyledNotesLayout>
       {
-        notes.map((item: TNode, index: number) => (
-          <StyledNote key={index}
-               onClick={() => setSelectedNode(item)}
+        notes.map((item: TNode) => (
+          <StyledNote key={item.id}
+               onClick={() => handleSetSelectedNote(item)}
           >
             <Box>
               Title: {item.title}
