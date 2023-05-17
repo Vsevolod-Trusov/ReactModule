@@ -1,53 +1,48 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
-import NodeList from './NoteList';
-import { TNode } from './types';
-import { INITIAL_STATE, NODES } from './constants';
+import NoteList from './NoteList';
+import {TNode} from './types';
+import {INITIAL_STATE, NODES} from './constants';
+import {useNavigate} from 'react-router-dom';
+import { ROUTE } from '../../config/routes/routes';
 
 const NotesListContainer = () => {
-  const [notes, setNotes] = useState<TNode[]>([]);
-  const [selectedNode, setSelectedNode] = useState<TNode>(INITIAL_STATE);
 
-  //
- //const isSelected = (currentTitle: string, selectedTitle: string) => (currentTitle === selectedTitle)
+    const navigate = useNavigate()
+    const [notes, setNotes] = useState<TNode[]>([]);
+    const note: TNode = INITIAL_STATE
 
- const handleSelectNode = (item: TNode) => {
-    setSelectedNode(item)
-  }
-
- const setNotesInLocalStorage = () => {
-    const savedNotes = localStorage.getItem('notes');
-
-    if (!savedNotes)
-      localStorage.setItem('notes', JSON.stringify(NODES));
-  }
-
- const setNotesFromLocalStorage = (setNotes:  React.Dispatch<React.SetStateAction<TNode[]>>) => {
-    const savedNotes = localStorage.getItem('notes');
-
-    if (savedNotes) {
-      setNotes(JSON.parse(savedNotes));
+    const handleSelectNode = (item: TNode) => {
+        window.localStorage.setItem('selected', JSON.stringify(item))
+        navigate(ROUTE.NOTE)
     }
-  }
-//
 
-  useEffect(() => {
-    setNotesInLocalStorage();
-    setNotesFromLocalStorage(setNotes);
-  }, []);
+    const setNotesInLocalStorage = () => {
+        const savedNotes = localStorage.getItem('notes');
 
-  useEffect(() => {
-    localStorage.setItem('notes', JSON.stringify(notes));
-  }, [notes]);
+        if (!savedNotes)
+            localStorage.setItem('notes', JSON.stringify(NODES));
+    }
 
-  return (
-    <NodeList note={selectedNode}
-              setNotes={setNotes}
-              notes={notes}
-              setSelectedNode={setSelectedNode}
-              handleSetSelectedNote={handleSelectNode}
-    />
-  )
+    const setNotesFromLocalStorage = (setNotes: React.Dispatch<React.SetStateAction<TNode[]>>) => {
+        const savedNotes = localStorage.getItem('notes');
+
+        if (savedNotes) {
+            setNotes(JSON.parse(savedNotes));
+        }
+    }
+
+    useEffect(() => {
+        setNotesInLocalStorage();
+        setNotesFromLocalStorage(setNotes);
+    }, []);
+
+    return (
+        <NoteList note={note}
+                  notes={notes}
+                  handleSetSelectedNote={handleSelectNode}
+        />
+    )
 }
 
 export default NotesListContainer

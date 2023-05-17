@@ -1,28 +1,26 @@
-import React from 'react';
+import React, {FC} from 'react';
 import Box from '@mui/material/Box/Box';
 
-import SelectedNote from './components/SelectedNote/index';
-import { TNodeListProps } from './types';
-import { formatDate } from '../../utils/formatDate';
+import {TNodeListProps} from './types';
 import NotesLayoutContainer from './components/NotesLayout/index';
+import {SELECT_NODE} from "./components/SelectedNote/constants";
+import {StyledSelectedNode} from "./components/SelectedNote/styled";
 
-const NoteList = ({ note, setNotes, notes, setSelectedNode, handleSetSelectedNote }: TNodeListProps) => {
+const NoteList: FC<TNodeListProps> = ({notes, handleSetSelectedNote}) => {
 
-  const dateCreationString = formatDate(note.dateCreation ? note.dateCreation : new Date());
+    return (
+        <Box>
+            <StyledSelectedNode>
+                <Box>
+                    {SELECT_NODE}
+                </Box>
+            </StyledSelectedNode>
 
-  return (
-    <Box>
-      <SelectedNote note={note}
-                    dateCreation={dateCreationString}
-                    setNotes={setNotes}
-                    notes={notes} />
-
-      <NotesLayoutContainer title={note.title}
-                            notes={notes}
-                            setSelectedNode={setSelectedNode}
-                            handleSetSelectedNote={handleSetSelectedNote} />
-    </Box>
-  );
+            <NotesLayoutContainer
+                notes={notes}
+                handleSetSelectedNote={handleSetSelectedNote}/>
+        </Box>
+    );
 };
 
 export default NoteList;

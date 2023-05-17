@@ -10,6 +10,5 @@ export type TNode = {
 }
 
 export type TNodeListProps = {
-  setSelectedNode: Dispatch<SetStateAction<TNode>>,
   handleSetSelectedNote: (item: TNode) => void
 } & TSelectedNode
