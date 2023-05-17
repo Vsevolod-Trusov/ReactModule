@@ -1,4 +1,9 @@
 export enum ROUTE {
   MAIN = '/',
-  NOTES = '/nodes'
+  NOTES = '/notes',
+  SHARED = '/shared-notes',
+  ABOUT = '/about',
+  NOTE = '/note',
+  NOT_FOUND = '/not-found',
+  ANY = '*',
 }
