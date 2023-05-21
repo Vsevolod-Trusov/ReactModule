@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Link from './Link';
-import { NODES } from '../../../../pages/constants';
-import { ROUTE } from '../../../../config/routes/routes';
+import { ILinkContainer } from '../../types';
 
-const LinkContainer = () => {
+const LinkContainer:FC<ILinkContainer> = ({name, route}) => {
   const navigate = useNavigate();
 
   return (
-    <Link onClick={() => navigate(ROUTE.NOTES)}
-          name={NODES} />
+    <Link onClick={() => navigate(route)}
+          name={name} />
   );
 };
 
