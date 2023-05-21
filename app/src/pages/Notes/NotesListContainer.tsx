@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 
+import { ROUTE } from 'config/routes/routes';
+
+import {INITIAL_STATE, NODES} from './constants';
 import NoteList from './NoteList';
 import {TNode} from './types';
-import {INITIAL_STATE, NODES} from './constants';
-import {useNavigate} from 'react-router-dom';
-import { ROUTE } from '../../config/routes/routes';
 
 const NotesListContainer = () => {
 
