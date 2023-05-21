@@ -1,19 +1,21 @@
 import React, {ChangeEvent, FC, useEffect, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+
+import {TNode} from 'pages/Notes/types';
+import {ROUTE} from "config/routes/routes";
 
 import {IEditNodeProps, IHandleEditNote} from './types';
 import EditNoteForm from './EditNoteForm';
-import {TNode} from '../../../../types';
-import {useNavigate} from 'react-router-dom';
-import {ROUTE} from "../../../../../../config/routes/routes";
 
 const EditNoteContainer: FC<IEditNodeProps> = () => {
+
+    const navigate = useNavigate()
 
     const note = localStorage.getItem('selected') || undefined
     const selectedNote: TNode = note ? JSON.parse(note) : undefined
     const savedNotes = localStorage.getItem('notes');
     const notes = savedNotes ? JSON.parse(savedNotes) : []
 
-    const navigate = useNavigate()
     const [description, setDescription] = useState<string>(selectedNote ? selectedNote?.description : '');
 
     const handleEditNote = ({description}: IHandleEditNote) => {
