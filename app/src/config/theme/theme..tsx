@@ -1,0 +1,30 @@
+import { createTheme } from '@mui/material';
+
+export const theme = createTheme({
+  components: {
+    MuiTypography: {
+      variants: [
+        {
+          props: { variant: 'h1' }, /* component props */
+          style: {
+            fontFamily: 'Montserrat',
+            fontSize: '1.55rem',
+            lineHeight: '1.75rem',
+            textAlign: 'center',
+          },
+        },
+      ],
+    },
+    MuiFormControl: {
+          styleOverrides: {
+            root:{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              maxWidth: '100%',
+            }
+          }
+    }
+
+  }})
