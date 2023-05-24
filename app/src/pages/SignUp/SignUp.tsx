@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { FC } from 'react';
 import { Button } from '@mui/material';
-import { Formik } from 'formik';
+import { Formik, FormikValues } from 'formik';
 
 import Form from 'components/Form';
 import Title from 'components/Title';
@@ -11,28 +11,20 @@ import { StyledWrapper } from 'pages/SignIn/styled';
 import { EMAIL_FIELD, PASSWORD_FIELD } from '../constants';
 import { BIRTHDAY_FIELD, CONFIRM_PASSWORD_FIELD, FIRST_NAME_FIELD, LAST_NAME_FIELD, SIGNUP_VALUES } from './constants';
 import { signUpValidationSchema } from './validation';
-import { stringIsEquals } from '../../utils/formatText';
+import { ISignUp } from './types';
 
 
-const SignUp = () => {
+const SignUp: FC<ISignUp> = ({ submit }) => {
+
   return (
     <StyledWrapper>
       <Formik
         initialValues={SIGNUP_VALUES}
-        onSubmit={(values) => {
-
-          if (stringIsEquals(values.password, values.confirmPassword)) {
-            alert('send')
-          }
-          else{
-            alert('Passwords aren\'t equals')
-          }
-
-        }}
+        onSubmit={(values: FormikValues) => submit(values)}
         validationSchema={signUpValidationSchema}
       >
         {
-          ({handleSubmit}) => (
+          ({ handleSubmit }) => (
             <Form onSubmit={handleSubmit}>
               <Title variant={'h1'}>Sign Up</Title>
 
@@ -90,7 +82,7 @@ const SignUp = () => {
         }
       </Formik>
     </StyledWrapper>
-  )
-}
+  );
+};
 
-export default SignUp
+export default SignUp;
