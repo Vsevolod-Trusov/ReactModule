@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 
@@ -9,16 +9,16 @@ import { INITIAL_STATE, NODES } from './constants';
 import NoteList from './NoteList';
 import { TNode } from './types';
 
-const NotesListContainer = () => {
+const NotesListContainer: FC = () => {
 
-  const { isSuccess, isLoading ,data, isError, error } = useQuery({
+  const { data } = useQuery({
     queryKey: ['notes'],
     queryFn: async () => (await fetch(`${MOCK_API_ADDRESS}${FETCH_URLS.NOTES}`, {
       method: FETCH_METHODS.GET,
       headers: { 'Accept': 'application/json' },
-      cache: 'no-cache'
-    }))
-  })
+      cache: 'no-cache',
+    })),
+  });
   const navigate = useNavigate();
   const [notes, setNotes] = useState<TNode[]>([]);
   const note: TNode = INITIAL_STATE;
@@ -37,12 +37,12 @@ const NotesListContainer = () => {
 
     if (!savedNotes) {
 
-      const notes = await data?.json()
+      const notes = await data?.json();
 
       if (!notes) {
         localStorage.setItem('notes', JSON.stringify(NODES));
 
-        return
+        return;
       }
 
       localStorage.setItem('notes', JSON.stringify(NODES));

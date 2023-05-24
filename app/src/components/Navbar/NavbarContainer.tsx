@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { FC } from 'react';
 
 import {StyledNavbarBox} from './styled';
 import Navbar from './Navbar';
 
-const NavbarContainer = () => {
+const NavbarContainer: FC = () => {
   return (
     <StyledNavbarBox>
       <Navbar />

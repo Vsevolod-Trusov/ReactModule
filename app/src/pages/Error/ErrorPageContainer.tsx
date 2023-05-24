@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { FC } from 'react';
 import {useNavigate} from "react-router-dom";
 
 import {ErrorPage} from './ErrorPage'
 import {HISTORY_DELTA} from "./constants";
 
-const ErrorPageContainer = () => {
+const ErrorPageContainer: FC = () => {
 
     const navigate = useNavigate()
 

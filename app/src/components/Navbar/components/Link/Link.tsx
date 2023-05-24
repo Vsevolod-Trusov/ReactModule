@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { TLinkProps } from './types';
 import { StyledLink } from '../../styled';
 
-const Link = ({ name, onClick }: TLinkProps) => {
+const Link: FC<TLinkProps> = ({ name, onClick }) => {
 
   return (
     <StyledLink variant={'button'}

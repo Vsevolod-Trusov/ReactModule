@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { StyledHeaderWrapper, StyledNavbar } from './styled';
 import LinkContainer from './components/Link/LinkContainer';
@@ -6,7 +6,7 @@ import { MENU, ROUTE_LABELS } from '../../pages/constants';
 import { ROUTE } from '../../config/routes/routes';
 
 
-const Navbar = () => {
+const Navbar: FC = () => {
 
   return (
     <StyledNavbar>

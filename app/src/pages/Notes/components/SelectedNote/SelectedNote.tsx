@@ -1,11 +1,10 @@
 import React, {FC} from 'react';
 import Box from '@mui/material/Box/Box';
 
-import { TSelectedNode } from './types';
 import { StyledSelectedNode } from './styled';
 import { SELECT_NODE } from './constants';
 
-const SelectedNote: FC<TSelectedNode> = () => {
+const SelectedNote: FC = () => {
 
   return (
     <StyledSelectedNode>

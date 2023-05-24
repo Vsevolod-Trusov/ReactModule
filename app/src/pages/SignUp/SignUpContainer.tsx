@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { FormikValues } from 'formik';
 
@@ -8,7 +8,7 @@ import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'config/fetch_urls/f
 import SignUp from './SignUp';
 import { IUser } from './types';
 
-const SignUpContainer = () => {
+const SignUpContainer: FC = () => {
 
 
   const mutation = useMutation({

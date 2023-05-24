@@ -3,7 +3,7 @@ import { FieldAttributes } from 'formik/dist/Field';
 
 import { StyledErrorMessage, StyledField } from './styled';
 
-const FormInput:FC<FieldAttributes<any>> = (props) => {
+const FormInput: FC<FieldAttributes<any>> = (props) => {
   return (
     <>
       <StyledField {...props}/>

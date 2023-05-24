@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { List, Box, ListItemText, ListItem, Grid } from '@mui/material';
 
 import Title from 'components/Title';
@@ -6,7 +6,7 @@ import Title from 'components/Title';
 import { AboutWrapper } from './styled';
 import { FEATURES, FUTURES } from './constants';
 
-const About = () => {
+const About: FC = () => {
   return (
     <AboutWrapper>
         <Grid container spacing={5}>

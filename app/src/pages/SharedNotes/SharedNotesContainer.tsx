@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Navigate } from 'react-router-dom';
 import Box from '@mui/material/Box/Box';
@@ -9,13 +9,13 @@ import Title from 'components/Title';
 import NotesLayoutContainer from 'pages/Notes/components/NotesLayout';
 import { TNode } from 'pages/Notes/types';
 
-const SharedNotesContainer = () => {
+const SharedNotesContainer: FC = () => {
 
-  const [notes, setNotes] = useState([])
+  const [notes, setNotes] = useState([]);
 
   if (!window.localStorage.getItem('email')) {
 
-    return <Navigate to={ROUTE.NOT_FOUND} />
+    return <Navigate to={ROUTE.NOT_FOUND} />;
   }
 
   const { isSuccess, data } = useQuery({
@@ -23,14 +23,14 @@ const SharedNotesContainer = () => {
     queryFn: async () => (await fetch(`${MOCK_API_ADDRESS}${FETCH_URLS.NOTES}`, {
       method: FETCH_METHODS.GET,
       headers: { 'Accept': 'application/json' },
-      cache: 'no-store'
-    }))
-  })
+      cache: 'no-store',
+    })),
+  });
 
   if (isSuccess && !notes.length) {
     data?.json().then((notes) => {
-      setNotes(notes.filter((note: TNode) => (note?.isShared)))
-    })
+      setNotes(notes.filter((note: TNode) => (note?.isShared)));
+    });
   }
 
   return (

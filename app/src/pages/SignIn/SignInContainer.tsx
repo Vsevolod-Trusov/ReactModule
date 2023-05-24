@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { FC } from 'react';
 import { FormikValues } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -12,7 +12,7 @@ import { setUser } from 'config/redux/slices/user.slice';
 
 import SignIn from './SignIn';
 
-const SignInContainer = () => {
+const SignInContainer: FC = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
