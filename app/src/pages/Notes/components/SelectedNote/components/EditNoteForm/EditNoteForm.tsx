@@ -10,6 +10,7 @@ const EditNoteForm: FC<IEditNodeForm> = ({
                                            note,
                                            handleSetDescription, description,
                                            handleEditNote,
+                                           handleShareNote,
                                          }) => {
 
   const { title, dateCreation } = note;
@@ -43,8 +44,14 @@ const EditNoteForm: FC<IEditNodeForm> = ({
         margin='normal'
       />
       <Box>
-        <Button variant='contained' color='primary' type='submit' onClick={() => handleEditNote({description: description})}>
+        <Button variant='contained' color='primary' type='submit'
+                onClick={() => handleEditNote({ description: description })}>
           Edit
+        </Button>
+
+        <Button variant='contained' color='primary' type='submit'
+                onClick={() => handleShareNote()}>
+          Share
         </Button>
       </Box>
     </StyledEditNodeForm>

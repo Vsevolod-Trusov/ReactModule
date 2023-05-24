@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, ChangeEvent } from 'react';
-import { TNode } from '../../../../types';
+import { TNode, TUpdateNote } from '../../../../types';
 
 export interface IEditNodeProps {
   note?: TNode,
@@ -15,7 +15,8 @@ export interface IEditNodeForm{
   note: TNode,
   description: string,
   handleSetDescription: (event: ChangeEvent<HTMLInputElement>) => void,
-  handleEditNote:  (editNote: IHandleEditNote) => void
+  handleEditNote:  (editNote: IHandleEditNote) => void,
+  handleShareNote: () => void
 }
 
 
