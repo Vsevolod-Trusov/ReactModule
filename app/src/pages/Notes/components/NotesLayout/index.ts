@@ -1,1 +1,1 @@
-export {default} from './NotesLayoutContainer'
+export { default } from './NotesLayoutContainer';

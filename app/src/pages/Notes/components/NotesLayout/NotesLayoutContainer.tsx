@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 import Box from '@mui/material/Box';
 
+import { TNode } from 'pages/Notes/types';
+import { EMPTY_LINE, SLICE_POSITION } from 'pages/Notes/constants';
+import { sliceText } from 'utils/formatText';
+import { formatDate } from 'utils/formatDate';
+
 import { INodesLayout } from './types';
 import { StyledNotesLayout, StyledNote, StyledOutputLine } from './styled';
-import { TNode } from '../../types';
-import { sliceText } from '../../../../utils/formatText';
-import { EMPTY_LINE, SLICE_POSITION } from '../../constants';
-import { formatDate } from '../../../../utils/formatDate';
 
 const NotesLayoutContainer: FC<INodesLayout> = ({ notes, handleSetSelectedNote }) => {
   /*   const handleIsSelected = (item: TNode, title: string) => (
@@ -22,7 +23,7 @@ const NotesLayoutContainer: FC<INodesLayout> = ({ notes, handleSetSelectedNote }
       {
         notes.map((item: TNode) => (
           <StyledNote key={item.id}
-               onClick={() => handleSetSelectedNote(item)}
+               onClick={() => handleSetSelectedNote && handleSetSelectedNote(item)}
           >
             <Box>
               Title: {item.title}
@@ -36,7 +37,7 @@ const NotesLayoutContainer: FC<INodesLayout> = ({ notes, handleSetSelectedNote }
 
             <StyledOutputLine>
               {
-                item.dateCreation ? formatDate(item.dateCreation) : EMPTY_LINE
+                item.dateCreation ? formatDate(new Date(item.dateCreation)) : EMPTY_LINE
               }
             </StyledOutputLine>
           </StyledNote>
