@@ -5,8 +5,7 @@ import {default as NavbarContainer} from 'components/Navbar/index'
 
 import { StyledApp, StyledNavbarWrapper, StyledOutlet } from './styled';
 
-const App: FC = () => {
-  return (
+const App: FC = () => (
     <StyledApp className='App'>
       <StyledNavbarWrapper>
           <NavbarContainer />
@@ -17,7 +16,6 @@ const App: FC = () => {
       </StyledNavbarWrapper>
     </StyledApp>
   );
-};
 
 export default App
 
