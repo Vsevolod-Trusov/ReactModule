@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren } from 'react';
+import React, { FC } from 'react';
 
 import { StyledFormControl } from './styled';
 import { FormControlProps } from '@mui/material/FormControl/FormControl';
