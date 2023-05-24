@@ -2,14 +2,16 @@ import { Link } from '@mui/material';
 import Box from '@mui/material/Box/Box';
 import styled from 'styled-components';
 
+import { COLORS } from 'pages/colors';
+
 const StyledNavbar = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   height: '100vh',
 
-  borderRight: '1px solid #0b31be',
-  outline: '1px solid #0b31be',
+  borderRight: `1px solid ${COLORS.BORDER_COLOR}`,
+  outline: `1px solid #0b31be`,
 })
 
 const StyledNavbarBox = styled(Box)({
