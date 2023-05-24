@@ -1,4 +1,5 @@
 export interface ILinkContainer {
   name: string,
-  route: string
+  route?: string,
+  isExit?: boolean | undefined
 }
