@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
+import { EDIT, SHARE } from './constants';
 import { IEditNodeForm } from './types';
 import { StyledEditNodeForm } from './styled';
 
@@ -46,12 +47,12 @@ const EditNoteForm: FC<IEditNodeForm> = ({
       <Box>
         <Button variant='contained' color='primary' type='submit'
                 onClick={() => handleEditNote({ description: description })}>
-          Edit
+          {EDIT}
         </Button>
 
         <Button variant='contained' color='primary' type='submit'
                 onClick={() => handleShareNote()}>
-          Share
+          {SHARE}
         </Button>
       </Box>
     </StyledEditNodeForm>
