@@ -2,7 +2,7 @@ import React, {ChangeEvent, FC, useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 
-import {TNode, TUpdateNote} from 'pages/Notes/types';
+import {TNote, TUpdateNote} from 'pages/Notes/types';
 import {ROUTE} from "config/routes/routes";
 import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'config/fetch_urls/fetch';
 
@@ -14,7 +14,7 @@ const EditNoteContainer: FC<IEditNodeProps> = () => {
     const navigate = useNavigate()
 
     const note = localStorage.getItem('selected') || undefined
-    const selectedNote: TNode = note ? JSON.parse(note) : undefined
+    const selectedNote: TNote = note ? JSON.parse(note) : undefined
     const savedNotes = localStorage.getItem('notes');
     const notes = savedNotes ? JSON.parse(savedNotes) : []
 
@@ -30,7 +30,7 @@ const EditNoteContainer: FC<IEditNodeProps> = () => {
 
     const handleEditNote = ({description}: IHandleEditNote) => {
 
-        const selectedNoteIndex = notes.findIndex((item: TNode) => item.id === selectedNote.id)
+        const selectedNoteIndex = notes.findIndex((item: TNote) => item.id === selectedNote.id)
 
         const updatedNote = {
             ...notes[selectedNoteIndex],

@@ -1,6 +1,6 @@
 import { TSelectedNode } from './components/SelectedNote/types';
 
-export type TNode = {
+export type TNote = {
   id: number | null,
   title: string,
   description: string,
@@ -13,6 +13,6 @@ export type TUpdateNote = {
   description?: string
 }
 
-export type TNodeListProps = {
-  handleSetSelectedNote: (item: TNode) => void
+export type TNoteListProps = {
+  handleSetSelectedNote: (item: TNote) => void
 } & TSelectedNode

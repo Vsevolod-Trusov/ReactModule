@@ -7,7 +7,7 @@ import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'config/fetch_urls/f
 
 import { INITIAL_STATE, NODES } from './constants';
 import NoteList from './NoteList';
-import { TNode } from './types';
+import { TNote } from './types';
 
 const NotesListContainer: FC = () => {
 
@@ -20,14 +20,14 @@ const NotesListContainer: FC = () => {
     })),
   });
   const navigate = useNavigate();
-  const [notes, setNotes] = useState<TNode[]>([]);
-  const note: TNode = INITIAL_STATE;
+  const [notes, setNotes] = useState<TNote[]>([]);
+  const note: TNote = INITIAL_STATE;
 
   if (!window.localStorage.getItem('email')) {
     return <Navigate to={ROUTE.NOT_FOUND} />;
   }
 
-  const handleSelectNode = (item: TNode) => {
+  const handleSelectNode = (item: TNote) => {
     window.localStorage.setItem('selected', JSON.stringify(item));
     navigate(ROUTE.NOTE);
   };
@@ -49,7 +49,7 @@ const NotesListContainer: FC = () => {
     }
   };
 
-  const setNotesFromLocalStorage = (setNotes: React.Dispatch<React.SetStateAction<TNode[]>>) => {
+  const setNotesFromLocalStorage = (setNotes: React.Dispatch<React.SetStateAction<TNote[]>>) => {
     const savedNotes = localStorage.getItem('notes');
 
     if (savedNotes) {

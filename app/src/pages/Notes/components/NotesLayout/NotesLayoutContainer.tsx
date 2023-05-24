@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Box from '@mui/material/Box';
 
-import { TNode } from 'pages/Notes/types';
+import { TNote } from 'pages/Notes/types';
 import { EMPTY_LINE, SLICE_POSITION } from 'pages/Notes/constants';
 import { sliceText } from 'utils/formatText';
 import { formatDate } from 'utils/formatDate';
@@ -10,7 +10,7 @@ import { INodesLayout } from './types';
 import { StyledNotesLayout, StyledNote, StyledOutputLine } from './styled';
 
 const NotesLayoutContainer: FC<INodesLayout> = ({ notes, handleSetSelectedNote }) => {
-  /*   const handleIsSelected = (item: TNode, title: string) => (
+  /*   const handleIsSelected = (item: TNote, title: string) => (
      {
        ...currentItemWrapper,
        boxShadow: `0 10px 15px -3px ${isSelected(item.title, title) ?
@@ -21,7 +21,7 @@ const NotesLayoutContainer: FC<INodesLayout> = ({ notes, handleSetSelectedNote }
   return (
     <StyledNotesLayout>
       {
-        notes.map((item: TNode) => (
+        notes.map((item: TNote) => (
           <StyledNote key={item.id}
                onClick={() => handleSetSelectedNote && handleSetSelectedNote(item)}
           >

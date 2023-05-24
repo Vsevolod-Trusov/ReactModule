@@ -1,9 +1,9 @@
 import { Dispatch, SetStateAction } from 'react';
-import { TNode } from '../../types';
+import { TNote } from '../../types';
 
 export type TSelectedNode = {
-  note?: TNode,
+  note?: TNote,
   dateCreation?: string,
-  setNotes?:  Dispatch<SetStateAction<TNode[]>>,
-  notes: TNode[]
+  setNotes?:  Dispatch<SetStateAction<TNote[]>>,
+  notes: TNote[]
 }

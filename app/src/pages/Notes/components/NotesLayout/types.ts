@@ -1,7 +1,7 @@
-import { TNode } from '../../types';
+import { TNote } from '../../types';
 
 export interface INodesLayout {
   title?: string,
-  notes: TNode[],
-  handleSetSelectedNote?: (item: TNode) => void
+  notes: TNote[],
+  handleSetSelectedNote?: (item: TNote) => void
 }

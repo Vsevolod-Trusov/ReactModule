@@ -1,4 +1,4 @@
-import { TNode } from './types';
+import { TNote } from './types';
 
 export const SELECTED_NODE_SHADOW = 'rgba(79, 208, 79, 100)';
 export const DEFAULT_NODE_SHADOW = ' rgba(0, 0, 0, 0.1)';
@@ -7,14 +7,14 @@ export const HOVER_NODE_SHADOW = 'rgba(113, 113, 215, 100)';
 export const EMPTY_LINE = ''
 export const SLICE_POSITION = 20
 
-export const INITIAL_STATE: TNode = {
+export const INITIAL_STATE: TNote = {
   id: null,
   title: '',
   description: '',
   dateCreation: null
 }
 
-export const NODES: TNode[] = [
+export const NODES: TNote[] = [
   {
     id: 1,
     title: 'Node #1',

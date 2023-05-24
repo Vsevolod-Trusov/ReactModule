@@ -1,10 +1,10 @@
 import { Dispatch, SetStateAction, ChangeEvent } from 'react';
-import { TNode, TUpdateNote } from '../../../../types';
+import { TNote, TUpdateNote } from '../../../../types';
 
 export interface IEditNodeProps {
-  note?: TNode,
-  setNotes?:  Dispatch<SetStateAction<TNode[]>>
-  notes?: TNode[],
+  note?: TNote,
+  setNotes?:  Dispatch<SetStateAction<TNote[]>>
+  notes?: TNote[],
 }
 
 export interface  IHandleEditNote{
@@ -12,7 +12,7 @@ export interface  IHandleEditNote{
 }
 
 export interface IEditNodeForm{
-  note: TNode,
+  note: TNote,
   description: string,
   handleSetDescription: (event: ChangeEvent<HTMLInputElement>) => void,
   handleEditNote:  (editNote: IHandleEditNote) => void,

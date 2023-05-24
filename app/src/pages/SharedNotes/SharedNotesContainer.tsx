@@ -7,7 +7,7 @@ import { ROUTE } from 'config/routes/routes';
 import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'config/fetch_urls/fetch';
 import Title from 'components/Title';
 import NotesLayoutContainer from 'pages/Notes/components/NotesLayout';
-import { TNode } from 'pages/Notes/types';
+import { TNote } from 'pages/Notes/types';
 
 const SharedNotesContainer: FC = () => {
 
@@ -29,7 +29,7 @@ const SharedNotesContainer: FC = () => {
 
   if (isSuccess && !notes.length) {
     data?.json().then((notes) => {
-      setNotes(notes.filter((note: TNode) => (note?.isShared)));
+      setNotes(notes.filter((note: TNote) => (note?.isShared)));
     });
   }
 
