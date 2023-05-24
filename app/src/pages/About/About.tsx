@@ -9,41 +9,41 @@ import { FEATURES, FUTURES } from './constants';
 const About: FC = () => {
   return (
     <AboutWrapper>
-        <Grid container spacing={5}>
-          <Grid item xs={5}>
+      <Grid spacing={5} container>
+        <Grid xs={5} item>
+          <Box>
+            <Title variant={'h5'}>Features:</Title>
             <Box>
-              <Title variant={'h5'}>Features:</Title>
-              <Box>
-                <List>
-                  {
-                    (FEATURES.map((name: string) => (
-                      <ListItem key={name}>
-                        <ListItemText primary={name} />
-                      </ListItem>
-                    )))
-                  }
-                </List>
-              </Box>
+              <List>
+                {
+                  (FEATURES.map((name: string) => (
+                    <ListItem key={name}>
+                      <ListItemText primary={name} />
+                    </ListItem>
+                  )))
+                }
+              </List>
             </Box>
-          </Grid>
-
-          <Grid item xs={5}>
-            <Box>
-              <Title variant={'h5'}>Future plans:</Title>
-              <Box>
-                <List>
-                  {
-                    (FUTURES.map((name: string) => (
-                      <ListItem key={name}>
-                        <ListItemText primary={name} />
-                      </ListItem>
-                    )))
-                  }
-                </List>
-              </Box>
-            </Box>
-          </Grid>
+          </Box>
         </Grid>
+
+        <Grid xs={5} item>
+          <Box>
+            <Title variant={'h5'}>Future plans:</Title>
+            <Box>
+              <List>
+                {
+                  (FUTURES.map((name: string) => (
+                    <ListItem key={name}>
+                      <ListItemText primary={name} />
+                    </ListItem>
+                  )))
+                }
+              </List>
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
     </AboutWrapper>
   );
 };

@@ -48,7 +48,6 @@ const SignInContainer: FC = () => {
     }
   };
 
-
   return (
     <SignIn handleSignIn={handleSignIn} />
   );

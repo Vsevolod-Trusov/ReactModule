@@ -19,16 +19,16 @@ const EditNoteForm: FC<IEditNodeForm> = ({
         label='Title'
         value={title}
         variant='outlined'
-        fullWidth
         margin='normal'
+        fullWidth
         disabled
       />
       <TextField
         label='Task date'
         value={dateCreation}
         variant='outlined'
-        fullWidth
         margin='normal'
+        fullWidth
         disabled
       />
       <TextField
@@ -37,10 +37,10 @@ const EditNoteForm: FC<IEditNodeForm> = ({
         name={'nodeText'}
         onChange={handleSetDescription}
         variant='outlined'
-        fullWidth
-        multiline
         rows={4}
         margin='normal'
+        fullWidth
+        multiline
       />
       <Box>
         <Button variant='contained' color='primary' type='submit'

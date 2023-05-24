@@ -19,8 +19,8 @@ const SignIn: FC<ISignIn> = ({ handleSignIn }) => {
     <StyledWrapper>
       <Formik
         initialValues={INITIAL_SIGNIN}
-        onSubmit={(values: FormikValues) => handleSignIn(values)}
         validationSchema={signInValidationSchema}
+        onSubmit={(values: FormikValues) => handleSignIn(values)}
       >
         {
           ({ handleSubmit }) => (

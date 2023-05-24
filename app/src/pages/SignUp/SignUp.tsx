@@ -20,8 +20,8 @@ const SignUp: FC<ISignUp> = ({ submit }) => {
     <StyledWrapper>
       <Formik
         initialValues={SIGNUP_VALUES}
-        onSubmit={(values: FormikValues) => submit(values)}
         validationSchema={signUpValidationSchema}
+        onSubmit={(values: FormikValues) => submit(values)}
       >
         {
           ({ handleSubmit }) => (
