@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Formik } from 'formik';
+import { Formik, FormikValues } from 'formik';
 import { Button } from '@mui/material';
 
 import { default as FormInput } from 'components/FormInput/index';
@@ -11,20 +11,19 @@ import { EMAIL_FIELD, PASSWORD_FIELD } from 'pages/constants';
 import { INITIAL_SIGNIN } from './constants';
 import { signInValidationSchema } from './validation';
 import { StyledWrapper } from './styled';
+import { ISignIn } from './types';
 
-const SignIn: FC = () => {
+const SignIn: FC<ISignIn> = ({ handleSignIn }) => {
 
   return (
     <StyledWrapper>
       <Formik
         initialValues={INITIAL_SIGNIN}
-        onSubmit={() => {
-          alert('send');
-        }}
+        onSubmit={(values: FormikValues) => handleSignIn(values)}
         validationSchema={signInValidationSchema}
       >
         {
-          ({handleSubmit}) => (
+          ({ handleSubmit }) => (
             <Form onSubmit={handleSubmit}>
               <Title variant={'h1'}>Sign In</Title>
 

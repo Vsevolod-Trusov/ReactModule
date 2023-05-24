@@ -1,13 +1,57 @@
-  import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React from 'react';
+import { FormikValues } from 'formik';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'config/fetch_urls/fetch';
+import { IUser } from 'pages/SignUp/types';
+import { ROUTE } from 'config/routes/routes';
+
+import { setUser } from 'config/redux/slices/user.slice';
 
 import SignIn from './SignIn';
 
-
 const SignInContainer = () => {
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isError, data } = useQuery({
+    queryKey: ['users'],
+
+    queryFn: async () => (await fetch(`${MOCK_API_ADDRESS}${FETCH_URLS.USERS}`, {
+      method: FETCH_METHODS.GET,
+      headers: { 'Accept': 'application/json' },
+      cache: 'no-cache',
+    })),
+
+  });
+
+  const handleSignIn = async (credentials: FormikValues) => {
+
+    if (isError) {
+      alert('error in fetch');
+
+      return;
+    }
+
+    const users = await data?.json();
+    if (users) {
+      const user = users.find((item: IUser) => item.email === credentials.email && item.password === credentials.password);
+
+      if (!user)
+        alert('Wrong email or password');
+      else {
+        dispatch(setUser(user))
+        window.localStorage.setItem('email', user?.email);
+        navigate(ROUTE.NOTES);
+      }
+    }
+  };
 
 
   return (
-    <SignIn />
+    <SignIn handleSignIn={handleSignIn} />
   );
 };
 
