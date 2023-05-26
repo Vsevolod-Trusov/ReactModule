@@ -9,5 +9,9 @@ export enum ROUTE_LABELS {
   EXIT = 'Log out',
 }
 
+export enum QUERY_KEYS {
+  NOTES = 'notes'
+}
+
 export const EMAIL_FIELD = 'email';
 export const PASSWORD_FIELD = 'password';
