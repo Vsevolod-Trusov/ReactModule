@@ -1,27 +1,31 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { ROUTE } from 'config/routes/routes';
 import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'config/fetch_urls/fetch';
+import { selectNotes, setReduxNotes } from 'config/redux/slices/notes.slice';
+import { QUERY_KEYS } from 'pages/constants';
 
 import { INITIAL_STATE, NODES } from './constants';
 import NoteList from './NoteList';
 import { TNote } from './types';
-import InfinityScrollContainer from '../../components/InfinityScroll/InfinityScrollContainer';
 
 const NotesListContainer: FC = () => {
 
   const { data } = useQuery({
-    queryKey: ['notes'],
+    queryKey: [QUERY_KEYS.NOTES],
     queryFn: async () => (await fetch(`${MOCK_API_ADDRESS}${FETCH_URLS.NOTES}`, {
       method: FETCH_METHODS.GET,
-      headers: { 'Accept': 'application/json' },
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json' },
       cache: 'no-cache',
     })),
   });
+
   const navigate = useNavigate();
-  const [notes, setNotes] = useState<TNote[]>([]);
+  const dispatch = useDispatch();
+  const reduxNotes = useSelector(selectNotes)
   const note: TNote = INITIAL_STATE;
 
   if (!window.localStorage.getItem('email')) {
@@ -39,33 +43,38 @@ const NotesListContainer: FC = () => {
     if (!savedNotes) {
 
       const notes = await data?.json();
-
       if (!notes) {
         localStorage.setItem('notes', JSON.stringify(NODES));
+        dispatch(setReduxNotes({notes: NODES}))
 
         return;
       }
-
-      localStorage.setItem('notes', JSON.stringify(NODES));
+      localStorage.setItem('notes', JSON.stringify(notes));
+      dispatch(setReduxNotes({notes: notes}))
     }
+
   };
 
-  const setNotesFromLocalStorage = (setNotes: React.Dispatch<React.SetStateAction<TNote[]>>) => {
+  const setNotesFromLocalStorage = () => {
     const savedNotes = localStorage.getItem('notes');
 
     if (savedNotes) {
-      setNotes(JSON.parse(savedNotes));
+      dispatch(setReduxNotes({notes: JSON.parse(savedNotes)}))
     }
   };
 
   useEffect(() => {
     setNotesInLocalStorage();
-    setNotesFromLocalStorage(setNotes);
+  }, []);
+
+
+  useEffect(() => {
+    setNotesFromLocalStorage();
   }, []);
 
   return (
     <NoteList note={note}
-              notes={notes}
+              notes={reduxNotes}
               handleSetSelectedNote={handleSelectNode}
     />
   );

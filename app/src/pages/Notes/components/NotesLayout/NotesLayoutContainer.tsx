@@ -1,15 +1,16 @@
 import React, { FC } from 'react';
 import Box from '@mui/material/Box';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import { TNote } from 'pages/Notes/types';
 import { EMPTY_LINE, SLICE_POSITION } from 'pages/Notes/constants';
 import { sliceText } from 'utils/formatText';
 import { formatDate } from 'utils/formatDate';
 
-import { INodesLayout } from './types';
+import { IInfinityScroll, INodesLayout } from './types';
 import { StyledNotesLayout, StyledNote, StyledOutputLine } from './styled';
 
-const NotesLayoutContainer: FC<INodesLayout> = ({ notes, handleSetSelectedNote }) => {
+const NotesLayoutContainer: FC<IInfinityScroll> = ({ notes, handleSetSelectedNote, setNotes, hasMore }) => {
   /*   const handleIsSelected = (item: TNote, title: string) => (
      {
        ...currentItemWrapper,
@@ -19,7 +20,14 @@ const NotesLayoutContainer: FC<INodesLayout> = ({ notes, handleSetSelectedNote }
      })*/
 
   return (
-    <StyledNotesLayout>
+    <StyledNotesLayout id={'asd'}>
+      <InfiniteScroll
+        dataLength={notes.length}
+        next={setNotes}
+        hasMore={hasMore}
+        loader={<h4>Loading...</h4>}
+        scrollableTarget={'asd'}
+      >
       {
         notes.map((item: TNote) => (
           <StyledNote key={item.id}
@@ -43,6 +51,7 @@ const NotesLayoutContainer: FC<INodesLayout> = ({ notes, handleSetSelectedNote }
           </StyledNote>
         ))
       }
+      </InfiniteScroll>
     </StyledNotesLayout>
   );
 };

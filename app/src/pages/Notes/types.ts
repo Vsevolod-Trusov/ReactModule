@@ -14,5 +14,5 @@ export type TUpdateNote = {
 }
 
 export type TNoteListProps = {
-  handleSetSelectedNote: (item: TNote) => void
+  handleSetSelectedNote?: (item: TNote) => void
 } & TSelectedNode

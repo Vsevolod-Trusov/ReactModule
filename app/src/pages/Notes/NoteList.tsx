@@ -20,6 +20,7 @@ const NoteList: FC<TNoteListProps> = ({ notes, handleSetSelectedNote }) => {
 
 
       <InfinityScrollContainer
+        notes={notes}
         handleSetSelectedNote={handleSetSelectedNote}
       />
 
@@ -28,6 +29,3 @@ const NoteList: FC<TNoteListProps> = ({ notes, handleSetSelectedNote }) => {
 };
 
 export default NoteList;
-//<NotesLayoutContainer
-//         notes={notes}
-//         handleSetSelectedNote={handleSetSelectedNote} />
