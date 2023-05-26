@@ -8,6 +8,7 @@ import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'config/fetch_urls/f
 import { INITIAL_STATE, NODES } from './constants';
 import NoteList from './NoteList';
 import { TNote } from './types';
+import InfinityScrollContainer from '../../components/InfinityScroll/InfinityScrollContainer';
 
 const NotesListContainer: FC = () => {
 

@@ -1,26 +1,33 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import Box from '@mui/material/Box/Box';
 
 import NotesLayoutContainer from './components/NotesLayout/index';
-import {SELECT_NODE} from "./components/SelectedNote/constants";
-import {StyledSelectedNode} from "./components/SelectedNote/styled";
-import {TNoteListProps} from './types';
+import InfinityScrollContainer from 'components/InfinityScroll';
 
-const NoteList: FC<TNoteListProps> = ({notes, handleSetSelectedNote}) => {
+import { SELECT_NODE } from './components/SelectedNote/constants';
+import { StyledSelectedNode } from './components/SelectedNote/styled';
+import { TNoteListProps } from './types';
 
-    return (
+const NoteList: FC<TNoteListProps> = ({ notes, handleSetSelectedNote }) => {
+
+  return (
+    <Box>
+      <StyledSelectedNode>
         <Box>
-            <StyledSelectedNode>
-                <Box>
-                    {SELECT_NODE}
-                </Box>
-            </StyledSelectedNode>
-
-            <NotesLayoutContainer
-                notes={notes}
-                handleSetSelectedNote={handleSetSelectedNote}/>
+          {SELECT_NODE}
         </Box>
-    );
+      </StyledSelectedNode>
+
+
+      <InfinityScrollContainer
+        handleSetSelectedNote={handleSetSelectedNote}
+      />
+
+    </Box>
+  );
 };
 
 export default NoteList;
+//<NotesLayoutContainer
+//         notes={notes}
+//         handleSetSelectedNote={handleSetSelectedNote} />
