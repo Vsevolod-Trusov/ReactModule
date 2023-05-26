@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC, useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import {TNote, TUpdateNote} from 'pages/Notes/types';
 import {ROUTE} from "config/routes/routes";
@@ -8,6 +8,7 @@ import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'config/fetch_urls/f
 
 import {IEditNodeProps, IHandleEditNote} from './types';
 import EditNoteForm from './EditNoteForm';
+import { QUERY_KEYS } from 'pages/constants';
 
 const EditNoteContainer: FC<IEditNodeProps> = () => {
 
@@ -17,6 +18,7 @@ const EditNoteContainer: FC<IEditNodeProps> = () => {
     const selectedNote: TNote = note ? JSON.parse(note) : undefined
     const savedNotes = localStorage.getItem('notes');
     const notes = savedNotes ? JSON.parse(savedNotes) : []
+    const queryClient = useQueryClient()
 
     const [description, setDescription] = useState<string>(selectedNote ? selectedNote?.description : '');
 
@@ -45,6 +47,8 @@ const EditNoteContainer: FC<IEditNodeProps> = () => {
         mutation.mutate({
             description: description
         });
+
+        queryClient.invalidateQueries({queryKey: [QUERY_KEYS.NOTES]})
         navigate(ROUTE.NOTES)
     };
 
