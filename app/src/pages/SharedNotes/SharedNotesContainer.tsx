@@ -27,7 +27,7 @@ const SharedNotesContainer: FC = () => {
     })),
   });
 
-  if (isSuccess && !notes.length) {
+  if (isSuccess && !notes.length && !data?.bodyUsed) {
     data?.json().then((notes) => {
       setNotes(notes.filter((note: TNote) => (note?.isShared)));
     });
