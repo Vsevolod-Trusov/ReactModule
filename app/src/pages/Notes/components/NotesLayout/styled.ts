@@ -5,10 +5,11 @@ import { HOVER_NODE_SHADOW, SELECTED_NODE_SHADOW } from '../../constants';
 import { COLORS } from '../../../colors';
 
 const StyledNotesLayout = styled(Box)({
-  display: 'flex',
+  display: 'block',
   flexWrap: 'wrap',
   justifyContent: 'center',
   alignItems: 'center',
+  height: '200px'
 });
 
 const StyledNote = styled(Box)({
