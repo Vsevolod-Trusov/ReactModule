@@ -1,17 +1,19 @@
 import React, { FC } from 'react';
 import Box from '@mui/material/Box';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { v4 as uuidv4 } from 'uuid';
 
 import { TNote } from 'pages/Notes/types';
 import { EMPTY_LINE, SLICE_POSITION } from 'pages/Notes/constants';
+import { NOTES_LAYOUT_ID } from 'pages/SignIn/constants';
 import { sliceText } from 'utils/formatText';
 import { formatDate } from 'utils/formatDate';
 
-import { IInfinityScroll, INodesLayout } from './types';
+import { IInfinityScroll} from './types';
 import { StyledNotesLayout, StyledNote, StyledOutputLine } from './styled';
 
 const NotesLayoutContainer: FC<IInfinityScroll> = ({ notes, handleSetSelectedNote, setNotes, hasMore }) => {
-  /*   const handleIsSelected = (item: TNote, title: string) => (
+  /* const handleIsSelected = (item: TNote, title: string) => (
      {
        ...currentItemWrapper,
        boxShadow: `0 10px 15px -3px ${isSelected(item.title, title) ?
@@ -20,17 +22,17 @@ const NotesLayoutContainer: FC<IInfinityScroll> = ({ notes, handleSetSelectedNot
      })*/
 
   return (
-    <StyledNotesLayout id={'asd'}>
+    <StyledNotesLayout id={NOTES_LAYOUT_ID}>
       <InfiniteScroll
         dataLength={notes.length}
         next={setNotes}
         hasMore={hasMore}
         loader={<h4>Loading...</h4>}
-        scrollableTarget={'asd'}
+        scrollableTarget={NOTES_LAYOUT_ID}
       >
       {
         notes.map((item: TNote) => (
-          <StyledNote key={item.id}
+          <StyledNote key={uuidv4()}
                onClick={() => handleSetSelectedNote && handleSetSelectedNote(item)}
           >
             <Box>

@@ -12,4 +12,6 @@ export enum ERROR {
   BIRTHDAY_REQUIRED = 'Birthday is required',
   BIRTHDAY_VALIDATION = 'Birthday is not valid',
   CONFIRM_PASSWORD = 'Confirm password',
+
+  PASSWORD_NOT_EQUAL = 'Passwords aren\'t equal',
 }

@@ -5,3 +5,5 @@ export const INITIAL_SIGNIN: ICredentials  = {
   password: '',
 };
 
+export const NOTES_LAYOUT_ID = 'NOTES_ID'
+

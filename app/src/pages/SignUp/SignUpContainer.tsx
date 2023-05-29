@@ -2,8 +2,9 @@ import React, { FC } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { FormikValues } from 'formik';
 
-import { stringIsEquals } from 'utils/formatText';
 import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'config/fetch_urls/fetch';
+import { ERROR } from 'common/errors';
+import { stringIsEquals } from 'utils/formatText';
 
 import SignUp from './SignUp';
 import { IUser } from './types';
@@ -30,19 +31,18 @@ const SignUpContainer: FC = () => {
         password: values.password,
       });
     } else {
-      alert('Passwords aren\'t equal');
+      alert(ERROR.PASSWORD_NOT_EQUAL);
     }
 
   };
 
   if (mutation.isSuccess) {
-    alert("seccess");
+    alert("success");
   }
 
   if (mutation.isError) {
     alert('error');
   }
-
 
   return (
   <SignUp submit={submit} />
