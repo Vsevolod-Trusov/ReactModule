@@ -8,6 +8,7 @@ import { default as SignInContainer } from "pages/SignIn/index";
 import { default as SignUpContainer } from "pages/SignUp/index";
 import { default as SharedNotesContainer } from "pages/SharedNotes/index";
 import { default as AboutContainer } from "pages/About/index";
+import {default as NotesFormContainer} from 'pages/NotesForm/index';
 
 
 import { ROUTE } from './routes';
@@ -17,6 +18,7 @@ export const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path={ROUTE.MAIN} element={<App/>}>
             <Route path={ROUTE.NOTES} element={<NotesListContainer/>}/>
+            <Route path={ROUTE.NOTES_FORM} element={<NotesFormContainer/>}/>
             <Route path={ROUTE.SHARED} element={<SharedNotesContainer/>}/>
             <Route path={ROUTE.ABOUT} element={<AboutContainer/>}/>
             <Route path={ROUTE.NOTE} element={<EditNoteContainer/>}/>
