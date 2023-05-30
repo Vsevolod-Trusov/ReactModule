@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Formik, FormikValues } from 'formik';
-import { Button } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 
 import { default as FormInput } from 'components/FormInput/index';
 import { default as Form } from 'components/Form/index';
@@ -13,7 +13,7 @@ import { signInValidationSchema } from './validation';
 import { StyledWrapper } from './styled';
 import { ISignIn } from './types';
 
-const SignIn: FC<ISignIn> = ({ handleSignIn }) => {
+const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => {
 
   return (
     <StyledWrapper>
@@ -35,7 +35,7 @@ const SignIn: FC<ISignIn> = ({ handleSignIn }) => {
                   name={EMAIL_FIELD}
                   placeholder='Enter email'
                   margin={'normal'}
-                />
+                 />
 
                 <FormInput
                   name={PASSWORD_FIELD}

@@ -6,5 +6,5 @@ export interface ICredentials {
 }
 
 export interface ISignIn {
-  handleSignIn: (values: FormikValues) => Promise<void>
+  handleSubmit: (values: FormikValues) => Promise<void> | void
 }
