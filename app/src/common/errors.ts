@@ -14,4 +14,13 @@ export enum ERROR {
   CONFIRM_PASSWORD = 'Confirm password',
 
   PASSWORD_NOT_EQUAL = 'Passwords aren\'t equal',
+
+  TITLE_REQUIRED = 'Title required',
+  TITLE_VALIDATION = 'Min title length: 3',
+
+  DATE_CREATION_REQUIRED = 'Date creation is required',
+  DATE_CREATION_VALIDATION = 'Date creation is invalid',
+
+  DESCRIPTION_REQUIRED = 'Description is required',
+  DESCRIPTION_INVALID = 'Min description length: 3'
 }
