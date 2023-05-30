@@ -11,21 +11,22 @@ import { QUERY_KEYS } from 'pages/constants';
 import { INITIAL_STATE, NODES } from './constants';
 import NoteList from './NoteList';
 import { TNote } from './types';
+import { selectFirstName } from '../../config/redux/slices/user.slice';
 
 const NotesListContainer: FC = () => {
-
+  const firstname = useSelector(selectFirstName);
   const { data } = useQuery({
     queryKey: [QUERY_KEYS.NOTES],
     queryFn: async () => (await fetch(`${MOCK_API_ADDRESS}${FETCH_URLS.NOTES}`, {
       method: FETCH_METHODS.GET,
-      headers: {'Content-Type': 'application/json', 'Accept': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       cache: 'no-cache',
     })),
   });
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const reduxNotes = useSelector(selectNotes)
+  const reduxNotes = useSelector(selectNotes);
   const note: TNote = INITIAL_STATE;
 
   if (!window.localStorage.getItem('email')) {
@@ -45,12 +46,13 @@ const NotesListContainer: FC = () => {
       const notes = await data?.json();
       if (!notes) {
         localStorage.setItem('notes', JSON.stringify(NODES));
-        dispatch(setReduxNotes({notes: NODES}))
+        dispatch(setReduxNotes({ notes: NODES }));
 
         return;
       }
+
       localStorage.setItem('notes', JSON.stringify(notes));
-      dispatch(setReduxNotes({notes: notes}))
+      dispatch(setReduxNotes({ notes: notes }));
     }
 
   };
@@ -59,7 +61,7 @@ const NotesListContainer: FC = () => {
     const savedNotes = localStorage.getItem('notes');
 
     if (savedNotes) {
-      dispatch(setReduxNotes({notes: JSON.parse(savedNotes)}))
+      dispatch(setReduxNotes({ notes: JSON.parse(savedNotes) }));
     }
   };
 
@@ -74,7 +76,7 @@ const NotesListContainer: FC = () => {
 
   return (
     <NoteList note={note}
-              notes={reduxNotes}
+              notes={reduxNotes.filter((item: TNote) => item.author === firstname)}
               handleSetSelectedNote={handleSelectNode}
     />
   );

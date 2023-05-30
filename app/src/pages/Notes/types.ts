@@ -5,7 +5,8 @@ export type TNote = {
   title: string,
   description: string,
   dateCreation: Date | null,
-  isShared?: boolean
+  isShared?: boolean,
+  author?: string
 }
 
 export type TUpdateNote = {
