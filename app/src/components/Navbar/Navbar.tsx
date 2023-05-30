@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 
-import { StyledHeaderWrapper, StyledNavbar } from './styled';
-import LinkContainer from './components/Link/LinkContainer';
-import { MENU, ROUTE_LABELS } from '../../pages/constants';
-import { ROUTE } from '../../config/routes/routes';
+import { MENU, ROUTE_LABELS } from 'pages/constants';
+import { ROUTE } from 'config/routes/routes';
 
+import LinkContainer from './components/Link/LinkContainer';
+import { StyledHeaderWrapper, StyledNavbar } from './styled';
 
 const Navbar: FC = () => {
 
@@ -15,6 +15,7 @@ const Navbar: FC = () => {
       </StyledHeaderWrapper>
 
       <LinkContainer name={ROUTE_LABELS.NOTES} route={ROUTE.NOTES} />
+      <LinkContainer name={ROUTE_LABELS.NOTES_FORM} route={ROUTE.NOTES_FORM} />
       <LinkContainer name={ROUTE_LABELS.SHARED} route={ROUTE.SHARED} />
       <LinkContainer name={ROUTE_LABELS.ABOUT} route={ROUTE.ABOUT} />
       <LinkContainer name={ROUTE_LABELS.SIGNIN} route={ROUTE.SIGNIN} />
