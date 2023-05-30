@@ -2,6 +2,7 @@ export const MENU = 'Menu';
 
 export enum ROUTE_LABELS {
   NOTES = 'My Notes',
+  NOTES_FORM = 'Create',
   SHARED = 'Shared notes',
   ABOUT = 'About',
   SIGNIN = 'Sign In',
