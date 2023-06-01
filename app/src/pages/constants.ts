@@ -11,7 +11,8 @@ export enum ROUTE_LABELS {
 }
 
 export enum QUERY_KEYS {
-  NOTES = 'notes'
+  NOTES = 'notes',
+  FILTER_NOTES = 'filter-notes',
 }
 
 export const EMAIL_FIELD = 'email';
