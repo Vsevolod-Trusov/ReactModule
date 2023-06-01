@@ -17,3 +17,8 @@ export type TUpdateNote = {
 export type TNoteListProps = {
   handleSetSelectedNote?: (item: TNote) => void
 } & TSelectedNode
+
+export type TInfinityScrollProps = {
+  handleSetSelectedNote?: (item: TNote) => void,
+  isShared: boolean
+}

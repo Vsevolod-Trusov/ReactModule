@@ -1,26 +1,20 @@
 import React, { FC } from 'react';
 import Box from '@mui/material/Box/Box';
 
-import NotesLayoutContainer from './components/NotesLayout/index';
 import InfinityScrollContainer from 'components/InfinityScroll';
 
-import { SELECT_NODE } from './components/SelectedNote/constants';
 import { StyledSelectedNode } from './components/SelectedNote/styled';
 import { TNoteListProps } from './types';
+import FilterNotesContainer from 'components/FilterNotes';
 
-const NoteList: FC<TNoteListProps> = ({ notes, handleSetSelectedNote }) => {
+const NoteList: FC<TNoteListProps> = ({ handleSetSelectedNote }) => {
 
   return (
     <Box>
-      <StyledSelectedNode>
-        <Box>
-          {SELECT_NODE}
-        </Box>
-      </StyledSelectedNode>
-
+      <FilterNotesContainer isShared={false}/>
 
       <InfinityScrollContainer
-        notes={notes}
+        isShared={false}
         handleSetSelectedNote={handleSetSelectedNote}
       />
 
