@@ -5,5 +5,5 @@ export type TSelectedNode = {
   note?: TNote,
   dateCreation?: string,
   setNotes?:  Dispatch<SetStateAction<TNote[]>>,
-  notes: TNote[]
+  notes?: TNote[]
 }
