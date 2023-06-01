@@ -33,7 +33,6 @@ const SignUpContainer: FC = () => {
     } else {
       alert(ERROR.PASSWORD_NOT_EQUAL);
     }
-
   };
 
   if (mutation.isSuccess) {
