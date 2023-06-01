@@ -10,46 +10,36 @@ import { ROUTE } from 'config/routes/routes';
 import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'config/fetch_urls/fetch';
 import { selectNotes, selectShared, setShared } from 'config/redux/slices/notes.slice';
 import Title from 'components/Title';
+import { selectFirstName } from '../../config/redux/slices/user.slice';
+import FilterNotesContainer from '../../components/FilterNotes';
 
 const SharedNotesContainer: FC = () => {
+  const firstname = useSelector(selectFirstName);
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-  const shared = useSelector(selectShared)
-  const notes = useSelector(selectNotes)
-
-  if (!window.localStorage.getItem('email')) {
+  if (!window.localStorage.getItem('email') || !firstname) {
 
     return <Navigate to={ROUTE.NOT_FOUND} />;
   }
 
-  /*const { isSuccess, data } = useQuery({
+  useQuery({
     queryKey: ['notes'],
     queryFn: async () => (await fetch(`${MOCK_API_ADDRESS}${FETCH_URLS.NOTES}`, {
       method: FETCH_METHODS.GET,
       headers: { 'Accept': 'application/json' },
-      cache: 'no-store',
     })),
-  });*/
-
-  const saveNotesState = async () => {
-
-    const filtered = notes.filter((note: TNote) => (note?.isShared))
-    dispatch(setShared({shared: filtered}))
-
-    /*if (isSuccess && !shared.length && !data?.bodyUsed) {
-      const result = await data?.json();
-
-    }*/
-  };
-
-  useEffect(() => {
-    saveNotesState();
-  }, []);
+    onSuccess: async (data) => {
+      const result = await data.json();
+      const filtered = result.filter((note: TNote) => (note?.isShared));
+      dispatch(setShared(filtered));
+    },
+  });
 
   return (
     <Box>
-      <Title variant={'h1'}>Shared notes</Title>
-      <InfinityScrollContainer notes={shared} />
+      <FilterNotesContainer isShared={true}/>
+
+      <InfinityScrollContainer isShared={true} />
     </Box>
   );
 };
