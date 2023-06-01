@@ -3,12 +3,12 @@ import { createSlice } from '@reduxjs/toolkit';
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    id: -1,
-    firstName: '',
-    lastName: '',
-    birthday: '',
-    email: '',
-    password: '',
+    id: localStorage.getItem('id') || -1,
+    firstName: localStorage.getItem('firstname') || '',
+    lastName: localStorage.getItem('lastname') || '',
+    birthday: localStorage.getItem('birthday') || '',
+    email: localStorage.getItem('email') || '',
+    password: localStorage.getItem('password') || '',
   },
   reducers: {
     setUser: (state, { payload }) => ({ ...state, ...payload}),
