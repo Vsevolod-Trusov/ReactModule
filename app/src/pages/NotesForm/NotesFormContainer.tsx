@@ -8,9 +8,11 @@ import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'config/fetch_urls/f
 import { TNote } from 'pages/Notes/types';
 
 import NotesForm from './NotesForm';
+import { ROUTE } from '../../config/routes/routes';
+import { useNavigate } from 'react-router-dom';
 
 const NotesFormContainer = () => {
-
+  const navigate = useNavigate();
   const firstname = useSelector(selectFirstName);
 
   const mutation = useMutation({
@@ -19,10 +21,10 @@ const NotesFormContainer = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(note),
     })),
+    onSuccess: () => (navigate(ROUTE.NOTES)),
   });
 
   const submit = (values: FormikValues): void => {
-    alert('send')
     mutation.mutate({
       id: null,
       title: values.title,
@@ -32,16 +34,8 @@ const NotesFormContainer = () => {
     });
   };
 
-  if (mutation.isSuccess) {
-    alert('success');
-  }
-
-  if (mutation.isError) {
-    alert('error');
-  }
-
   return (
-    <NotesForm handleSubmit={submit}/>
+    <NotesForm handleSubmit={submit} />
   );
 };
 
