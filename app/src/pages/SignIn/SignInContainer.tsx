@@ -42,7 +42,12 @@ const SignInContainer: FC = () => {
         alert('Wrong email or password');
       else {
         dispatch(setUser(user))
+        window.localStorage.setItem('id', user?.id);
         window.localStorage.setItem('email', user?.email);
+        window.localStorage.setItem('firstname', user?.firstName);
+        window.localStorage.setItem('lastname', user?.lastName);
+        window.localStorage.setItem('birthday', user?.birthday);
+        window.localStorage.setItem('password', user?.password);
         navigate(ROUTE.NOTES);
       }
     }
