@@ -1,8 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { v4 as uuidv4 } from 'uuid';
+import { useSelector } from 'react-redux';
 
+import { selectPostNotes } from 'config/redux/slices/notes.slice';
 import { TNote } from 'pages/Notes/types';
 import { EMPTY_LINE, SLICE_POSITION } from 'pages/Notes/constants';
 import { NOTES_LAYOUT_ID } from 'pages/SignIn/constants';
@@ -12,7 +14,9 @@ import { formatDate } from 'utils/formatDate';
 import { IInfinityScroll} from './types';
 import { StyledNotesLayout, StyledNote, StyledOutputLine } from './styled';
 
+
 const NotesLayoutContainer: FC<IInfinityScroll> = ({ notes, handleSetSelectedNote, setNotes, hasMore }) => {
+
   /* const handleIsSelected = (item: TNote, title: string) => (
      {
        ...currentItemWrapper,

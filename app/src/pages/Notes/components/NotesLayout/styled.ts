@@ -9,7 +9,8 @@ const StyledNotesLayout = styled(Box)({
   flexWrap: 'wrap',
   justifyContent: 'center',
   alignItems: 'center',
-  height: '20rem',
+  marginTop: '0.5rem',
+  height: '82vh',
   overflow: 'auto'
 });
 
