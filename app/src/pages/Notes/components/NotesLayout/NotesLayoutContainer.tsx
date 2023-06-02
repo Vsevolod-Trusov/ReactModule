@@ -2,64 +2,105 @@ import React, { FC, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { v4 as uuidv4 } from 'uuid';
-import { useSelector } from 'react-redux';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-import { selectPostNotes } from 'config/redux/slices/notes.slice';
 import { TNote } from 'pages/Notes/types';
 import { EMPTY_LINE, SLICE_POSITION } from 'pages/Notes/constants';
 import { NOTES_LAYOUT_ID } from 'pages/SignIn/constants';
 import { sliceText } from 'utils/formatText';
 import { formatDate } from 'utils/formatDate';
 
-import { IInfinityScroll} from './types';
+import { IInfinityScroll } from './types';
 import { StyledNotesLayout, StyledNote, StyledOutputLine } from './styled';
+import { setPostNotes, setReduxNotes } from '../../../../config/redux/slices/notes.slice';
+import { useDispatch } from 'react-redux';
 
 
 const NotesLayoutContainer: FC<IInfinityScroll> = ({ notes, handleSetSelectedNote, setNotes, hasMore }) => {
 
-  /* const handleIsSelected = (item: TNote, title: string) => (
-     {
-       ...currentItemWrapper,
-       boxShadow: `0 10px 15px -3px ${isSelected(item.title, title) ?
-         SELECTED_NODE_SHADOW :
-         DEFAULT_NODE_SHADOW}, 0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
-     })*/
+  const dispatch = useDispatch()
+  const handleDragDrop = (results) => {
+    const { source, destination, type } = results;
+
+    if (!destination) return;
+
+    if (
+      source.droppableId === destination.droppableId &&
+      source.index === destination.index
+    )
+      return;
+
+    if (type === "group") {
+      const reorderedStores = [...notes];
+
+      const storeSourceIndex = source.index;
+      const storeDestinatonIndex = destination.index;
+      const [removedStore] = reorderedStores.splice(storeSourceIndex, 1);
+      reorderedStores.splice(storeDestinatonIndex, 0, removedStore);
+    dispatch(setPostNotes(reorderedStores));
+    }
+  }
 
   return (
-    <StyledNotesLayout id={NOTES_LAYOUT_ID}>
-      <InfiniteScroll
-        dataLength={notes.length}
-        next={setNotes}
-        hasMore={hasMore}
-        loader={<h4>Loading...</h4>}
-        scrollableTarget={NOTES_LAYOUT_ID}
-      >
-      {
-        notes.map((item: TNote) => (
-          <StyledNote key={uuidv4()}
-               onClick={() => handleSetSelectedNote && handleSetSelectedNote(item)}
-          >
-            <Box>
-              Title: {item.title}
-            </Box>
+    <DragDropContext onDragEnd={handleDragDrop}>
+      <StyledNotesLayout id={NOTES_LAYOUT_ID}>
 
-            <StyledOutputLine>
-              {
-                sliceText(item.description, SLICE_POSITION)
-              }
-            </StyledOutputLine>
+          <Droppable droppableId={'ROOT'} type={'group'}>
+            {
+              (provided) => (
+                <InfiniteScroll
+                  dataLength={notes.length}
+                  next={setNotes}
+                  hasMore={hasMore}
+                  loader={<h4>Loading...</h4>}
+                  scrollableTarget={NOTES_LAYOUT_ID}
 
-            <StyledOutputLine>
-              {
-                item.dateCreation ? formatDate(new Date(item.dateCreation)) : EMPTY_LINE
-              }
-            </StyledOutputLine>
-          </StyledNote>
-        ))
-      }
-      </InfiniteScroll>
-    </StyledNotesLayout>
+                  style={{overflow: 'none'}}
+                >
+                <Box {...provided.droppableProps} ref={provided.innerRef}>
+                  {
+                    notes.map((item: TNote, index) => {
+                      return (
+                        <Draggable draggableId={item.testId} key={item.testId} index={index}>
+                          {
+                            (provided) => (
+                              <Box {...provided.dragHandleProps} {...provided.draggableProps} ref={provided.innerRef}
+                              >
+                                <StyledNote
+                                  onClick={() => handleSetSelectedNote && handleSetSelectedNote(item)}
+                                >
+                                  <Box>
+                                    Title: {item.title}
+                                  </Box>
+
+                                  <StyledOutputLine>
+                                    {
+                                      sliceText(item.description, SLICE_POSITION)
+                                    }
+                                  </StyledOutputLine>
+
+                                  <StyledOutputLine>
+                                    {
+                                      item.dateCreation ? formatDate(new Date(item.dateCreation)) : EMPTY_LINE
+                                    }
+                                  </StyledOutputLine>
+                                </StyledNote>
+                              </Box>
+                            )
+                          }
+                        </Draggable>
+                      )
+                    })
+                  }
+                </Box>
+                </InfiniteScroll>
+              )
+            }
+          </Droppable>
+      </StyledNotesLayout>
+    </DragDropContext>
   );
 };
 
-export default NotesLayoutContainer
+export default NotesLayoutContainer;
+
