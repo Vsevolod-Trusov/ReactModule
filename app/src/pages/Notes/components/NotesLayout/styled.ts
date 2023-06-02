@@ -10,8 +10,8 @@ const StyledNotesLayout = styled(Box)({
   justifyContent: 'center',
   alignItems: 'center',
   marginTop: '0.5rem',
-  height: '82vh',
-  overflow: 'auto'
+  height: '80vh',
+  overflowY: 'scroll'
 });
 
 const StyledNote = styled(Box)({
@@ -19,10 +19,11 @@ const StyledNote = styled(Box)({
   flexDirection: 'column',
   alignItems: 'center',
   padding: '1rem',
-
-  margin: '1rem',
+  borderTop: `1px solid ${COLORS.BORDER_COLOR}`,
+  borderRight: `1px solid ${COLORS.BORDER_COLOR}`,
+  borderLeft: `1px solid ${COLORS.BORDER_COLOR}`,
+  margin: '1rem 1 rem 0 1rem',
   backgroundColor: COLORS.NOTE_BACKGROUND,
-  borderRadius: '1rem',
 
 /*  ':focus': {
     backgroundColor: '#4b4b4b',
