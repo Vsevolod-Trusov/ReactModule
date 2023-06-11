@@ -15,13 +15,11 @@ const About: FC = () => {
             <Title variant={'h5'}>Features:</Title>
             <Box>
               <List>
-                {
-                  (FEATURES.map((name: string) => (
-                    <ListItem key={name}>
-                      <ListItemText primary={name} />
-                    </ListItem>
-                  )))
-                }
+                {FEATURES.map((name: string) => (
+                  <ListItem key={name}>
+                    <ListItemText primary={name} />
+                  </ListItem>
+                ))}
               </List>
             </Box>
           </Box>
@@ -32,13 +30,11 @@ const About: FC = () => {
             <Title variant={'h5'}>Future plans:</Title>
             <Box>
               <List>
-                {
-                  (FUTURES.map((name: string) => (
-                    <ListItem key={name}>
-                      <ListItemText primary={name} />
-                    </ListItem>
-                  )))
-                }
+                {FUTURES.map((name: string) => (
+                  <ListItem key={name}>
+                    <ListItemText primary={name} />
+                  </ListItem>
+                ))}
               </List>
             </Box>
           </Box>

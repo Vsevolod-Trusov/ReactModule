@@ -5,8 +5,8 @@ export const FEATURES = [
   'Notes edition',
   'Sharing notes',
   'Viewing sharing notes',
-  'Log out'
-]
+  'Log out',
+];
 
 export const FUTURES = [
   'Notes deleting',
@@ -14,5 +14,5 @@ export const FUTURES = [
   'Confirm registration via email service',
   'Using JWT for authentication',
   'Delete user account',
-  'Implement admin page'
-]
+  'Implement admin page',
+];

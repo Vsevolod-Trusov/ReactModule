@@ -6,9 +6,9 @@ import { Wrapper } from './styled';
 const AboutContainer: FC = () => {
   return (
     <Wrapper>
-      <About/>
+      <About />
     </Wrapper>
-  )
-}
+  );
+};
 
-export default AboutContainer
+export default AboutContainer;

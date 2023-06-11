@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Box from '@mui/material/Box';
 
 const Wrapper = styled(Box)({
-  height: '100vh'
+  height: '100vh',
 });
 
 const AboutWrapper = styled(Box)({

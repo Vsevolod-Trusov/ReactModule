@@ -1,16 +1,16 @@
-import styled from "styled-components";
-import Box from "@mui/material/Box/Box";
+import styled from 'styled-components';
+import Box from '@mui/material/Box/Box';
 
 const StyledErrorPage = styled(Box)({
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    minHeight: '8rem',
-})
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  minHeight: '8rem',
+});
 
 const StyledWrapper = styled(Box)({
-    paddingTop: '0.5rem'
-})
+  paddingTop: '0.5rem',
+});
 
-export {StyledErrorPage, StyledWrapper}
+export { StyledErrorPage, StyledWrapper };
