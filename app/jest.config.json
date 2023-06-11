@@ -1,0 +1,27 @@
+{
+  "bail": 1,
+  "verbose": true,
+  "clearMocks": true,
+  "preset": "ts-jest",
+  "testEnvironment": "jsdom",
+  "globals": {
+    "ts-jest": {
+      "compiler": "typescript",
+      "tsconfig": "./tsconfig.json"
+    }
+  },
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "setupFilesAfterEnv": [
+    "@testing-library/jest-dom/extend-expect"
+  ],
+  "moduleNameMapper": {
+    "^pages/(.*)$": "<rootDir>/src/pages/$1",
+    "^config/(.*)$": "<rootDir>/src/config/$1",
+    "fonts/(.*)$": "<rootDir>/src/fonts/$1",
+    "components/(.*)$": "<rootDir>/src/components/$1",
+    "common/(.*)$": "<rootDir>/src/common/$1",
+    "^@mui/(.*)$": "<rootDir>/node_modules/@mui/$1"
+  }
+}
