@@ -10,42 +10,40 @@ import { TNote } from 'pages/Notes/types';
 import { StyledNote, StyledOutputLine } from './styled';
 import { INotes } from './types';
 
-const NotesLayout: FC<INotes> = ({ notes, handleSetSelectedNote }) => {
-  return (
-    <>
-      {notes.map((item: TNote, index) => {
-        return (
-          <Draggable draggableId={item.testId} key={item.testId} index={index}>
-            {(provided) => (
-              <Box
-                {...provided.dragHandleProps}
-                {...provided.draggableProps}
-                ref={provided.innerRef}
+const NotesLayout: FC<INotes> = ({ notes, handleSetSelectedNote }) => (
+  <>
+    {notes.map((item: TNote, index) => {
+      return (
+        <Draggable draggableId={item.testId} key={item.testId} index={index}>
+          {(provided) => (
+            <Box
+              {...provided.dragHandleProps}
+              {...provided.draggableProps}
+              ref={provided.innerRef}
+            >
+              <StyledNote
+                onClick={() =>
+                  handleSetSelectedNote && handleSetSelectedNote(item)
+                }
               >
-                <StyledNote
-                  onClick={() =>
-                    handleSetSelectedNote && handleSetSelectedNote(item)
-                  }
-                >
-                  <Box>Title: {item.title}</Box>
+                <Box>Title: {item.title}</Box>
 
-                  <StyledOutputLine>
-                    {sliceText(item.description, SLICE_POSITION)}
-                  </StyledOutputLine>
+                <StyledOutputLine>
+                  {sliceText(item.description, SLICE_POSITION)}
+                </StyledOutputLine>
 
-                  <StyledOutputLine>
-                    {item.dateCreation
-                      ? formatDate(new Date(item.dateCreation))
-                      : EMPTY_LINE}
-                  </StyledOutputLine>
-                </StyledNote>
-              </Box>
-            )}
-          </Draggable>
-        );
-      })}
-    </>
-  );
-};
+                <StyledOutputLine>
+                  {item.dateCreation
+                    ? formatDate(new Date(item.dateCreation))
+                    : EMPTY_LINE}
+                </StyledOutputLine>
+              </StyledNote>
+            </Box>
+          )}
+        </Draggable>
+      );
+    })}
+  </>
+);
 
 export default NotesLayout;
