@@ -6,12 +6,12 @@ import { IEditNodeForm } from './types';
 import { StyledEditNodeForm } from './styled';
 
 const EditNoteForm: FC<IEditNodeForm> = ({
-                                           note,
-                                           handleSetDescription, description,
-                                           handleEditNote,
-                                           handleShareNote,
-                                         }) => {
-
+  note,
+  handleSetDescription,
+  description,
+  handleEditNote,
+  handleShareNote,
+}) => {
   const { title, dateCreation } = note;
   return (
     <StyledEditNodeForm>
@@ -43,13 +43,21 @@ const EditNoteForm: FC<IEditNodeForm> = ({
         multiline
       />
       <Box>
-        <Button variant='contained' color='primary' type='submit'
-                onClick={() => handleEditNote({ description: description })}>
+        <Button
+          variant='contained'
+          color='primary'
+          type='submit'
+          onClick={() => handleEditNote({ description: description })}
+        >
           {EDIT}
         </Button>
 
-        <Button variant='contained' color='primary' type='submit'
-                onClick={() => handleShareNote()}>
+        <Button
+          variant='contained'
+          color='primary'
+          type='submit'
+          onClick={() => handleShareNote()}
+        >
           {SHARE}
         </Button>
       </Box>

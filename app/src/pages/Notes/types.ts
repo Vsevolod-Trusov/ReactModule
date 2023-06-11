@@ -1,4 +1,4 @@
-import { TSelectedNode } from './components/SelectedNote/types';
+import { Dispatch, SetStateAction } from 'react';
 
 export type TNote = {
   id: number | null;
@@ -8,6 +8,13 @@ export type TNote = {
   isShared?: boolean;
   author?: string;
   testId?: string;
+};
+
+export type TSelectedNode = {
+  note?: TNote;
+  dateCreation?: string;
+  setNotes?: Dispatch<SetStateAction<TNote[]>>;
+  notes?: TNote[];
 };
 
 export type TUpdateNote = {

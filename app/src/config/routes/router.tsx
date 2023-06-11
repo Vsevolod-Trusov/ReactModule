@@ -8,7 +8,7 @@ import {
 import { default as App } from 'pages/App/index';
 import { default as NotesListContainer } from 'pages/Notes/index';
 import { default as ErrorPageContainer } from 'pages/Error/index';
-import { default as EditNoteContainer } from 'pages/Notes/components/SelectedNote/components/EditNoteForm/index';
+import { default as EditNoteContainer } from '../../pages/Notes/components/EditNoteForm/index';
 import { default as SignInContainer } from 'pages/SignIn/index';
 import { default as SignUpContainer } from 'pages/SignUp/index';
 import { default as SharedNotesContainer } from 'pages/SharedNotes/index';
@@ -34,6 +34,4 @@ export const router = createBrowserRouter(
   { basename: '/ReactModule' },
 );
 
-export default router
-
-
+export default router;
