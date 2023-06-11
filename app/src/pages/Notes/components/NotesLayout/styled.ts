@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import Box from '@mui/material/Box';
 
-import { HOVER_NODE_SHADOW, SELECTED_NODE_SHADOW } from '../../constants';
-import { COLORS } from '../../../colors';
+import { COLORS } from 'pages/colors';
+import { HOVER_NODE_SHADOW, SELECTED_NODE_SHADOW } from 'pages/Notes/constants';
 
 const StyledNotesLayout = styled(Box)({
   display: 'block',
@@ -11,7 +11,7 @@ const StyledNotesLayout = styled(Box)({
   alignItems: 'center',
   marginTop: '0.5rem',
   height: '80vh',
-  overflowY: 'scroll'
+  overflowY: 'scroll',
 });
 
 const StyledNote = styled(Box)({
@@ -25,32 +25,28 @@ const StyledNote = styled(Box)({
   margin: '1rem 1 rem 0 1rem',
   backgroundColor: COLORS.NOTE_BACKGROUND,
 
-/*  ':focus': {
-    backgroundColor: '#4b4b4b',
-    transition: '.2s',
-    boxShadow:
-      `0 10px 15px -3px ${SELECTED_NODE_SHADOW}, 0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
-  },*/
+  /*  ':focus': {
+          backgroundColor: '#4b4b4b',
+          transition: '.2s',
+          boxShadow:
+            `0 10px 15px -3px ${SELECTED_NODE_SHADOW}, 0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
+        },*/
 
   ':hover': {
     backgroundColor: COLORS.NOTE_BACKGROUND_HOVER,
     transition: '.2s',
-    boxShadow:
-      `0 10px 15px -3px ${HOVER_NODE_SHADOW}, 0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
+    boxShadow: `0 10px 15px -3px ${HOVER_NODE_SHADOW}, 0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
   },
 
   ':active': {
     backgroundColor: COLORS.NOTE_BACKGROUND_ACTIVE,
     transition: '.2s',
-    boxShadow:
-      `0 10px 15px -3px ${SELECTED_NODE_SHADOW}, 0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
+    boxShadow: `0 10px 15px -3px ${SELECTED_NODE_SHADOW}, 0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
   },
-
-
 });
 
 const StyledOutputLine = styled(Box)({
-    marginTop: '0.5rem',
-})
+  marginTop: '0.5rem',
+});
 
 export { StyledNotesLayout, StyledNote, StyledOutputLine };

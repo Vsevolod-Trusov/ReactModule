@@ -1,25 +1,25 @@
 import { TSelectedNode } from './components/SelectedNote/types';
 
 export type TNote = {
-  id: number | null,
-  title: string,
-  description: string,
-  dateCreation: Date | null,
-  isShared?: boolean,
-  author?: string,
-  testId?: string
-}
+  id: number | null;
+  title: string;
+  description: string;
+  dateCreation: Date | null;
+  isShared?: boolean;
+  author?: string;
+  testId?: string;
+};
 
 export type TUpdateNote = {
-  isShared?: boolean,
-  description?: string
-}
+  isShared?: boolean;
+  description?: string;
+};
 
 export type TNoteListProps = {
-  handleSetSelectedNote?: (item: TNote) => void
-} & TSelectedNode
+  handleSetSelectedNote?: (item: TNote) => void;
+} & TSelectedNode;
 
 export type TInfinityScrollProps = {
-  handleSetSelectedNote?: (item: TNote) => void,
-  isShared: boolean
-}
+  handleSetSelectedNote?: (item: TNote) => void;
+  isShared: boolean;
+};
