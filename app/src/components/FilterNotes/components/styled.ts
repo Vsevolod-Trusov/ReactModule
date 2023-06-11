@@ -16,12 +16,12 @@ const StyledFilterForm = styled(Form)({
     justifyContent: 'space-between',
     flexDirection: 'row',
 
-    input: {
+    'input': {
       display: 'block',
       minWidth: '10%',
       height: '1rem',
-    },
-  },
+    }
+  }
 });
 
 export { StyledFilterForm };

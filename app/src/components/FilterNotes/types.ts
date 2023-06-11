@@ -1,3 +1,3 @@
 export interface IFilterProps {
-  isShared: boolean;
+  isShared: boolean
 }
