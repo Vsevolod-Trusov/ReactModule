@@ -1,5 +1,5 @@
 export const FILTER_VALUES = {
-dateCreation: ''
-}
+  dateCreation: '',
+};
 
-export const DATE_CREATION = 'dateCreation'
+export const DATE_CREATION = 'dateCreation';

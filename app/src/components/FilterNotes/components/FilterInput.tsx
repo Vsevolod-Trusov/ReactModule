@@ -10,8 +10,7 @@ const FilterInput: FC<FieldAttributes<any>> = (props) => {
       <StyledField {...props} />
       <StyledErrorMessage name={props.name} component={'div'} />
     </Box>
-
   );
 };
 
-export default FilterInput
+export default FilterInput;

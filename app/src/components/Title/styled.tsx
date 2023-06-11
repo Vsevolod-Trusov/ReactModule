@@ -1,8 +1,6 @@
-import Typography from '@mui/material/Typography/Typography';
+import Typography from '@mui/material/Typography';
 import styled from 'styled-components';
 
-const StyledTitle = styled(Typography)({
-
-});
+const StyledTitle = styled(Typography)({});
 
 export { StyledTitle };
