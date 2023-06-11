@@ -6,20 +6,16 @@ import { TNote } from 'pages/Notes/types';
 import { useDispatch, useSelector } from 'react-redux';
 
 import InfinityScrollContainer from 'components/InfinityScroll';
+import FilterNotesContainer from 'components/FilterNotes';
+
 import { ROUTE } from 'config/routes/routes';
 import {
   FETCH_METHODS,
   FETCH_URLS,
   MOCK_API_ADDRESS,
 } from 'config/fetch_urls/fetch';
-import {
-  selectNotes,
-  selectShared,
-  setShared,
-} from 'config/redux/slices/notes.slice';
-import Title from 'components/Title';
-import { selectFirstName } from '../../config/redux/slices/user.slice';
-import FilterNotesContainer from '../../components/FilterNotes';
+import { setShared } from 'config/redux/slices/notes.slice';
+import { selectFirstName } from 'config/redux/slices/user.slice';
 
 const SharedNotesContainer: FC = () => {
   const firstname = useSelector(selectFirstName);

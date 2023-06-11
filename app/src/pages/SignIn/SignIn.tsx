@@ -14,7 +14,6 @@ import { StyledWrapper } from './styled';
 import { ISignIn } from './types';
 
 const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => {
-
   return (
     <StyledWrapper>
       <Formik
@@ -22,38 +21,34 @@ const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => {
         validationSchema={signInValidationSchema}
         onSubmit={(values: FormikValues) => handleSignIn(values)}
       >
-        {
-          ({ handleSubmit }) => (
-            <Form onSubmit={handleSubmit}>
-              <Title variant={'h1'}>Sign In</Title>
+        {({ handleSubmit }) => (
+          <Form onSubmit={handleSubmit}>
+            <Title variant={'h1'}>Sign In</Title>
 
-              <FormControlLayout margin={'normal'}
-                                 variant={'filled'}
-                                 size={'medium'}>
+            <FormControlLayout
+              margin={'normal'}
+              variant={'filled'}
+              size={'medium'}
+            >
+              <FormInput
+                name={EMAIL_FIELD}
+                placeholder='Enter email'
+                margin={'normal'}
+              />
 
-                <FormInput
-                  name={EMAIL_FIELD}
-                  placeholder='Enter email'
-                  margin={'normal'}
-                 />
+              <FormInput
+                name={PASSWORD_FIELD}
+                placeholder='Enter password'
+                type={'password'}
+                margin={'normal'}
+              />
 
-                <FormInput
-                  name={PASSWORD_FIELD}
-                  placeholder='Enter password'
-                  type={'password'}
-                  margin={'normal'}
-                />
-
-                <Button type='submit'
-                        variant={'contained'}
-                >
-                  Submit
-                </Button>
-              </FormControlLayout>
-
-            </Form>
-          )
-        }
+              <Button type='submit' variant={'contained'}>
+                Submit
+              </Button>
+            </FormControlLayout>
+          </Form>
+        )}
       </Formik>
     </StyledWrapper>
   );
