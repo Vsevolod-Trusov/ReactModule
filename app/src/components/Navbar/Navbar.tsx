@@ -7,12 +7,9 @@ import LinkContainer from './components/Link/LinkContainer';
 import { StyledHeaderWrapper, StyledNavbar } from './styled';
 
 const Navbar: FC = () => {
-
   return (
     <StyledNavbar>
-      <StyledHeaderWrapper>
-        {MENU}
-      </StyledHeaderWrapper>
+      <StyledHeaderWrapper>{MENU}</StyledHeaderWrapper>
 
       <LinkContainer name={ROUTE_LABELS.NOTES} route={ROUTE.NOTES} />
       <LinkContainer name={ROUTE_LABELS.NOTES_FORM} route={ROUTE.NOTES_FORM} />

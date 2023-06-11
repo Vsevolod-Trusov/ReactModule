@@ -1,5 +1,5 @@
 import { Link } from '@mui/material';
-import Box from '@mui/material/Box/Box';
+import Box from '@mui/material/Box';
 import styled from 'styled-components';
 
 import { COLORS } from 'pages/colors';
@@ -12,7 +12,7 @@ const StyledNavbar = styled(Box)({
 
   borderRight: `1px solid ${COLORS.BORDER_COLOR}`,
   outline: `1px solid #0b31be`,
-})
+});
 
 const StyledNavbarBox = styled(Box)({
   flex: '0.2',
@@ -26,7 +26,7 @@ const StyledHeaderWrapper = styled(Box)({
 
   padding: '0.8rem 0',
   textAlign: 'center',
-})
+});
 
 const StyledLink = styled(Link)({
   width: '100%',
@@ -39,7 +39,6 @@ const StyledLink = styled(Link)({
     backgroundColor: '#ece9e9',
     transition: '.2s',
   },
-})
+});
 
-export {StyledNavbarBox, StyledNavbar, StyledHeaderWrapper, StyledLink}
-
+export { StyledNavbarBox, StyledNavbar, StyledHeaderWrapper, StyledLink };
