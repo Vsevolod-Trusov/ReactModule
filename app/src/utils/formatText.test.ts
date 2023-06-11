@@ -1,21 +1,21 @@
 import { sliceText, stringIsEquals } from './formatText';
 
-const INPUT_TEXT = 'Hello world'
-const SECOND_TEXT = 'Vsevolod'
-const LENGTH = 5
+const INPUT_TEXT = 'Hello world';
+const SECOND_TEXT = 'Vsevolod';
+const LENGTH = 5;
 
 it('Expect sliced text with length 5', () => {
-  const slicedText = sliceText(INPUT_TEXT, LENGTH)
-  expect(slicedText.length).toEqual(LENGTH)
-})
+  const slicedText = sliceText(INPUT_TEXT, LENGTH);
+  expect(slicedText.length).toEqual(LENGTH);
+});
 
 it('Expect true from equal two strings', () => {
-  const isEqual = stringIsEquals(INPUT_TEXT, INPUT_TEXT)
-  expect(isEqual).toEqual(true)
-})
+  const isEqual = stringIsEquals(INPUT_TEXT, INPUT_TEXT);
+  expect(isEqual).toEqual(true);
+});
 
 it('Expect false from equal two strings', () => {
-  const isEqual = stringIsEquals(INPUT_TEXT, SECOND_TEXT)
-  expect(isEqual).toEqual(false)
-})
+  const isEqual = stringIsEquals(INPUT_TEXT, SECOND_TEXT);
+  expect(isEqual).toEqual(false);
+});
 

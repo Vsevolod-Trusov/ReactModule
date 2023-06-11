@@ -1,3 +1,2 @@
-export const formatDate = (date: Date) => (
-  date.toLocaleString().slice(0, 10)
-)
+export const formatDate = (date: Date) =>
+  date.toLocaleDateString().slice(0, 10);
