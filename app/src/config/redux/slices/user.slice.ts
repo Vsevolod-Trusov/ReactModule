@@ -17,8 +17,4 @@ export const userSlice = createSlice({
 
 export const { setUser } = userSlice.actions;
 export const selectFirstName = (state: any) => state.user.firstName;
-export const selectLastName = (state: any) => state.user.lastName;
-export const selectBirthday = (state: any) => state.user.birthday;
-export const selectEmail = (state: any) => state.user.email;
-export const selectPassword = (state: any) => state.user.password;
 export default userSlice.reducer;

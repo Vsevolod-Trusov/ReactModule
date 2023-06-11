@@ -1,19 +1,19 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ROUTE } from '../../config/routes/routes';
+import { ROUTE } from 'config/routes/routes';
 import {
   FETCH_METHODS,
   FETCH_URLS,
   MOCK_API_ADDRESS,
-} from '../../config/fetch_urls/fetch';
-import { setReduxNotes } from '../../config/redux/slices/notes.slice';
-import { QUERY_KEYS } from '../../pages/constants';
+} from 'config/fetch_urls/fetch';
+import { setReduxNotes } from 'config/redux/slices/notes.slice';
+import { selectFirstName } from 'config/redux/slices/user.slice';
+import { QUERY_KEYS } from 'pages/constants';
 
 import { TNote } from './types';
-import { selectFirstName } from '../../config/redux/slices/user.slice';
 import NoteList from './NoteList';
 
 const NotesListContainer: FC = () => {
