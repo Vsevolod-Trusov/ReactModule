@@ -7,16 +7,20 @@ export const notesSlice = createSlice({
   initialState: {
     notes: [],
     postNotes: [],
-    shared: []
+    shared: [],
   },
   reducers: {
-    setNotes: (state, { payload }) => ({...state, notes: payload}),
-    setPostNotes: (state, { payload }) => ({...state, postNotes: payload}),
-    setShared: (state, { payload }) => ({...state, shared: payload}),
+    setNotes: (state, { payload }) => ({ ...state, notes: payload }),
+    setPostNotes: (state, { payload }) => ({ ...state, postNotes: payload }),
+    setShared: (state, { payload }) => ({ ...state, shared: payload }),
   },
 });
 
-export const { setNotes: setReduxNotes, setShared, setPostNotes } = notesSlice.actions;
+export const {
+  setNotes: setReduxNotes,
+  setShared,
+  setPostNotes,
+} = notesSlice.actions;
 export const selectNotes = (state: RootState) => state.notes.notes;
 export const selectShared = (state: RootState) => state.notes.shared;
 export const selectPostNotes = (state: RootState) => state.notes.postNotes;

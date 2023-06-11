@@ -2,13 +2,13 @@ import { createTheme } from '@mui/material';
 
 export const theme = createTheme({
   typography: {
-    fontFamily: 'Montserrat'
+    fontFamily: 'Montserrat',
   },
   components: {
     MuiTypography: {
       variants: [
         {
-          props: { variant: 'h1' }, /* component props */
+          props: { variant: 'h1' } /* component props */,
           style: {
             fontFamily: 'Montserrat',
             fontSize: '1.55rem',

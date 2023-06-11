@@ -11,7 +11,7 @@ export const userSlice = createSlice({
     password: localStorage.getItem('password') || '',
   },
   reducers: {
-    setUser: (state, { payload }) => ({ ...state, ...payload}),
+    setUser: (state, { payload }) => ({ ...state, ...payload }),
   },
 });
 
