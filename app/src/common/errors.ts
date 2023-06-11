@@ -13,7 +13,7 @@ export enum ERROR {
   BIRTHDAY_VALIDATION = 'Birthday is not valid',
   CONFIRM_PASSWORD = 'Confirm password',
 
-  PASSWORD_NOT_EQUAL = 'Passwords aren\'t equal',
+  PASSWORD_NOT_EQUAL = "Passwords aren't equal",
 
   TITLE_REQUIRED = 'Title required',
   TITLE_VALIDATION = 'Min title length: 3',
@@ -22,5 +22,5 @@ export enum ERROR {
   DATE_CREATION_VALIDATION = 'Date creation is invalid',
 
   DESCRIPTION_REQUIRED = 'Description is required',
-  DESCRIPTION_INVALID = 'Min description length: 3'
+  DESCRIPTION_INVALID = 'Min description length: 3',
 }
