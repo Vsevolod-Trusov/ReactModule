@@ -1,7 +1,13 @@
 import React, { FC } from 'react';
 import { Box, TextField, Button } from '@mui/material';
 
-import { EDIT, SHARE } from './constants';
+import {
+  EDIT,
+  SHARE,
+  TITLE_LABEL,
+  DATE_LABEL,
+  DESCRIPTION_LABEL,
+} from './constants';
 import { IEditNodeForm } from './types';
 import { StyledEditNodeForm } from './styled';
 
@@ -16,7 +22,7 @@ const EditNoteForm: FC<IEditNodeForm> = ({
   return (
     <StyledEditNodeForm>
       <TextField
-        label='Title'
+        label={TITLE_LABEL}
         value={title}
         variant='outlined'
         margin='normal'
@@ -24,7 +30,7 @@ const EditNoteForm: FC<IEditNodeForm> = ({
         disabled
       />
       <TextField
-        label='Task date'
+        label={DATE_LABEL}
         value={dateCreation}
         variant='outlined'
         margin='normal'
@@ -32,7 +38,7 @@ const EditNoteForm: FC<IEditNodeForm> = ({
         disabled
       />
       <TextField
-        label='Text Area'
+        label={DESCRIPTION_LABEL}
         value={description}
         name={'nodeText'}
         onChange={handleSetDescription}
