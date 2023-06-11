@@ -12,9 +12,9 @@ import { INotes } from './types';
 
 const NotesLayout: FC<INotes> = ({ notes, handleSetSelectedNote }) => (
   <>
-    {notes.map((item: TNote, index) => {
+    {notes?.map((note: TNote, index) => {
       return (
-        <Draggable draggableId={item.testId} key={item.testId} index={index}>
+        <Draggable draggableId={note.testId} key={note.testId} index={index}>
           {(provided) => (
             <Box
               {...provided.dragHandleProps}
@@ -23,18 +23,18 @@ const NotesLayout: FC<INotes> = ({ notes, handleSetSelectedNote }) => (
             >
               <StyledNote
                 onClick={() =>
-                  handleSetSelectedNote && handleSetSelectedNote(item)
+                  handleSetSelectedNote && handleSetSelectedNote(note)
                 }
               >
-                <Box>Title: {item.title}</Box>
+                <Box>Title: {note.title}</Box>
 
                 <StyledOutputLine>
-                  {sliceText(item.description, SLICE_POSITION)}
+                  {sliceText(note.description, SLICE_POSITION)}
                 </StyledOutputLine>
 
                 <StyledOutputLine>
-                  {item.dateCreation
-                    ? formatDate(new Date(item.dateCreation))
+                  {note.dateCreation
+                    ? formatDate(new Date(note.dateCreation))
                     : EMPTY_LINE}
                 </StyledOutputLine>
               </StyledNote>
