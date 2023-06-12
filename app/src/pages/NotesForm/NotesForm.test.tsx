@@ -1,6 +1,8 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 
+import { ERROR } from 'common/errors';
+
 import NotesForm from './NotesForm';
 
 describe('set to test notes form', () => {
@@ -61,5 +63,27 @@ describe('set to test notes form', () => {
     fireEvent.click(button);
 
     await waitFor(() => expect(handleSubmit).toHaveBeenCalled());
+  });
+
+  it('expect error message description', async () => {
+    const handleSubmit = jest.fn();
+
+    const { getByRole, getByTestId, getByPlaceholderText, getByText } =
+      await render(<NotesForm handleSubmit={handleSubmit} />);
+
+    const titleInput = getByPlaceholderText(TITLE_PLACEHOLDER);
+    const dateInput = getByTestId(DATE_ID);
+
+    fireEvent.change(titleInput, { target: { value: TITLE_VALUE } });
+    fireEvent.change(dateInput, { target: { value: DATE_VALUE } });
+
+    const button = getByRole(BUTTON, { name: BUTTON_TEXT });
+    fireEvent.click(button);
+
+    const errorContainer = await waitFor(() =>
+      getByText(ERROR.DESCRIPTION_REQUIRED),
+    );
+
+    expect(errorContainer).toBeDefined();
   });
 });
