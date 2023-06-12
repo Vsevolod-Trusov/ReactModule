@@ -5,10 +5,10 @@ import { RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Provider } from 'react-redux';
 
-import { store } from 'config/redux/store';
-import { default as router } from 'config/routes/index';
-import { theme } from 'config/theme/theme';
-import { default as globalStyles } from 'styles/index';
+import router from './components/Router/index';
+import globalStyles from './assets/styles/index';
+import { store } from './store/store';
+import { theme } from './config/constants/theme/theme';
 
 const Global = globalStyles();
 
@@ -29,4 +29,3 @@ root.render(
     </ThemeProvider>
   </>,
 );
-
