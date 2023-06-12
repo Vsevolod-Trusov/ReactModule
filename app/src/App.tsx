@@ -9,7 +9,6 @@ const App: FC = () => (
   <StyledApp className='App'>
     <StyledNavbarWrapper>
       <NavbarContainer />
-
       <StyledOutlet>
         <Outlet />
       </StyledOutlet>
@@ -18,4 +17,3 @@ const App: FC = () => (
 );
 
 export default App;
-

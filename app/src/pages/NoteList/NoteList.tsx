@@ -10,7 +10,6 @@ const NoteList: FC<TNoteListProps> = ({ handleSetSelectedNote }) => {
   return (
     <Box>
       <FilterNotesContainer isShared={false} />
-
       <InfinityScrollContainer
         isShared={false}
         handleSetSelectedNote={handleSetSelectedNote}

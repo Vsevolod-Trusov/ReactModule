@@ -3,14 +3,10 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ROUTE } from 'config/routes/routes';
-import {
-  FETCH_METHODS,
-  FETCH_URLS,
-  MOCK_API_ADDRESS,
-} from 'config/fetch_urls/fetch';
-import { setReduxNotes } from 'config/redux/slices/notes.slice';
-import { selectFirstName } from 'config/redux/slices/user.slice';
+import { ROUTE } from '../../config/constants/routes';
+import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'api/constants';
+import { setReduxNotes } from '../../store/slices/notes.slice';
+import { selectFirstName } from '../../store/slices/user.slice';
 import { QUERY_KEYS } from 'pages/constants';
 
 import { TNote } from './types';

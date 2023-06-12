@@ -5,16 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { QUERY_KEYS } from '../../../constants';
 import { TNote, TUpdateNote } from '../../types';
-import { ROUTE } from '../../../../config/routes/routes';
-import {
-  FETCH_METHODS,
-  FETCH_URLS,
-  MOCK_API_ADDRESS,
-} from '../../../../config/fetch_urls/fetch';
+import { ROUTE } from '../../../../config/constants/routes';
+import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'api/constants';
 import {
   selectNotes,
   setReduxNotes,
-} from '../../../../config/redux/slices/notes.slice';
+} from '../../../../store/slices/notes.slice';
 
 import { IEditNodeProps, IHandleEditNote } from './types';
 import EditNoteForm from './EditNoteForm';
