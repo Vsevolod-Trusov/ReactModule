@@ -6,9 +6,9 @@ import {
   selectPostNotes,
   selectShared,
   setPostNotes,
-} from 'config/redux/slices/notes.slice';
-import NotesLayoutContainer from 'pages/Notes/components/NotesLayout';
-import { TInfinityScrollProps } from 'pages/Notes/types';
+} from 'store/slices/notes.slice';
+import NotesLayoutContainer from 'pages/NoteList/components/NotesLayout';
+import { TInfinityScrollProps } from 'pages/NoteList/types';
 
 import { LIMIT, START } from './constants';
 
@@ -22,24 +22,38 @@ const InfinityScrollContainer: FC<TInfinityScrollProps> = ({
 
   const [visible, setVisible] = useState(LIMIT);
   const [hasMore, setHasMore] = useState(true);
-
+  const [getMore, setGetMore] = useState(false);
   const setNotes = () => {
-    const newLimit = visible + LIMIT;
-    const addNotes = notes.slice(visible, newLimit);
-
-    if (notes.length > postData.length) {
-      setTimeout(() => {
-        dispatch(setPostNotes([...postData].concat(addNotes)));
-      }, 500);
-      setVisible(newLimit);
-    } else {
-      setHasMore(false);
-    }
+    setGetMore(true);
   };
 
   useEffect(() => {
     dispatch(setPostNotes(notes.slice(START, LIMIT)));
   }, [notes.length]);
+
+  useEffect(() => {
+    if (getMore) {
+      const newLimit = visible + LIMIT;
+      const addNotes = notes.slice(visible, newLimit);
+      if (notes.length > postData.length) {
+        setTimeout(() => {
+          dispatch(setPostNotes([...postData].concat(addNotes)));
+        }, 500);
+        setVisible(newLimit);
+      } else {
+        setHasMore(false);
+      }
+    }
+    setGetMore(false);
+  }, [getMore]);
+
+  useEffect(() => {
+    if (postData.length < notes.length) {
+      setHasMore(notes.length > LIMIT);
+    } else {
+      setHasMore(false);
+    }
+  }, [postData.length]);
 
   return (
     <NotesLayoutContainer

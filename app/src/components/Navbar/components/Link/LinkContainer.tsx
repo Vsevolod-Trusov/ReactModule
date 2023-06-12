@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { ILinkContainer } from 'components/Navbar/types';
-import { ROUTE } from 'config/routes/routes';
+import { ROUTE } from 'config/constants/routes';
 
 import Link from './Link';
 import { LOCALSTORAGE_EMAIL } from './contstants';

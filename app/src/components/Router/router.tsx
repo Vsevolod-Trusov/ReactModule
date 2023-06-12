@@ -5,29 +5,31 @@ import {
   Route,
 } from 'react-router-dom';
 
-import { default as App } from '../../index';
-import { default as NotesListContainer } from '../../pages/Notes';
-import { default as ErrorPageContainer } from '../../pages/Error';
-import EditNoteForm from '../../pages/Notes/components/EditNoteForm';
-import { default as SignInContainer } from '../../pages/SignIn';
-import { default as SignUpContainer } from '../../pages/SignUp';
-import { default as SharedNotesContainer } from '../../pages/SharedNotes';
-import { default as AboutContainer } from '../../pages/About';
-import { default as NotesFormContainer } from '../../pages/NotesForm';
+import {
+  EditNoteForm,
+  NoteList,
+  Error,
+  SignIn,
+  SignUp,
+  SharedNotes,
+  About,
+  NotesForm,
+} from 'pages/index';
+import { ROUTE } from 'config/constants/routes';
 
-import { ROUTE } from '../../config/constants/routes';
+import App from '../../App';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path={ROUTE.MAIN} element={<App />}>
-      <Route path={ROUTE.NOTES} element={<NotesListContainer />} />
-      <Route path={ROUTE.NOTES_FORM} element={<NotesFormContainer />} />
-      <Route path={ROUTE.SHARED} element={<SharedNotesContainer />} />
-      <Route path={ROUTE.ABOUT} element={<AboutContainer />} />
+      <Route path={ROUTE.NOTES} element={<NoteList />} />
+      <Route path={ROUTE.NOTES_FORM} element={<NotesForm />} />
+      <Route path={ROUTE.SHARED} element={<SharedNotes />} />
+      <Route path={ROUTE.ABOUT} element={<About />} />
       <Route path={ROUTE.NOTE} element={<EditNoteForm />} />
-      <Route path={ROUTE.SIGNIN} element={<SignInContainer />} />
-      <Route path={ROUTE.SIGNUP} element={<SignUpContainer />} />
-      <Route path={ROUTE.NOT_FOUND} element={<ErrorPageContainer />} />
+      <Route path={ROUTE.SIGNIN} element={<SignIn />} />
+      <Route path={ROUTE.SIGNUP} element={<SignUp />} />
+      <Route path={ROUTE.NOT_FOUND} element={<Error />} />
       <Route path={ROUTE.ANY} element={<Navigate to={ROUTE.NOT_FOUND} />} />
     </Route>,
   ),

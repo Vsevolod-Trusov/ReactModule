@@ -1,14 +1,11 @@
 import React, { FC } from 'react';
 
-import { StyledFormControl } from './styled';
 import { FormControlProps } from '@mui/material/FormControl/FormControl';
 
-const FormControlLayout:FC<FormControlProps> = ({children}, props) => {
-  return (
-    <StyledFormControl {...props}>
-      {children}
-    </StyledFormControl>
-  )
-}
+import { StyledFormControl } from './styled';
 
-export default FormControlLayout
+const FormControlLayout: FC<FormControlProps> = ({ children }, props) => (
+  <StyledFormControl {...props}>{children}</StyledFormControl>
+);
+
+export default FormControlLayout;

@@ -20,8 +20,7 @@ const StyledField = styled(Field)({
 });
 
 const StyledErrorMessage = styled(ErrorMessage)({
-  color: COLORS.ERROR
-})
+  color: COLORS.ERROR,
+});
 
 export { StyledField, StyledErrorMessage };
-
