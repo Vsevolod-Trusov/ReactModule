@@ -11,6 +11,7 @@ import NotesLayoutContainer from 'pages/NoteList/components/NotesLayout';
 import { TInfinityScrollProps } from 'pages/NoteList/types';
 
 import { LIMIT, START } from './constants';
+import { useGetNotes } from '../../api/notes';
 
 const InfinityScrollContainer: FC<TInfinityScrollProps> = ({
   handleSetSelectedNote,
@@ -23,13 +24,19 @@ const InfinityScrollContainer: FC<TInfinityScrollProps> = ({
   const [visible, setVisible] = useState(LIMIT);
   const [hasMore, setHasMore] = useState(true);
   const [getMore, setGetMore] = useState(false);
+
   const setNotes = () => {
     setGetMore(true);
   };
 
   useEffect(() => {
     dispatch(setPostNotes(notes.slice(START, LIMIT)));
-  }, [notes.length]);
+    if (postData.length < notes.length) {
+      setHasMore(notes.length > LIMIT);
+    } else {
+      setHasMore(false);
+    }
+  }, [notes]);
 
   useEffect(() => {
     if (getMore) {
@@ -46,14 +53,6 @@ const InfinityScrollContainer: FC<TInfinityScrollProps> = ({
     }
     setGetMore(false);
   }, [getMore]);
-
-  useEffect(() => {
-    if (postData.length < notes.length) {
-      setHasMore(notes.length > LIMIT);
-    } else {
-      setHasMore(false);
-    }
-  }, [postData.length]);
 
   return (
     <NotesLayoutContainer
