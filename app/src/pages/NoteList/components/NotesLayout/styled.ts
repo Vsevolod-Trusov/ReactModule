@@ -28,13 +28,6 @@ const StyledNote = styled(Box)({
   margin: '1rem 1 rem 0 1rem',
   backgroundColor: COLORS.NOTE_BACKGROUND,
 
-  /*  ':focus': {
-          backgroundColor: '#4b4b4b',
-          transition: '.2s',
-          boxShadow:
-            `0 10px 15px -3px ${SELECTED_NODE_SHADOW}, 0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
-        },*/
-
   ':hover': {
     backgroundColor: COLORS.NOTE_BACKGROUND_HOVER,
     transition: '.2s',
@@ -52,4 +45,10 @@ const StyledOutputLine = styled(Box)({
   marginTop: '0.5rem',
 });
 
-export { StyledNotesLayout, StyledNote, StyledOutputLine };
+const StyledNotesWrapper = styled(Box)({
+  ':last-child': {
+    borderBottom: `1px solid ${COLORS.BORDER_COLOR}`,
+  },
+});
+
+export { StyledNotesLayout, StyledNote, StyledOutputLine, StyledNotesWrapper };

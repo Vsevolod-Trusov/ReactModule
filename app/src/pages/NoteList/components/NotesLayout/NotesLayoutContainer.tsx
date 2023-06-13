@@ -9,7 +9,7 @@ import { NOTES_LAYOUT_ID } from 'pages/SignIn/constants';
 
 import { IInfinityScroll } from './types';
 import { DROPPABLE_ID } from './constants';
-import { StyledNotesLayout } from './styled';
+import { StyledNotesLayout, StyledNotesWrapper } from './styled';
 import NotesLayout from './NotesLayout';
 
 const NotesLayoutContainer: FC<IInfinityScroll> = ({
@@ -55,12 +55,15 @@ const NotesLayoutContainer: FC<IInfinityScroll> = ({
               scrollableTarget={NOTES_LAYOUT_ID}
               style={{ overflow: 'none' }}
             >
-              <Box {...provided.droppableProps} ref={provided.innerRef}>
+              <StyledNotesWrapper
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+              >
                 <NotesLayout
                   notes={notes}
                   handleSetSelectedNote={handleSetSelectedNote}
                 />
-              </Box>
+              </StyledNotesWrapper>
             </InfiniteScroll>
           )}
         </Droppable>
