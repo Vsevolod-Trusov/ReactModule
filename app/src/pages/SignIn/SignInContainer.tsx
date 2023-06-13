@@ -1,57 +1,18 @@
-import { useQuery } from '@tanstack/react-query';
 import React, { FC } from 'react';
 import { FormikValues } from 'formik';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
-import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'api/constants';
-import { ROUTE } from 'config/constants/routes';
-import { setUser } from 'store/slices/user.slice';
-import { IUser } from 'pages/SignUp/types';
+import { useSignIn } from 'api/auth';
 
 import SignIn from './SignIn';
 
 const SignInContainer: FC = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { isError, data } = useQuery({
-    queryKey: ['users'],
-
-    queryFn: async () =>
-      await fetch(`${MOCK_API_ADDRESS}${FETCH_URLS.USERS}`, {
-        method: FETCH_METHODS.GET,
-        headers: { Accept: 'application/json' },
-        cache: 'no-cache',
-      }),
-  });
+  const mutation = useSignIn();
 
   const handleSignIn = async (credentials: FormikValues) => {
-    if (isError) {
-      alert('error in fetch');
-
-      return;
-    }
-
-    const users = await data?.json();
-    if (users) {
-      const user = users.find(
-        (item: IUser) =>
-          item.email === credentials.email &&
-          item.password === credentials.password,
-      );
-
-      if (!user) alert('Wrong email or password');
-      else {
-        dispatch(setUser(user));
-        window.localStorage.setItem('id', user?.id);
-        window.localStorage.setItem('email', user?.email);
-        window.localStorage.setItem('firstname', user?.firstName);
-        window.localStorage.setItem('lastname', user?.lastName);
-        window.localStorage.setItem('birthday', user?.birthday);
-        window.localStorage.setItem('password', user?.password);
-        navigate(ROUTE.NOTES);
-      }
-    }
+    mutation.mutate({
+      email: credentials.email,
+      password: credentials.password,
+    });
   };
 
   return <SignIn handleSubmit={handleSignIn} />;
