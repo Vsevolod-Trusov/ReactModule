@@ -5,7 +5,6 @@ import { ILinkContainer } from 'components/Navbar/types';
 import { ROUTE } from 'config/constants/routes';
 
 import Link from './Link';
-import { LOCALSTORAGE_EMAIL } from './contstants';
 
 const LinkContainer: FC<ILinkContainer> = ({ name, route, isExit }) => {
   const navigate = useNavigate();
@@ -14,7 +13,7 @@ const LinkContainer: FC<ILinkContainer> = ({ name, route, isExit }) => {
     return (
       <Link
         onClick={() => {
-          window.localStorage.removeItem(LOCALSTORAGE_EMAIL);
+          window.localStorage.clear();
           navigate(ROUTE.SIGNIN);
         }}
         name={name}
