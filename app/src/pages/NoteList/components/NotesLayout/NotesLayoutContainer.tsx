@@ -52,12 +52,11 @@ const NotesLayoutContainer: FC<IInfinityScroll> = ({
         <Droppable droppableId={DROPPABLE_ID} type={'group'}>
           {(provided) => (
             <InfiniteScroll
-              dataLength={notes.length}
+              dataLength={notes?.length}
               next={setNotes}
               hasMore={hasMore}
               loader={
                 <StyledLoaderWrapper>
-                  {' '}
                   <CircularProgress />
                 </StyledLoaderWrapper>
               }
