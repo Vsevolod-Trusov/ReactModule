@@ -1,15 +1,18 @@
 import React, { FC } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { FormikValues } from 'formik';
+import { useNavigate } from 'react-router-dom';
 
 import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'api/constants';
 import { Constants } from 'validations/constants';
 import { stringIsEquals } from 'utils/formatText';
+import { ROUTE } from 'config/constants/routes';
 
 import SignUp from './SignUp';
 import { IUser } from './types';
 
 const SignUpContainer: FC = () => {
+  const navigate = useNavigate();
   const mutation = useMutation({
     mutationFn: async (newUser: IUser) =>
       await fetch(`${MOCK_API_ADDRESS}${FETCH_URLS.USERS}`, {
@@ -34,7 +37,7 @@ const SignUpContainer: FC = () => {
   };
 
   if (mutation.isSuccess) {
-    alert('success');
+    navigate(ROUTE.SIGNIN);
   }
 
   if (mutation.isError) {

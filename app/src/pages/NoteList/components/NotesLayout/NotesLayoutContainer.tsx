@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import Box from '@mui/material/Box';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import CircularProgress from '@mui/material/CircularProgress';
 import { useDispatch } from 'react-redux';
 
 import { setPostNotes } from 'store/slices/notes.slice';
@@ -9,7 +9,11 @@ import { NOTES_LAYOUT_ID } from 'pages/SignIn/constants';
 
 import { IInfinityScroll } from './types';
 import { DROPPABLE_ID } from './constants';
-import { StyledNotesLayout, StyledNotesWrapper } from './styled';
+import {
+  StyledNotesLayout,
+  StyledNotesWrapper,
+  StyledLoaderWrapper,
+} from './styled';
 import NotesLayout from './NotesLayout';
 
 const NotesLayoutContainer: FC<IInfinityScroll> = ({
@@ -51,7 +55,12 @@ const NotesLayoutContainer: FC<IInfinityScroll> = ({
               dataLength={notes.length}
               next={setNotes}
               hasMore={hasMore}
-              loader={<h4>Loading...</h4>}
+              loader={
+                <StyledLoaderWrapper>
+                  {' '}
+                  <CircularProgress />
+                </StyledLoaderWrapper>
+              }
               scrollableTarget={NOTES_LAYOUT_ID}
               style={{ overflow: 'none' }}
             >

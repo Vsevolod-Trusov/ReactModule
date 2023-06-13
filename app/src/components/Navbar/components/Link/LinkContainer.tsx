@@ -15,7 +15,7 @@ const LinkContainer: FC<ILinkContainer> = ({ name, route, isExit }) => {
       <Link
         onClick={() => {
           window.localStorage.removeItem(LOCALSTORAGE_EMAIL);
-          navigate(ROUTE.MAIN);
+          navigate(ROUTE.SIGNIN);
         }}
         name={name}
       />

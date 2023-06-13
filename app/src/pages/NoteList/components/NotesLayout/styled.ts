@@ -51,4 +51,16 @@ const StyledNotesWrapper = styled(Box)({
   },
 });
 
-export { StyledNotesLayout, StyledNote, StyledOutputLine, StyledNotesWrapper };
+const StyledLoaderWrapper = styled(Box)({
+  display: 'flex',
+  minWidth: '90%',
+  justifyContent: 'center',
+});
+
+export {
+  StyledNotesLayout,
+  StyledLoaderWrapper,
+  StyledNote,
+  StyledOutputLine,
+  StyledNotesWrapper,
+};

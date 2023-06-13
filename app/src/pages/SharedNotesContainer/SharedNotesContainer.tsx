@@ -16,7 +16,7 @@ const SharedNotesContainer: FC = () => {
   const dispatch = useDispatch();
 
   if (!window.localStorage.getItem('email') || !firstname) {
-    return <Navigate to={ROUTE.NOT_FOUND} />;
+    return <Navigate to={ROUTE.SIGNIN} />;
   }
 
   useQuery({
