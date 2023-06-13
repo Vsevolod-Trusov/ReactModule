@@ -8,6 +8,7 @@ import { TNote, TUpdateNote } from 'pages/NoteList/types';
 import { ROUTE } from 'config/constants/routes';
 import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'api/constants';
 import { selectNotes, setReduxNotes } from 'store/slices/notes.slice';
+import { useEditNote } from 'api/notes';
 
 import { IEditNodeProps, IHandleEditNote } from './types';
 import EditNoteForm from './EditNoteForm';
@@ -19,24 +20,12 @@ const EditNoteContainer: FC<IEditNodeProps> = () => {
   const selectedNote: TNote = note ? JSON.parse(note) : undefined;
   const savedNotes: TNote[] = useSelector(selectNotes);
   const dispatch = useDispatch();
-  const queryClient = useQueryClient();
 
   const [description, setDescription] = useState<string>(
     selectedNote ? selectedNote?.description : '',
   );
 
-  const mutation = useMutation({
-    mutationFn: async (updatedNode: TUpdateNote) =>
-      await fetch(`${MOCK_API_ADDRESS}${FETCH_URLS.NOTES}/${selectedNote.id}`, {
-        method: FETCH_METHODS.PUT,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(updatedNode),
-      }),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.NOTES] });
-      navigate(ROUTE.NOTES);
-    },
-  });
+  const mutation = useEditNote(selectedNote.id);
 
   const handleEditNote = ({ description }: IHandleEditNote) => {
     const selectedNoteIndex = savedNotes.findIndex(
