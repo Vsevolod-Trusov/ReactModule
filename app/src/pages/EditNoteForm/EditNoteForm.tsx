@@ -57,7 +57,6 @@ const EditNoteForm: FC<IEditNodeForm> = ({
         >
           {EDIT}
         </Button>
-
         <Button
           variant='contained'
           color='primary'

@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, ChangeEvent } from 'react';
 
-import { TNote } from '../../types';
+import { TNote } from 'pages/NoteList/types';
 
 export interface IEditNodeProps {
   note?: TNote;

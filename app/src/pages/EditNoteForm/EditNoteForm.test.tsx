@@ -1,6 +1,6 @@
 import { fireEvent, logRoles, render, waitFor } from '@testing-library/react';
 
-import { NODES } from 'pages/NoteList/constants';
+import { NODES } from '../NoteList/constants';
 
 import EditNoteForm from './EditNoteForm';
 import { DESCRIPTION_LABEL } from './constants';

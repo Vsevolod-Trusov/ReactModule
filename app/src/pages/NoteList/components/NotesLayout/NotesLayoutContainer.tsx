@@ -4,7 +4,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { useDispatch } from 'react-redux';
 
-import { setPostNotes } from '../../../../store/slices/notes.slice';
+import { setPostNotes } from 'store/slices/notes.slice';
 import { NOTES_LAYOUT_ID } from 'pages/SignIn/constants';
 
 import { IInfinityScroll } from './types';
@@ -68,5 +68,4 @@ const NotesLayoutContainer: FC<IInfinityScroll> = ({
     </DragDropContext>
   );
 };
-
 export default NotesLayoutContainer;

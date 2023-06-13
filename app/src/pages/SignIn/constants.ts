@@ -6,4 +6,5 @@ export const INITIAL_SIGNIN: ICredentials = {
 };
 
 export const NOTES_LAYOUT_ID = 'NOTES_ID';
-
+export const SUBMIT_BUTTON = 'Sign In';
+export const TITLE = 'Sign In';

@@ -4,8 +4,8 @@ import Box from '@mui/material/Box';
 
 import { formatDate } from 'utils/formatDate';
 import { sliceText } from 'utils/formatText';
-import { EMPTY_LINE, SLICE_POSITION } from 'pages/Notes/constants';
-import { TNote } from 'pages/Notes/types';
+import { EMPTY_LINE, SLICE_POSITION } from 'pages/NoteList/constants';
+import { TNote } from 'pages/NoteList/types';
 
 import { StyledNote, StyledOutputLine } from './styled';
 import { INotes } from './types';
@@ -27,11 +27,9 @@ const NotesLayout: FC<INotes> = ({ notes, handleSetSelectedNote }) => (
                 }
               >
                 <Box>Title: {note.title}</Box>
-
                 <StyledOutputLine>
                   {sliceText(note.description, SLICE_POSITION)}
                 </StyledOutputLine>
-
                 <StyledOutputLine>
                   {note.dateCreation
                     ? formatDate(new Date(note.dateCreation))

@@ -2,56 +2,53 @@ import React, { FC } from 'react';
 import { Formik, FormikValues } from 'formik';
 import { Button } from '@mui/material';
 
-import { default as FormInput } from 'components/FormInput/index';
-import { default as Form } from 'components/Form/index';
-import { default as Title } from 'components/Title';
-import { default as FormControlLayout } from 'components/FormControlLayout/index';
-import { EMAIL_FIELD, PASSWORD_FIELD } from 'pages/constants';
+import { FormInput, Form, Title, FormControlLayout } from 'components/index';
+import {
+  EMAIL_FIELD,
+  EMAIL_PLACEHOLDER,
+  PASSWORD_FIELD,
+  PASSWORD_PLACEHOLDER,
+} from 'pages/constants';
+import { signInValidationSchema } from 'validations/signInValidationSchema';
 
-import { INITIAL_SIGNIN } from './constants';
-import { signInValidationSchema } from './validation';
+import { INITIAL_SIGNIN, SUBMIT_BUTTON, TITLE } from './constants';
 import { StyledWrapper } from './styled';
 import { ISignIn } from './types';
 
-const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => {
-  return (
-    <StyledWrapper>
-      <Formik
-        initialValues={INITIAL_SIGNIN}
-        validationSchema={signInValidationSchema}
-        onSubmit={(values: FormikValues) => handleSignIn(values)}
-      >
-        {({ handleSubmit }) => (
-          <Form onSubmit={handleSubmit}>
-            <Title variant={'h1'}>Sign In</Title>
-
-            <FormControlLayout
+const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => (
+  <StyledWrapper>
+    <Formik
+      initialValues={INITIAL_SIGNIN}
+      validationSchema={signInValidationSchema}
+      onSubmit={(values: FormikValues) => handleSignIn(values)}
+    >
+      {({ handleSubmit }) => (
+        <Form onSubmit={handleSubmit}>
+          <Title variant={'h1'}>{TITLE}</Title>
+          <FormControlLayout
+            margin={'normal'}
+            variant={'filled'}
+            size={'medium'}
+          >
+            <FormInput
+              name={EMAIL_FIELD}
+              placeholder={EMAIL_PLACEHOLDER}
               margin={'normal'}
-              variant={'filled'}
-              size={'medium'}
-            >
-              <FormInput
-                name={EMAIL_FIELD}
-                placeholder='Enter email'
-                margin={'normal'}
-              />
-
-              <FormInput
-                name={PASSWORD_FIELD}
-                placeholder='Enter password'
-                type={'password'}
-                margin={'normal'}
-              />
-
-              <Button type='submit' variant={'contained'}>
-                Submit
-              </Button>
-            </FormControlLayout>
-          </Form>
-        )}
-      </Formik>
-    </StyledWrapper>
-  );
-};
+            />
+            <FormInput
+              name={PASSWORD_FIELD}
+              placeholder={PASSWORD_PLACEHOLDER}
+              type={'password'}
+              margin={'normal'}
+            />
+            <Button type='submit' variant={'contained'}>
+              {SUBMIT_BUTTON}
+            </Button>
+          </FormControlLayout>
+        </Form>
+      )}
+    </Formik>
+  </StyledWrapper>
+);
 
 export default SignIn;

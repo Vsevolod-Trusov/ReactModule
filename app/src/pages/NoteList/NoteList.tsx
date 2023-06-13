@@ -1,16 +1,15 @@
 import React, { FC } from 'react';
 import Box from '@mui/material/Box';
 
-import InfinityScrollContainer from 'components/InfinityScroll';
+import { InfinityScroll, FilterNotes } from 'components/index';
 
 import { TNoteListProps } from './types';
-import FilterNotesContainer from 'components/FilterNotes';
 
 const NoteList: FC<TNoteListProps> = ({ handleSetSelectedNote }) => {
   return (
     <Box>
-      <FilterNotesContainer isShared={false} />
-      <InfinityScrollContainer
+      <FilterNotes isShared={false} />
+      <InfinityScroll
         isShared={false}
         handleSetSelectedNote={handleSetSelectedNote}
       />

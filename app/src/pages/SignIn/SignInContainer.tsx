@@ -4,13 +4,9 @@ import { FormikValues } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import {
-  FETCH_METHODS,
-  FETCH_URLS,
-  MOCK_API_ADDRESS,
-} from 'config/fetch_urls/fetch';
-import { ROUTE } from 'config/routes/routes';
-import { setUser } from 'config/redux/slices/user.slice';
+import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'api/constants';
+import { ROUTE } from 'config/constants/routes';
+import { setUser } from 'store/slices/user.slice';
 import { IUser } from 'pages/SignUp/types';
 
 import SignIn from './SignIn';

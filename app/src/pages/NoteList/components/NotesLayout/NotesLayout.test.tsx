@@ -2,13 +2,13 @@ import { render } from '@testing-library/react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import React from 'react';
 
-import { NODES } from 'pages/Notes/constants';
+import { NODES } from 'pages/NoteList/constants';
 
 import { DROPPABLE_ID } from './constants';
 import NotesLayout from './NotesLayout';
 
 describe('set to test notes array is displayed', () => {
-  const mockedhandleSetNote = jest.fn();
+  const mockedHandleSetNote = jest.fn();
   const mockedOnDragEnd = jest.fn();
 
   it('expect array is displayed', async () => {
@@ -19,7 +19,7 @@ describe('set to test notes array is displayed', () => {
             <div {...provided.droppableProps} ref={provided.innerRef}>
               <NotesLayout
                 notes={NODES}
-                handleSetSelectedNote={mockedhandleSetNote}
+                handleSetSelectedNote={mockedHandleSetNote}
               />
             </div>
           )}

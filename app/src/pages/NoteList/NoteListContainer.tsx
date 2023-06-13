@@ -3,16 +3,16 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ROUTE } from '../../config/constants/routes';
+import { ROUTE } from 'config/constants/routes';
 import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'api/constants';
-import { setReduxNotes } from '../../store/slices/notes.slice';
-import { selectFirstName } from '../../store/slices/user.slice';
+import { setReduxNotes } from 'store/slices/notes.slice';
+import { selectFirstName } from 'store/slices/user.slice';
 import { QUERY_KEYS } from 'pages/constants';
 
 import { TNote } from './types';
 import NoteList from './NoteList';
 
-const NotesListContainer: FC = () => {
+const NoteListContainer: FC = () => {
   const firstname = useSelector(selectFirstName);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -48,4 +48,4 @@ const NotesListContainer: FC = () => {
   return <NoteList handleSetSelectedNote={handleSelectNode} />;
 };
 
-export default NotesListContainer;
+export default NoteListContainer;

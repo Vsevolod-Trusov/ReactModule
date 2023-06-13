@@ -15,5 +15,8 @@ export enum QUERY_KEYS {
   FILTER_NOTES = 'filter-notes',
 }
 
+export const EMAIL_PLACEHOLDER = 'Enter email';
+export const PASSWORD_PLACEHOLDER = 'Enter password';
+
 export const EMAIL_FIELD = 'email';
 export const PASSWORD_FIELD = 'password';

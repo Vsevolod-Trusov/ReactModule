@@ -2,7 +2,10 @@ import styled from 'styled-components';
 import Box from '@mui/material/Box';
 
 import { COLORS } from 'pages/colors';
-import { HOVER_NODE_SHADOW, SELECTED_NODE_SHADOW } from 'pages/Notes/constants';
+import {
+  HOVER_NODE_SHADOW,
+  SELECTED_NODE_SHADOW,
+} from 'pages/NoteList/constants';
 
 const StyledNotesLayout = styled(Box)({
   display: 'block',

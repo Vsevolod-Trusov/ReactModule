@@ -1,21 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { FormikValues } from 'formik';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { selectFirstName } from 'config/redux/slices/user.slice';
-import { ROUTE } from 'config/routes/routes';
-import {
-  FETCH_METHODS,
-  FETCH_URLS,
-  MOCK_API_ADDRESS,
-} from 'config/fetch_urls/fetch';
-import { TNote } from 'pages/Notes/types';
+import { selectFirstName } from 'store/slices/user.slice';
+import { ROUTE } from 'config/constants/routes';
+import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'api/constants';
+import { TNote } from 'pages/NoteList/types';
 
 import NotesForm from './NotesForm';
 
-const NotesFormContainer = () => {
+const NotesFormContainer: FC = () => {
   const navigate = useNavigate();
   const firstname = useSelector(selectFirstName);
 

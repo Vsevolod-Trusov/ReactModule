@@ -1,4 +1,4 @@
-import { TNote } from 'pages/Notes/types';
+import { TNote } from 'pages/NoteList/types';
 
 export interface INodesLayout {
   title?: string;

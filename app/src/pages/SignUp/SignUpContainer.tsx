@@ -2,12 +2,8 @@ import React, { FC } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { FormikValues } from 'formik';
 
-import {
-  FETCH_METHODS,
-  FETCH_URLS,
-  MOCK_API_ADDRESS,
-} from 'config/fetch_urls/fetch';
-import { ERROR } from 'common/errors';
+import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'api/constants';
+import { Constants } from 'validations/constants';
 import { stringIsEquals } from 'utils/formatText';
 
 import SignUp from './SignUp';
@@ -33,7 +29,7 @@ const SignUpContainer: FC = () => {
         password: values.password,
       });
     } else {
-      alert(ERROR.PASSWORD_NOT_EQUAL);
+      alert(Constants.PASSWORD_NOT_EQUAL);
     }
   };
 

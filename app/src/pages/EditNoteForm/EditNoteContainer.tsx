@@ -3,14 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { QUERY_KEYS } from '../../../constants';
-import { TNote, TUpdateNote } from '../../types';
-import { ROUTE } from '../../../../config/constants/routes';
+import { QUERY_KEYS } from 'pages/constants';
+import { TNote, TUpdateNote } from 'pages/NoteList/types';
+import { ROUTE } from 'config/constants/routes';
 import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'api/constants';
-import {
-  selectNotes,
-  setReduxNotes,
-} from '../../../../store/slices/notes.slice';
+import { selectNotes, setReduxNotes } from 'store/slices/notes.slice';
 
 import { IEditNodeProps, IHandleEditNote } from './types';
 import EditNoteForm from './EditNoteForm';

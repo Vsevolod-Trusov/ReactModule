@@ -1,7 +1,7 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 
-import { ERROR } from 'common/errors';
+import { Constants } from 'validations/constants';
 
 import NotesForm from './NotesForm';
 
@@ -81,7 +81,7 @@ describe('set to test notes form', () => {
     fireEvent.click(button);
 
     const errorContainer = await waitFor(() =>
-      getByText(ERROR.DESCRIPTION_REQUIRED),
+      getByText(Constants.DESCRIPTION_REQUIRED),
     );
 
     expect(errorContainer).toBeDefined();

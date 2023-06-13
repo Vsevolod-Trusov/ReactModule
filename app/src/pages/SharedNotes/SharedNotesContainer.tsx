@@ -2,20 +2,14 @@ import React, { FC } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Navigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
-import { TNote } from 'pages/Notes/types';
+import { TNote } from 'pages/NoteList/types';
 import { useDispatch, useSelector } from 'react-redux';
 
-import InfinityScrollContainer from 'components/InfinityScroll';
-import FilterNotesContainer from 'components/FilterNotes';
-
-import { ROUTE } from 'config/routes/routes';
-import {
-  FETCH_METHODS,
-  FETCH_URLS,
-  MOCK_API_ADDRESS,
-} from 'config/fetch_urls/fetch';
-import { setShared } from 'config/redux/slices/notes.slice';
-import { selectFirstName } from 'config/redux/slices/user.slice';
+import { InfinityScroll, FilterNotes } from 'components/index';
+import { ROUTE } from 'config/constants/routes';
+import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'api/constants';
+import { setShared } from 'store/slices/notes.slice';
+import { selectFirstName } from 'store/slices/user.slice';
 
 const SharedNotesContainer: FC = () => {
   const firstname = useSelector(selectFirstName);
@@ -41,9 +35,8 @@ const SharedNotesContainer: FC = () => {
 
   return (
     <Box>
-      <FilterNotesContainer isShared={true} />
-
-      <InfinityScrollContainer isShared={true} />
+      <FilterNotes isShared={true} />
+      <InfinityScroll isShared={true} />
     </Box>
   );
 };
