@@ -12,6 +12,7 @@ export enum ROUTE_LABELS {
 
 export enum QUERY_KEYS {
   NOTES = 'notes',
+  USERS = 'users',
   FILTER_NOTES = 'filter-notes',
 }
 
