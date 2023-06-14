@@ -6,10 +6,10 @@ import { useSignIn } from 'api/auth';
 import SignIn from './SignIn';
 
 const SignInContainer: FC = () => {
-  const mutation = useSignIn();
+  const signInMutation = useSignIn();
 
   const handleSignIn = async (credentials: FormikValues) => {
-    mutation.mutate({
+    signInMutation.mutate({
       email: credentials.email,
       password: credentials.password,
     });

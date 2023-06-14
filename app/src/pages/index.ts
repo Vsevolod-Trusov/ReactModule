@@ -1,6 +1,7 @@
 import About from './About';
 import Error from './ErrorPage';
 import NoteList from './NoteList';
+import SelectedNote from './SelectedNote';
 import NotesForm from './NotesForm';
 import SharedNotes from './SharedNotesContainer';
 import EditNoteForm from './EditNoteForm';
@@ -16,4 +17,5 @@ export {
   SignIn,
   SignUp,
   EditNoteForm,
+  SelectedNote,
 };
