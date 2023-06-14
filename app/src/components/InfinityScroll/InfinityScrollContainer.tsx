@@ -11,7 +11,6 @@ import NotesLayoutContainer from 'pages/NoteList/components/NotesLayout';
 import { TInfinityScrollProps } from 'pages/NoteList/types';
 
 import { LIMIT, START } from './constants';
-import { useGetNotes } from '../../api/notes';
 
 const InfinityScrollContainer: FC<TInfinityScrollProps> = ({
   handleSetSelectedNote,
@@ -21,7 +20,6 @@ const InfinityScrollContainer: FC<TInfinityScrollProps> = ({
   const dispatch = useDispatch();
   const postData = useSelector(selectPostNotes);
 
-  const [visible, setVisible] = useState(LIMIT);
   const [hasMore, setHasMore] = useState(true);
   const [getMore, setGetMore] = useState(false);
 
@@ -31,28 +29,28 @@ const InfinityScrollContainer: FC<TInfinityScrollProps> = ({
 
   useEffect(() => {
     dispatch(setPostNotes(notes.slice(START, LIMIT)));
+  }, [notes]);
+
+  useEffect(() => {
+    if (getMore) {
+      const newLimit = postData.length + LIMIT;
+      const addNotes = notes.slice(postData.length, newLimit);
+      if (notes.length > postData.length) {
+        setTimeout(() => {
+          dispatch(setPostNotes([...postData].concat(addNotes)));
+        }, 200);
+      }
+    }
+    setGetMore(false);
+  }, [getMore]);
+
+  useEffect(() => {
     if (postData.length < notes.length) {
       setHasMore(notes.length > LIMIT);
     } else {
       setHasMore(false);
     }
-  }, [notes]);
-
-  useEffect(() => {
-    if (getMore) {
-      const newLimit = visible + LIMIT;
-      const addNotes = notes.slice(visible, newLimit);
-      if (notes.length > postData.length) {
-        setTimeout(() => {
-          dispatch(setPostNotes([...postData].concat(addNotes)));
-        }, 500);
-        setVisible(newLimit);
-      } else {
-        setHasMore(false);
-      }
-    }
-    setGetMore(false);
-  }, [getMore]);
+  }, [postData.length]);
 
   return (
     <NotesLayoutContainer
