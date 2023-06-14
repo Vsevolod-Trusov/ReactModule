@@ -6,16 +6,16 @@ import { COLORS } from 'pages/colors';
 
 const StyledNavbar = styled(Box)({
   display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  height: '100vh',
-
-  borderRight: `1px solid ${COLORS.BORDER_COLOR}`,
-  outline: `1px solid #0b31be`,
+  justifyContent: 'center',
+  minWidth: '100%',
+  alignSelf: 'center',
 });
 
 const StyledNavbarBox = styled(Box)({
+  display: 'flex',
   flex: '0.2',
+  justifyContent: 'center',
+  minWidth: '100%',
 });
 
 const StyledHeaderWrapper = styled(Box)({
