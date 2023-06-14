@@ -14,19 +14,37 @@ import {
   SharedNotes,
   About,
   NotesForm,
+  SelectedNote,
 } from 'pages/index';
 import { ROUTE } from 'config/constants/routes';
 
 import App from '../../App';
+import React from 'react';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path={ROUTE.MAIN} element={<App />}>
-      <Route path={ROUTE.NOTES} element={<NoteList />} />
+      <Route path={ROUTE.NOTES} element={<NoteList />}>
+        <Route path={ROUTE.NOTES} element={<SelectedNote />} />
+        <Route path={ROUTE.SELECTED_NOTE} element={<SelectedNote />} />
+        <Route
+          path={ROUTE.MY_NOTE}
+          element={<EditNoteForm isShared={false} />}
+        />
+      </Route>
+      <Route path={ROUTE.SHARED} element={<SharedNotes />}>
+        <Route path={ROUTE.SHARED} element={<SelectedNote isShared={true} />} />
+        <Route
+          path={ROUTE.SELECTED_SHARE}
+          element={<SelectedNote isShared={true} />}
+        />
+        <Route
+          path={ROUTE.SHARED_NOTE}
+          element={<EditNoteForm isShared={true} />}
+        />
+      </Route>
       <Route path={ROUTE.NOTES_FORM} element={<NotesForm />} />
-      <Route path={ROUTE.SHARED} element={<SharedNotes />} />
       <Route path={ROUTE.ABOUT} element={<About />} />
-      <Route path={ROUTE.NOTE} element={<EditNoteForm />} />
       <Route path={ROUTE.SIGNIN} element={<SignIn />} />
       <Route path={ROUTE.SIGNUP} element={<SignUp />} />
       <Route path={ROUTE.NOT_FOUND} element={<Error />} />
