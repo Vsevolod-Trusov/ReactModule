@@ -6,6 +6,7 @@ export interface IEditNodeProps {
   note?: TNote;
   setNotes?: Dispatch<SetStateAction<TNote[]>>;
   notes?: TNote[];
+  isShared?: boolean;
 }
 
 export interface IHandleEditNote {

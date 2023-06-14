@@ -1,23 +1,22 @@
 import React, { ChangeEvent, FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { QUERY_KEYS } from 'pages/constants';
-import { TNote, TUpdateNote } from 'pages/NoteList/types';
+import { TNote } from 'pages/NoteList/types';
 import { ROUTE } from 'config/constants/routes';
-import { FETCH_METHODS, FETCH_URLS, MOCK_API_ADDRESS } from 'api/constants';
-import { selectNotes, setReduxNotes } from 'store/slices/notes.slice';
+import {
+  selectNote,
+  selectNotes,
+  setReduxNotes,
+} from 'store/slices/notes.slice';
 import { useEditNote } from 'api/notes';
 
 import { IEditNodeProps, IHandleEditNote } from './types';
 import EditNoteForm from './EditNoteForm';
 
-const EditNoteContainer: FC<IEditNodeProps> = () => {
+const EditNoteContainer: FC<IEditNodeProps> = ({ isShared }) => {
   const navigate = useNavigate();
-
-  const note = localStorage.getItem('selected') || undefined;
-  const selectedNote: TNote = note ? JSON.parse(note) : undefined;
+  const selectedNote: TNote = useSelector(selectNote);
   const savedNotes: TNote[] = useSelector(selectNotes);
   const dispatch = useDispatch();
 
@@ -25,7 +24,7 @@ const EditNoteContainer: FC<IEditNodeProps> = () => {
     selectedNote ? selectedNote?.description : '',
   );
 
-  const mutation = useEditNote(selectedNote.id);
+  const mutation = useEditNote(selectedNote.id, isShared);
 
   const handleEditNote = ({ description }: IHandleEditNote) => {
     const selectedNoteIndex = savedNotes.findIndex(

@@ -1,5 +1,7 @@
 import React, { FC } from 'react';
-import { Box, TextField, Button } from '@mui/material';
+import { TextField, Button } from '@mui/material';
+
+import { StyledButtonWrapper } from 'pages/SelectedNote/styled';
 
 import {
   EDIT,
@@ -9,7 +11,7 @@ import {
   DESCRIPTION_LABEL,
 } from './constants';
 import { IEditNodeForm } from './types';
-import { StyledEditNodeForm } from './styled';
+import { StyledEditNodeForm, StyledEditNodeFormWrapper } from './styled';
 
 const EditNoteForm: FC<IEditNodeForm> = ({
   note,
@@ -20,53 +22,55 @@ const EditNoteForm: FC<IEditNodeForm> = ({
 }) => {
   const { title, dateCreation } = note;
   return (
-    <StyledEditNodeForm>
-      <TextField
-        label={TITLE_LABEL}
-        value={title}
-        variant='outlined'
-        margin='normal'
-        fullWidth
-        disabled
-      />
-      <TextField
-        label={DATE_LABEL}
-        value={dateCreation}
-        variant='outlined'
-        margin='normal'
-        fullWidth
-        disabled
-      />
-      <TextField
-        label={DESCRIPTION_LABEL}
-        value={description}
-        name={'nodeText'}
-        onChange={handleSetDescription}
-        variant='outlined'
-        rows={4}
-        margin='normal'
-        fullWidth
-        multiline
-      />
-      <Box>
-        <Button
-          variant='contained'
-          color='primary'
-          type='submit'
-          onClick={() => handleEditNote({ description: description })}
-        >
-          {EDIT}
-        </Button>
-        <Button
-          variant='contained'
-          color='primary'
-          type='submit'
-          onClick={() => handleShareNote()}
-        >
-          {SHARE}
-        </Button>
-      </Box>
-    </StyledEditNodeForm>
+    <StyledEditNodeFormWrapper>
+      <StyledEditNodeForm>
+        <TextField
+          label={TITLE_LABEL}
+          value={title}
+          variant='outlined'
+          margin='normal'
+          fullWidth
+          disabled
+        />
+        <TextField
+          label={DATE_LABEL}
+          value={dateCreation}
+          variant='outlined'
+          margin='normal'
+          fullWidth
+          disabled
+        />
+        <TextField
+          label={DESCRIPTION_LABEL}
+          value={description}
+          name={'nodeText'}
+          onChange={handleSetDescription}
+          variant='outlined'
+          rows={4}
+          margin='normal'
+          fullWidth
+          multiline
+        />
+        <StyledButtonWrapper>
+          <Button
+            variant='contained'
+            color='primary'
+            type='submit'
+            onClick={() => handleEditNote({ description: description })}
+          >
+            {EDIT}
+          </Button>
+          <Button
+            variant='contained'
+            color='primary'
+            type='submit'
+            onClick={() => handleShareNote()}
+          >
+            {SHARE}
+          </Button>
+        </StyledButtonWrapper>
+      </StyledEditNodeForm>
+    </StyledEditNodeFormWrapper>
   );
 };
 
