@@ -8,10 +8,11 @@ export const EMPTY_LINE = '';
 export const SLICE_POSITION = 20;
 
 export const INITIAL_STATE: TNote = {
-  id: null,
-  title: '',
-  description: '',
-  dateCreation: null,
+  id: JSON.parse(localStorage.getItem('selected'))?.id || null,
+  title: JSON.parse(localStorage.getItem('selected'))?.title || '',
+  description: JSON.parse(localStorage.getItem('selected'))?.description || '',
+  dateCreation:
+    JSON.parse(localStorage.getItem('selected'))?.dateCreation || null,
 };
 
 export const NODES: TNote[] = [

@@ -13,7 +13,7 @@ const StyledNotesLayout = styled(Box)({
   justifyContent: 'center',
   alignItems: 'center',
   marginTop: '0.5rem',
-  height: '80vh',
+  height: '75vh',
   overflowY: 'scroll',
 });
 
@@ -24,9 +24,8 @@ const StyledNote = styled(Box)({
   padding: '1rem',
   borderTop: `1px solid ${COLORS.BORDER_COLOR}`,
   borderRight: `1px solid ${COLORS.BORDER_COLOR}`,
-  borderLeft: `1px solid ${COLORS.BORDER_COLOR}`,
   margin: '1rem 1 rem 0 1rem',
-  backgroundColor: COLORS.NOTE_BACKGROUND,
+  backgroundColor: 'transparent',
 
   ':hover': {
     backgroundColor: COLORS.NOTE_BACKGROUND_HOVER,
@@ -54,6 +53,7 @@ const StyledNotesWrapper = styled(Box)({
 const StyledLoaderWrapper = styled(Box)({
   display: 'flex',
   minWidth: '90%',
+  padding: '1rem',
   justifyContent: 'center',
 });
 
