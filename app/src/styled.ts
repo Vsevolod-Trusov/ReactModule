@@ -7,6 +7,7 @@ const StyledApp = styled(Box)({
 
 const StyledNavbarWrapper = styled(Box)({
   display: 'flex',
+  flexDirection: 'column',
 });
 
 const StyledOutlet = styled(Box)({
