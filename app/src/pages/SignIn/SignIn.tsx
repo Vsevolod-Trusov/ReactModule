@@ -25,7 +25,7 @@ const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => (
       onSubmit={(values: FormikValues) => handleSignIn(values)}
     >
       {({ handleSubmit }) => (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} isSignUp={false}>
           <Title variant={'h1'}>{TITLE}</Title>
           <FormControlLayout
             margin={'normal'}
