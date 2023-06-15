@@ -6,6 +6,7 @@ import InfinityScroll from './InfinityScroll';
 import Navbar from './Navbar';
 import TextArea from './TextArea';
 import Title from './Title';
+import SignUpInput from './SignUpInput';
 
 export {
   FilterNotes,
@@ -16,4 +17,5 @@ export {
   Navbar,
   TextArea,
   Title,
+  SignUpInput,
 };
