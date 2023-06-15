@@ -13,7 +13,7 @@ const StyledNotesLayout = styled(Box)({
   justifyContent: 'center',
   alignItems: 'center',
   marginTop: '0.5rem',
-  height: '68vh',
+  height: '57vh',
   overflowY: 'scroll',
 });
 
@@ -57,10 +57,15 @@ const StyledLoaderWrapper = styled(Box)({
   justifyContent: 'center',
 });
 
+const StyledNotification = styled(Box)({
+  textAlign: 'center',
+});
+
 export {
   StyledNotesLayout,
   StyledLoaderWrapper,
   StyledNote,
   StyledOutputLine,
   StyledNotesWrapper,
+  StyledNotification,
 };

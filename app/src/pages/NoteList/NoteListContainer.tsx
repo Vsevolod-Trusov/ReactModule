@@ -16,7 +16,7 @@ const NoteListContainer: FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { data, isLoading } = useGetNotes();
+  const { data, isLoading, isSuccess } = useGetNotes();
 
   if (!window.localStorage.getItem('email') || !firstname) {
     return <Navigate to={ROUTE.SIGNIN} />;
@@ -35,7 +35,7 @@ const NoteListContainer: FC = () => {
     if (data) {
       dispatch(setReduxNotes(data));
     }
-  }, [data]);
+  }, [data, isSuccess]);
 
   if (isLoading) {
     return <CircularProgress />;

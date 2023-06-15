@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import Box from '@mui/material/Box';
 import { Outlet } from 'react-router-dom';
-import { Button } from '@mui/material';
 
 import { InfinityScroll, FilterNotes } from 'components/index';
 
@@ -21,7 +20,8 @@ const NoteList: FC<TNoteListProps> = ({
   return (
     <StyledNoteListWrapper>
       <Box>
-        <FilterNotes isShared={false} />
+        <FilterNotes isShared={false} filterByName={false} />
+        <FilterNotes isShared={false} filterByName={true} />
         <StyledButton
           type='button'
           variant={'contained'}

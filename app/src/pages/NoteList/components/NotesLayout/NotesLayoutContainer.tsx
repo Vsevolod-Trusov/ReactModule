@@ -13,6 +13,7 @@ import {
   StyledNotesLayout,
   StyledNotesWrapper,
   StyledLoaderWrapper,
+  StyledNotification,
 } from './styled';
 import NotesLayout from './NotesLayout';
 
@@ -45,6 +46,14 @@ const NotesLayoutContainer: FC<IInfinityScroll> = ({
       dispatch(setPostNotes(reorderedStores));
     }
   };
+
+  if (notes.length === 0) {
+    return (
+      <StyledNotesLayout>
+        <StyledNotification>No Notes</StyledNotification>
+      </StyledNotesLayout>
+    );
+  }
 
   return (
     <DragDropContext onDragEnd={handleDragDrop}>
