@@ -5,6 +5,7 @@ import { COLORS } from 'pages/colors';
 const StyledFilterForm = styled(Form)({
   display: 'flex',
   justifyContent: 'center',
+  marginBottom: '0.5rem',
   padding: '0 0.5rem',
   borderRadius: '0.5rem',
   boxShadow:

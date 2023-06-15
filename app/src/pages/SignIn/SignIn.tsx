@@ -20,6 +20,8 @@ const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => (
     <Formik
       initialValues={INITIAL_SIGNIN}
       validationSchema={signInValidationSchema}
+      validateOnChange={false}
+      validateOnBlur={false}
       onSubmit={(values: FormikValues) => handleSignIn(values)}
     >
       {({ handleSubmit }) => (

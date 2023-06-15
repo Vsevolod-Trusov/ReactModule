@@ -10,7 +10,6 @@ import {
   Form,
 } from 'components/index';
 import { ISignIn } from 'pages/SignIn/types';
-import { StyledWrapper } from 'pages/SignIn/styled';
 
 import {
   DATE_CREATION_FIELD,
@@ -23,18 +22,25 @@ import {
   DATA_FORM_ID,
 } from './constants';
 import { noteCreationValidationSchema } from 'validations/noteCreationValidationSchema';
+import {
+  StyledFormWrapper,
+  StyledNoteForm,
+  StyledNoteFormControl,
+} from './styled';
 
 const NotesForm: FC<ISignIn> = ({ handleSubmit }) => (
-  <StyledWrapper data-testid={DATA_FORM_ID}>
+  <StyledFormWrapper data-testid={DATA_FORM_ID}>
     <Formik
       initialValues={NOTE_INITIAL_VALUES}
       validationSchema={noteCreationValidationSchema}
+      validateOnChange={false}
+      validateOnBlur={false}
       onSubmit={(values: FormikValues) => handleSubmit(values)}
     >
       {({ handleSubmit, handleChange, values }) => (
-        <Form onSubmit={handleSubmit}>
+        <StyledNoteForm onSubmit={handleSubmit}>
           <Title variant={'h1'}>Create</Title>
-          <FormControlLayout
+          <StyledNoteFormControl
             margin={'normal'}
             variant={'filled'}
             size={'medium'}
@@ -62,11 +68,11 @@ const NotesForm: FC<ISignIn> = ({ handleSubmit }) => (
             <Button type='submit' variant={'contained'}>
               {BUTTON_TEXT}
             </Button>
-          </FormControlLayout>
-        </Form>
+          </StyledNoteFormControl>
+        </StyledNoteForm>
       )}
     </Formik>
-  </StyledWrapper>
+  </StyledFormWrapper>
 );
 
 export default NotesForm;

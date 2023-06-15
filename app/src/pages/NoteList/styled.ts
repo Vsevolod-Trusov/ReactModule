@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+
 import { COLORS } from '../colors';
 
 const StyledNoteListWrapper = styled(Box)({
@@ -23,8 +25,16 @@ const StyledInfinityScrollWrapper = styled(Box)({
     '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
 });
 
+const StyledButton = styled(Button)({
+  width: '100%',
+  borderRadius: '0.5rem',
+  boxShadow:
+    '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+});
+
 export {
   StyledNoteListWrapper,
   StyledOutletWrapper,
   StyledInfinityScrollWrapper,
+  StyledButton,
 };

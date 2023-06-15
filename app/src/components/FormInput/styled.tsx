@@ -12,6 +12,8 @@ const StyledField = styled(Field)({
   outline: 'auto',
   boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
 
+  backgroundColor: 'transparent',
+
   fontFamily: 'Montserrat',
   fontSize: '1rem',
   fontWeight: '100',

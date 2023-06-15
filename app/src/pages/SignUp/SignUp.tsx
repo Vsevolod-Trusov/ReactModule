@@ -31,6 +31,8 @@ const SignUp: FC<ISignUp> = ({ submit }) => (
     <Formik
       initialValues={SIGNUP_VALUES}
       validationSchema={signUpValidationSchema}
+      validateOnChange={false}
+      validateOnBlur={false}
       onSubmit={(values: FormikValues) => submit(values)}
     >
       {({ handleSubmit }) => (

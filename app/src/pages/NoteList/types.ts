@@ -24,6 +24,7 @@ export type TUpdateNote = {
 
 export type TNoteListProps = {
   handleSetSelectedNote?: (item: TNote) => void;
+  handleNavigateToCreate?: () => void;
 } & TSelectedNode;
 
 export type TInfinityScrollProps = {

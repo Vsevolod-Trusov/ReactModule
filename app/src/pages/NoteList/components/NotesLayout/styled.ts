@@ -13,7 +13,7 @@ const StyledNotesLayout = styled(Box)({
   justifyContent: 'center',
   alignItems: 'center',
   marginTop: '0.5rem',
-  height: '75vh',
+  height: '68vh',
   overflowY: 'scroll',
 });
 
