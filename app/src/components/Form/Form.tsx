@@ -1,9 +1,18 @@
 import React, { FC, FormHTMLAttributes, PropsWithChildren } from 'react';
 
-import { StyledForm } from './styled';
+import { SignUpForm } from 'pages/SignIn/styled';
 
-const Form: FC<PropsWithChildren<FormHTMLAttributes<HTMLFormElement>>> = (
-  props,
-) => <StyledForm onSubmit={props.onSubmit}>{props.children}</StyledForm>;
+import { StyledForm } from './styled';
+import { IForm } from './types';
+
+const Form: FC<PropsWithChildren<IForm>> = ({ isSignUp, ...props }) => (
+  <>
+    {isSignUp ? (
+      <SignUpForm onSubmit={props.onSubmit}>{props.children}</SignUpForm>
+    ) : (
+      <StyledForm onSubmit={props.onSubmit}>{props.children}</StyledForm>
+    )}
+  </>
+);
 
 export default Form;
