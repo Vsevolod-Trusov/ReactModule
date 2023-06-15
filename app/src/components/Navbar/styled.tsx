@@ -6,6 +6,7 @@ const StyledNavbar = styled(Box)({
   display: 'flex',
   justifyContent: 'center',
   minWidth: '100%',
+  maxHeight: '55px',
   alignSelf: 'center',
 });
 
