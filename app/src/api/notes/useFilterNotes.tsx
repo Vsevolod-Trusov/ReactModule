@@ -4,14 +4,15 @@ import { useDispatch } from 'react-redux';
 import { TNote } from 'pages/NoteList/types';
 import { QUERY_KEYS } from 'pages/constants';
 import { setReduxNotes, setShared } from 'store/slices/notes.slice';
-import { DATE_CREATION } from 'components/FilterNotes/constants';
+import { DATE_CREATION, TITLE } from 'components/FilterNotes/constants';
 
-import { TResponseError } from '../types';
+import { IFilterData, TResponseError } from '../types';
 import { apiClient } from '../base';
 import { FETCH_URLS } from '../constants';
 
 export const useFilterNotes = (
   isShared,
+  filterByName,
 ): UseMutationResult<TNote[], TResponseError> => {
   const dispatch = useDispatch();
 
@@ -21,11 +22,15 @@ export const useFilterNotes = (
 
   return useMutation({
     mutationKey: [QUERY_KEYS.FILTER_NOTES],
+    mutationFn: async ({ dateCreation, title }: IFilterData) => {
+      const queryParameter = filterByName
+        ? `${TITLE}=${title}`
+        : `${DATE_CREATION}=${new Date(dateCreation).toISOString()}`;
 
-    mutationFn: async (dateCreation: string) => {
-      const url = `${FETCH_URLS.NOTES}?${DATE_CREATION}=${new Date(
-        dateCreation,
-      ).toISOString()}${isShared ? '&&isShared=true' : ''}`;
+      const url = `${FETCH_URLS.NOTES}?${queryParameter}${
+        isShared ? '&&isShared=true' : ''
+      }`;
+
       return await apiClient.get(url).then((response) => response.data);
     },
 

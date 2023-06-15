@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { TNote } from 'pages/NoteList/types';
 import { QUERY_KEYS } from 'pages/constants';
-import { setShared } from 'store/slices/notes.slice';
+import { setReduxNotes, setShared } from 'store/slices/notes.slice';
 
 import { TResponseError } from '../types';
 import { apiClient } from '../base';
@@ -13,6 +13,11 @@ export const useGetSharedNotes = (): UseQueryResult<
   TNote[],
   TResponseError
 > => {
+  const dispatch = useDispatch();
+  const handleSuccess = (data) => {
+    dispatch(setShared(data));
+  };
+
   return useQuery({
     queryKey: [QUERY_KEYS.NOTES],
     queryFn: async () => {
@@ -20,6 +25,7 @@ export const useGetSharedNotes = (): UseQueryResult<
 
       return await apiClient.get(url).then((response) => response.data);
     },
+    onSuccess: handleSuccess,
     retry: false,
     refetchOnWindowFocus: false,
   });

@@ -1,8 +1,9 @@
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { QUERY_KEYS } from 'pages/constants';
 import { selectFirstName } from 'store/slices/user.slice';
+import { setReduxNotes } from 'store/slices/notes.slice';
 
 import { INoteResponse, TResponseError } from '../types';
 import { apiClient } from '../base';
@@ -13,14 +14,18 @@ export const useGetNotes = (): UseQueryResult<
   TResponseError
 > => {
   const firstname = useSelector(selectFirstName);
+  const dispatch = useDispatch();
+  const handleSuccess = (data) => {
+    dispatch(setReduxNotes(data));
+  };
 
   return useQuery({
     queryKey: [QUERY_KEYS.NOTES],
     queryFn: async () => {
       const url = `${FETCH_URLS.NOTES}?author=${firstname}`;
-
       return await apiClient.get(url).then((response) => response.data);
     },
+    onSuccess: handleSuccess,
     retry: false,
     refetchOnWindowFocus: false,
   });

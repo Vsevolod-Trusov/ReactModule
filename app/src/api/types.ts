@@ -11,5 +11,9 @@ interface IResponseError {
 export interface INoteResponse {
   notes: TNote[];
 }
+export interface IFilterData {
+  dateCreation?: string;
+  title?: string;
+}
 
 export type TResponseError = AxiosError<IResponseError>;
