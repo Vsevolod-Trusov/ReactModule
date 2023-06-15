@@ -2,6 +2,7 @@ import React, { FC, useEffect } from 'react';
 import { Navigate, Outlet, useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import { useDispatch, useSelector } from 'react-redux';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import { InfinityScroll, FilterNotes } from 'components/index';
 import { ROUTE } from 'config/constants/routes';
@@ -17,7 +18,6 @@ import {
 } from '../NoteList/styled';
 import { TNote } from '../NoteList/types';
 import { BUTTON_TEXT } from '../NoteList/constants';
-import CircularProgress from '@mui/material/CircularProgress';
 
 const SharedNotesContainer: FC = () => {
   const firstname = useSelector(selectFirstName);
@@ -42,7 +42,7 @@ const SharedNotesContainer: FC = () => {
 
   useEffect(() => {
     if (sharedNotes) dispatch(setShared(sharedNotes));
-  }, sharedNotes);
+  }, [sharedNotes]);
 
   if (isLoading) {
     return <CircularProgress />;
@@ -52,6 +52,7 @@ const SharedNotesContainer: FC = () => {
     <StyledNoteListWrapper>
       <Box>
         <FilterNotes isShared={true} />
+        <FilterNotes isShared={true} filterByName={true} />
         <StyledButton
           type='button'
           variant={'contained'}
