@@ -24,6 +24,7 @@ import React from 'react';
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path={ROUTE.MAIN} element={<App />}>
+      <Route path={ROUTE.MAIN} element={<SignIn />} />
       <Route path={ROUTE.NOTES} element={<NoteList />}>
         <Route path={ROUTE.NOTES} element={<SelectedNote />} />
         <Route path={ROUTE.SELECTED_NOTE} element={<SelectedNote />} />
