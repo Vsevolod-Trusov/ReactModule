@@ -20,8 +20,8 @@ const StyledFilterForm = styled(Form)({
     flexDirection: 'row',
 
     input: {
-      display: 'block',
-      minWidth: '10%',
+      display: 'inline',
+      width: '205px',
       height: '1rem',
     },
   },

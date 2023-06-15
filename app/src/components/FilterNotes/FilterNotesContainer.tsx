@@ -9,12 +9,16 @@ import FilterNotes from './FilterNotes';
 import { IFilterProps } from './types';
 import { useFilterNotes } from 'api/notes';
 
-const FilterNotesContainer: FC<IFilterProps> = ({ isShared }) => {
-  const mutation = useFilterNotes(isShared);
+const FilterNotesContainer: FC<IFilterProps> = ({ isShared, filterByName }) => {
+  const mutation = useFilterNotes(isShared, filterByName);
   const queryClient = useQueryClient();
 
   const filter = (values: FormikValues) => {
-    mutation.mutate(values.dateCreation);
+    if (filterByName) {
+      mutation.mutate({ title: values.title });
+    } else {
+      mutation.mutate({ dateCreation: values.dateCreation });
+    }
   };
 
   const handleRefresh = () => {
@@ -23,7 +27,11 @@ const FilterNotesContainer: FC<IFilterProps> = ({ isShared }) => {
 
   return (
     <Box>
-      <FilterNotes submit={filter} handleRefresh={handleRefresh} />
+      <FilterNotes
+        submit={filter}
+        handleRefresh={handleRefresh}
+        filterByName={filterByName}
+      />
     </Box>
   );
 };
