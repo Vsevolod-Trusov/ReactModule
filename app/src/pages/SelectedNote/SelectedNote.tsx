@@ -5,21 +5,35 @@ import { Button } from '@mui/material';
 import { Title } from 'components/index';
 import { formatDate } from 'utils/formatDate';
 
-import { StyledButtonWrapper, StyledNoteWrapper } from './styled';
+import {
+  StyledSelectedButtonWrapper,
+  StyledNoteWrapper,
+  StyledSelectedNoteWrapper,
+  StyleInfoBox,
+} from './styled';
 import { ISelectedNote } from './types';
 import { EDIT } from './constants';
+import { SHARE } from '../EditNoteForm/constants';
 
-const SelectedNote: FC<ISelectedNote> = ({ note, handleNavigateToEdit }) => {
+const SelectedNote: FC<ISelectedNote> = ({
+  note,
+  handleNavigateToEdit,
+  handleShareNote,
+}) => {
   if (!note?.title) {
     return <StyledNoteWrapper>Select note</StyledNoteWrapper>;
   }
 
   return (
-    <StyledNoteWrapper>
-      <Title variant={'h1'}>{note.title}</Title>
-      <Box>{formatDate(new Date(note.dateCreation))}</Box>
-      <Box>{note.description}</Box>
-      <StyledButtonWrapper>
+    <StyledSelectedNoteWrapper>
+      <Box>
+        <Title variant={'h1'}>{note.title}</Title>
+        <StyleInfoBox>
+          Date: {formatDate(new Date(note.dateCreation))}
+        </StyleInfoBox>
+        <StyleInfoBox>TODO: {note.description}</StyleInfoBox>
+      </Box>
+      <StyledSelectedButtonWrapper>
         <Button
           variant='contained'
           color='primary'
@@ -28,8 +42,16 @@ const SelectedNote: FC<ISelectedNote> = ({ note, handleNavigateToEdit }) => {
         >
           {EDIT}
         </Button>
-      </StyledButtonWrapper>
-    </StyledNoteWrapper>
+        <Button
+          variant='contained'
+          color='primary'
+          type='submit'
+          onClick={() => handleShareNote()}
+        >
+          {SHARE}
+        </Button>
+      </StyledSelectedButtonWrapper>
+    </StyledSelectedNoteWrapper>
   );
 };
 

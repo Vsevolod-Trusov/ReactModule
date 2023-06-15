@@ -7,12 +7,17 @@ import { selectNote } from 'store/slices/notes.slice';
 import { ROUTE } from 'config/constants/routes';
 
 import SelectedNote from './SelectedNote';
-import { StyledNoteContainerWrapper } from './styled';
+import {
+  StyledNoteContainerWrapper,
+  StyledNotificationSelected,
+} from './styled';
 import { ISelectedNoteContainer } from './types';
+import { useEditNote } from '../../api/notes';
 
 const SelectedNoteContainer: FC<ISelectedNoteContainer> = ({ isShared }) => {
   const selectedNote = useSelector(selectNote);
   const navigate = useNavigate();
+  const mutation = useEditNote(selectedNote.id, isShared);
 
   const handleNavigateToEdit = () => {
     if (isShared) {
@@ -22,8 +27,15 @@ const SelectedNoteContainer: FC<ISelectedNoteContainer> = ({ isShared }) => {
     }
   };
 
+  const handleShareNote = () => {
+    mutation.mutate({
+      isShared: true,
+    });
+    navigate(ROUTE.NOTES);
+  };
+
   if (Object.keys(selectedNote).length === 0) {
-    return <Box>Select Note</Box>;
+    return <StyledNotificationSelected>Select Note</StyledNotificationSelected>;
   }
 
   return (
@@ -31,6 +43,7 @@ const SelectedNoteContainer: FC<ISelectedNoteContainer> = ({ isShared }) => {
       <SelectedNote
         note={selectedNote}
         handleNavigateToEdit={handleNavigateToEdit}
+        handleShareNote={handleShareNote}
       />
     </StyledNoteContainerWrapper>
   );
