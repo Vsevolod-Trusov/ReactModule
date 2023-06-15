@@ -31,6 +31,7 @@ export const router = createBrowserRouter(
           path={ROUTE.MY_NOTE}
           element={<EditNoteForm isShared={false} />}
         />
+        <Route path={ROUTE.NOTES_FORM} element={<NotesForm />} />
       </Route>
       <Route path={ROUTE.SHARED} element={<SharedNotes />}>
         <Route path={ROUTE.SHARED} element={<SelectedNote isShared={true} />} />
@@ -42,8 +43,8 @@ export const router = createBrowserRouter(
           path={ROUTE.SHARED_NOTE}
           element={<EditNoteForm isShared={true} />}
         />
+        <Route path={ROUTE.SHARED_FORM} element={<NotesForm />} />
       </Route>
-      <Route path={ROUTE.NOTES_FORM} element={<NotesForm />} />
       <Route path={ROUTE.ABOUT} element={<About />} />
       <Route path={ROUTE.SIGNIN} element={<SignIn />} />
       <Route path={ROUTE.SIGNUP} element={<SignUp />} />

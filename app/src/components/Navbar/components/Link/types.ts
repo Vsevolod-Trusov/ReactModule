@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
 export type TLinkProps = {
-  onClick: React.MouseEventHandler<HTMLElement>,
-  name: string
-}
+  onClick: React.MouseEventHandler<HTMLElement>;
+  name?: string;
+};
