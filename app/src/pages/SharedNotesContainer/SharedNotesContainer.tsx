@@ -17,6 +17,7 @@ import {
 } from '../NoteList/styled';
 import { TNote } from '../NoteList/types';
 import { BUTTON_TEXT } from '../NoteList/constants';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const SharedNotesContainer: FC = () => {
   const firstname = useSelector(selectFirstName);
@@ -42,6 +43,10 @@ const SharedNotesContainer: FC = () => {
   useEffect(() => {
     if (sharedNotes) dispatch(setShared(sharedNotes));
   }, sharedNotes);
+
+  if (isLoading) {
+    return <CircularProgress />;
+  }
 
   return (
     <StyledNoteListWrapper>
