@@ -8,7 +8,6 @@ import { DESCRIPTION_LABEL } from './constants';
 describe('set to test edit and share note', () => {
   const mockedHandleSetDescription = jest.fn();
   const mockedHandleEditNote = jest.fn();
-  const mockedHandleShareNotes = jest.fn();
   const BUTTON = 'button';
   const note = NODES[0];
 
@@ -22,7 +21,6 @@ describe('set to test edit and share note', () => {
         handleSetDescription={mockedHandleSetDescription}
         description={note.description}
         handleEditNote={mockedHandleEditNote}
-        handleShareNote={mockedHandleShareNotes}
       />,
     );
 
@@ -40,25 +38,6 @@ describe('set to test edit and share note', () => {
     await waitFor(() => expect(mockedHandleEditNote).toHaveBeenCalled());
   });
 
-  it('expect share button clicked and call mock function', async () => {
-    const BUTTON_TEXT = /Share/i;
-
-    const { getByRole } = await render(
-      <EditNoteForm
-        note={note}
-        handleSetDescription={mockedHandleSetDescription}
-        description={note.description}
-        handleEditNote={mockedHandleEditNote}
-        handleShareNote={mockedHandleShareNotes}
-      />,
-    );
-
-    const button = getByRole(BUTTON, { name: BUTTON_TEXT });
-    fireEvent.click(button);
-
-    await waitFor(() => expect(mockedHandleShareNotes).toHaveBeenCalled());
-  });
-
   it('expect description changed', async () => {
     const DESCRIPTION_VALUE = 'change text';
 
@@ -68,7 +47,6 @@ describe('set to test edit and share note', () => {
         handleSetDescription={mockedHandleSetDescription}
         description={note.description}
         handleEditNote={mockedHandleEditNote}
-        handleShareNote={mockedHandleShareNotes}
       />,
     );
 
@@ -88,7 +66,6 @@ describe('set to test edit and share note', () => {
         handleSetDescription={mockedHandleSetDescription}
         description={note.description}
         handleEditNote={mockedHandleEditNote}
-        handleShareNote={mockedHandleShareNotes}
       />,
     );
 

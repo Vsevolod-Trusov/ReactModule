@@ -43,14 +43,6 @@ const EditNoteContainer: FC<IEditNodeProps> = ({ isShared }) => {
       description: description,
     });
   };
-
-  const handleShareNote = () => {
-    mutation.mutate({
-      isShared: true,
-    });
-    navigate(ROUTE.NOTES);
-  };
-
   const handleSetDescription = ({ target }: ChangeEvent<HTMLInputElement>) => {
     setDescription(target.value);
   };
@@ -65,7 +57,6 @@ const EditNoteContainer: FC<IEditNodeProps> = ({ isShared }) => {
       description={description}
       handleEditNote={handleEditNote}
       handleSetDescription={handleSetDescription}
-      handleShareNote={handleShareNote}
     />
   );
 };

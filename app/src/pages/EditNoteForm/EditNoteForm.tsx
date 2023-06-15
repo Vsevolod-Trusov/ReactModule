@@ -2,10 +2,12 @@ import React, { FC } from 'react';
 import { TextField, Button } from '@mui/material';
 
 import { StyledButtonWrapper } from 'pages/SelectedNote/styled';
+import { Title } from 'components/index';
+import { formatDate } from 'utils/formatDate';
 
 import {
+  EDIT_LABEL,
   EDIT,
-  SHARE,
   TITLE_LABEL,
   DATE_LABEL,
   DESCRIPTION_LABEL,
@@ -18,11 +20,11 @@ const EditNoteForm: FC<IEditNodeForm> = ({
   handleSetDescription,
   description,
   handleEditNote,
-  handleShareNote,
 }) => {
   const { title, dateCreation } = note;
   return (
     <StyledEditNodeFormWrapper>
+      <Title variant={'h1'}>{EDIT_LABEL}</Title>
       <StyledEditNodeForm>
         <TextField
           label={TITLE_LABEL}
@@ -34,7 +36,7 @@ const EditNoteForm: FC<IEditNodeForm> = ({
         />
         <TextField
           label={DATE_LABEL}
-          value={dateCreation}
+          value={formatDate(new Date(dateCreation))}
           variant='outlined'
           margin='normal'
           fullWidth
@@ -59,14 +61,6 @@ const EditNoteForm: FC<IEditNodeForm> = ({
             onClick={() => handleEditNote({ description: description })}
           >
             {EDIT}
-          </Button>
-          <Button
-            variant='contained'
-            color='primary'
-            type='submit'
-            onClick={() => handleShareNote()}
-          >
-            {SHARE}
           </Button>
         </StyledButtonWrapper>
       </StyledEditNodeForm>
