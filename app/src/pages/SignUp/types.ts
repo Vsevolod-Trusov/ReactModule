@@ -3,6 +3,7 @@ import { FormikValues } from 'formik';
 export interface ISignUp {
   submit: (values: FormikValues) => void;
   handleRefresh?: () => void;
+  filterByName?: boolean;
 }
 
 export interface IUser {
