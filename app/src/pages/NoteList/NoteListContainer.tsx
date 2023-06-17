@@ -1,12 +1,10 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import CircularProgress from '@mui/material/CircularProgress';
 
 import { ROUTE } from 'config/constants/routes';
 import { selectFirstName } from 'store/slices/user.slice';
-import { setReduxNotes, setSelectedNote } from 'store/slices/notes.slice';
-import { useGetNotes } from 'api/notes';
+import { setSelectedNote } from 'store/slices/notes.slice';
 
 import { TNote } from './types';
 import NoteList from './NoteList';
@@ -15,8 +13,6 @@ const NoteListContainer: FC = () => {
   const firstname = useSelector(selectFirstName);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const { data, isLoading, isSuccess } = useGetNotes();
 
   if (!window.localStorage.getItem('email') || !firstname) {
     return <Navigate to={ROUTE.SIGNIN} />;
@@ -30,16 +26,6 @@ const NoteListContainer: FC = () => {
   const handleNavigateToCreate = () => {
     navigate(ROUTE.NOTES_FORM);
   };
-
-  useEffect(() => {
-    if (data) {
-      dispatch(setReduxNotes(data));
-    }
-  }, [data, isSuccess]);
-
-  if (isLoading) {
-    return <CircularProgress />;
-  }
 
   return (
     <NoteList

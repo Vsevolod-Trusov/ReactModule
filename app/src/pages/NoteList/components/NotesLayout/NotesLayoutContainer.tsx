@@ -19,6 +19,7 @@ import NotesLayout from './NotesLayout';
 
 const NotesLayoutContainer: FC<IInfinityScroll> = ({
   notes,
+  dataLength,
   handleSetSelectedNote,
   setNotes,
   hasMore,
@@ -61,9 +62,9 @@ const NotesLayoutContainer: FC<IInfinityScroll> = ({
         <Droppable droppableId={DROPPABLE_ID} type={'group'}>
           {(provided) => (
             <InfiniteScroll
-              dataLength={notes?.length}
+              dataLength={dataLength}
               next={setNotes}
-              hasMore={hasMore}
+              hasMore={hasMore || false}
               loader={
                 <StyledLoaderWrapper>
                   <CircularProgress />
