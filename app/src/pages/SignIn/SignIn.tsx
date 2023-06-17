@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Formik, FormikValues } from 'formik';
-import { Button } from '@mui/material';
+import { Box, Button } from '@mui/material';
 
 import { FormInput, Form, Title, FormControlLayout } from 'components/index';
 import {
@@ -10,9 +10,10 @@ import {
   PASSWORD_PLACEHOLDER,
 } from 'pages/constants';
 import { signInValidationSchema } from 'validations/signInValidationSchema';
+import { ROUTE } from 'config/constants/routes';
 
 import { INITIAL_SIGNIN, SUBMIT_BUTTON, TITLE } from './constants';
-import { StyledWrapper } from './styled';
+import { StyledLink, StyledWrapper } from './styled';
 import { ISignIn } from './types';
 
 const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => (
@@ -46,6 +47,9 @@ const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => (
             <Button type='submit' variant={'contained'}>
               {SUBMIT_BUTTON}
             </Button>
+            <Box>
+              <StyledLink to={ROUTE.LINK_SIGN_UP}>Sign up?</StyledLink>
+            </Box>
           </FormControlLayout>
         </Form>
       )}

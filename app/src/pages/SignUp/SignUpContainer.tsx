@@ -6,22 +6,20 @@ import { stringIsEquals } from 'utils/formatText';
 import { useSignUp } from 'api/auth';
 
 import SignUp from './SignUp';
+import { validateActive } from '@reduxjs/toolkit/dist/listenerMiddleware/task';
 
 const SignUpContainer: FC = () => {
   const mutation = useSignUp();
 
   const submit = (values: FormikValues): void => {
-    if (stringIsEquals(values.password, values.confirmPassword)) {
-      mutation.mutate({
-        firstName: values.firstName,
-        lastName: values.lastName,
-        birthday: new Date(values.birthday),
-        email: values.email,
-        password: values.password,
-      });
-    } else {
-      alert(Constants.PASSWORD_NOT_EQUAL);
-    }
+    mutation.mutate({
+      firstName: values.firstName,
+      lastName: values.lastName,
+      birthday: new Date(values.birthday),
+      email: values.email,
+      password: values.password,
+      confirmPassword: values.confirmPassword,
+    });
   };
 
   return <SignUp submit={submit} />;

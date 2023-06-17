@@ -7,7 +7,6 @@ import SignIn from './SignIn';
 
 const SignInContainer: FC = () => {
   const signInMutation = useSignIn();
-
   const handleSignIn = async (credentials: FormikValues) => {
     signInMutation.mutate({
       email: credentials.email,

@@ -12,4 +12,5 @@ export interface IUser {
   birthday: Date;
   email: string;
   password: string;
+  confirmPassword: string;
 }

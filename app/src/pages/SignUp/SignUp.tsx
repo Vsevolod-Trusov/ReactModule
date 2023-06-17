@@ -4,7 +4,8 @@ import { Formik, FormikValues } from 'formik';
 
 import { Form, Title, SignUpInput } from 'components/index';
 import { signUpValidationSchema } from 'validations/signUpValidationSchema';
-import { StyledWrapper } from 'pages/SignIn/styled';
+import { StyledLink, StyledWrapper } from 'pages/SignIn/styled';
+import { ROUTE } from 'config/constants/routes';
 
 import {
   EMAIL_FIELD,
@@ -81,6 +82,9 @@ const SignUp: FC<ISignUp> = ({ submit }) => (
             <Button type='submit' variant={'contained'}>
               {SUBMIT_BUTTON}
             </Button>
+          </Box>
+          <Box>
+            <StyledLink to={ROUTE.LINK_SIGN_IN}>Sign in?</StyledLink>
           </Box>
         </Form>
       )}
