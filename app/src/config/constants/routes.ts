@@ -14,4 +14,6 @@ export enum ROUTE {
   MY_NOTE = '/notes/note',
   SHARED_NOTE = '/shared-notes/note',
   ANY = '*',
+  LINK_SIGN_IN = '/sign-in',
+  LINK_SIGN_UP = '/sign-up',
 }
