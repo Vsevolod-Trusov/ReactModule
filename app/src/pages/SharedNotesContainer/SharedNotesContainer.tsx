@@ -1,14 +1,12 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { Navigate, Outlet, useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import { useDispatch, useSelector } from 'react-redux';
-import CircularProgress from '@mui/material/CircularProgress';
 
 import { InfinityScroll, FilterNotes } from 'components/index';
 import { ROUTE } from 'config/constants/routes';
-import { useGetSharedNotes } from 'api/notes';
 import { selectFirstName } from 'store/slices/user.slice';
-import { setSelectedNote, setShared } from 'store/slices/notes.slice';
+import { setSelectedNote } from 'store/slices/notes.slice';
 
 import {
   StyledButton,
@@ -24,8 +22,6 @@ const SharedNotesContainer: FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { data: sharedNotes, isLoading } = useGetSharedNotes();
-
   const handleSelectNode = (item: TNote) => {
     window.localStorage.setItem('selected', JSON.stringify(item));
     dispatch(setSelectedNote(item));
@@ -38,14 +34,6 @@ const SharedNotesContainer: FC = () => {
 
   if (!window.localStorage.getItem('email') || !firstname) {
     return <Navigate to={ROUTE.SIGNIN} />;
-  }
-
-  useEffect(() => {
-    if (sharedNotes) dispatch(setShared(sharedNotes));
-  }, [sharedNotes]);
-
-  if (isLoading) {
-    return <CircularProgress />;
   }
 
   return (
