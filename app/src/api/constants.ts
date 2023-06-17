@@ -1,4 +1,5 @@
 export const MOCK_API_TOKEN = '64673847ba7110b663b25514';
+export const PAGE_ELEMENTS_LIMIT = '6';
 
 export const MOCK_API_ADDRESS = `https://${MOCK_API_TOKEN}.mockapi.io/api/`;
 

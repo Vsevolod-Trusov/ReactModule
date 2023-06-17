@@ -1,32 +1,69 @@
-import { useQuery, UseQueryResult } from '@tanstack/react-query';
+import {
+  InfiniteData,
+  useInfiniteQuery,
+  UseInfiniteQueryResult,
+} from '@tanstack/react-query';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { QUERY_KEYS } from 'pages/constants';
 import { selectFirstName } from 'store/slices/user.slice';
-import { setReduxNotes } from 'store/slices/notes.slice';
+import {
+  selectFilter,
+  setPostNotes,
+  setReduxNotes,
+} from 'store/slices/notes.slice';
+import { TNote } from 'pages/NoteList/types';
+import { FILTER_TYPES } from 'components/FilterNotes/constants';
 
-import { INoteResponse, TResponseError } from '../types';
+import { TResponseError } from '../types';
 import { apiClient } from '../base';
-import { FETCH_URLS } from '../constants';
+import { FETCH_URLS, PAGE_ELEMENTS_LIMIT } from '../constants';
 
-export const useGetNotes = (): UseQueryResult<
-  INoteResponse,
+export const useGetNotes = (): UseInfiniteQueryResult<
+  TNote[],
   TResponseError
 > => {
   const firstname = useSelector(selectFirstName);
   const dispatch = useDispatch();
-  const handleSuccess = (data) => {
-    dispatch(setReduxNotes(data));
+  const filter = useSelector(selectFilter);
+  const handleSuccess = (data: InfiniteData<TNote[]>) => {
+    if (filter.type) {
+      data.pages = data.pages.map((page) =>
+        page.filter((note: TNote) => {
+          if (filter.type === FILTER_TYPES.DATE) {
+            return (
+              new Date(filter.value).toISOString() ===
+              new Date(note.dateCreation).toISOString()
+            );
+          } else {
+            return note.title === filter.value;
+          }
+        }),
+      );
+    }
+
+    const notes = data.pages.flat();
+    dispatch(setReduxNotes(notes));
+    dispatch(setPostNotes([...notes]));
   };
 
-  return useQuery({
-    queryKey: [QUERY_KEYS.NOTES],
-    queryFn: async () => {
-      const url = `${FETCH_URLS.NOTES}?author=${firstname}`;
+  return useInfiniteQuery(
+    [QUERY_KEYS.NOTES],
+    async ({ pageParam = 1 }) => {
+      const url = `${FETCH_URLS.NOTES}?page=${pageParam}&limit=${PAGE_ELEMENTS_LIMIT}&author=${firstname}`;
       return await apiClient.get(url).then((response) => response.data);
     },
-    onSuccess: handleSuccess,
-    retry: false,
-    refetchOnWindowFocus: false,
-  });
+    {
+      onSuccess: handleSuccess,
+      retry: false,
+      refetchOnWindowFocus: false,
+      getNextPageParam: (currentPage, allPages) => {
+        return filter.type
+          ? false
+          : !currentPage.length
+          ? undefined
+          : allPages.length + 1;
+      },
+    },
+  );
 };
