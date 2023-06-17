@@ -7,21 +7,30 @@ import { QUERY_KEYS } from 'pages/constants';
 
 import FilterNotes from './FilterNotes';
 import { IFilterProps } from './types';
-import { useFilterNotes } from 'api/notes';
+import { setFilter } from 'store/slices/notes.slice';
+import { useDispatch } from 'react-redux';
+import { FILTER_TYPES, INITIAL_FILTER } from './constants';
 
 const FilterNotesContainer: FC<IFilterProps> = ({ isShared, filterByName }) => {
-  const mutation = useFilterNotes(isShared, filterByName);
+  const dispatch = useDispatch();
   const queryClient = useQueryClient();
 
   const filter = (values: FormikValues) => {
     if (filterByName) {
-      mutation.mutate({ title: values.title });
+      dispatch(setFilter({ type: FILTER_TYPES.TITLE, value: values.title }));
     } else {
-      mutation.mutate({ dateCreation: values.dateCreation });
+      dispatch(
+        setFilter({
+          type: FILTER_TYPES.DATE,
+          value: new Date(values.dateCreation).toISOString(),
+        }),
+      );
     }
+    queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.NOTES] });
   };
 
   const handleRefresh = () => {
+    dispatch(setFilter(INITIAL_FILTER));
     queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.NOTES] });
   };
 
