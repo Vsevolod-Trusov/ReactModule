@@ -27,11 +27,15 @@ export const useFilterNotes = (
         ? `${TITLE}=${title}`
         : `${DATE_CREATION}=${new Date(dateCreation).toISOString()}`;
 
-      const url = `${FETCH_URLS.NOTES}?${queryParameter}${
-        isShared ? '&&isShared=true' : ''
-      }`;
+      const url = `${FETCH_URLS.NOTES}?${queryParameter}`;
 
-      return await apiClient.get(url).then((response) => response.data);
+      return await apiClient
+        .get(url)
+        .then((response) =>
+          isShared
+            ? response.data.filter((note: TNote) => note.isShared)
+            : response.data,
+        );
     },
 
     onSuccess: handleSuccess,
