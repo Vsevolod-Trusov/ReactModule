@@ -6,8 +6,9 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { ILinkContainer } from 'components/Navbar/types';
 import { ROUTE } from 'config/constants/routes';
 import { INITIAL_STATE, INITIAL_USER_STATE } from 'pages/NoteList/constants';
-import { setSelectedNote } from 'store/slices/notes.slice';
+import { setFilter, setSelectedNote } from 'store/slices/notes.slice';
 import { setUser } from 'store/slices/user.slice';
+import { INITIAL_FILTER } from 'components/FilterNotes/constants';
 
 import Link from './Link';
 
@@ -39,6 +40,7 @@ const LinkContainer: FC<ILinkContainer> = ({
       onClick={() => {
         if (isNoteLink) {
           localStorage.removeItem('selected');
+          dispatch(setFilter(INITIAL_FILTER));
           dispatch(setSelectedNote(INITIAL_STATE));
         }
         navigate(route ? route : ROUTE.NOT_FOUND);
