@@ -57,7 +57,7 @@ export const useGetSharedNotes = (): UseInfiniteQueryResult<
       retry: false,
       refetchOnWindowFocus: false,
       getNextPageParam: (currentPage, allPages) => {
-        return filter.type
+        return currentPage.length < PAGE_ELEMENTS_LIMIT
           ? false
           : !currentPage.length
           ? false

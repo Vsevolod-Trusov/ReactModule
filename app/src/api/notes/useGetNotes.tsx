@@ -58,10 +58,10 @@ export const useGetNotes = (): UseInfiniteQueryResult<
       retry: false,
       refetchOnWindowFocus: false,
       getNextPageParam: (currentPage, allPages) => {
-        return filter.type
+        return currentPage.length < PAGE_ELEMENTS_LIMIT
           ? false
           : !currentPage.length
-          ? undefined
+          ? false
           : allPages.length + 1;
       },
     },
