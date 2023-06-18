@@ -79,7 +79,7 @@
   },
   "lint-staged": {
     "*.{test.tsx}": [
-      "jest",
+      "npm run test",
       "git add"
     ]
   }
