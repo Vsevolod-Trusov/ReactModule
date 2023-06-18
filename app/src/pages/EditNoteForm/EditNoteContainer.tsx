@@ -1,9 +1,7 @@
 import React, { ChangeEvent, FC, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { TNote } from 'pages/NoteList/types';
-import { ROUTE } from 'config/constants/routes';
 import {
   selectNote,
   selectNotes,
@@ -15,7 +13,6 @@ import { IEditNodeProps, IHandleEditNote } from './types';
 import EditNoteForm from './EditNoteForm';
 
 const EditNoteContainer: FC<IEditNodeProps> = ({ isShared }) => {
-  const navigate = useNavigate();
   const selectedNote: TNote = useSelector(selectNote);
   const savedNotes: TNote[] = useSelector(selectNotes);
   const dispatch = useDispatch();

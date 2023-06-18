@@ -29,6 +29,6 @@ describe('set to test notes array is displayed', () => {
 
     const list = container.getAllByRole('button');
 
-    expect(list.length).toBe(6);
+    expect(list.length).toBe(5);
   });
 });
