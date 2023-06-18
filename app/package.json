@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "homepage": "https://vsevolod-trusov.github.io/ReactModule/",
   "private": true,
+
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "*.{tsx,js,json,css,md}": [
+    "*.{.test.tsx}": [
       "jest",
       "git add"
     ]
