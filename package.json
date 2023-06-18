@@ -5,10 +5,11 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "cd app & npm run test"
+      "pre-commit": "cd app && npm run test"
     }
   },
   "scripts": {
+    "test": "cd app && npm run test",
     "prepare": "husky install"
   }
 }
