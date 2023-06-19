@@ -29,9 +29,12 @@ const FilterNotes: FC<ISignUp> = ({
       validationSchema={filterByName ? filterByNameSchema : filterSchema}
       validateOnChange={false}
       validateOnBlur={false}
-      onSubmit={(values: FormikValues) => filter(values)}
+      onSubmit={(values: FormikValues, { resetForm }) => {
+        filter(values);
+        filterByName && resetForm();
+      }}
     >
-      {({ handleSubmit, handleChange }) => (
+      {({ handleSubmit, handleChange, resetForm }) => (
         <FilterForm onSubmit={handleSubmit}>
           <StyledFormControlLayout
             margin={'normal'}
@@ -66,6 +69,7 @@ const FilterNotes: FC<ISignUp> = ({
                   type='button'
                   variant={'contained'}
                   onClick={() => {
+                    resetForm();
                     handleRefresh();
                   }}
                 >

@@ -1,17 +1,17 @@
 import React, { FC } from 'react';
+import { useDispatch } from 'react-redux';
 import Box from '@mui/material/Box';
 import { FormikValues } from 'formik';
 import { useQueryClient } from '@tanstack/react-query';
 
 import { QUERY_KEYS } from 'pages/constants';
+import { setFilter } from 'store/slices/notes.slice';
 
 import FilterNotes from './FilterNotes';
 import { IFilterProps } from './types';
-import { setFilter } from 'store/slices/notes.slice';
-import { useDispatch } from 'react-redux';
 import { FILTER_TYPES, INITIAL_FILTER } from './constants';
 
-const FilterNotesContainer: FC<IFilterProps> = ({ isShared, filterByName }) => {
+const FilterNotesContainer: FC<IFilterProps> = ({ filterByName }) => {
   const dispatch = useDispatch();
   const queryClient = useQueryClient();
 

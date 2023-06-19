@@ -1,4 +1,4 @@
-import { FormikValues } from 'formik';
+import { FormikHelpers, FormikValues } from 'formik';
 
 export interface ISignUp {
   submit: (values: FormikValues) => void;
