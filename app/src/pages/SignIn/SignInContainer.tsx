@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { FormikValues } from 'formik';
 
-import { useSignIn } from 'api/auth';
+import { signIn } from 'api/auth';
 
 import SignIn from './SignIn';
 
 const SignInContainer: FC = () => {
-  const signInMutation = useSignIn();
+  const signInMutation = signIn();
   const handleSignIn = async (credentials: FormikValues) => {
     signInMutation.mutate({
       email: credentials.email,

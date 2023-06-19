@@ -16,6 +16,7 @@ import { TUser } from './types';
 import { useSnackbar } from 'notistack';
 import { RESPONSES } from './constants';
 import { stringIsEquals } from '../../utils/formatText';
+import useSignIn from "./SignIn";
 
 export const useSignUp = (): UseMutationResult<TUser, TResponseError> => {
   const navigate = useNavigate();
@@ -71,3 +72,5 @@ export const useSignUp = (): UseMutationResult<TUser, TResponseError> => {
     retry: false,
   });
 };
+
+export default useSignUp

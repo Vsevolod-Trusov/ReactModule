@@ -3,13 +3,13 @@ import { FormikValues } from 'formik';
 
 import { Constants } from 'validations/constants';
 import { stringIsEquals } from 'utils/formatText';
-import { useSignUp } from 'api/auth';
+import { signUp } from 'api/auth';
 
 import SignUp from './SignUp';
 import { validateActive } from '@reduxjs/toolkit/dist/listenerMiddleware/task';
 
 const SignUpContainer: FC = () => {
-  const mutation = useSignUp();
+  const mutation = signUp();
 
   const submit = (values: FormikValues): void => {
     mutation.mutate({
