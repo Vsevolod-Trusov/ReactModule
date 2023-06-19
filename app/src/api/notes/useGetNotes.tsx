@@ -6,7 +6,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 
 import { QUERY_KEYS } from 'pages/constants';
-import { selectFirstName } from 'store/slices/user.slice';
+import { selectEmail } from 'store/slices/user.slice';
 import {
   selectFilter,
   setPostNotes,
@@ -23,7 +23,7 @@ export const useGetNotes = (): UseInfiniteQueryResult<
   TNote[],
   TResponseError
 > => {
-  const firstname = useSelector(selectFirstName);
+  const email = useSelector(selectEmail);
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
   const handleSuccess = (data: InfiniteData<TNote[]>) => {
@@ -50,7 +50,7 @@ export const useGetNotes = (): UseInfiniteQueryResult<
   return useInfiniteQuery(
     [QUERY_KEYS.NOTES],
     async ({ pageParam = 1 }) => {
-      const url = `${FETCH_URLS.NOTES}?page=${pageParam}&limit=${PAGE_ELEMENTS_LIMIT}&author=${firstname}`;
+      const url = `${FETCH_URLS.NOTES}?page=${pageParam}&limit=${PAGE_ELEMENTS_LIMIT}&author=${email}`;
       return await apiClient.get(url).then((response) => response.data);
     },
     {

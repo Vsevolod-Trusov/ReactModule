@@ -8,6 +8,7 @@ export enum ROUTE_LABELS {
   SIGNIN = 'Sign In',
   SIGNUP = 'Sign Up',
   EXIT = 'Log out',
+  PROFILE = 'Profile',
 }
 
 export enum QUERY_KEYS {

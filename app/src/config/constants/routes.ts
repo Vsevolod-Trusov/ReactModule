@@ -1,5 +1,6 @@
 export enum ROUTE {
   MAIN = '/',
+  PROFILE = '/profile',
   NOTES = '/notes',
   SELECTED_NOTE = '/notes/selected',
   NOTES_FORM = '/notes/notes-form',

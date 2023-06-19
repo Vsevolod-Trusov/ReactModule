@@ -7,6 +7,7 @@ import SharedNotes from './SharedNotesContainer';
 import EditNoteForm from './EditNoteForm';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
+import Profile from './Profile';
 
 export {
   About,
@@ -18,4 +19,5 @@ export {
   SignUp,
   EditNoteForm,
   SelectedNote,
+  Profile,
 };
