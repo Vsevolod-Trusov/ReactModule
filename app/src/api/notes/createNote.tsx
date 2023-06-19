@@ -13,7 +13,7 @@ import { FETCH_URLS } from '../constants';
 import { apiClient } from '../base';
 import { TResponseError } from '../types';
 
-export const useCreateNote = (): UseMutationResult<TNote, TResponseError> => {
+const createNote = (): UseMutationResult<TNote, TResponseError> => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
@@ -28,3 +28,5 @@ export const useCreateNote = (): UseMutationResult<TNote, TResponseError> => {
     onSuccess: handleSuccess,
   });
 };
+
+export default createNote

@@ -5,23 +5,25 @@ import {
 } from '@tanstack/react-query';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { TNote } from 'pages/NoteList/types';
 import { QUERY_KEYS } from 'pages/constants';
+import { selectEmail } from 'store/slices/user.slice';
 import {
   selectFilter,
   setPostNotes,
-  setShared,
+  setReduxNotes,
 } from 'store/slices/notes.slice';
+import { TNote } from 'pages/NoteList/types';
 import { FILTER_TYPES } from 'components/FilterNotes/constants';
 
 import { TResponseError } from '../types';
 import { apiClient } from '../base';
 import { FETCH_URLS, PAGE_ELEMENTS_LIMIT } from '../constants';
 
-export const useGetSharedNotes = (): UseInfiniteQueryResult<
+const getNotes = (): UseInfiniteQueryResult<
   TNote[],
   TResponseError
 > => {
+  const email = useSelector(selectEmail);
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
   const handleSuccess = (data: InfiniteData<TNote[]>) => {
@@ -41,15 +43,14 @@ export const useGetSharedNotes = (): UseInfiniteQueryResult<
     }
 
     const notes = data.pages.flat();
-    dispatch(setShared(notes));
+    dispatch(setReduxNotes(notes));
     dispatch(setPostNotes([...notes]));
   };
 
   return useInfiniteQuery(
     [QUERY_KEYS.NOTES],
     async ({ pageParam = 1 }) => {
-      const url = `${FETCH_URLS.NOTES}?page=${pageParam}&limit=${PAGE_ELEMENTS_LIMIT}&isShared=true`;
-
+      const url = `${FETCH_URLS.NOTES}?page=${pageParam}&limit=${PAGE_ELEMENTS_LIMIT}&author=${email}`;
       return await apiClient.get(url).then((response) => response.data);
     },
     {
@@ -66,3 +67,5 @@ export const useGetSharedNotes = (): UseInfiniteQueryResult<
     },
   );
 };
+
+export default getNotes

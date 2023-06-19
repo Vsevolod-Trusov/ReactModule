@@ -7,7 +7,7 @@ import {
   selectNotes,
   setReduxNotes,
 } from 'store/slices/notes.slice';
-import { useEditNote } from 'api/notes';
+import { editNote } from 'api/notes';
 
 import { IEditNodeProps, IHandleEditNote } from './types';
 import EditNoteForm from './EditNoteForm';
@@ -21,7 +21,7 @@ const EditNoteContainer: FC<IEditNodeProps> = ({ isShared }) => {
     selectedNote ? selectedNote?.description : '',
   );
 
-  const mutation = useEditNote(selectedNote.id, isShared);
+  const mutation = editNote(selectedNote.id, isShared);
 
   const handleEditNote = ({ description }: IHandleEditNote) => {
     const selectedNoteIndex = savedNotes.findIndex(

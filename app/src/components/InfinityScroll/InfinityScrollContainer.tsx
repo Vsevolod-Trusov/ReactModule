@@ -4,15 +4,15 @@ import { useSelector } from 'react-redux';
 import { selectPostNotes } from 'store/slices/notes.slice';
 import NotesLayoutContainer from 'pages/NoteList/components/NotesLayout';
 import { TInfinityScrollProps } from 'pages/NoteList/types';
-import { useGetNotes, useGetSharedNotes } from 'api/notes';
+import { getNotes, getSharedNotes } from 'api/notes';
 
 const InfinityScrollContainer: FC<TInfinityScrollProps> = ({
   handleSetSelectedNote,
   isShared,
 }) => {
   const { data, hasNextPage, fetchNextPage } = isShared
-    ? useGetSharedNotes()
-    : useGetNotes();
+    ? getSharedNotes()
+    : getNotes();
   const postData = useSelector(selectPostNotes);
 
   const dataLength =

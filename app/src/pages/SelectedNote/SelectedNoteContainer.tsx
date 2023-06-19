@@ -1,10 +1,10 @@
-import Box from '@mui/material/Box';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { selectNote } from 'store/slices/notes.slice';
 import { ROUTE } from 'config/constants/routes';
+import { editNote } from 'api/notes';
 
 import SelectedNote from './SelectedNote';
 import {
@@ -12,12 +12,11 @@ import {
   StyledNotificationSelected,
 } from './styled';
 import { ISelectedNoteContainer } from './types';
-import { useEditNote } from '../../api/notes';
 
 const SelectedNoteContainer: FC<ISelectedNoteContainer> = ({ isShared }) => {
   const selectedNote = useSelector(selectNote);
   const navigate = useNavigate();
-  const mutation = useEditNote(selectedNote.id, isShared);
+  const mutation = editNote(selectedNote.id, isShared);
 
   const handleNavigateToEdit = () => {
     if (isShared) {
