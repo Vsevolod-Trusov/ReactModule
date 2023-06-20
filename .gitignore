@@ -3,6 +3,8 @@
 # dependencies
 /.idea
 .husky
+/app/node_modules
+/app/build
 /node_modules
 /.pnp
 .pnp.js
