@@ -4,6 +4,7 @@ import { Button } from '@mui/material';
 
 import { Title } from 'components/index';
 import { formatDate } from 'utils/formatDate';
+import { sliceText } from 'utils/formatText';
 
 import {
   StyledSelectedButtonWrapper,
@@ -14,6 +15,7 @@ import {
 import { ISelectedNote } from './types';
 import { EDIT } from './constants';
 import { SHARE } from '../EditNoteForm/constants';
+import { SLICE_POSITION } from '../NoteList/constants';
 
 const SelectedNote: FC<ISelectedNote> = ({
   note,
@@ -31,7 +33,9 @@ const SelectedNote: FC<ISelectedNote> = ({
         <StyleInfoBox>
           Date: {formatDate(new Date(note.dateCreation))}
         </StyleInfoBox>
-        <StyleInfoBox>TODO: {note.description}</StyleInfoBox>
+        <StyleInfoBox>
+          TODO: {sliceText(note.description, SLICE_POSITION)}
+        </StyleInfoBox>
       </Box>
       <StyledSelectedButtonWrapper>
         <Button

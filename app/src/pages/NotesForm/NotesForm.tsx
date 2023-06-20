@@ -46,12 +46,6 @@ const NotesForm: FC<ISignIn> = ({ handleSubmit }) => (
               margin={'normal'}
             />
             <FormInput
-              name={DATE_CREATION_FIELD}
-              type={'date'}
-              margin={'normal'}
-              data-testid={'date'}
-            />
-            <FormInput
               name={DESCRIPTION_FIELD}
               value={values.description}
               onChange={handleChange}

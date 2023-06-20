@@ -6,6 +6,8 @@ import { selectEmail } from 'store/slices/user.slice';
 import { createNote } from 'api/notes';
 
 import NotesForm from './NotesForm';
+import { sliceText } from '../../utils/formatText';
+import { SLICE_POSITION } from '../NoteList/constants';
 
 const NotesFormContainer: FC = () => {
   const email = useSelector(selectEmail);
@@ -15,9 +17,9 @@ const NotesFormContainer: FC = () => {
   const submit = (values: FormikValues): void => {
     create.mutate({
       id: null,
-      title: values.title,
+      title: sliceText(values.title, SLICE_POSITION),
       description: values.description,
-      dateCreation: new Date(values.dateCreation),
+      dateCreation: new Date(Date.now()),
       author: email,
     });
   };
