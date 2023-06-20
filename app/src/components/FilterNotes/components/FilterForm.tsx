@@ -1,13 +1,13 @@
-import React, {FC, FormHTMLAttributes, PropsWithChildren} from 'react';
+import React, { FC, FormHTMLAttributes, PropsWithChildren } from 'react';
 
-import {StyledFilterForm} from './styled';
+import { StyledFilterForm } from './styled';
 
 const FilterForm: FC<PropsWithChildren<FormHTMLAttributes<HTMLFormElement>>> = (
-    props,
+  props,
 ) => (
-    <StyledFilterForm onSubmit={props.onSubmit}>
-        {props.children}
-    </StyledFilterForm>
+  <StyledFilterForm onSubmit={props.onSubmit}>
+    {props.children}
+  </StyledFilterForm>
 );
 
 export default FilterForm;

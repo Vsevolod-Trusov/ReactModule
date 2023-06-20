@@ -6,5 +6,3 @@ test('Expect sliced date string format: dd:mm:yyyy', () => {
   const date = formatDate(new Date(TEST_DATE));
   expect(date).toEqual('12.12.2023');
 });
-
-

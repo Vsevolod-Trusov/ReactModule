@@ -18,10 +18,7 @@ import { TResponseError } from '../types';
 import { apiClient } from '../base';
 import { FETCH_URLS, PAGE_ELEMENTS_LIMIT } from '../constants';
 
-const getSharedNotes = (): UseInfiniteQueryResult<
-  TNote[],
-  TResponseError
-> => {
+const getSharedNotes = (): UseInfiniteQueryResult<TNote[], TResponseError> => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
   const handleSuccess = (data: InfiniteData<TNote[]>) => {
@@ -67,4 +64,4 @@ const getSharedNotes = (): UseInfiniteQueryResult<
   );
 };
 
-export default getSharedNotes
+export default getSharedNotes;

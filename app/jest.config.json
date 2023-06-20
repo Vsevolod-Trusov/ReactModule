@@ -10,16 +10,12 @@
       "tsconfig": "./tsconfig.json"
     }
   },
-  "transformIgnorePatterns": [
-    "/node_modules/(?!(axios)/)"
-  ],
+  "transformIgnorePatterns": ["/node_modules/(?!(axios)/)"],
   "transform": {
     "^.+\\.tsx?$": "ts-jest",
     "^.+\\.(js|jsx|ts|tsx)$": "ts-jest"
   },
-  "setupFilesAfterEnv": [
-    "@testing-library/jest-dom/extend-expect"
-  ],
+  "setupFilesAfterEnv": ["@testing-library/jest-dom/extend-expect"],
   "moduleNameMapper": {
     "^pages/(.*)$": "<rootDir>/src/pages/$1",
     "^config/(.*)$": "<rootDir>/src/config/$1",

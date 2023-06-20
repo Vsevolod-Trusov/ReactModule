@@ -19,10 +19,7 @@ import { TResponseError } from '../types';
 import { apiClient } from '../base';
 import { FETCH_URLS, PAGE_ELEMENTS_LIMIT } from '../constants';
 
-const getNotes = (): UseInfiniteQueryResult<
-  TNote[],
-  TResponseError
-> => {
+const getNotes = (): UseInfiniteQueryResult<TNote[], TResponseError> => {
   const email = useSelector(selectEmail);
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
@@ -68,4 +65,4 @@ const getNotes = (): UseInfiniteQueryResult<
   );
 };
 
-export default getNotes
+export default getNotes;

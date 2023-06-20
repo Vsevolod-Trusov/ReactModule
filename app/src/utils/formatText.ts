@@ -3,5 +3,3 @@ export const sliceText = (text: string, slicePosition: number) =>
 
 export const stringIsEquals = (paramA: string, paramB: string) =>
   paramA === paramB;
-
-

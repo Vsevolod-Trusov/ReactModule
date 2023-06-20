@@ -16,10 +16,7 @@ import { TResponseError } from '../types';
 import { apiClient } from '../base';
 import { FETCH_URLS } from '../constants';
 
-const editNote = (
-  id,
-  isShared,
-): UseMutationResult<TNote[], TResponseError> => {
+const editNote = (id, isShared): UseMutationResult<TNote[], TResponseError> => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const dispatch = useDispatch();
@@ -46,4 +43,4 @@ const editNote = (
   });
 };
 
-export default editNote
+export default editNote;

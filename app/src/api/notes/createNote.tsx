@@ -29,4 +29,4 @@ const createNote = (): UseMutationResult<TNote, TResponseError> => {
   });
 };
 
-export default createNote
+export default createNote;
