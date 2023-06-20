@@ -1,22 +1,22 @@
 import { date, object, string } from 'yup';
 
-import { Constants } from './constants';
+import { VALIDATION_ERRORS } from './constants';
 
 export const signUpValidationSchema = object().shape({
   firstName: string()
-    .required(Constants.FIRST_NAME_REQUIRED)
-    .min(3, Constants.FIRST_NAME_VALIDATION),
+    .required(VALIDATION_ERRORS.FIRST_NAME_REQUIRED)
+    .min(3, VALIDATION_ERRORS.FIRST_NAME_VALIDATION),
   lastName: string()
-    .required(Constants.LAST_NAME_REQUIRED)
-    .min(3, Constants.LAST_NAME_VALIDATION),
+    .required(VALIDATION_ERRORS.LAST_NAME_REQUIRED)
+    .min(3, VALIDATION_ERRORS.LAST_NAME_VALIDATION),
   birthday: date()
-    .required(Constants.BIRTHDAY_REQUIRED)
-    .max(new Date(Date.now()), Constants.BIRTHDAY_VALIDATION),
+    .required(VALIDATION_ERRORS.BIRTHDAY_REQUIRED)
+    .max(new Date(Date.now()), VALIDATION_ERRORS.BIRTHDAY_VALIDATION),
   email: string()
-    .required(Constants.EMAIL_REQUIRED)
-    .email(Constants.EMAIL_VALIDATION),
+    .required(VALIDATION_ERRORS.EMAIL_REQUIRED)
+    .email(VALIDATION_ERRORS.EMAIL_VALIDATION),
   password: string()
-    .required(Constants.PASSWORD_REQUIRED)
-    .min(8, Constants.PASSWORD_VALIDATION),
-  confirmPassword: string().required(Constants.CONFIRM_PASSWORD),
+    .required(VALIDATION_ERRORS.PASSWORD_REQUIRED)
+    .min(8, VALIDATION_ERRORS.PASSWORD_VALIDATION),
+  confirmPassword: string().required(VALIDATION_ERRORS.CONFIRM_PASSWORD),
 });

@@ -11,6 +11,7 @@ import { editNote } from 'api/notes';
 
 import { IEditNodeProps, IHandleEditNote } from './types';
 import EditNoteForm from './EditNoteForm';
+import { EMPTY_LINE } from '../NoteList/constants';
 
 const EditNoteContainer: FC<IEditNodeProps> = ({ isShared }) => {
   const selectedNote: TNote = useSelector(selectNote);
@@ -18,7 +19,7 @@ const EditNoteContainer: FC<IEditNodeProps> = ({ isShared }) => {
   const dispatch = useDispatch();
 
   const [description, setDescription] = useState<string>(
-    selectedNote ? selectedNote?.description : '',
+    selectedNote ? selectedNote?.description : EMPTY_LINE,
   );
 
   const mutation = editNote(selectedNote.id, isShared);

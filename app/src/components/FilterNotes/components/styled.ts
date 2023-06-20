@@ -1,5 +1,6 @@
 import { Form } from 'formik';
 import styled from 'styled-components';
+
 import { COLORS } from 'pages/colors';
 
 const StyledFilterForm = styled(Form)({

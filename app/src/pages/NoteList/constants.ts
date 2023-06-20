@@ -10,19 +10,20 @@ export const BUTTON_TEXT = 'Create new note';
 
 export const INITIAL_STATE: TNote = {
   id: JSON.parse(localStorage.getItem('selected'))?.id || null,
-  title: JSON.parse(localStorage.getItem('selected'))?.title || '',
-  description: JSON.parse(localStorage.getItem('selected'))?.description || '',
+  title: JSON.parse(localStorage.getItem('selected'))?.title || EMPTY_LINE,
+  description:
+    JSON.parse(localStorage.getItem('selected'))?.description || EMPTY_LINE,
   dateCreation:
     JSON.parse(localStorage.getItem('selected'))?.dateCreation || null,
 };
 
 export const INITIAL_USER_STATE = {
   id: null,
-  firstName: '',
-  lastName: '',
-  birthday: '',
-  email: '',
-  password: '',
+  firstName: EMPTY_LINE,
+  lastName: EMPTY_LINE,
+  birthday: EMPTY_LINE,
+  email: EMPTY_LINE,
+  password: EMPTY_LINE,
 };
 
 export const NODES: TNote[] = [

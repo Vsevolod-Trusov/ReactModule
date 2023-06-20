@@ -1,10 +1,12 @@
+import { EMPTY_LINE } from 'pages/NoteList/constants';
+
 export const FILTER_VALUES = {
-  dateCreation: '',
+  dateCreation: EMPTY_LINE,
 };
 
 export const INITIAL_FILTER = {
-  type: '',
-  value: '',
+  type: EMPTY_LINE,
+  value: EMPTY_LINE,
 };
 
 export enum FILTER_TYPES {
@@ -13,7 +15,7 @@ export enum FILTER_TYPES {
 }
 
 export const FILTER_BY_NAME_VALUES = {
-  title: '',
+  title: EMPTY_LINE,
 };
 
 export const DATE_CREATION = 'dateCreation';

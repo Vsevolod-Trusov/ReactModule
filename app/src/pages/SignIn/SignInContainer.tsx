@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { FormikValues } from 'formik';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { signIn } from 'api/auth';

@@ -7,7 +7,6 @@ import { ISignIn } from 'pages/SignIn/types';
 import { noteCreationValidationSchema } from 'validations/noteCreationValidationSchema';
 
 import {
-  DATE_CREATION_FIELD,
   DESCRIPTION_FIELD,
   DESCRIPTION_PLACEHOLDER,
   NOTE_INITIAL_VALUES,

@@ -1,10 +1,12 @@
+import { EMPTY_LINE } from 'pages/NoteList/constants';
+
 export const SIGNUP_VALUES = {
-  firstName: '',
-  lastName: '',
-  birthday: '',
-  email: '',
-  password: '',
-  confirmPassword: '',
+  firstName: EMPTY_LINE,
+  lastName: EMPTY_LINE,
+  birthday: EMPTY_LINE,
+  email: EMPTY_LINE,
+  password: EMPTY_LINE,
+  confirmPassword: EMPTY_LINE,
 };
 
 export const FIRST_NAME_FIELD = 'firstName';

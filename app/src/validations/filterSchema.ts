@@ -1,7 +1,7 @@
 import { date, object } from 'yup';
 
-import { Constants } from './constants';
+import { VALIDATION_ERRORS } from './constants';
 
 export const filterSchema = object().shape({
-  dateCreation: date().required(Constants.DATE_CREATION_REQUIRED),
+  dateCreation: date().required(VALIDATION_ERRORS.DATE_CREATION_REQUIRED),
 });

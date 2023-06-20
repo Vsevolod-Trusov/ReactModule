@@ -1,8 +1,8 @@
-import { date, object, string } from 'yup';
-import { Constants } from './constants';
+import { object, string } from 'yup';
+import { VALIDATION_ERRORS } from './constants';
 
 export const filterByNameSchema = object().shape({
   title: string()
-    .required(Constants.TITLE_REQUIRED)
-    .min(3, Constants.TITLE_VALIDATION),
+    .required(VALIDATION_ERRORS.TITLE_REQUIRED)
+    .min(3, VALIDATION_ERRORS.TITLE_VALIDATION),
 });

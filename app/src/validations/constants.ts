@@ -1,4 +1,4 @@
-export enum Constants {
+export enum VALIDATION_ERRORS {
   EMAIL_REQUIRED = 'Email is required',
   EMAIL_VALIDATION = 'Email is not valid',
 

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useDispatch } from 'react-redux';
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
 import { FormikValues } from 'formik';
 import { useQueryClient } from '@tanstack/react-query';
 

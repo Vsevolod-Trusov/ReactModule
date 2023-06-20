@@ -1,3 +1,5 @@
+import { EMPTY_LINE } from 'pages/NoteList/constants';
+
 export const TITLE_FIELD = 'title';
 export const DATE_CREATION_FIELD = 'dateCreation';
 export const DESCRIPTION_FIELD = 'description';
@@ -6,9 +8,9 @@ export const DESCRIPTION_PLACEHOLDER = 'Enter description';
 export const BUTTON_TEXT = 'Create';
 export const DATA_FORM_ID = 'notes-form';
 export const NOTE_INITIAL_VALUES = {
-  id: '',
-  title: '',
-  dateCreation: '',
-  description: '',
-  author: '',
+  id: EMPTY_LINE,
+  title: EMPTY_LINE,
+  dateCreation: EMPTY_LINE,
+  description: EMPTY_LINE,
+  author: EMPTY_LINE,
 };

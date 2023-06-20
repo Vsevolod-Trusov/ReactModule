@@ -1,15 +1,15 @@
 import { date, object, string } from 'yup';
 
-import { Constants } from './constants';
+import { VALIDATION_ERRORS } from './constants';
 
 export const noteCreationValidationSchema = object().shape({
   title: string()
-    .required(Constants.TITLE_REQUIRED)
-    .min(3, Constants.TITLE_VALIDATION),
+    .required(VALIDATION_ERRORS.TITLE_REQUIRED)
+    .min(3, VALIDATION_ERRORS.TITLE_VALIDATION),
   dateCreation: date()
-    .required(Constants.DATE_CREATION_REQUIRED)
-    .max(new Date(Date.now()), Constants.DATE_CREATION_VALIDATION),
+    .required(VALIDATION_ERRORS.DATE_CREATION_REQUIRED)
+    .max(new Date(Date.now()), VALIDATION_ERRORS.DATE_CREATION_VALIDATION),
   description: string()
-    .required(Constants.DESCRIPTION_REQUIRED)
-    .min(3, Constants.DESCRIPTION_INVALID),
+    .required(VALIDATION_ERRORS.DESCRIPTION_REQUIRED)
+    .min(3, VALIDATION_ERRORS.DESCRIPTION_INVALID),
 });

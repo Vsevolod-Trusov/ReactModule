@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { QUERY_KEYS } from 'pages/constants';
 import { ROUTE } from 'config/constants/routes';
 import { IUser } from 'pages/SignUp/types';
+import { stringIsEquals } from 'utils/formatText';
 
 import { TResponseError } from '../types';
 import { FETCH_URLS } from '../constants';
@@ -15,12 +16,10 @@ import { apiClient } from '../base';
 import { TUser } from './types';
 import { useSnackbar } from 'notistack';
 import { RESPONSES } from './constants';
-import { stringIsEquals } from '../../utils/formatText';
-import useSignIn from './SignIn';
 
 export const useSignUp = (): UseMutationResult<TUser, TResponseError> => {
   const navigate = useNavigate();
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar();
 
   const { data: users } = useQuery({
     queryKey: [QUERY_KEYS.USERS],
@@ -34,7 +33,7 @@ export const useSignUp = (): UseMutationResult<TUser, TResponseError> => {
     return users.find((user: TUser) => user.email === newUser.email);
   };
 
-  const handleSuccess = (data) => {
+  const handleSuccess = () => {
     enqueueSnackbar(RESPONSES.SUCCESS, {
       variant: 'success',
       autoHideDuration: 1000,
