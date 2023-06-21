@@ -15,6 +15,7 @@ const NotesFormContainer: FC = () => {
   const create = createNote();
 
   const submit = (values: FormikValues): void => {
+    console.log('create');
     create.mutate({
       id: null,
       title: sliceText(values.title, SLICE_POSITION),

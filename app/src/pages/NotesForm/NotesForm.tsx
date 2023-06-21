@@ -28,10 +28,12 @@ const NotesForm: FC<ISignIn> = ({ handleSubmit }) => (
       validationSchema={noteCreationValidationSchema}
       validateOnChange={false}
       validateOnBlur={false}
-      onSubmit={(values: FormikValues) => handleSubmit(values)}
+      onSubmit={(values: FormikValues) => {
+        handleSubmit(values);
+      }}
     >
-      {({ handleSubmit, handleChange, values }) => (
-        <StyledNoteForm onSubmit={handleSubmit}>
+      {({ handleChange, values }) => (
+        <StyledNoteForm>
           <Title variant={'h1'}>Create</Title>
           <StyledNoteFormControl
             margin={'normal'}
@@ -52,7 +54,11 @@ const NotesForm: FC<ISignIn> = ({ handleSubmit }) => (
               margin={'normal'}
               as={TextArea}
             ></FormInput>
-            <Button type='submit' variant={'contained'}>
+            <Button
+              type='button'
+              variant={'contained'}
+              onClick={() => handleSubmit(values)}
+            >
               {BUTTON_TEXT}
             </Button>
           </StyledNoteFormControl>
