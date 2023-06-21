@@ -15,12 +15,13 @@ const NotesFormContainer: FC = () => {
   const create = createNote();
 
   const submit = (values: FormikValues): void => {
-    console.log('create');
     create.mutate({
       id: null,
       title: sliceText(values.title, SLICE_POSITION),
       description: values.description,
-      dateCreation: new Date(Date.now()),
+      dateCreation: new Date(
+        new Date(Date.now()).toISOString().split('T')[0] + 'T00:00:00.000Z',
+      ),
       author: email,
     });
   };

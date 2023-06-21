@@ -32,8 +32,8 @@ const NotesForm: FC<ISignIn> = ({ handleSubmit }) => (
         handleSubmit(values);
       }}
     >
-      {({ handleChange, values }) => (
-        <StyledNoteForm>
+      {({ handleSubmit, handleChange, values }) => (
+        <StyledNoteForm onSubmit={handleSubmit}>
           <Title variant={'h1'}>Create</Title>
           <StyledNoteFormControl
             margin={'normal'}
@@ -54,11 +54,7 @@ const NotesForm: FC<ISignIn> = ({ handleSubmit }) => (
               margin={'normal'}
               as={TextArea}
             ></FormInput>
-            <Button
-              type='button'
-              variant={'contained'}
-              onClick={() => handleSubmit(values)}
-            >
+            <Button type='submit' variant={'contained'}>
               {BUTTON_TEXT}
             </Button>
           </StyledNoteFormControl>
