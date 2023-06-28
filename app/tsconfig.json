@@ -3,15 +3,6 @@
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": "./src",
-    "paths": {
-      "pages": ["./src/pages/*"],
-      "utils": ["./src/utils/*"],
-      "config": ["./src/config/*"],
-      "@mui": ["./node_modules/@mui/*"],
-      "fonts": ["./src/fonts/*"],
-      "components": ["./src/components/*"],
-      "common": ["./src/common/*"]
-    },
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

@@ -26,7 +26,7 @@ export const INITIAL_USER_STATE = {
   password: EMPTY_LINE,
 };
 
-export const NODES: TNote[] = [
+export const NOTES: TNote[] = [
   {
     id: 1,
     testId: '1',

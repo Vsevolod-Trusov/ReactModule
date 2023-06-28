@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import { Formik, FormikValues } from 'formik';
 import { Box, Button } from '@mui/material';
-import RefreshIcon from '@mui/icons-material/Refresh';
-import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import { Refresh, FilterAlt } from '@mui/icons-material';
 
 import { ISignUp } from 'pages/SignUp/types';
 import {
@@ -10,8 +9,7 @@ import {
   TITLE_FIELD,
   TITLE_PLACEHOLDER,
 } from 'pages/NotesForm/constants';
-import { filterSchema } from 'validations/filterSchema';
-import { filterByNameSchema } from 'validations/filterByNameSchema';
+import { filterSchema, filterByNameSchema } from 'validations';
 
 import { FILTER_VALUES, FILTER_BY_NAME_VALUES } from './constants';
 
@@ -49,7 +47,7 @@ const FilterNotes: FC<ISignUp> = ({
                   margin={'normal'}
                 />
                 <Button type='submit' variant={'contained'}>
-                  <FilterAltIcon />
+                  <FilterAlt />
                 </Button>
               </>
             ) : (
@@ -73,7 +71,7 @@ const FilterNotes: FC<ISignUp> = ({
                     handleRefresh();
                   }}
                 >
-                  <RefreshIcon />
+                  <Refresh />
                 </Button>
               </>
             )}

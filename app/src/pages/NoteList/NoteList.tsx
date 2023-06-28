@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Box from '@mui/material/Box';
 import { Outlet } from 'react-router-dom';
 
-import { InfinityScroll, FilterNotes } from 'components/index';
+import { InfinityScroll, FilterNotes } from 'components';
 
 import { TNoteListProps } from './types';
 import {

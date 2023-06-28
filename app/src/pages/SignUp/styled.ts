@@ -6,6 +6,5 @@ const StyledInputsWrapper = styled(Box)({
   minWidth: '50vw',
   justifyContent: 'space-evenly',
 });
-const StyledInputBox = styled(Box)({});
 
-export { StyledInputsWrapper, StyledInputBox };
+export { StyledInputsWrapper };

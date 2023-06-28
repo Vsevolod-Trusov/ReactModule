@@ -24,7 +24,7 @@ const EditNoteContainer: FC<IEditNodeProps> = ({ isShared }) => {
 
   const mutation = editNote(selectedNote.id, isShared);
 
-  const handleEditNote = ({ description }: IHandleEditNote) => {
+  const handleEditNote = () => {
     const selectedNoteIndex = savedNotes.findIndex(
       (item: TNote) => item.id === selectedNote.id,
     );

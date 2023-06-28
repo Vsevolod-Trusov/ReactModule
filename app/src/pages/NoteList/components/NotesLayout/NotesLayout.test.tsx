@@ -1,8 +1,8 @@
+import React from 'react';
 import { render } from '@testing-library/react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import React from 'react';
 
-import { NODES } from 'pages/NoteList/constants';
+import { NOTES } from 'pages/NoteList/constants';
 
 import { DROPPABLE_ID } from './constants';
 import NotesLayout from './NotesLayout';
@@ -18,7 +18,7 @@ describe('set to test notes array is displayed', () => {
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
               <NotesLayout
-                notes={NODES}
+                notes={NOTES}
                 handleSetSelectedNote={mockedHandleSetNote}
               />
             </div>

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { setUser } from 'store/slices/user.slice';
-import { QUERY_KEYS } from 'pages/constants';
+import { QUERY_KEYS } from 'config/globalConstants';
 import { ROUTE } from 'config/constants/routes';
 import { useSnackbar } from 'notistack';
 
@@ -23,11 +23,10 @@ const useSignIn = (): UseMutationResult<TUser, TResponseError> => {
     );
 
     if (!foundUserByEmail) {
-      enqueueSnackbar(RESPONSES.WRONG_EMAIL, {
+      return enqueueSnackbar(RESPONSES.WRONG_EMAIL, {
         variant: 'error',
         autoHideDuration: 1000,
       });
-      return;
     }
 
     const foundUserByPasswordAndEmail = users.find(
@@ -35,11 +34,10 @@ const useSignIn = (): UseMutationResult<TUser, TResponseError> => {
     );
 
     if (!foundUserByPasswordAndEmail) {
-      enqueueSnackbar(RESPONSES.WRONG_PASSWORD, {
+      return enqueueSnackbar(RESPONSES.WRONG_PASSWORD, {
         variant: 'error',
         autoHideDuration: 1000,
       });
-      return;
     }
 
     enqueueSnackbar(RESPONSES.SUCCESS, {

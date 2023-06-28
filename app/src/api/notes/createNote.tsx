@@ -6,7 +6,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 import { TNote } from 'pages/NoteList/types';
-import { QUERY_KEYS } from 'pages/constants';
+import { QUERY_KEYS } from 'config/globalConstants';
 import { ROUTE } from 'config/constants/routes';
 
 import { FETCH_URLS } from '../constants';

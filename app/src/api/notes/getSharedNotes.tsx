@@ -6,7 +6,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 
 import { TNote } from 'pages/NoteList/types';
-import { QUERY_KEYS } from 'pages/constants';
+import { QUERY_KEYS } from 'config/globalConstants';
 import {
   selectFilter,
   setPostNotes,

@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import { FormikValues } from 'formik';
 import { useQueryClient } from '@tanstack/react-query';
 
-import { QUERY_KEYS } from 'pages/constants';
+import { QUERY_KEYS } from 'config/globalConstants';
 import { setFilter } from 'store/slices/notes.slice';
 
 import FilterNotes from './FilterNotes';

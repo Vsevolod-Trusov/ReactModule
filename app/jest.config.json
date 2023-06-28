@@ -17,11 +17,11 @@
   },
   "setupFilesAfterEnv": ["@testing-library/jest-dom/extend-expect"],
   "moduleNameMapper": {
+    "^utils/(.*)$": "<rootDir>/src/utils/$1",
     "^pages/(.*)$": "<rootDir>/src/pages/$1",
     "^config/(.*)$": "<rootDir>/src/config/$1",
     "fonts/(.*)$": "<rootDir>/src/fonts/$1",
     "^components/(.*)$": "<rootDir>/src/components/$1",
-    "^utils/(.*)$": "<rootDir>/src/utils/$1",
     "common/(.*)$": "<rootDir>/src/common/$1",
     "^@mui/(.*)$": "<rootDir>/node_modules/@mui/$1",
     "^axios$": "<rootDir>/node_modules/axios"

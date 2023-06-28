@@ -5,7 +5,7 @@ import {
 } from '@tanstack/react-query';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { QUERY_KEYS } from 'pages/constants';
+import { QUERY_KEYS } from 'config/globalConstants';
 import { selectEmail } from 'store/slices/user.slice';
 import {
   selectFilter,

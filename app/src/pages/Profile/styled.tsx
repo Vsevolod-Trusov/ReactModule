@@ -8,10 +8,12 @@ const ProfileWrapper = styled(Wrapper)({
   width: '90vw',
   fontSize: '1.2rem',
 });
+
 const ProfilePageWrapper = styled(AboutWrapper)({
   width: '100%',
   height: '90%',
 });
+
 const InfoWrapper = styled(Box)({
   display: 'flex',
   justifyContent: 'center',
@@ -19,6 +21,7 @@ const InfoWrapper = styled(Box)({
   width: '100%',
   height: '50%',
 });
+
 const StyledProfileInfo = styled(Box)({
   display: 'flex',
   alignSelf: 'center',
@@ -28,12 +31,10 @@ const StyledProfileInfo = styled(Box)({
   minHeight: '17vh',
   minWidth: '40%',
   gap: '35px',
-
   '&>div': {
     display: 'flex',
     justifyContent: 'space-between',
     minWidth: '95%',
-
     '& > div:first-child': {
       flex: 0.25,
     },

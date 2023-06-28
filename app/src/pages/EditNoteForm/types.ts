@@ -17,5 +17,5 @@ export interface IEditNodeForm {
   note: TNote;
   description: string;
   handleSetDescription: (event: ChangeEvent<HTMLInputElement>) => void;
-  handleEditNote: (editNote: IHandleEditNote) => void;
+  handleEditNote: () => void;
 }

@@ -8,7 +8,7 @@ export const theme = createTheme({
     MuiTypography: {
       variants: [
         {
-          props: { variant: 'h1' } /* component props */,
+          props: { variant: 'h1' },
           style: {
             fontFamily: 'Montserrat',
             fontSize: '1.55rem',

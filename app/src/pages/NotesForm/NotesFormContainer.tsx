@@ -4,10 +4,10 @@ import { useSelector } from 'react-redux';
 
 import { selectEmail } from 'store/slices/user.slice';
 import { createNote } from 'api/notes';
+import { sliceText } from 'utils';
+import { SLICE_POSITION } from 'pages/NoteList/constants';
 
 import NotesForm from './NotesForm';
-import { sliceText } from '../../utils/formatText';
-import { SLICE_POSITION } from '../NoteList/constants';
 
 const NotesFormContainer: FC = () => {
   const email = useSelector(selectEmail);

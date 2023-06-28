@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { List, Box, ListItemText, ListItem, Grid } from '@mui/material';
 
-import { Title } from 'components/index';
+import { Title } from 'components';
 
 import { AboutWrapper } from './styled';
 import { FEATURES, FUTURES } from './constants';

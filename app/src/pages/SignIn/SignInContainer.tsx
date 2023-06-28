@@ -17,10 +17,10 @@ const SignInContainer: FC = () => {
   }
 
   const signInMutation = signIn();
-  const handleSignIn = async (credentials: FormikValues) => {
+  const handleSignIn = async ({ email, password }: FormikValues) => {
     signInMutation.mutate({
-      email: credentials.email,
-      password: credentials.password,
+      email: email,
+      password: password,
     });
   };
 

@@ -1,21 +1,9 @@
-import FilterNotes from './FilterNotes';
-import Form from './Form';
-import FormControlLayout from './FormControlLayout';
-import FormInput from './FormInput';
-import InfinityScroll from './InfinityScroll';
-import Navbar from './Navbar';
-import TextArea from './TextArea';
-import Title from './Title';
-import SignUpInput from './SignUpInput';
-
-export {
-  FilterNotes,
-  Form,
-  FormControlLayout,
-  FormInput,
-  InfinityScroll,
-  Navbar,
-  TextArea,
-  Title,
-  SignUpInput,
-};
+export { default as FilterNotes } from './FilterNotes';
+export { default as Form } from './Form';
+export { default as FormControlLayout } from './FormControlLayout';
+export { default as FormInput } from './FormInput';
+export { default as InfinityScroll } from './InfinityScroll';
+export { default as Navbar } from './Navbar';
+export { default as TextArea } from './TextArea';
+export { default as Title } from './Title';
+export { default as SignUpInput } from './SignUpInput';

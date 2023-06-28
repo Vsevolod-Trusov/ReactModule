@@ -1,10 +1,8 @@
 import React, { FC } from 'react';
-import Box from '@mui/material/Box';
-import { Button } from '@mui/material';
+import { Button, Box } from '@mui/material';
 
-import { Title } from 'components/index';
-import { formatDate } from 'utils/formatDate';
-import { sliceText } from 'utils/formatText';
+import { Title } from 'components';
+import { formatDate, sliceText } from 'utils';
 
 import {
   StyledSelectedButtonWrapper,
@@ -22,41 +20,43 @@ const SelectedNote: FC<ISelectedNote> = ({
   handleNavigateToEdit,
   handleShareNote,
 }) => {
+  if (note?.title) {
+    return (
+      <StyledSelectedNoteWrapper>
+        <Box>
+          <Title variant={'h1'}>{note.title}</Title>
+          <StyleInfoBox>
+            Date: {formatDate(new Date(note.dateCreation))}
+          </StyleInfoBox>
+          <StyleInfoBox>
+            TODO: {sliceText(note.description, SLICE_POSITION)}
+          </StyleInfoBox>
+        </Box>
+        <StyledSelectedButtonWrapper>
+          <Button
+            variant='contained'
+            color='primary'
+            type='button'
+            onClick={handleNavigateToEdit}
+          >
+            {EDIT}
+          </Button>
+          <Button
+            variant='contained'
+            color='primary'
+            type='submit'
+            onClick={() => handleShareNote()}
+          >
+            {SHARE}
+          </Button>
+        </StyledSelectedButtonWrapper>
+      </StyledSelectedNoteWrapper>
+    );
+  }
+
   if (!note?.title) {
     return <StyledNoteWrapper>Select note</StyledNoteWrapper>;
   }
-
-  return (
-    <StyledSelectedNoteWrapper>
-      <Box>
-        <Title variant={'h1'}>{note.title}</Title>
-        <StyleInfoBox>
-          Date: {formatDate(new Date(note.dateCreation))}
-        </StyleInfoBox>
-        <StyleInfoBox>
-          TODO: {sliceText(note.description, SLICE_POSITION)}
-        </StyleInfoBox>
-      </Box>
-      <StyledSelectedButtonWrapper>
-        <Button
-          variant='contained'
-          color='primary'
-          type='button'
-          onClick={handleNavigateToEdit}
-        >
-          {EDIT}
-        </Button>
-        <Button
-          variant='contained'
-          color='primary'
-          type='submit'
-          onClick={() => handleShareNote()}
-        >
-          {SHARE}
-        </Button>
-      </StyledSelectedButtonWrapper>
-    </StyledSelectedNoteWrapper>
-  );
 };
 
 export default SelectedNote;

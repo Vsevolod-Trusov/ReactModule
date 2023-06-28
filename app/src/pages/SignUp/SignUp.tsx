@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { Box, Button } from '@mui/material';
 import { Formik, FormikValues } from 'formik';
 
-import { Form, Title, SignUpInput } from 'components/index';
-import { signUpValidationSchema } from 'validations/signUpValidationSchema';
+import { Form, Title, SignUpInput } from 'components';
+import { signUpValidationSchema } from 'validations';
 import { StyledLink, StyledWrapper } from 'pages/SignIn/styled';
 import { ROUTE } from 'config/constants/routes';
 
@@ -12,7 +12,7 @@ import {
   EMAIL_PLACEHOLDER,
   PASSWORD_FIELD,
   PASSWORD_PLACEHOLDER,
-} from '../constants';
+} from 'config/globalConstants';
 import {
   BIRTHDAY_FIELD,
   CONFIRM_PASSWORD_FIELD,
@@ -26,7 +26,7 @@ import {
   TITLE,
 } from './constants';
 import { ISignUp } from './types';
-import { StyledInputBox, StyledInputsWrapper } from './styled';
+import { StyledInputsWrapper } from './styled';
 
 const SignUp: FC<ISignUp> = ({ submit }) => (
   <StyledWrapper>
@@ -41,7 +41,7 @@ const SignUp: FC<ISignUp> = ({ submit }) => (
         <Form onSubmit={handleSubmit} isSignUp={true}>
           <Title variant={'h1'}>{TITLE}</Title>
           <StyledInputsWrapper>
-            <StyledInputBox>
+            <Box>
               <SignUpInput
                 name={FIRST_NAME_FIELD}
                 placeholder={FIRSTNAME_PLACEHOLDER}
@@ -57,8 +57,8 @@ const SignUp: FC<ISignUp> = ({ submit }) => (
                 type={'date'}
                 margin={'normal'}
               />
-            </StyledInputBox>
-            <StyledInputBox>
+            </Box>
+            <Box>
               <SignUpInput
                 name={EMAIL_FIELD}
                 placeholder={EMAIL_PLACEHOLDER}
@@ -76,7 +76,7 @@ const SignUp: FC<ISignUp> = ({ submit }) => (
                 type={'password'}
                 margin={'normal'}
               />
-            </StyledInputBox>
+            </Box>
           </StyledInputsWrapper>
           <Box>
             <Button type='submit' variant={'contained'}>

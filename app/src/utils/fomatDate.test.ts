@@ -1,4 +1,4 @@
-import { formatDate } from './formatDate';
+import { default as formatDate } from './formatDate';
 
 const TEST_DATE = '2023-12-12T23:00:00';
 

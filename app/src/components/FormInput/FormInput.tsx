@@ -9,4 +9,5 @@ const FormInput: FC<FieldAttributes<any>> = (props) => (
     <StyledErrorMessage name={props.name} component={'div'} />
   </>
 );
+
 export default FormInput;

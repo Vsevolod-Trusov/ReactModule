@@ -2,14 +2,14 @@ import React, { FC } from 'react';
 import { Formik, FormikValues } from 'formik';
 import { Box, Button } from '@mui/material';
 
-import { FormInput, Form, Title, FormControlLayout } from 'components/index';
+import { FormInput, Form, Title, FormControlLayout } from 'components';
 import {
   EMAIL_FIELD,
   EMAIL_PLACEHOLDER,
   PASSWORD_FIELD,
   PASSWORD_PLACEHOLDER,
-} from 'pages/constants';
-import { signInValidationSchema } from 'validations/signInValidationSchema';
+} from 'config/globalConstants';
+import { signInValidationSchema } from 'validations';
 import { ROUTE } from 'config/constants/routes';
 
 import { INITIAL_SIGNIN, SUBMIT_BUTTON, TITLE } from './constants';

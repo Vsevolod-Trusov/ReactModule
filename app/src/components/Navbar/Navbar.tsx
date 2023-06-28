@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import EventNoteIcon from '@mui/icons-material/EventNote';
 
-import { ROUTE_LABELS } from 'pages/constants';
+import { ROUTE_LABELS } from 'config/globalConstants';
 import { ROUTE } from 'config/constants/routes';
 
 import LinkContainer from './components/Link/LinkContainer';

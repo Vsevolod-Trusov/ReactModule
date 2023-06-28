@@ -12,6 +12,7 @@ import {
   StyledNotificationSelected,
 } from './styled';
 import { ISelectedNoteContainer } from './types';
+import { NULL_SIZE } from './constants';
 
 const SelectedNoteContainer: FC<ISelectedNoteContainer> = ({ isShared }) => {
   const selectedNote = useSelector(selectNote);
@@ -19,13 +20,8 @@ const SelectedNoteContainer: FC<ISelectedNoteContainer> = ({ isShared }) => {
   const mutation = editNote(selectedNote.id, isShared);
 
   const handleNavigateToEdit = () => {
-    if (isShared) {
-      navigate(ROUTE.SHARED_NOTE);
-    } else {
-      navigate(ROUTE.MY_NOTE);
-    }
+    navigate(isShared ? ROUTE.SHARED_NOTE : ROUTE.MY_NOTE);
   };
-
   const handleShareNote = () => {
     mutation.mutate({
       isShared: true,
@@ -33,19 +29,21 @@ const SelectedNoteContainer: FC<ISelectedNoteContainer> = ({ isShared }) => {
     navigate(ROUTE.NOTES);
   };
 
-  if (Object.keys(selectedNote).length === 0) {
-    return <StyledNotificationSelected>Select Note</StyledNotificationSelected>;
+  if (Object.keys(selectedNote).length !== NULL_SIZE) {
+    return (
+      <StyledNoteContainerWrapper>
+        <SelectedNote
+          note={selectedNote}
+          handleNavigateToEdit={handleNavigateToEdit}
+          handleShareNote={handleShareNote}
+        />
+      </StyledNoteContainerWrapper>
+    );
   }
 
-  return (
-    <StyledNoteContainerWrapper>
-      <SelectedNote
-        note={selectedNote}
-        handleNavigateToEdit={handleNavigateToEdit}
-        handleShareNote={handleShareNote}
-      />
-    </StyledNoteContainerWrapper>
-  );
+  if (Object.keys(selectedNote).length === NULL_SIZE) {
+    return <StyledNotificationSelected>Select Note</StyledNotificationSelected>;
+  }
 };
 
 export default SelectedNoteContainer;

@@ -1,10 +1,11 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Formik, FormikValues } from 'formik';
 import { Button } from '@mui/material';
 
-import { Title, FormInput, TextArea } from 'components/index';
+import { Title, FormInput, TextArea } from 'components';
 import { ISignIn } from 'pages/SignIn/types';
-import { noteCreationValidationSchema } from 'validations/noteCreationValidationSchema';
+import { noteCreationValidationSchema } from 'validations';
+import { StyledFormControl } from 'components/FormControlLayout/styled';
 
 import {
   DESCRIPTION_FIELD,
@@ -15,11 +16,7 @@ import {
   BUTTON_TEXT,
   DATA_FORM_ID,
 } from './constants';
-import {
-  StyledFormWrapper,
-  StyledNoteForm,
-  StyledNoteFormControl,
-} from './styled';
+import { StyledFormWrapper, StyledNoteForm } from './styled';
 
 const NotesForm: FC<ISignIn> = ({ handleSubmit }) => (
   <StyledFormWrapper data-testid={DATA_FORM_ID}>
@@ -35,7 +32,7 @@ const NotesForm: FC<ISignIn> = ({ handleSubmit }) => (
       {({ handleSubmit, handleChange, values }) => (
         <StyledNoteForm onSubmit={handleSubmit}>
           <Title variant={'h1'}>Create</Title>
-          <StyledNoteFormControl
+          <StyledFormControl
             margin={'normal'}
             variant={'filled'}
             size={'medium'}
@@ -57,7 +54,7 @@ const NotesForm: FC<ISignIn> = ({ handleSubmit }) => (
             <Button type='submit' variant={'contained'}>
               {BUTTON_TEXT}
             </Button>
-          </StyledNoteFormControl>
+          </StyledFormControl>
         </StyledNoteForm>
       )}
     </Formik>

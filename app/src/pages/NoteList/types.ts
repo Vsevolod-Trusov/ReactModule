@@ -5,21 +5,21 @@ export type TNote = {
   title: string;
   description: string;
   dateCreation: Date | null;
-  isShared?: boolean;
   author?: string;
   testId?: string;
+  isShared?: boolean;
 };
 
 export type TSelectedNode = {
   note?: TNote;
   dateCreation?: string;
-  setNotes?: Dispatch<SetStateAction<TNote[]>>;
   notes?: TNote[];
+  setNotes?: Dispatch<SetStateAction<TNote[]>>;
 };
 
 export type TUpdateNote = {
-  isShared?: boolean;
   description?: string;
+  isShared?: boolean;
 };
 
 export type TNoteListProps = {
@@ -28,6 +28,6 @@ export type TNoteListProps = {
 } & TSelectedNode;
 
 export type TInfinityScrollProps = {
-  handleSetSelectedNote?: (item: TNote) => void;
   isShared: boolean;
+  handleSetSelectedNote?: (item: TNote) => void;
 };
