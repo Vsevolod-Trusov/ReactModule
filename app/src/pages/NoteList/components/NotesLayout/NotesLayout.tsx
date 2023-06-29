@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 
 import { EMPTY_LINE, SLICE_POSITION } from 'pages/NoteList/constants';
 import { TNote } from 'pages/NoteList/types';
-import { formatDate, sliceText } from 'utils/index';
+import { formatDate, sliceText } from 'utils';
 
 import { StyledNote, StyledOutputLine } from './styled';
 import { INotes } from './types';
