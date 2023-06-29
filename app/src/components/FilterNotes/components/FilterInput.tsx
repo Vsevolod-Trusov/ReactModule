@@ -4,10 +4,10 @@ import { Box } from '@mui/material';
 
 import { StyledErrorMessage, StyledField } from 'components/FormInput/styled';
 
-const FilterInput: FC<FieldAttributes<any>> = (props) => (
+const FilterInput: FC<FieldAttributes<any>> = ({ name, ...props }) => (
   <Box>
-    <StyledField {...props} />
-    <StyledErrorMessage name={props.name} component={'div'} />
+    <StyledField name={name} {...props} />
+    <StyledErrorMessage name={name} component={'div'} />
   </Box>
 );
 

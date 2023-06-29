@@ -3,10 +3,10 @@ import { FieldAttributes } from 'formik/dist/Field';
 
 import { StyledErrorMessage, StyledField } from './styled';
 
-const FormInput: FC<FieldAttributes<any>> = (props) => (
+const FormInput: FC<FieldAttributes<any>> = ({ name, ...props }) => (
   <>
-    <StyledField {...props} />
-    <StyledErrorMessage name={props.name} component={'div'} />
+    <StyledField name={name} {...props} />
+    <StyledErrorMessage name={name} component={'div'} />
   </>
 );
 

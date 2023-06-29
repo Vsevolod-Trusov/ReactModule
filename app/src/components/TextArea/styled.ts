@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { TextField } from '@mui/material';
 
-const StyledTextAreaField = styled(TextField)({
+export const StyledTextAreaField = styled(TextField)({
   margin: '8px 0',
   padding: '1rem',
   minWidth: '100%',
@@ -13,5 +13,3 @@ const StyledTextAreaField = styled(TextField)({
   fontFamily: 'inherit',
   letterSpacing: '0.075rem',
 });
-
-export { StyledTextAreaField };

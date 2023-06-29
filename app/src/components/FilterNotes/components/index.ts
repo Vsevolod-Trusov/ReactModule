@@ -1,4 +1,2 @@
-import FilterForm from './FilterForm';
-import FilterInput from './FilterInput';
-
-export { FilterForm, FilterInput };
+export { default as FilterForm } from './FilterForm';
+export { default as FilterInput } from './FilterInput';

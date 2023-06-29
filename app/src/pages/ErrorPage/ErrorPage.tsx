@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import Button from '@mui/material/Button';
+import { Button } from '@mui/material';
 
 import { IErrorPage } from './types';
 import { StyledErrorPage, StyledWrapper } from './styled';

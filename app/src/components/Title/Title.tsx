@@ -1,9 +1,8 @@
 import React, { FC, PropsWithChildren } from 'react';
-import { TypographyProps } from '@mui/material/Typography';
+import { Typography, TypographyProps } from '@mui/material';
 
-import { StyledTitle } from './styled';
-
-const Title: FC<PropsWithChildren<TypographyProps>> = (props) => (
-  <StyledTitle variant={props.variant}>{props.children}</StyledTitle>
-);
+const Title: FC<PropsWithChildren<TypographyProps>> = ({
+  variant,
+  children,
+}) => <Typography variant={variant}>{children}</Typography>;
 export default Title;

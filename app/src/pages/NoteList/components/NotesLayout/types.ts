@@ -12,7 +12,7 @@ export interface INotes {
 }
 
 export interface IInfinityScroll extends INodesLayout {
-  setNotes: () => void;
-  hasMore: boolean;
   dataLength?: number;
+  hasMore: boolean;
+  setNotes: () => void;
 }

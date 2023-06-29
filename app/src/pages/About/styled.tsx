@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
 
 const Wrapper = styled(Box)({
   height: '100vh',

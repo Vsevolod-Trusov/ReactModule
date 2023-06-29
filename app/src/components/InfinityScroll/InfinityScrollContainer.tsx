@@ -6,6 +6,8 @@ import NotesLayoutContainer from 'pages/NoteList/components/NotesLayout';
 import { TInfinityScrollProps } from 'pages/NoteList/types';
 import { getNotes, getSharedNotes } from 'api/notes';
 
+import { START } from './constants';
+
 const InfinityScrollContainer: FC<TInfinityScrollProps> = ({
   handleSetSelectedNote,
   isShared,
@@ -16,15 +18,15 @@ const InfinityScrollContainer: FC<TInfinityScrollProps> = ({
   const postData = useSelector(selectPostNotes);
 
   const dataLength =
-    data?.pages.reduce((total, page) => total + page.length, 0) || 0;
+    data?.pages.reduce((total, page) => total + page.length, START) || START;
 
   return (
     <NotesLayoutContainer
       notes={postData}
       dataLength={dataLength}
+      hasMore={hasNextPage}
       handleSetSelectedNote={handleSetSelectedNote}
       setNotes={fetchNextPage}
-      hasMore={hasNextPage}
     />
   );
 };

@@ -5,3 +5,5 @@ export const RESPONSES = {
   SUCH_EMAIL_USED: 'Such email already used',
   CONFIRM_PASSWORDS: 'Confirm password not passed',
 };
+
+export const AUTO_HIDE_DURATION = 1000;

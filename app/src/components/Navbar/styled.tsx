@@ -1,6 +1,7 @@
-import { Link } from '@mui/material';
-import Box from '@mui/material/Box';
+import { Link, Box } from '@mui/material';
 import styled from 'styled-components';
+
+import { COLORS } from 'config/colors';
 
 const StyledNavbar = styled(Box)({
   display: 'flex',
@@ -22,10 +23,8 @@ const StyledNavbarBox = styled(Box)({
 
 const StyledHeaderWrapper = styled(Box)({
   width: '100%',
-
-  backgroundColor: '#0b31be',
-  color: '#fff',
-
+  backgroundColor: COLORS.BORDER_COLOR,
+  color: COLORS.WHITE,
   padding: '0.8rem 0',
   textAlign: 'center',
 });
@@ -36,9 +35,8 @@ const StyledLink = styled(Link)({
   textAlign: 'center',
   fontFamily: 'Montserrat',
   outline: '1px solid #0b31be',
-
   '&:hover': {
-    backgroundColor: '#ece9e9',
+    backgroundColor: COLORS.HEADER_LINK_HOVER,
     transition: '.2s',
   },
 });

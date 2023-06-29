@@ -15,7 +15,7 @@ const NoteListContainer: FC = () => {
   const dispatch = useDispatch();
 
   if (!window.localStorage.getItem('email') || !firstname) {
-    return <Navigate to={ROUTE.SIGNIN} />;
+    return <Navigate to={ROUTE.SIGN_IN} />;
   }
   const handleSelectNode = (item: TNote) => {
     window.localStorage.setItem('selected', JSON.stringify(item));

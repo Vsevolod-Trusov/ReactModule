@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
 
-import { COLORS } from 'pages/colors';
+import { COLORS } from 'config/colors';
 import {
   HOVER_NODE_SHADOW,
   SELECTED_NODE_SHADOW,
@@ -26,7 +26,6 @@ const StyledNote = styled(Box)({
   borderRight: `1px solid ${COLORS.BORDER_COLOR}`,
   margin: '1rem 1 rem 0 1rem',
   backgroundColor: 'transparent',
-
   ':hover': {
     backgroundColor: COLORS.NOTE_BACKGROUND_HOVER,
     transition: '.2s',

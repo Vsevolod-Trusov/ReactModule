@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import CircularProgress from '@mui/material/CircularProgress';
+import { CircularProgress } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
 import { setPostNotes } from 'store/slices/notes.slice';
 import { NOTES_LAYOUT_ID } from 'pages/SignIn/constants';
 
 import { IInfinityScroll } from './types';
-import { DROPPABLE_ID } from './constants';
+import { DROPPABLE_ID, NO_NOTES } from './constants';
 import {
   StyledNotesLayout,
   StyledNotesWrapper,
@@ -41,52 +41,52 @@ const NotesLayoutContainer: FC<IInfinityScroll> = ({
       const reorderedStores = [...notes];
 
       const storeSourceIndex = source.index;
-      const storeDestinatonIndex = destination.index;
+      const storeDestinationIndex = destination.index;
       const [removedStore] = reorderedStores.splice(storeSourceIndex, 1);
-      reorderedStores.splice(storeDestinatonIndex, 0, removedStore);
+      reorderedStores.splice(storeDestinationIndex, 0, removedStore);
       dispatch(setPostNotes(reorderedStores));
     }
   };
 
-  if (notes.length === 0) {
-    return (
-      <StyledNotesLayout>
-        <StyledNotification>No Notes</StyledNotification>
-      </StyledNotesLayout>
-    );
-  }
-
   return (
-    <DragDropContext onDragEnd={handleDragDrop}>
-      <StyledNotesLayout id={NOTES_LAYOUT_ID}>
-        <Droppable droppableId={DROPPABLE_ID} type={'group'}>
-          {(provided) => (
-            <InfiniteScroll
-              dataLength={dataLength}
-              next={setNotes}
-              hasMore={hasMore || false}
-              loader={
-                <StyledLoaderWrapper>
-                  <CircularProgress />
-                </StyledLoaderWrapper>
-              }
-              scrollableTarget={NOTES_LAYOUT_ID}
-              style={{ overflow: 'none' }}
-            >
-              <StyledNotesWrapper
-                {...provided.droppableProps}
-                ref={provided.innerRef}
-              >
-                <NotesLayout
-                  notes={notes}
-                  handleSetSelectedNote={handleSetSelectedNote}
-                />
-              </StyledNotesWrapper>
-            </InfiniteScroll>
-          )}
-        </Droppable>
-      </StyledNotesLayout>
-    </DragDropContext>
+    <>
+      {notes.length ? (
+        <DragDropContext onDragEnd={handleDragDrop}>
+          <StyledNotesLayout id={NOTES_LAYOUT_ID}>
+            <Droppable droppableId={DROPPABLE_ID} type={'group'}>
+              {(provided) => (
+                <InfiniteScroll
+                  dataLength={dataLength}
+                  next={setNotes}
+                  loader={
+                    <StyledLoaderWrapper>
+                      <CircularProgress />
+                    </StyledLoaderWrapper>
+                  }
+                  scrollableTarget={NOTES_LAYOUT_ID}
+                  hasMore={hasMore || false}
+                >
+                  <StyledNotesWrapper
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                  >
+                    <NotesLayout
+                      notes={notes}
+                      handleSetSelectedNote={handleSetSelectedNote}
+                    />
+                  </StyledNotesWrapper>
+                </InfiniteScroll>
+              )}
+            </Droppable>
+          </StyledNotesLayout>
+        </DragDropContext>
+      ) : (
+        <StyledNotesLayout>
+          <StyledNotification>{NO_NOTES}</StyledNotification>
+        </StyledNotesLayout>
+      )}
+    </>
   );
 };
+
 export default NotesLayoutContainer;

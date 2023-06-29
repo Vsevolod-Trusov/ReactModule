@@ -20,3 +20,4 @@ export const FILTER_BY_NAME_VALUES = {
 
 export const DATE_CREATION = 'dateCreation';
 export const TITLE = 'title';
+export const START_TIMEOUT = 10;

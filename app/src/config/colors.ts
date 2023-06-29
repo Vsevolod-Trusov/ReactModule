@@ -7,4 +7,6 @@ export enum COLORS {
   BLACK = '#000',
   LINK_DEFAULT = '#979696',
   LINK_HOVER = '#737373',
+  HEADER_LINK_HOVER = '#ece9e9',
+  WHITE = '#fff',
 }

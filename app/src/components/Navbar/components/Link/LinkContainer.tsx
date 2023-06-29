@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { ExitToApp } from '@mui/icons-material';
 
 import { ILinkContainer } from 'components/Navbar/types';
 import { ROUTE } from 'config/constants/routes';
@@ -27,10 +27,10 @@ const LinkContainer: FC<ILinkContainer> = ({
         onClick={() => {
           window.localStorage.clear();
           dispatch(setUser(INITIAL_USER_STATE));
-          navigate(ROUTE.SIGNIN);
+          navigate(ROUTE.SIGN_IN);
         }}
       >
-        <ExitToAppIcon />
+        <ExitToApp />
       </Link>
     );
   }

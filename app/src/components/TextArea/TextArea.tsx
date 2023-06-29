@@ -3,18 +3,23 @@ import { FieldAttributes } from 'formik/dist/Field';
 
 import { StyledTextAreaField } from './styled';
 
-const TextArea: FC<FieldAttributes<any>> = (props) => (
+const TextArea: FC<FieldAttributes<any>> = ({
+  name,
+  value,
+  onChange,
+  placeholder,
+}) => (
   <>
     <StyledTextAreaField
-      name={props.name}
-      value={props.value}
-      onChange={props.onChange}
-      placeholder={props.placeholder}
+      name={name}
+      value={value}
+      placeholder={placeholder}
       variant='outlined'
-      rows={4}
       margin='normal'
+      rows={4}
       fullWidth
       multiline
+      onChange={onChange}
     />
   </>
 );

@@ -11,7 +11,11 @@ import {
 } from 'pages/NotesForm/constants';
 import { filterSchema, filterByNameSchema } from 'validations';
 
-import { FILTER_VALUES, FILTER_BY_NAME_VALUES } from './constants';
+import {
+  FILTER_VALUES,
+  FILTER_BY_NAME_VALUES,
+  START_TIMEOUT,
+} from './constants';
 
 import { FilterForm, FilterInput } from './components';
 import { StyledFormControlLayout } from './styled';
@@ -60,7 +64,7 @@ const FilterNotes: FC<ISignUp> = ({
                     handleChange(e);
                     setTimeout(() => {
                       handleSubmit();
-                    }, 10);
+                    }, START_TIMEOUT);
                   }}
                 />
                 <Button

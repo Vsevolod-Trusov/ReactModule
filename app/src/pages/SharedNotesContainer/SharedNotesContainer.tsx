@@ -62,7 +62,7 @@ const SharedNotesContainer: FC = () => {
   }
 
   if (isNotUserAuthorized) {
-    return <Navigate to={ROUTE.SIGNIN} />;
+    return <Navigate to={ROUTE.SIGN_IN} />;
   }
 };
 

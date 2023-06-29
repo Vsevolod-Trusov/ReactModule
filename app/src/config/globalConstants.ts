@@ -5,8 +5,8 @@ export enum ROUTE_LABELS {
   NOTES_FORM = 'Create',
   SHARED = 'Shared notes',
   ABOUT = 'About',
-  SIGNIN = 'Sign In',
-  SIGNUP = 'Sign Up',
+  SIGN_IN = 'Sign In',
+  SIGN_UP = 'Sign Up',
   EXIT = 'Log out',
   PROFILE = 'Profile',
 }

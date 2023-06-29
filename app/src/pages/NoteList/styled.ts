@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Box, Button } from '@mui/material';
 
-import { COLORS } from '../colors';
+import { COLORS } from 'config/colors';
 
 const StyledNoteListWrapper = styled(Box)({
   display: 'flex',

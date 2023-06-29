@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ErrorMessage, Field } from 'formik';
 
-import { COLORS } from 'pages/colors';
+import { COLORS } from 'config/colors';
 
 const StyledField = styled(Field)({
   margin: '8px 0',

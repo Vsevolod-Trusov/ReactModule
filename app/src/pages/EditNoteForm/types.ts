@@ -4,9 +4,9 @@ import { TNote } from 'pages/NoteList/types';
 
 export interface IEditNodeProps {
   note?: TNote;
-  setNotes?: Dispatch<SetStateAction<TNote[]>>;
   notes?: TNote[];
   isShared?: boolean;
+  setNotes?: Dispatch<SetStateAction<TNote[]>>;
 }
 
 export interface IHandleEditNote {

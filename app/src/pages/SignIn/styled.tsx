@@ -3,8 +3,7 @@ import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 import { StyledForm } from 'components/Form/styled';
-
-import { COLORS } from '../colors';
+import { COLORS } from 'config/colors';
 
 const StyledWrapper = styled(Box)({
   display: 'flex',

@@ -15,7 +15,7 @@ import { FETCH_URLS } from '../constants';
 import { apiClient } from '../base';
 import { TUser } from './types';
 import { useSnackbar } from 'notistack';
-import { RESPONSES } from './constants';
+import { AUTO_HIDE_DURATION, RESPONSES } from './constants';
 
 export const useSignUp = (): UseMutationResult<TUser, TResponseError> => {
   const navigate = useNavigate();
@@ -36,16 +36,16 @@ export const useSignUp = (): UseMutationResult<TUser, TResponseError> => {
   const handleSuccess = () => {
     enqueueSnackbar(RESPONSES.SUCCESS, {
       variant: 'success',
-      autoHideDuration: 1000,
+      autoHideDuration: AUTO_HIDE_DURATION,
     });
 
-    navigate(ROUTE.SIGNIN);
+    navigate(ROUTE.SIGN_IN);
   };
 
   const handleError = (error) => {
     enqueueSnackbar(error.message, {
       variant: 'error',
-      autoHideDuration: 1000,
+      autoHideDuration: AUTO_HIDE_DURATION,
     });
   };
 

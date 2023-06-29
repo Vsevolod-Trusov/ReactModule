@@ -2,8 +2,7 @@ import styled from 'styled-components';
 
 import { StyledForm } from 'components/Form/styled';
 import { StyledWrapper } from 'pages/SignIn/styled';
-
-import { COLORS } from '../colors';
+import { COLORS } from 'config/colors';
 
 const StyledNoteForm = styled(StyledForm)({
   width: '98%',

@@ -3,42 +3,44 @@ import { List, Box, ListItemText, ListItem, Grid } from '@mui/material';
 
 import { Title } from 'components';
 
-import { AboutWrapper } from './styled';
+import { Wrapper, AboutWrapper } from './styled';
 import { FEATURES, FUTURES } from './constants';
 
 const About: FC = () => (
-  <AboutWrapper>
-    <Grid spacing={5} container>
-      <Grid xs={5} item>
-        <Box>
-          <Title variant={'h5'}>Features:</Title>
+  <Wrapper>
+    <AboutWrapper>
+      <Grid spacing={5} container>
+        <Grid xs={5} item>
           <Box>
-            <List>
-              {FEATURES.map((name: string) => (
-                <ListItem key={name}>
-                  <ListItemText primary={name} />
-                </ListItem>
-              ))}
-            </List>
+            <Title variant={'h5'}>Features:</Title>
+            <Box>
+              <List>
+                {FEATURES.map((name: string) => (
+                  <ListItem key={name}>
+                    <ListItemText primary={name} />
+                  </ListItem>
+                ))}
+              </List>
+            </Box>
           </Box>
-        </Box>
-      </Grid>
-      <Grid xs={5} item>
-        <Box>
-          <Title variant={'h5'}>Future plans:</Title>
+        </Grid>
+        <Grid xs={5} item>
           <Box>
-            <List>
-              {FUTURES.map((name: string) => (
-                <ListItem key={name}>
-                  <ListItemText primary={name} />
-                </ListItem>
-              ))}
-            </List>
+            <Title variant={'h5'}>Future plans:</Title>
+            <Box>
+              <List>
+                {FUTURES.map((name: string) => (
+                  <ListItem key={name}>
+                    <ListItemText primary={name} />
+                  </ListItem>
+                ))}
+              </List>
+            </Box>
           </Box>
-        </Box>
+        </Grid>
       </Grid>
-    </Grid>
-  </AboutWrapper>
+    </AboutWrapper>
+  </Wrapper>
 );
 
 export default About;

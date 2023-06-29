@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import styled from 'styled-components';
 
-import { COLORS } from 'pages/colors';
+import { COLORS } from 'config/colors';
 
 const StyledNoteContainerWrapper = styled(Box)({
   display: 'flex',

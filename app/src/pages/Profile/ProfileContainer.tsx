@@ -13,7 +13,7 @@ const ProfileContainer = () => {
   const { id, password, ...user } = useSelector(selectUser);
 
   if (!window.localStorage.getItem('email') || !firstname) {
-    return <Navigate to={ROUTE.SIGNIN} />;
+    return <Navigate to={ROUTE.SIGN_IN} />;
   }
 
   return (

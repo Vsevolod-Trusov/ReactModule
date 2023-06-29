@@ -46,12 +46,12 @@ const EditNoteForm: FC<IEditNodeForm> = ({
           label={DESCRIPTION_LABEL}
           value={description}
           name={'nodeText'}
-          onChange={handleSetDescription}
           variant='outlined'
           rows={4}
           margin='normal'
           fullWidth
           multiline
+          onChange={handleSetDescription}
         />
         <StyledButtonWrapper>
           <Button

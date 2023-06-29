@@ -7,7 +7,7 @@ import { StyledNavbarBox } from './styled';
 import Navbar from './Navbar';
 
 const NavbarContainer: FC = () => {
-  const isUserAuthorized = useSelector(selectFirstName) ? true : false;
+  const isUserAuthorized = useSelector(selectFirstName);
 
   return (
     <StyledNavbarBox>
@@ -15,4 +15,5 @@ const NavbarContainer: FC = () => {
     </StyledNavbarBox>
   );
 };
+
 export default NavbarContainer;

@@ -17,6 +17,7 @@ import { FILTER_TYPES } from 'components/FilterNotes/constants';
 import { TResponseError } from '../types';
 import { apiClient } from '../base';
 import { FETCH_URLS, PAGE_ELEMENTS_LIMIT } from '../constants';
+import { START_PAGE } from './constants';
 
 const getSharedNotes = (): UseInfiniteQueryResult<TNote[], TResponseError> => {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ const getSharedNotes = (): UseInfiniteQueryResult<TNote[], TResponseError> => {
 
   return useInfiniteQuery(
     [QUERY_KEYS.NOTES],
-    async ({ pageParam = 1 }) => {
+    async ({ pageParam = START_PAGE }) => {
       const url = `${FETCH_URLS.NOTES}?page=${pageParam}&limit=${PAGE_ELEMENTS_LIMIT}&isShared=true`;
 
       return await apiClient.get(url).then((response) => response.data);

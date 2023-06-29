@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
 
 import { EMPTY_LINE, SLICE_POSITION } from 'pages/NoteList/constants';
 import { TNote } from 'pages/NoteList/types';

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Form } from 'formik';
 
-const StyledForm = styled(Form)({
+export const StyledForm = styled(Form)({
   alignSelf: 'center',
   margin: '0 auto',
   padding: '1rem',
@@ -11,5 +11,3 @@ const StyledForm = styled(Form)({
   boxShadow:
     '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
 });
-
-export { StyledForm };

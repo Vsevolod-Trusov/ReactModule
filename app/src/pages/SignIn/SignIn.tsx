@@ -48,7 +48,7 @@ const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => (
               {SUBMIT_BUTTON}
             </Button>
             <Box>
-              <StyledLink to={ROUTE.LINK_SIGN_UP}>Sign up?</StyledLink>
+              <StyledLink to={ROUTE.SIGN_UP}>Sign up?</StyledLink>
             </Box>
           </FormControlLayout>
         </Form>

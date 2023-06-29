@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -17,10 +16,11 @@ import {
   NotesForm,
   SelectedNote,
   Profile,
-} from 'pages/index';
+} from 'pages';
 import { ROUTE } from 'config/constants/routes';
 
 import App from '../../App';
+import { BASE_NAME } from './constants';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -49,13 +49,13 @@ export const router = createBrowserRouter(
         <Route path={ROUTE.SHARED_FORM} element={<NotesForm />} />
       </Route>
       <Route path={ROUTE.ABOUT} element={<About />} />
-      <Route path={ROUTE.SIGNIN} element={<SignIn />} />
-      <Route path={ROUTE.SIGNUP} element={<SignUp />} />
+      <Route path={ROUTE.SIGN_IN} element={<SignIn />} />
+      <Route path={ROUTE.SIGN_UP} element={<SignUp />} />
       <Route path={ROUTE.NOT_FOUND} element={<Error />} />
       <Route path={ROUTE.ANY} element={<Navigate to={ROUTE.NOT_FOUND} />} />
     </Route>,
   ),
-  { basename: '/ReactModule' },
+  { basename: BASE_NAME },
 );
 
 export default router;

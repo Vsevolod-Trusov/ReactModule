@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material';
 
-export const theme = createTheme({
+const theme = createTheme({
   typography: {
     fontFamily: 'Montserrat',
   },
@@ -51,3 +51,5 @@ export const theme = createTheme({
     },
   },
 });
+
+export default theme;
