@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/ReactModule/static/js/main.50908dee.js",
+    "main.js": "/ReactModule/static/js/main.eefccbfc.js",
     "static/media/Montserrat.woff": "/ReactModule/static/media/Montserrat.cce37fdc8e6fa456e7e4.woff",
     "static/media/Montserrat.woff2": "/ReactModule/static/media/Montserrat.1c57a4b310025b122f28.woff2",
     "static/media/profile.png": "/ReactModule/static/media/profile.392407a70342b0c6441c.png",
     "index.html": "/ReactModule/index.html",
-    "main.50908dee.js.map": "/ReactModule/static/js/main.50908dee.js.map"
+    "main.eefccbfc.js.map": "/ReactModule/static/js/main.eefccbfc.js.map"
   },
   "entrypoints": [
-    "static/js/main.50908dee.js"
+    "static/js/main.eefccbfc.js"
   ]
 }
