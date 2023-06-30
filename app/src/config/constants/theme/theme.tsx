@@ -40,7 +40,6 @@ const theme = createTheme({
           },
         },
       ],
-
       styleOverrides: {
         root: {
           fontFamily: 'Montserrat',

@@ -3,7 +3,7 @@ import { FieldAttributes } from 'formik/dist/Field';
 
 import { StyledTextAreaField } from './styled';
 
-const TextArea: FC<FieldAttributes<any>> = ({
+const TextArea: FC<FieldAttributes<HTMLTextAreaElement>> = ({
   name,
   value,
   onChange,

@@ -38,17 +38,12 @@ const NotesForm: FC<ISignIn> = ({ handleSubmit }) => (
             size={'medium'}
             data-testid={'form'}
           >
-            <FormInput
-              name={TITLE_FIELD}
-              placeholder={TITLE_PLACEHOLDER}
-              margin={'normal'}
-            />
+            <FormInput name={TITLE_FIELD} placeholder={TITLE_PLACEHOLDER} />
             <FormInput
               name={DESCRIPTION_FIELD}
               value={values.description}
               onChange={handleChange}
               placeholder={DESCRIPTION_PLACEHOLDER}
-              margin={'normal'}
               as={TextArea}
             ></FormInput>
             <Button type='submit' variant={'contained'}>

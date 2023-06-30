@@ -45,36 +45,24 @@ const SignUp: FC<ISignUp> = ({ submit }) => (
               <SignUpInput
                 name={FIRST_NAME_FIELD}
                 placeholder={FIRSTNAME_PLACEHOLDER}
-                margin={'normal'}
               />
               <SignUpInput
                 name={LAST_NAME_FIELD}
                 placeholder={LASTNAME_PLACEHOLDER}
-                margin={'normal'}
               />
-              <SignUpInput
-                name={BIRTHDAY_FIELD}
-                type={'date'}
-                margin={'normal'}
-              />
+              <SignUpInput name={BIRTHDAY_FIELD} type={'date'} />
             </Box>
             <Box>
-              <SignUpInput
-                name={EMAIL_FIELD}
-                placeholder={EMAIL_PLACEHOLDER}
-                margin={'normal'}
-              />
+              <SignUpInput name={EMAIL_FIELD} placeholder={EMAIL_PLACEHOLDER} />
               <SignUpInput
                 name={PASSWORD_FIELD}
                 placeholder={PASSWORD_PLACEHOLDER}
                 type={'password'}
-                margin={'normal'}
               />
               <SignUpInput
                 name={CONFIRM_PASSWORD_FIELD}
                 placeholder={CONFIRM_PASSWORD_PLACEHOLDER}
                 type={'password'}
-                margin={'normal'}
               />
             </Box>
           </StyledInputsWrapper>

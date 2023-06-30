@@ -1,6 +1,6 @@
 export interface IProfile {
   firstName: string;
   lastName: string;
-  birthday: Date;
+  birthday: Date | string;
   email: string;
 }

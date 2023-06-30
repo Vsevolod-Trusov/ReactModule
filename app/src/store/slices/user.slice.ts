@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { EMPTY_LINE } from 'pages/NoteList/constants';
+import { RootState } from '../store';
 
 export const userSlice = createSlice({
   name: 'user',
@@ -18,8 +19,8 @@ export const userSlice = createSlice({
 });
 
 export const { setUser } = userSlice.actions;
-export const selectFirstName = (state: any) => state.user.firstName;
-export const selectEmail = (state: any) => state.user.email;
+export const selectFirstName = (state: RootState) => state.user.firstName;
+export const selectEmail = (state: RootState) => state.user.email;
 
-export const selectUser = (state: any) => state.user;
+export const selectUser = (state: RootState) => state.user;
 export default userSlice.reducer;

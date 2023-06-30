@@ -1,3 +1,3 @@
 export interface INavbar {
-  isUserAuthorized: boolean;
+  isUserAuthorized: boolean | string;
 }

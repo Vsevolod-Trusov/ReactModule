@@ -33,16 +33,11 @@ const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => (
             variant={'filled'}
             size={'medium'}
           >
-            <FormInput
-              name={EMAIL_FIELD}
-              placeholder={EMAIL_PLACEHOLDER}
-              margin={'normal'}
-            />
+            <FormInput name={EMAIL_FIELD} placeholder={EMAIL_PLACEHOLDER} />
             <FormInput
               name={PASSWORD_FIELD}
               placeholder={PASSWORD_PLACEHOLDER}
               type={'password'}
-              margin={'normal'}
             />
             <Button type='submit' variant={'contained'}>
               {SUBMIT_BUTTON}
