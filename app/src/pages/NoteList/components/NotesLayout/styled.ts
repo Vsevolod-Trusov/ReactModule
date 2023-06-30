@@ -17,36 +17,38 @@ const StyledNotesLayout = styled(Box)({
   overflowY: 'scroll',
 });
 
+const StyledNoteWrapper = styled(Box)({
+  backgroundImage: `linear-gradient(-180deg, ${COLORS.GRADIENT_START} 0%, ${COLORS.GRADIENT_END} 100%)`,
+  borderRadius: '20px',
+  transition: 'all .3s',
+  ':hover': {
+    boxShadow: `0px 0px 30px 1px ${COLORS.NOTE_SHADOW}`,
+  },
+  ':active': {
+    boxShadow: `0px 0px 30px 1px ${COLORS.NOTE_SHADOW}`,
+  },
+});
+
 const StyledNote = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   padding: '1rem',
-  borderTop: `1px solid ${COLORS.BORDER_COLOR}`,
-  borderRight: `1px solid ${COLORS.BORDER_COLOR}`,
   margin: '1rem 1 rem 0 1rem',
-  backgroundColor: 'transparent',
+  backgroundColor: COLORS.NOTE_BACKGROUND,
+  transition: 'all .2s',
   ':hover': {
-    backgroundColor: COLORS.NOTE_BACKGROUND_HOVER,
-    transition: '.2s',
-    boxShadow: `0 10px 15px -3px ${HOVER_NODE_SHADOW}, 0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
+    transform: 'scale(0.985)',
+    borderRadius: '20px',
   },
-
   ':active': {
-    backgroundColor: COLORS.NOTE_BACKGROUND_ACTIVE,
-    transition: '.2s',
-    boxShadow: `0 10px 15px -3px ${SELECTED_NODE_SHADOW}, 0 4px 6px -2px rgba(0, 0, 0, 0.05)`,
+    transform: 'scale(0.985)',
+    borderRadius: '20px',
   },
 });
 
 const StyledOutputLine = styled(Box)({
   marginTop: '0.5rem',
-});
-
-const StyledNotesWrapper = styled(Box)({
-  ':last-child': {
-    borderBottom: `1px solid ${COLORS.BORDER_COLOR}`,
-  },
 });
 
 const StyledLoaderWrapper = styled(Box)({
@@ -65,6 +67,6 @@ export {
   StyledLoaderWrapper,
   StyledNote,
   StyledOutputLine,
-  StyledNotesWrapper,
   StyledNotification,
+  StyledNoteWrapper,
 };

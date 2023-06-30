@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { FieldAttributes } from 'formik/dist/Field';
+import { TextFieldProps } from '@mui/material';
 
 import { StyledTextAreaField } from './styled';
-import { TextFieldProps } from '@mui/material/TextField/TextField';
 
 const TextArea: FC<FieldAttributes<TextFieldProps>> = ({
   name,

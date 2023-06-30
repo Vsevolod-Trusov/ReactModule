@@ -11,7 +11,7 @@ import {
 } from 'config/globalConstants';
 import { signInValidationSchema } from 'validations';
 import { ROUTE } from 'config/constants/routes';
-import { StyledTextField } from 'components/Input/styled';
+import { StyledTextField } from 'components/FilterNotes/styled';
 
 import { INITIAL_SIGNIN, SUBMIT_BUTTON, TITLE } from './constants';
 import { StyledLink, StyledWrapper } from './styled';
@@ -40,6 +40,7 @@ const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => (
               name={EMAIL_FIELD}
               placeholder={EMAIL_PLACEHOLDER}
               type={'text'}
+              variant={'outlined'}
               value={values.email}
               helperText={touched.email && `${errors?.email || EMPTY_LINE}`}
               error={touched.email && !!errors?.email}

@@ -2,7 +2,8 @@ import { Form } from 'formik';
 import styled from 'styled-components';
 
 import { COLORS } from 'config/colors';
-import { StyledTextField } from 'components/Input/styled';
+
+import { StyledTextField } from '../styled';
 
 const StyledFilterForm = styled(Form)({
   display: 'flex',

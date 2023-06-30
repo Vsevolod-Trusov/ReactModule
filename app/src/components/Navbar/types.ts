@@ -3,4 +3,5 @@ export interface ILinkContainer {
   route?: string;
   isExit?: boolean;
   isNoteLink?: boolean;
+  isSelectedNow?: boolean;
 }

@@ -7,7 +7,7 @@ import { ISignIn } from 'pages/SignIn/types';
 import { noteCreationValidationSchema } from 'validations';
 import { StyledFormControl } from 'components/FormControlLayout/styled';
 import { EMPTY_LINE } from 'pages/NoteList/constants';
-import { StyledTextField } from 'components/Input/styled';
+import { StyledTextField } from 'components/FilterNotes/styled';
 
 import {
   DESCRIPTION_FIELD,

@@ -5,8 +5,9 @@ import { Box } from '@mui/material';
 import { EMPTY_LINE, SLICE_POSITION } from 'pages/NoteList/constants';
 import { TNote } from 'pages/NoteList/types';
 import { formatDate, sliceText } from 'utils';
+import { Title } from 'components';
 
-import { StyledNote, StyledOutputLine } from './styled';
+import { StyledNote, StyledNoteWrapper, StyledOutputLine } from './styled';
 import { INotes } from './types';
 
 const NotesLayout: FC<INotes> = ({ notes, handleSetSelectedNote }) => (
@@ -19,21 +20,23 @@ const NotesLayout: FC<INotes> = ({ notes, handleSetSelectedNote }) => (
             {...provided.draggableProps}
             ref={provided.innerRef}
           >
-            <StyledNote
-              onClick={() =>
-                handleSetSelectedNote && handleSetSelectedNote(note)
-              }
-            >
-              <Box>Title: {note.title}</Box>
-              <StyledOutputLine>
-                {sliceText(note.description, SLICE_POSITION)}
-              </StyledOutputLine>
-              <StyledOutputLine>
-                {note.dateCreation
-                  ? formatDate(new Date(note.dateCreation))
-                  : EMPTY_LINE}
-              </StyledOutputLine>
-            </StyledNote>
+            <StyledNoteWrapper>
+              <StyledNote
+                onClick={() =>
+                  handleSetSelectedNote && handleSetSelectedNote(note)
+                }
+              >
+                <Title variant={'h6'}>Title: {note.title}</Title>
+                <StyledOutputLine>
+                  {sliceText(note.description, SLICE_POSITION)}
+                </StyledOutputLine>
+                <StyledOutputLine>
+                  {note.dateCreation
+                    ? formatDate(new Date(note.dateCreation))
+                    : EMPTY_LINE}
+                </StyledOutputLine>
+              </StyledNote>
+            </StyledNoteWrapper>
           </Box>
         )}
       </Draggable>

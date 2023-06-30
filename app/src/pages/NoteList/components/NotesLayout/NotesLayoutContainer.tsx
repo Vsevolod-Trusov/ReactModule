@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import { CircularProgress } from '@mui/material';
+import { Box, CircularProgress } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
 import { setPostNotes } from 'store/slices/notes.slice';
@@ -11,7 +11,6 @@ import { IInfinityScroll } from './types';
 import { DROPPABLE_ID, NO_NOTES } from './constants';
 import {
   StyledNotesLayout,
-  StyledNotesWrapper,
   StyledLoaderWrapper,
   StyledNotification,
 } from './styled';
@@ -66,15 +65,12 @@ const NotesLayoutContainer: FC<IInfinityScroll> = ({
                   scrollableTarget={NOTES_LAYOUT_ID}
                   hasMore={hasMore || false}
                 >
-                  <StyledNotesWrapper
-                    {...provided.droppableProps}
-                    ref={provided.innerRef}
-                  >
+                  <Box {...provided.droppableProps} ref={provided.innerRef}>
                     <NotesLayout
                       notes={notes}
                       handleSetSelectedNote={handleSetSelectedNote}
                     />
-                  </StyledNotesWrapper>
+                  </Box>
                 </InfiniteScroll>
               )}
             </Droppable>

@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Box, Button } from '@mui/material';
 import { Formik, FormikValues } from 'formik';
 
-import { Title, SignUpInput } from 'components';
+import { Title } from 'components';
 import { signUpValidationSchema } from 'validations';
 import { SignUpForm, StyledLink, StyledWrapper } from 'pages/SignIn/styled';
 import { ROUTE } from 'config/constants/routes';
@@ -13,7 +13,7 @@ import {
   PASSWORD_FIELD,
   PASSWORD_PLACEHOLDER,
 } from 'config/globalConstants';
-import { StyledTextField } from 'components/Input/styled';
+import { StyledTextField } from 'components/FilterNotes/styled';
 
 import {
   BIRTHDAY_FIELD,

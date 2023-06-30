@@ -34,11 +34,34 @@ const StyledLink = styled(Link)({
   padding: '1rem 0',
   textAlign: 'center',
   fontFamily: 'Montserrat',
-  outline: '1px solid #0b31be',
+  border: `1px solid ${COLORS.BORDER_COLOR}`,
   '&:hover': {
     backgroundColor: COLORS.HEADER_LINK_HOVER,
     transition: '.2s',
   },
+  '&:active': {
+    backgroundColor: COLORS.HEADER_LINK_ACTIVE,
+    transition: '.2s',
+  },
 });
 
-export { StyledNavbarBox, StyledNavbar, StyledHeaderWrapper, StyledLink };
+const StyledSelectedLink = styled(StyledLink)({
+  color: `${COLORS.WHITE} !important`,
+  backgroundColor: COLORS.BORDER_COLOR,
+  '&:hover': {
+    backgroundColor: COLORS.BORDER_COLOR_HOVER,
+    transition: '.2s',
+  },
+  '&:active': {
+    backgroundColor: COLORS.BORDER_COLOR,
+    transition: '.2s',
+  },
+});
+
+export {
+  StyledNavbarBox,
+  StyledNavbar,
+  StyledHeaderWrapper,
+  StyledLink,
+  StyledSelectedLink,
+};

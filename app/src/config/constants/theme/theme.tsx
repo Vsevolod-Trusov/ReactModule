@@ -1,5 +1,13 @@
 import { createTheme } from '@mui/material';
 
+import { COLORS } from 'config/colors';
+
+declare module '@mui/material/TextField' {
+  interface TextFieldVariantOverrides {
+    my: true;
+  }
+}
+
 const theme = createTheme({
   typography: {
     fontFamily: 'Montserrat',
@@ -37,6 +45,9 @@ const theme = createTheme({
             fontFamily: 'Montserrat',
             fontSize: '1.55rem',
             lineHeight: '1.75rem',
+            fieldset: {
+              borderColor: `${COLORS.BORDER_COLOR} !important`,
+            },
           },
         },
       ],
@@ -48,7 +59,27 @@ const theme = createTheme({
         },
       },
     },
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          color: COLORS.BORDER_COLOR,
+        },
+      },
+    },
+    MuiButton: {
+      variants: [
+        {
+          props: { variant: 'contained' },
+          style: {
+            backgroundColor: COLORS.BORDER_COLOR,
+            '&:hover': {
+              backgroundColor: COLORS.BORDER_COLOR_HOVER,
+              transition: '.2s',
+            },
+          },
+        },
+      ],
+    },
   },
 });
-
 export default theme;

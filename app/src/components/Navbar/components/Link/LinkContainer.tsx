@@ -17,6 +17,7 @@ const LinkContainer: FC<ILinkContainer> = ({
   route,
   isExit,
   isNoteLink,
+  isSelectedNow,
 }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const LinkContainer: FC<ILinkContainer> = ({
   if (isExit) {
     return (
       <Link
+        isSelectedNow={isSelectedNow}
         onClick={() => {
           window.localStorage.clear();
           dispatch(setUser(INITIAL_USER_STATE));
@@ -37,6 +39,8 @@ const LinkContainer: FC<ILinkContainer> = ({
 
   return (
     <Link
+      name={name}
+      isSelectedNow={isSelectedNow}
       onClick={() => {
         if (isNoteLink) {
           localStorage.removeItem('selected');
@@ -45,7 +49,6 @@ const LinkContainer: FC<ILinkContainer> = ({
         }
         navigate(route ? route : ROUTE.NOT_FOUND);
       }}
-      name={name}
     />
   );
 };
