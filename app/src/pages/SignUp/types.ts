@@ -14,3 +14,12 @@ export interface IUser {
   password: string;
   confirmPassword: string;
 }
+
+export interface ISignUpForm {
+  firstName: string;
+  lastName: string;
+  birthday: Date | string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}

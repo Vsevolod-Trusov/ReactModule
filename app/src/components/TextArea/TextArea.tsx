@@ -2,18 +2,24 @@ import React, { FC } from 'react';
 import { FieldAttributes } from 'formik/dist/Field';
 
 import { StyledTextAreaField } from './styled';
+import { TextFieldProps } from '@mui/material/TextField/TextField';
 
-const TextArea: FC<FieldAttributes<HTMLTextAreaElement>> = ({
+const TextArea: FC<FieldAttributes<TextFieldProps>> = ({
   name,
   value,
   onChange,
   placeholder,
+  helperText,
+  error,
 }) => (
   <>
     <StyledTextAreaField
+      id={name}
       name={name}
       value={value}
       placeholder={placeholder}
+      helperText={helperText}
+      error={error}
       variant='outlined'
       margin='normal'
       rows={4}

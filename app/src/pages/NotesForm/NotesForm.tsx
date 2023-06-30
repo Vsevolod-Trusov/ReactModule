@@ -2,10 +2,12 @@ import { FC } from 'react';
 import { Formik, FormikValues } from 'formik';
 import { Button } from '@mui/material';
 
-import { Title, FormInput, TextArea } from 'components';
+import { Title, TextArea } from 'components';
 import { ISignIn } from 'pages/SignIn/types';
 import { noteCreationValidationSchema } from 'validations';
 import { StyledFormControl } from 'components/FormControlLayout/styled';
+import { EMPTY_LINE } from 'pages/NoteList/constants';
+import { StyledTextField } from 'components/Input/styled';
 
 import {
   DESCRIPTION_FIELD,
@@ -29,7 +31,7 @@ const NotesForm: FC<ISignIn> = ({ handleSubmit }) => (
         handleSubmit(values);
       }}
     >
-      {({ handleSubmit, handleChange, values }) => (
+      {({ handleSubmit, handleChange, touched, values, errors }) => (
         <StyledNoteForm onSubmit={handleSubmit}>
           <Title variant={'h1'}>Create</Title>
           <StyledFormControl
@@ -38,14 +40,29 @@ const NotesForm: FC<ISignIn> = ({ handleSubmit }) => (
             size={'medium'}
             data-testid={'form'}
           >
-            <FormInput name={TITLE_FIELD} placeholder={TITLE_PLACEHOLDER} />
-            <FormInput
+            <StyledTextField
+              id={TITLE_FIELD}
+              name={TITLE_FIELD}
+              placeholder={TITLE_PLACEHOLDER}
+              type={'text'}
+              variant='outlined'
+              margin={'normal'}
+              value={values.title}
+              helperText={touched.title && `${errors?.title || EMPTY_LINE}`}
+              error={touched.title && !!errors?.title}
+              fullWidth
+              onChange={handleChange}
+            />
+            <TextArea
               name={DESCRIPTION_FIELD}
               value={values.description}
-              onChange={handleChange}
               placeholder={DESCRIPTION_PLACEHOLDER}
-              as={TextArea}
-            ></FormInput>
+              helperText={
+                touched.description && `${errors?.description || EMPTY_LINE}`
+              }
+              error={touched.description && !!errors?.description}
+              onChange={handleChange}
+            />
             <Button type='submit' variant={'contained'}>
               {BUTTON_TEXT}
             </Button>

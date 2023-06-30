@@ -1,6 +1,8 @@
 import { EMPTY_LINE } from 'pages/NoteList/constants';
 
-export const SIGNUP_VALUES = {
+import { ISignUpForm } from './types';
+
+export const SIGNUP_VALUES: ISignUpForm = {
   firstName: EMPTY_LINE,
   lastName: EMPTY_LINE,
   birthday: EMPTY_LINE,

@@ -1,17 +1,12 @@
-import React, { FC, HTMLAttributes } from 'react';
-import { FieldAttributes } from 'formik/dist/Field';
+import React, { FC } from 'react';
+import { TextFieldProps } from '@mui/material';
 
-import { StyledErrorMessage, StyledField } from '../FormInput/styled';
+import { Input } from 'components';
+
 import { StyledInputAndErrorWrapper } from './styled';
 
-const SignUpInput: FC<FieldAttributes<HTMLAttributes<HTMLInputElement>>> = ({
-  name,
-  ...props
-}) => (
-  <StyledInputAndErrorWrapper>
-    <StyledField name={name} {...props} />
-    <StyledErrorMessage name={name} component={'div'} />
-  </StyledInputAndErrorWrapper>
+const SignUpInput: FC<TextFieldProps> = ({ name, ...props }) => (
+  <Input name={name} {...props} />
 );
 
 export default SignUpInput;

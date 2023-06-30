@@ -17,8 +17,10 @@ import {
   START_TIMEOUT,
 } from './constants';
 
-import { FilterForm, FilterInput } from './components';
+import { FilterForm } from './components';
 import { StyledFormControlLayout } from './styled';
+import { EMPTY_LINE } from 'pages/NoteList/constants';
+import { StyledFilterInput } from './components/styled';
 
 const FilterNotes: FC<ISignUp> = ({
   submit: filter,
@@ -36,7 +38,7 @@ const FilterNotes: FC<ISignUp> = ({
         filterByName && resetForm();
       }}
     >
-      {({ handleSubmit, handleChange, resetForm }) => (
+      {({ handleSubmit, handleChange, resetForm, values, errors, touched }) => (
         <FilterForm onSubmit={handleSubmit}>
           <StyledFormControlLayout
             margin={'normal'}
@@ -45,10 +47,15 @@ const FilterNotes: FC<ISignUp> = ({
           >
             {filterByName ? (
               <>
-                <FilterInput
+                <StyledFilterInput
+                  id={TITLE_FIELD}
                   name={TITLE_FIELD}
                   placeholder={TITLE_PLACEHOLDER}
-                  margin={'normal'}
+                  type={'text'}
+                  value={values.title}
+                  helperText={touched.title && `${errors?.title || EMPTY_LINE}`}
+                  error={touched.title && !!errors?.title}
+                  onChange={handleChange}
                 />
                 <Button type='submit' variant={'contained'}>
                   <FilterAlt />
@@ -56,10 +63,16 @@ const FilterNotes: FC<ISignUp> = ({
               </>
             ) : (
               <>
-                <FilterInput
+                <StyledFilterInput
+                  id={DATE_CREATION_FIELD}
                   name={DATE_CREATION_FIELD}
                   type={'date'}
-                  margin={'normal'}
+                  value={values.dateCreation}
+                  helperText={
+                    touched.dateCreation &&
+                    `${errors?.dateCreation || EMPTY_LINE}`
+                  }
+                  error={touched.dateCreation && !!errors.dateCreation}
                   onChange={(e) => {
                     handleChange(e);
                     setTimeout(() => {

@@ -1,15 +1,12 @@
 import styled from 'styled-components';
-import { Box } from '@mui/material';
-import { ErrorMessage, Field } from 'formik';
+import { TextField } from '@mui/material';
 
-import { COLORS } from 'config/colors';
-
-const StyledField = styled(Field)({
+const StyledTextField = styled(TextField)({
   margin: '8px 0',
   padding: '1rem',
   minWidth: '100%',
+  border: '1px solid black',
   borderRadius: '0.5rem',
-  outline: 'auto',
   boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
   backgroundColor: 'transparent',
   fontFamily: 'Montserrat',
@@ -19,8 +16,4 @@ const StyledField = styled(Field)({
   lineHeight: '1.25rem',
 });
 
-const StyledErrorMessage = styled(ErrorMessage)({
-  color: COLORS.ERROR,
-});
-
-export { StyledField, StyledErrorMessage };
+export { StyledTextField };

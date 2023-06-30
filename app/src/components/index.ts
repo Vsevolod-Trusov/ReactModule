@@ -1,4 +1,5 @@
 export { default as FilterNotes } from './FilterNotes';
+export { default as Input } from './Input';
 export { default as Form } from './Form';
 export { default as FormControlLayout } from './FormControlLayout';
 export { default as FormInput } from './FormInput';

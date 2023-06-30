@@ -2,8 +2,9 @@ import { Form } from 'formik';
 import styled from 'styled-components';
 
 import { COLORS } from 'config/colors';
+import { StyledTextField } from 'components/Input/styled';
 
-export const StyledFilterForm = styled(Form)({
+const StyledFilterForm = styled(Form)({
   display: 'flex',
   justifyContent: 'center',
   marginBottom: '0.5rem',
@@ -20,8 +21,24 @@ export const StyledFilterForm = styled(Form)({
     flexDirection: 'row',
     input: {
       display: 'inline',
-      width: '205px',
-      height: '1rem',
+      maxHeight: '0.4rem',
+      maxWidth: '10rem',
     },
   },
 });
+
+const StyledFilterInput = styled(StyledTextField)({
+  margin: '8px 0',
+  padding: '1rem',
+  minWidth: '100%',
+  borderRadius: '0.5rem',
+  boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+  backgroundColor: 'transparent',
+  fontFamily: 'Montserrat',
+  fontSize: '1rem',
+  fontWeight: '100',
+  letterSpacing: '0.075rem',
+  lineHeight: '1.25rem',
+});
+
+export { StyledFilterForm, StyledFilterInput };
