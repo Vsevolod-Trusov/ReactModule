@@ -6,6 +6,15 @@ import { COLORS } from 'config/colors';
 const StyledNoteListWrapper = styled(Box)({
   display: 'flex',
   marginTop: '0.5rem',
+  '&>div:first-child': {
+    minWidth: '35%',
+    '&>div': {
+      width: '100%',
+      '&>div': {
+        width: '100%',
+      },
+    },
+  },
 });
 
 const StyledOutletWrapper = styled(Box)({

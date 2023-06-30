@@ -6,7 +6,8 @@ import { StyledTextField } from 'components/Input/styled';
 
 const StyledFilterForm = styled(Form)({
   display: 'flex',
-  justifyContent: 'center',
+  justifyContent: 'space-between',
+  width: '100%',
   marginBottom: '0.5rem',
   padding: '0 0.5rem',
   borderRadius: '0.5rem',
@@ -15,14 +16,14 @@ const StyledFilterForm = styled(Form)({
   backgroundColor: COLORS.NOTE_BACKGROUND,
   '& > div': {
     display: 'flex',
-    minWidth: '23vw',
+    width: '90%',
     margin: '0.4rem',
     justifyContent: 'space-between',
     flexDirection: 'row',
     input: {
       display: 'inline',
       maxHeight: '0.4rem',
-      maxWidth: '10rem',
+      width: '20vw',
     },
   },
 });
