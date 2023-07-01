@@ -5,3 +5,4 @@ export { default as InfinityScroll } from './InfinityScroll';
 export { default as Navbar } from './Navbar';
 export { default as TextArea } from './TextArea';
 export { default as Title } from './Title';
+export { default as Loader } from './Loader';

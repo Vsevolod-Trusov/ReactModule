@@ -1,44 +1,42 @@
 import React, { FC } from 'react';
-import { List, Box, ListItemText, ListItem, Grid } from '@mui/material';
+import { List, Box, ListItemText, ListItem } from '@mui/material';
 
 import { Title } from 'components';
 
-import { Wrapper, AboutWrapper } from './styled';
+import { Wrapper, AboutWrapper, AboutContainer, StyledBox } from './styled';
 import { FEATURES, FUTURES } from './constants';
 
 const About: FC = () => (
   <Wrapper>
     <AboutWrapper>
-      <Grid spacing={5} container>
-        <Grid xs={5} item>
+      <AboutContainer>
+        <StyledBox />
+        <Box>
+          <Title variant={'h5'}>Features:</Title>
           <Box>
-            <Title variant={'h5'}>Features:</Title>
-            <Box>
-              <List>
-                {FEATURES.map((name: string) => (
-                  <ListItem key={name}>
-                    <ListItemText primary={name} />
-                  </ListItem>
-                ))}
-              </List>
-            </Box>
+            <List>
+              {FEATURES.map((name: string) => (
+                <ListItem key={name}>
+                  <ListItemText primary={name} />
+                </ListItem>
+              ))}
+            </List>
           </Box>
-        </Grid>
-        <Grid xs={5} item>
+        </Box>
+        <Box>
+          <Title variant={'h5'}>Future plans:</Title>
           <Box>
-            <Title variant={'h5'}>Future plans:</Title>
-            <Box>
-              <List>
-                {FUTURES.map((name: string) => (
-                  <ListItem key={name}>
-                    <ListItemText primary={name} />
-                  </ListItem>
-                ))}
-              </List>
-            </Box>
+            <List>
+              {FUTURES.map((name: string) => (
+                <ListItem key={name}>
+                  <ListItemText primary={name} />
+                </ListItem>
+              ))}
+            </List>
           </Box>
-        </Grid>
-      </Grid>
+        </Box>
+        <StyledBox />
+      </AboutContainer>
     </AboutWrapper>
   </Wrapper>
 );

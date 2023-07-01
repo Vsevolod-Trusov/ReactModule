@@ -3,7 +3,7 @@ import { createTheme } from '@mui/material';
 import { COLORS } from 'config/colors';
 
 declare module '@mui/material/TextField' {
-  interface TextFieldVariantOverrides {
+  interface TextFieldPropsVariantOverrides {
     my: true;
   }
 }
