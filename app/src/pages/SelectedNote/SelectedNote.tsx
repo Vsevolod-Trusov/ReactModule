@@ -11,7 +11,7 @@ import {
   StyleInfoBox,
 } from './styled';
 import { ISelectedNote } from './types';
-import { EDIT } from './constants';
+import { EDIT, FIELDS, SELECT_NOTE } from './constants';
 import { SHARE } from '../EditNoteForm/constants';
 import { SLICE_POSITION } from '../NoteList/constants';
 
@@ -26,36 +26,38 @@ const SelectedNote: FC<ISelectedNote> = ({
         <Box>
           <Title variant={'h1'}>{note.title}</Title>
           <StyleInfoBox>
-            Date: {formatDate(new Date(note.dateCreation))}
+            <Box>{FIELDS.DATE} </Box>
+            <Box>{formatDate(new Date(note.dateCreation))}</Box>
           </StyleInfoBox>
           <StyleInfoBox>
-            TODO: {sliceText(note.description, SLICE_POSITION)}
+            <Box>{FIELDS.TODO}</Box>
+            <Box>{sliceText(note.description, SLICE_POSITION)}</Box>
           </StyleInfoBox>
+          <StyledSelectedButtonWrapper>
+            <Button
+              variant='contained'
+              color='primary'
+              type='button'
+              onClick={handleNavigateToEdit}
+            >
+              {EDIT}
+            </Button>
+            <Button
+              variant='contained'
+              color='primary'
+              type='submit'
+              onClick={() => handleShareNote()}
+            >
+              {SHARE}
+            </Button>
+          </StyledSelectedButtonWrapper>
         </Box>
-        <StyledSelectedButtonWrapper>
-          <Button
-            variant='contained'
-            color='primary'
-            type='button'
-            onClick={handleNavigateToEdit}
-          >
-            {EDIT}
-          </Button>
-          <Button
-            variant='contained'
-            color='primary'
-            type='submit'
-            onClick={() => handleShareNote()}
-          >
-            {SHARE}
-          </Button>
-        </StyledSelectedButtonWrapper>
       </StyledSelectedNoteWrapper>
     );
   }
 
   if (!note?.title) {
-    return <StyledNoteWrapper>Select note</StyledNoteWrapper>;
+    return <StyledNoteWrapper>{SELECT_NOTE}</StyledNoteWrapper>;
   }
 };
 

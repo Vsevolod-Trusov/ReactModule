@@ -18,12 +18,12 @@ const ProfilePageWrapper = styled(AboutWrapper)({
   h1: {
     margin: '0.5rem 0.5rem 0 0.5rem',
     paddingBottom: '0.5rem',
-    borderBottom: `2px solid ${COLORS.BORDER_COLOR}`,
+    borderBottom: `2px solid ${COLORS.MAIN_COLOR_LIGHT}`,
   },
   '&>div:last-child': {
     width: '100%',
     height: '20vh',
-    backgroundColor: COLORS.BORDER_COLOR,
+    backgroundColor: COLORS.MAIN_COLOR_DARK,
   },
 });
 
@@ -60,7 +60,7 @@ const StyledContainer = styled(Box)({
   minHeight: '30vh',
   justifyContent: 'center',
   alignItems: 'center',
-  background: `linear-gradient(135deg, rgb(249, 249, 249) 50%, ${COLORS.BORDER_COLOR} 50%)`,
+  background: `linear-gradient(135deg, ${COLORS.PROFILE_GRADIENT_START} 50%, ${COLORS.MAIN_COLOR_LIGHT} 50%)`,
   border: `2px solid ${COLORS.BLACK}`,
   borderRadius: '10px',
 });

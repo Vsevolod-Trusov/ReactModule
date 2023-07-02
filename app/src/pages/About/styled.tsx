@@ -22,10 +22,17 @@ const AboutContainer = styled(Box)({
   display: 'grid',
   width: '100%',
   height: '89vh',
-  gridTemplateColumns: '0.3fr 0.6fr 1fr 0.3fr',
+  gridTemplateColumns: '0.2fr 0.6fr 0.6fr 0.2fr',
+  gap: '1rem',
   h5: {
     textAlign: 'center',
     borderBottom: `2px dashed ${COLORS.BORDER_COLOR}`,
+  },
+  '&>div:nth-child(2)': {
+    paddingRight: '0.5rem',
+  },
+  '&>div:nth-child(3)': {
+    paddingLeft: '0.5rem',
   },
   '&>div': {
     width: '100%',
@@ -34,6 +41,7 @@ const AboutContainer = styled(Box)({
         display: 'flex',
         flexDirection: 'column',
         width: '100%',
+        marginTop: '2rem',
         '&>li': {
           display: 'flex',
         },
@@ -42,7 +50,10 @@ const AboutContainer = styled(Box)({
             display: 'flex',
             justifyContent: 'end',
             span: {
-              borderBottom: `1px solid ${COLORS.BORDER_COLOR}`,
+              padding: '6px',
+              backgroundColor: COLORS.BORDER_COLOR,
+              color: COLORS.NOTE_BACKGROUND,
+              borderRadius: '5rem',
             },
           },
         },
@@ -51,7 +62,10 @@ const AboutContainer = styled(Box)({
             display: 'flex',
             justifyContent: 'start',
             span: {
-              borderBottom: `1px solid ${COLORS.BORDER_COLOR}`,
+              padding: '6px',
+              backgroundColor: COLORS.BORDER_COLOR,
+              color: COLORS.NOTE_BACKGROUND,
+              borderRadius: '1rem',
             },
           },
         },
@@ -61,7 +75,7 @@ const AboutContainer = styled(Box)({
 });
 
 const StyledBox = styled(Box)({
-  backgroundColor: COLORS.BORDER_COLOR,
+  background: `linear-gradient(180deg, ${COLORS.MAIN_COLOR_LIGHT}, ${COLORS.MAIN_COLOR_DARK} 100%)`,
 });
 
 export { AboutWrapper, Wrapper, AboutContainer, StyledBox };

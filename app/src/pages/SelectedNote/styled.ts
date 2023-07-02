@@ -24,22 +24,28 @@ const StyledNoteWrapper = styled(Box)({
 });
 
 const StyledSelectedNoteWrapper = styled(StyledNoteWrapper)({
-  'div:first-child': {
-    display: 'flex',
+  '&>div:first-child': {
+    display: 'grid',
+    gridTemplateRows: '0.2fr 0.2fr 0.2fr 0.2fr',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    minWidth: '30%',
-    border: `2px dashed ${COLORS.BLACK}`,
-    borderRadius: '1rem',
-
+    minWidth: '50%',
+    maxWidth: '50%',
+    minHeight: '40vh',
+    maxHeight: '40vh',
+    border: `2px dashed ${COLORS.BORDER_COLOR}`,
+    borderRadius: '2rem',
+    padding: '6px',
     h1: {
-      margin: '0 auto',
+      margin: '1rem auto',
     },
-  },
-
-  'div:last-child': {
-    minWidth: '30%',
+    '&>div:not(:last-child)': {
+      display: 'grid',
+      gridTemplateColumns: '1fr 1fr',
+      gap: '1rem',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
   },
 });
 
@@ -51,6 +57,7 @@ const StyledButtonWrapper = styled(Box)({
 
 const StyledSelectedButtonWrapper = styled(StyledButtonWrapper)({
   margin: '2rem 0',
+  maxHeight: '2rem',
 });
 
 const StyledNotificationSelected = styled(Box)({

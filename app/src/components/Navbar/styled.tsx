@@ -23,7 +23,7 @@ const StyledNavbarBox = styled(Box)({
 
 const StyledHeaderWrapper = styled(Box)({
   width: '100%',
-  backgroundColor: COLORS.BORDER_COLOR,
+  backgroundColor: COLORS.MAIN_COLOR_LIGHT,
   color: COLORS.WHITE,
   padding: '0.8rem 0',
   textAlign: 'center',
@@ -34,7 +34,7 @@ const StyledLink = styled(Link)({
   padding: '1rem 0',
   textAlign: 'center',
   fontFamily: 'Montserrat',
-  border: `1px solid ${COLORS.BORDER_COLOR}`,
+  border: `1px solid ${COLORS.MAIN_COLOR_LIGHT}`,
   '&:hover': {
     backgroundColor: COLORS.HEADER_LINK_HOVER,
     transition: '.2s',

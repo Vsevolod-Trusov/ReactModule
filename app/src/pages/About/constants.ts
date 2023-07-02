@@ -11,8 +11,13 @@ export const FEATURES = [
 export const FUTURES = [
   'Notes deleting',
   'Notes creating',
-  'Confirm registration via email service',
-  'Using JWT for authentication',
+  'Email service',
+  'Using JWT ',
   'Delete user account',
   'Implement admin page',
 ];
+
+export enum ABOUT_TITLES {
+  FEATURES = 'Features:',
+  FUTURE = 'Future plans:',
+}

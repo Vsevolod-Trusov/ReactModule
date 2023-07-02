@@ -4,7 +4,7 @@ import { List, Box, ListItemText, ListItem } from '@mui/material';
 import { Title } from 'components';
 
 import { Wrapper, AboutWrapper, AboutContainer, StyledBox } from './styled';
-import { FEATURES, FUTURES } from './constants';
+import { ABOUT_TITLES, FEATURES, FUTURES } from './constants';
 
 const About: FC = () => (
   <Wrapper>
@@ -12,7 +12,7 @@ const About: FC = () => (
       <AboutContainer>
         <StyledBox />
         <Box>
-          <Title variant={'h5'}>Features:</Title>
+          <Title variant={'h5'}>{ABOUT_TITLES.FEATURES}</Title>
           <Box>
             <List>
               {FEATURES.map((name: string) => (
@@ -24,7 +24,7 @@ const About: FC = () => (
           </Box>
         </Box>
         <Box>
-          <Title variant={'h5'}>Future plans:</Title>
+          <Title variant={'h5'}>{ABOUT_TITLES.FUTURE}</Title>
           <Box>
             <List>
               {FUTURES.map((name: string) => (
