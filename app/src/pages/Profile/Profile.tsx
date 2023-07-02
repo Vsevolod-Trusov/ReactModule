@@ -11,6 +11,7 @@ import {
   StyledImage,
   StyledImageWrapper,
   InfoWrapper,
+  StyledContainer,
 } from './styled';
 import { IProfile } from './types';
 import { FIELDS } from './constants';
@@ -19,9 +20,11 @@ const Profile: FC<IProfile> = ({ firstName, lastName, email, birthday }) => (
   <ProfilePageWrapper>
     <Title variant={'h1'}>Profile</Title>
     <InfoWrapper>
-      <StyledImageWrapper>
-        <StyledImage src={profile} />
-      </StyledImageWrapper>
+      <StyledContainer>
+        <StyledImageWrapper>
+          <StyledImage src={profile} />
+        </StyledImageWrapper>
+      </StyledContainer>
       <StyledProfileInfo>
         <Box>
           <Box>{FIELDS.NAME}</Box>
@@ -41,6 +44,7 @@ const Profile: FC<IProfile> = ({ firstName, lastName, email, birthday }) => (
         </Box>
       </StyledProfileInfo>
     </InfoWrapper>
+    <Box />
   </ProfilePageWrapper>
 );
 
