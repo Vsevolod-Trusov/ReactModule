@@ -26,7 +26,9 @@ const FilterNotesContainer: FC<IFilterProps> = ({ filterByName }) => {
         }),
       );
     }
-    queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.NOTES] });
+    queryClient.invalidateQueries({
+      queryKey: [QUERY_KEYS.NOTES],
+    });
   };
 
   const handleRefresh = () => {

@@ -9,7 +9,7 @@ import {
 } from 'store/slices/notes.slice';
 import { editNote } from 'api/notes';
 
-import { IEditNodeProps, IHandleEditNote } from './types';
+import { IEditNodeProps } from './types';
 import EditNoteForm from './EditNoteForm';
 import { EMPTY_LINE } from '../NoteList/constants';
 

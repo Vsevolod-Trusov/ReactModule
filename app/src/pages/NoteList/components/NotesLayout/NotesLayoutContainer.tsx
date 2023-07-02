@@ -29,17 +29,8 @@ const NotesLayoutContainer: FC<IInfinityScroll> = ({
   const handleDragDrop = (results) => {
     const { source, destination, type } = results;
 
-    if (!destination) return;
-
-    if (
-      source.droppableId === destination.droppableId &&
-      source.index === destination.index
-    )
-      return;
-
     if (type === 'group') {
       const reorderedStores = [...notes];
-
       const storeSourceIndex = source.index;
       const storeDestinationIndex = destination.index;
       const [removedStore] = reorderedStores.splice(storeSourceIndex, 1);
