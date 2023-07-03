@@ -1,6 +1,7 @@
 import { EMPTY_LINE } from 'pages/NoteList/constants';
+import { IFilterValues } from './types';
 
-export const FILTER_VALUES = {
+export const FILTER_VALUES: IFilterValues = {
   dateCreation: EMPTY_LINE,
 };
 
@@ -14,7 +15,7 @@ export enum FILTER_TYPES {
   DATE = 'date',
 }
 
-export const FILTER_BY_NAME_VALUES = {
+export const FILTER_BY_NAME_VALUES: IFilterValues = {
   title: EMPTY_LINE,
 };
 

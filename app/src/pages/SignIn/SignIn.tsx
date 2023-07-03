@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Formik, FormikValues } from 'formik';
+import { Formik } from 'formik';
 import { Box, Button } from '@mui/material';
 
 import { Form, Title, FormControlLayout } from 'components';
@@ -15,8 +15,7 @@ import { StyledTextField } from 'components/FilterNotes/styled';
 
 import { INITIAL_SIGNIN, SUBMIT_BUTTON, TITLE } from './constants';
 import { StyledLink, StyledWrapper } from './styled';
-import { ISignIn } from './types';
-import { EMPTY_LINE } from '../NoteList/constants';
+import { ICredentials, ISignIn } from './types';
 
 const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => (
   <StyledWrapper>
@@ -25,7 +24,7 @@ const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => (
       validationSchema={signInValidationSchema}
       validateOnChange={false}
       validateOnBlur={false}
-      onSubmit={(values: FormikValues) => handleSignIn(values)}
+      onSubmit={(values: ICredentials) => handleSignIn(values)}
     >
       {({ handleSubmit, handleChange, touched, values, errors }) => (
         <Form onSubmit={handleSubmit} isSignUp={false}>
@@ -42,7 +41,7 @@ const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => (
               type={'text'}
               variant={'outlined'}
               value={values.email}
-              helperText={touched.email && `${errors?.email || EMPTY_LINE}`}
+              helperText={touched.email && errors?.email}
               error={touched.email && !!errors?.email}
               fullWidth
               onChange={handleChange}
@@ -53,9 +52,7 @@ const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => (
               placeholder={PASSWORD_PLACEHOLDER}
               type={'password'}
               value={values.password}
-              helperText={
-                touched.password && `${errors?.password || EMPTY_LINE}`
-              }
+              helperText={touched.password && errors?.password}
               margin={'normal'}
               error={touched.password && !!errors?.password}
               fullWidth

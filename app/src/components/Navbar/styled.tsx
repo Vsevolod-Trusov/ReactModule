@@ -47,7 +47,7 @@ const StyledLink = styled(Link)({
 
 const StyledSelectedLink = styled(StyledLink)({
   color: `${COLORS.WHITE} !important`,
-  backgroundColor: COLORS.BORDER_COLOR,
+  backgroundColor: COLORS.MAIN_COLOR_LIGHT,
   '&:hover': {
     backgroundColor: COLORS.BORDER_COLOR_HOVER,
     transition: '.2s',

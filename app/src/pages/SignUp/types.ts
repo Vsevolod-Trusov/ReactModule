@@ -1,9 +1,6 @@
-import { FormikHelpers, FormikValues } from 'formik';
-
 export interface ISignUp {
-  submit: (values: FormikValues) => void;
+  submit: (values: ISignUpForm) => void;
   handleRefresh?: () => void;
-  filterByName?: boolean;
 }
 
 export interface IUser {
