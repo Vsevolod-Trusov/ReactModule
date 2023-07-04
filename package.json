@@ -9,7 +9,7 @@
     }
   },
   "scripts": {
-    "test": "cd app && prettier --write ./src && npm run test",
+    "test": "cd app && prettier --write ./src && git add . && npm run test",
     "prepare": "husky install"
   }
 }
