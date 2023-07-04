@@ -9,7 +9,7 @@ const StyledEditNodeFormWrapper = styled(Box)({
   alignItems: 'center',
   justifyContent: 'center',
   minWidth: '98%',
-  height: '89vh',
+  height: '92vh',
   borderRadius: '0.5rem',
   border: `2px solid ${COLORS.MAIN_COLOR_LIGHT}`,
   boxShadow:

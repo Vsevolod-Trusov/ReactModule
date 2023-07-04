@@ -14,7 +14,7 @@ const StyledFormWrapper = styled(StyledWrapper)({
     justifyContent: 'center',
     alignItems: 'center',
     minWidth: '98%',
-    minHeight: '89vh',
+    minHeight: '92vh',
     backgroundColor: COLORS.NOTE_BACKGROUND,
     borderRadius: '0.5rem',
     border: `2px solid ${COLORS.MAIN_COLOR_LIGHT}`,

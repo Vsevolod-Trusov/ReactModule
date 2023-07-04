@@ -2,10 +2,6 @@ import styled from 'styled-components';
 import { Box } from '@mui/material';
 
 import { COLORS } from 'config/colors';
-import {
-  HOVER_NODE_SHADOW,
-  SELECTED_NODE_SHADOW,
-} from 'pages/NoteList/constants';
 
 const StyledNotesLayout = styled(Box)({
   display: 'block',
@@ -13,7 +9,7 @@ const StyledNotesLayout = styled(Box)({
   justifyContent: 'center',
   alignItems: 'center',
   marginTop: '0.5rem',
-  height: '57vh',
+  height: '70vh',
   overflowY: 'scroll',
 });
 
