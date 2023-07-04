@@ -67,8 +67,8 @@ const StyledContainer = styled(Box)({
 
 const StyledImageWrapper = styled(Box)({
   position: 'relative',
-  minWidth: '10vw',
-  minHeight: '10vw',
+  minWidth: '7vw',
+  minHeight: '7vw',
 });
 
 const StyledImage = styled('img')({
