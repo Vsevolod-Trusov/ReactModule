@@ -1,12 +1,10 @@
 import { FC } from 'react';
-import { Formik, FormikValues } from 'formik';
+import { Formik } from 'formik';
 import { Button, Box } from '@mui/material';
 
 import { Title, TextArea } from 'components';
-import { ISignIn } from 'pages/SignIn/types';
 import { noteCreationValidationSchema } from 'validations';
 import { StyledFormControl } from 'components/FormControlLayout/styled';
-import { EMPTY_LINE } from 'pages/NoteList/constants';
 import { StyledTextField } from 'components/FilterNotes/styled';
 
 import {
@@ -19,15 +17,16 @@ import {
   DATA_FORM_ID,
 } from './constants';
 import { StyledFormWrapper, StyledNoteForm } from './styled';
+import { INotesForm, INotesValues } from './types';
 
-const NotesForm: FC<ISignIn> = ({ handleSubmit }) => (
+const NotesForm: FC<INotesForm> = ({ handleSubmit }) => (
   <StyledFormWrapper data-testid={DATA_FORM_ID}>
     <Formik
       initialValues={NOTE_INITIAL_VALUES}
       validationSchema={noteCreationValidationSchema}
       validateOnChange={false}
       validateOnBlur={false}
-      onSubmit={(values: FormikValues) => {
+      onSubmit={(values: INotesValues) => {
         handleSubmit(values);
       }}
     >
@@ -49,7 +48,7 @@ const NotesForm: FC<ISignIn> = ({ handleSubmit }) => (
                 variant='outlined'
                 margin={'normal'}
                 value={values.title}
-                helperText={touched.title && `${errors?.title || EMPTY_LINE}`}
+                helperText={touched.title && errors?.title}
                 error={touched.title && !!errors?.title}
                 fullWidth
                 onChange={handleChange}
@@ -58,9 +57,7 @@ const NotesForm: FC<ISignIn> = ({ handleSubmit }) => (
                 name={DESCRIPTION_FIELD}
                 value={values.description}
                 placeholder={DESCRIPTION_PLACEHOLDER}
-                helperText={
-                  touched.description && `${errors?.description || EMPTY_LINE}`
-                }
+                helperText={touched.description && errors?.description}
                 error={touched.description && !!errors?.description}
                 onChange={handleChange}
               />

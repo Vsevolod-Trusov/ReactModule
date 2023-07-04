@@ -1,9 +1,8 @@
-import { FC } from 'react';
-import { Formik, FormikValues } from 'formik';
+import React, { FC } from 'react';
+import { Formik } from 'formik';
 import { Box, Button } from '@mui/material';
 import { Refresh, FilterAlt } from '@mui/icons-material';
 
-import { ISignUp } from 'pages/SignUp/types';
 import {
   DATE_CREATION_FIELD,
   TITLE_FIELD,
@@ -19,10 +18,10 @@ import {
 
 import { FilterForm } from './components';
 import { StyledFormControlLayout } from './styled';
-import { EMPTY_LINE } from 'pages/NoteList/constants';
 import { StyledFilterInput } from './components/styled';
+import { IFilterNotes, IFilterValues } from './types';
 
-const FilterNotes: FC<ISignUp> = ({
+const FilterNotes: FC<IFilterNotes> = ({
   submit: filter,
   handleRefresh,
   filterByName,
@@ -33,7 +32,7 @@ const FilterNotes: FC<ISignUp> = ({
       validationSchema={filterByName ? filterByNameSchema : filterSchema}
       validateOnChange={false}
       validateOnBlur={false}
-      onSubmit={(values: FormikValues, { resetForm }) => {
+      onSubmit={(values: IFilterValues, { resetForm }) => {
         filter(values);
         filterByName && resetForm();
       }}
@@ -53,7 +52,7 @@ const FilterNotes: FC<ISignUp> = ({
                   placeholder={TITLE_PLACEHOLDER}
                   type={'text'}
                   value={values.title}
-                  helperText={touched.title && `${errors?.title || EMPTY_LINE}`}
+                  helperText={touched.title && errors?.title}
                   error={touched.title && !!errors?.title}
                   onChange={handleChange}
                 />
@@ -68,10 +67,7 @@ const FilterNotes: FC<ISignUp> = ({
                   name={DATE_CREATION_FIELD}
                   type={'date'}
                   value={values.dateCreation}
-                  helperText={
-                    touched.dateCreation &&
-                    `${errors?.dateCreation || EMPTY_LINE}`
-                  }
+                  helperText={touched.dateCreation && errors?.dateCreation}
                   error={touched.dateCreation && !!errors.dateCreation}
                   onChange={(e) => {
                     handleChange(e);

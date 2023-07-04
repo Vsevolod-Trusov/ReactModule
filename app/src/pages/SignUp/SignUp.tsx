@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Box, Button } from '@mui/material';
-import { Formik, FormikValues } from 'formik';
+import { Formik } from 'formik';
 
 import { Title } from 'components';
 import { signUpValidationSchema } from 'validations';
@@ -27,9 +27,8 @@ import {
   LASTNAME_PLACEHOLDER,
   TITLE,
 } from './constants';
-import { ISignUp } from './types';
+import { ISignUp, ISignUpForm } from './types';
 import { StyledInputsWrapper } from './styled';
-import { EMPTY_LINE } from '../NoteList/constants';
 
 const SignUp: FC<ISignUp> = ({ submit }) => (
   <StyledWrapper>
@@ -38,7 +37,7 @@ const SignUp: FC<ISignUp> = ({ submit }) => (
       validationSchema={signUpValidationSchema}
       validateOnChange={false}
       validateOnBlur={false}
-      onSubmit={(values: FormikValues) => submit(values)}
+      onSubmit={(values: ISignUpForm) => submit(values)}
     >
       {({ handleSubmit, handleChange, values, touched, errors }) => (
         <SignUpForm onSubmit={handleSubmit}>
@@ -51,9 +50,7 @@ const SignUp: FC<ISignUp> = ({ submit }) => (
                 placeholder={FIRSTNAME_PLACEHOLDER}
                 type={'text'}
                 value={values.firstName}
-                helperText={
-                  touched.firstName && `${errors?.firstName || EMPTY_LINE}`
-                }
+                helperText={touched.firstName && errors?.firstName}
                 margin={'normal'}
                 fullWidth
                 error={touched.firstName && !!errors?.firstName}
@@ -65,9 +62,7 @@ const SignUp: FC<ISignUp> = ({ submit }) => (
                 placeholder={LASTNAME_PLACEHOLDER}
                 type={'text'}
                 value={values.lastName}
-                helperText={
-                  touched.lastName && `${errors?.lastName || EMPTY_LINE}`
-                }
+                helperText={touched.lastName && errors?.lastName}
                 margin={'normal'}
                 error={touched.lastName && !!errors?.lastName}
                 fullWidth
@@ -79,9 +74,7 @@ const SignUp: FC<ISignUp> = ({ submit }) => (
                 type={'date'}
                 margin={'normal'}
                 value={values.birthday}
-                helperText={
-                  touched.birthday && `${errors?.birthday || EMPTY_LINE}`
-                }
+                helperText={touched.birthday && errors?.birthday}
                 error={touched.birthday && !!errors?.birthday}
                 fullWidth
                 onChange={handleChange}
@@ -95,7 +88,7 @@ const SignUp: FC<ISignUp> = ({ submit }) => (
                 margin={'normal'}
                 placeholder={EMAIL_PLACEHOLDER}
                 value={values.email}
-                helperText={touched.email && `${errors?.email || EMPTY_LINE}`}
+                helperText={touched.email && errors?.email}
                 error={touched.email && !!errors?.email}
                 fullWidth
                 onChange={handleChange}
@@ -107,9 +100,7 @@ const SignUp: FC<ISignUp> = ({ submit }) => (
                 type={'password'}
                 margin={'normal'}
                 value={values.password}
-                helperText={
-                  touched.password && `${errors?.password || EMPTY_LINE}`
-                }
+                helperText={touched.password && errors?.password}
                 error={touched.password && !!errors?.password}
                 fullWidth
                 onChange={handleChange}
@@ -121,10 +112,7 @@ const SignUp: FC<ISignUp> = ({ submit }) => (
                 type={'password'}
                 margin={'normal'}
                 value={values.confirmPassword}
-                helperText={
-                  touched.confirmPassword &&
-                  `${errors?.confirmPassword || EMPTY_LINE}`
-                }
+                helperText={touched.confirmPassword && errors?.confirmPassword}
                 error={touched.confirmPassword && !!errors?.confirmPassword}
                 fullWidth
                 onChange={handleChange}

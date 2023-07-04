@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { FormikValues } from 'formik';
 import { useSelector } from 'react-redux';
 
 import { selectEmail } from 'store/slices/user.slice';
@@ -8,13 +7,14 @@ import { sliceText } from 'utils';
 import { SLICE_POSITION } from 'pages/NoteList/constants';
 
 import NotesForm from './NotesForm';
+import { INotesValues } from './types';
 
 const NotesFormContainer: FC = () => {
   const email = useSelector(selectEmail);
 
   const create = createNote();
 
-  const submit = (values: FormikValues): void => {
+  const submit = (values: INotesValues): void => {
     create.mutate({
       id: null,
       title: sliceText(values.title, SLICE_POSITION),

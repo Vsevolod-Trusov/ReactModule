@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { FormikValues } from 'formik';
 import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -8,6 +7,7 @@ import { ROUTE } from 'config/constants/routes';
 import { selectFirstName } from 'store/slices/user.slice';
 
 import SignIn from './SignIn';
+import { ICredentials } from './types';
 
 const SignInContainer: FC = () => {
   const firstname = useSelector(selectFirstName);
@@ -17,7 +17,7 @@ const SignInContainer: FC = () => {
   }
 
   const signInMutation = signIn();
-  const handleSignIn = async ({ email, password }: FormikValues) => {
+  const handleSignIn = async ({ email, password }: ICredentials) => {
     signInMutation.mutate({
       email: email,
       password: password,
