@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Formik, FormikValues } from 'formik';
 import { Box, Button } from '@mui/material';
 import { Refresh, FilterAlt } from '@mui/icons-material';
