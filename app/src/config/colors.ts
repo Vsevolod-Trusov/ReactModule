@@ -1,5 +1,5 @@
 export enum COLORS {
-  NOTE_BACKGROUND = '#faf7f7',
+  NOTE_BACKGROUND = '#f9fafe',
   NOTE_BACKGROUND_HOVER = '#a2a1a1',
   NOTE_BACKGROUND_ACTIVE = '#4b4b4b',
   BORDER_COLOR = '#0b851a',
@@ -17,4 +17,8 @@ export enum COLORS {
   GRADIENT_START = '#60C26C',
   GRADIENT_END = '#033E44',
   NOTE_SHADOW = 'rgba(0, 255, 117, 0.30)',
+  //new palette
+  FIELD_BACKGROUND = '#f3f5f9',
+  SECOND_TEXT_COLOR = '#9a9a9a',
+  MAIN_BUTTONS_COLOR = '#2d6be6',
 }

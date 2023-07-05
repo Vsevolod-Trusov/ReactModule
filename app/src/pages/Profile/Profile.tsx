@@ -1,50 +1,105 @@
-import Box from '@mui/material/Box';
-import React, { FC } from 'react';
+import { FC } from 'react';
+import { Box } from '@mui/material';
+import {
+  FavoriteRounded,
+  LanguageRounded,
+  FacebookRounded,
+  Twitter,
+  Instagram,
+} from '@mui/icons-material';
 
-import { Title } from 'components';
 import { formatDate } from 'utils';
-import profile from 'assets/images/profile.png';
+import { Title } from 'components';
+import profile from 'assets/images/cat.jpg';
 
 import {
   ProfilePageWrapper,
+  StyledProfileInfoWrapper,
   StyledProfileInfo,
   StyledImage,
   StyledImageWrapper,
   InfoWrapper,
   StyledContainer,
+  ProfilePageContainer,
+  StyledButton,
+  StyledAddingInfoWrapper,
+  StyledList,
+  StyledProfileLink,
 } from './styled';
+import { LIKE_SUBMIT, FIELDS, MOCKED, HREFS } from './constants';
 import { IProfile } from './types';
-import { FIELDS } from './constants';
 
 const Profile: FC<IProfile> = ({ firstName, lastName, email, birthday }) => (
   <ProfilePageWrapper>
-    <Title variant={'h1'}>Profile</Title>
-    <InfoWrapper>
-      <StyledContainer>
-        <StyledImageWrapper>
-          <StyledImage src={profile} />
-        </StyledImageWrapper>
-      </StyledContainer>
-      <StyledProfileInfo>
+    <ProfilePageContainer>
+      <InfoWrapper>
         <Box>
-          <Box>{FIELDS.NAME}</Box>
-          <Box>{firstName}</Box>
+          <StyledContainer>
+            <StyledImageWrapper>
+              <StyledImage src={profile} />
+            </StyledImageWrapper>
+          </StyledContainer>
+        </Box>
+        <StyledProfileInfoWrapper>
+          <Box />
+          <StyledProfileInfo>
+            <Title variant={'h1'}>
+              {firstName} {lastName}
+            </Title>
+            <Box>
+              <Box>{email}</Box>
+              <Box>{formatDate(new Date(birthday))}</Box>
+            </Box>
+          </StyledProfileInfo>
+          <Box>
+            <StyledButton variant={'contained'}>
+              <FavoriteRounded />
+              <Box>{LIKE_SUBMIT}</Box>
+            </StyledButton>
+          </Box>
+        </StyledProfileInfoWrapper>
+      </InfoWrapper>
+      <StyledAddingInfoWrapper>
+        <Box>
+          <Title>{FIELDS.LOCATION}</Title>
+          <StyledList>
+            <Box>
+              <LanguageRounded />
+              <Box>{MOCKED.LOCATION}</Box>
+            </Box>
+          </StyledList>
         </Box>
         <Box>
-          <Box>{FIELDS.LAST_NAME}</Box>
-          <Box>{lastName}</Box>
+          <Title>{FIELDS.CONNECT}</Title>
+          <StyledList>
+            <Box>
+              <FacebookRounded />
+              <Box>
+                <StyledProfileLink to={HREFS.FACEBOOK}>
+                  {MOCKED.FACEBOOK}
+                </StyledProfileLink>
+              </Box>
+            </Box>
+            <Box>
+              <Twitter />
+              <Box>
+                <StyledProfileLink to={HREFS.TWITTER}>
+                  {MOCKED.TWITTER}
+                </StyledProfileLink>
+              </Box>
+            </Box>
+            <Box>
+              <Instagram />
+              <Box>
+                <StyledProfileLink to={HREFS.INSTAGRAM}>
+                  {MOCKED.INSTAGRAM}
+                </StyledProfileLink>
+              </Box>
+            </Box>
+          </StyledList>
         </Box>
-        <Box>
-          <Box>{FIELDS.BIRTHDAY}</Box>
-          <Box>{formatDate(new Date(birthday))}</Box>
-        </Box>
-        <Box>
-          <Box>{FIELDS.EMAIL}</Box>
-          <Box>{email}</Box>
-        </Box>
-      </StyledProfileInfo>
-    </InfoWrapper>
-    <Box />
+      </StyledAddingInfoWrapper>
+    </ProfilePageContainer>
   </ProfilePageWrapper>
 );
 
