@@ -1,41 +1,49 @@
-import React, { FC } from 'react';
-import { List, Box, ListItemText, ListItem } from '@mui/material';
+import { FC } from 'react';
+import { Info, Add, LabelImportant } from '@mui/icons-material';
+import { List, ListItemText, ListItem, Box } from '@mui/material';
 
 import { Title } from 'components';
 
-import { Wrapper, AboutWrapper, AboutContainer, StyledBox } from './styled';
-import { ABOUT_TITLES, FEATURES, FUTURES } from './constants';
+import {
+  Wrapper,
+  AboutWrapper,
+  AboutContainer,
+  StyledHeader,
+  StyledInfoWrapper,
+} from './styled';
+import { FEATURES, FUTURES, FEATURES_AND_FUTURE, SOME_TEXT } from './constants';
 
 const About: FC = () => (
   <Wrapper>
     <AboutWrapper>
       <AboutContainer>
-        <StyledBox />
-        <Box>
-          <Title variant={'h5'}>{ABOUT_TITLES.FEATURES}</Title>
-          <Box>
-            <List>
-              {FEATURES.map((name: string) => (
-                <ListItem key={name}>
-                  <ListItemText primary={name} />
-                </ListItem>
-              ))}
-            </List>
-          </Box>
-        </Box>
-        <Box>
-          <Title variant={'h5'}>{ABOUT_TITLES.FUTURE}</Title>
-          <Box>
-            <List>
-              {FUTURES.map((name: string) => (
-                <ListItem key={name}>
-                  <ListItemText primary={name} />
-                </ListItem>
-              ))}
-            </List>
-          </Box>
-        </Box>
-        <StyledBox />
+        <StyledHeader>
+          <Info fontSize={'large'} />
+          <Title variant={'h1'}>{FEATURES_AND_FUTURE}</Title>
+          <Title variant={'h2'}>{SOME_TEXT}</Title>
+        </StyledHeader>
+        <StyledInfoWrapper>
+          <List>
+            {FEATURES.map((name: string) => (
+              <ListItem key={name}>
+                <Box>
+                  <LabelImportant />
+                </Box>
+                <ListItemText primary={name} />
+              </ListItem>
+            ))}
+          </List>
+          <List>
+            {FUTURES.map((name: string) => (
+              <ListItem key={name}>
+                <Box>
+                  <Add />
+                </Box>
+                <ListItemText primary={name} />
+              </ListItem>
+            ))}
+          </List>
+        </StyledInfoWrapper>
       </AboutContainer>
     </AboutWrapper>
   </Wrapper>

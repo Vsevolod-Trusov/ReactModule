@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Box } from '@mui/material';
 
 import { COLORS } from 'config/colors';
+import blocksImage from 'assets/images/block.jpg';
 
 const Wrapper = styled(Box)({
   height: '100vh',
@@ -12,83 +13,69 @@ const AboutWrapper = styled(Box)({
   margin: '0 auto',
   padding: '1rem',
   width: '90%',
+  height: '100%',
   borderRadius: '0.5rem',
   boxShadow:
     '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+  background: COLORS.FIELD_BACKGROUND,
 });
 
 const AboutContainer = styled(Box)({
   display: 'grid',
   width: '100%',
-  height: '90vh',
-  gridTemplateColumns: '0.1fr 0.4fr 0.4fr 0.1fr',
-  gap: '5rem',
-  h5: {
-    textAlign: 'center',
-    borderBottom: `2px dashed ${COLORS.BORDER_COLOR}`,
+  height: '100%',
+  gridTemplateRows: '1fr 1.5fr',
+  gridTemplateColumns: '1fr',
+});
+
+const StyledHeader = styled(Box)({
+  display: 'flex',
+  flexDirection: 'column',
+  minWidth: '100%',
+  minHeight: '100%',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '10%',
+  h1: {
+    fontSize: '2rem',
   },
-  '&>div:nth-child(2)': {
-    paddingRight: '0.5rem',
+  h2: {
+    fontSize: '1.5rem',
+    color: COLORS.SECOND_TEXT_COLOR,
   },
-  '&>div:nth-child(3)': {
-    paddingLeft: '0.5rem',
-  },
-  '&>div': {
-    width: '100%',
-    height: '102%',
-    '&>div': {
-      ul: {
+});
+
+const StyledInfoWrapper = styled(Box)({
+  display: 'flex',
+  minWidth: '100%',
+  justifyContent: 'center',
+  gap: '20%',
+  ul: {
+    width: '25%',
+    li: {
+      display: 'flex',
+      minWidth: '40%',
+      gap: '5%',
+      border: `1px solid ${COLORS.ITEMS_BORDER_COLOR}`,
+      borderRadius: '0.8rem',
+      '&>div:first-child': {
         display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-        marginTop: '2rem',
-        '&>li': {
-          display: 'flex',
-        },
-        '&>li:nth-child(3n+1)': {
-          '&>div': {
-            display: 'flex',
-            justifyContent: 'start',
-            span: {
-              padding: '6px',
-              backgroundColor: COLORS.BORDER_COLOR,
-              color: COLORS.NOTE_BACKGROUND,
-              borderRadius: '5rem',
-            },
-          },
-        },
-        '&>li:nth-child(3n+2)': {
-          '&>div': {
-            display: 'flex',
-            justifyContent: 'center',
-            span: {
-              padding: '6px',
-              backgroundColor: COLORS.BORDER_COLOR,
-              color: COLORS.NOTE_BACKGROUND,
-              borderRadius: '1rem',
-            },
-          },
-        },
-        '&>li:nth-child(3n+3)': {
-          '&>div': {
-            display: 'flex',
-            justifyContent: 'end',
-            span: {
-              padding: '6px',
-              backgroundColor: COLORS.BORDER_COLOR,
-              color: COLORS.NOTE_BACKGROUND,
-              borderRadius: '1rem',
-            },
-          },
-        },
+        justifyContent: 'center',
+        alignItems: 'center',
+        border: `1px solid ${COLORS.ITEMS_BORDER_COLOR}`,
+        borderRadius: '0.2rem',
       },
+    },
+    'li:not(:last-child)': {
+      marginBottom: '0.5rem',
     },
   },
 });
 
-const StyledBox = styled(Box)({
-  height: '93%',
-  background: `linear-gradient(180deg, ${COLORS.MAIN_COLOR_LIGHT}, ${COLORS.MAIN_COLOR_DARK} 100%)`,
-});
-
-export { AboutWrapper, Wrapper, AboutContainer, StyledBox };
+export {
+  AboutWrapper,
+  Wrapper,
+  AboutContainer,
+  StyledHeader,
+  StyledInfoWrapper,
+};

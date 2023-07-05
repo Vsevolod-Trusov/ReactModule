@@ -17,7 +17,5 @@ export const FUTURES = [
   'Implement admin page',
 ];
 
-export enum ABOUT_TITLES {
-  FEATURES = 'Features:',
-  FUTURE = 'Future plans:',
-}
+export const FEATURES_AND_FUTURE = 'Features & Future plans';
+export const SOME_TEXT = "Let's upgrate this app";

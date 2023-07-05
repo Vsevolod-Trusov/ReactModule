@@ -21,4 +21,5 @@ export enum COLORS {
   FIELD_BACKGROUND = '#f3f5f9',
   SECOND_TEXT_COLOR = '#9a9a9a',
   MAIN_BUTTONS_COLOR = '#2d6be6',
+  ITEMS_BORDER_COLOR = '#acacac',
 }
