@@ -23,8 +23,8 @@ const StyledNavbarBox = styled(Box)({
 
 const StyledHeaderWrapper = styled(Box)({
   width: '100%',
-  backgroundColor: COLORS.MAIN_COLOR_LIGHT,
-  color: COLORS.WHITE,
+  backgroundColor: COLORS.MAIN_COLOR_DARK,
+  color: COLORS.MAIN_NAVBAR_FONT_COLOR,
   padding: '0.8rem 0',
   textAlign: 'center',
 });
@@ -34,22 +34,29 @@ const StyledLink = styled(Link)({
   padding: '1rem 0',
   textAlign: 'center',
   fontFamily: 'Montserrat',
-  border: `1px solid ${COLORS.MAIN_COLOR_LIGHT}`,
+  border: `1px solid ${COLORS.MAIN_COLOR_DARK}`,
+  backgroundColor: COLORS.MAIN_COLOR_DARK,
   '&:hover': {
-    backgroundColor: COLORS.HEADER_LINK_HOVER,
+    backgroundColor: COLORS.MAIN_COLOR_LIGHT,
     transition: '.2s',
   },
   '&:active': {
     backgroundColor: COLORS.HEADER_LINK_ACTIVE,
     transition: '.2s',
   },
+  '&.MuiTypography-root': {
+    '&.MuiTypography-root': {
+      color: COLORS.MAIN_NAVBAR_FONT_COLOR,
+    },
+  },
 });
 
 const StyledSelectedLink = styled(StyledLink)({
   color: `${COLORS.WHITE} !important`,
-  backgroundColor: COLORS.MAIN_COLOR_LIGHT,
+  backgroundColor: COLORS.MAIN_COLOR_DARK,
+  borderBottom: `3px solid ${COLORS.WHITE}`,
   '&:hover': {
-    backgroundColor: COLORS.BORDER_COLOR_HOVER,
+    backgroundColor: COLORS.MAIN_COLOR_LIGHT,
     transition: '.2s',
   },
   '&:active': {

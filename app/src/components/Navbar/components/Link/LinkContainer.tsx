@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { ExitToApp } from '@mui/icons-material';
@@ -12,12 +12,13 @@ import { INITIAL_FILTER } from 'components/FilterNotes/constants';
 
 import Link from './Link';
 
-const LinkContainer: FC<ILinkContainer> = ({
+const LinkContainer: FC<PropsWithChildren<ILinkContainer>> = ({
   name,
   route,
   isExit,
   isNoteLink,
   isSelectedNow,
+  children,
 }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -49,7 +50,9 @@ const LinkContainer: FC<ILinkContainer> = ({
         }
         navigate(route ? route : ROUTE.NOT_FOUND);
       }}
-    />
+    >
+      {children}
+    </Link>
   );
 };
 

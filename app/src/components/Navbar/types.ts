@@ -1,5 +1,5 @@
 export interface ILinkContainer {
-  name: string;
+  name?: string;
   route?: string;
   isExit?: boolean;
   isNoteLink?: boolean;

@@ -1,5 +1,13 @@
-import React, { FC } from 'react';
-import { EventNote } from '@mui/icons-material';
+import { FC } from 'react';
+import {
+  EventNote,
+  LoginSharp,
+  HowToRegSharp,
+  AccountBox,
+  Notes,
+  FolderShared,
+  DataUsage,
+} from '@mui/icons-material';
 
 import { ROUTE_LABELS } from 'config/globalConstants';
 import { ROUTE } from 'config/constants/routes';
@@ -22,43 +30,40 @@ const Navbar: FC<INavbar> = ({
       <EventNote />
     </StyledHeaderWrapper>
     <LinkContainer
-      name={ROUTE_LABELS.PROFILE}
       route={ROUTE.PROFILE}
       isNoteLink={true}
       isSelectedNow={isProfile}
-    />
+    >
+      <AccountBox />
+    </LinkContainer>
     <LinkContainer
-      name={ROUTE_LABELS.NOTES}
       route={ROUTE.NOTES}
       isNoteLink={true}
       isSelectedNow={isNotes}
-    />
+    >
+      <Notes />
+    </LinkContainer>
     <LinkContainer
-      name={ROUTE_LABELS.SHARED}
       route={ROUTE.SHARED}
       isNoteLink={true}
       isSelectedNow={isShared}
-    />
-    <LinkContainer
-      name={ROUTE_LABELS.ABOUT}
-      route={ROUTE.ABOUT}
-      isSelectedNow={isAbout}
-    />
+    >
+      <FolderShared />
+    </LinkContainer>
+    <LinkContainer route={ROUTE.ABOUT} isSelectedNow={isAbout}>
+      <DataUsage />
+    </LinkContainer>
 
     {isUserAuthorized ? (
       <LinkContainer name={ROUTE_LABELS.EXIT} isExit={true} />
     ) : (
       <>
-        <LinkContainer
-          name={ROUTE_LABELS.SIGN_IN}
-          route={ROUTE.SIGN_IN}
-          isSelectedNow={isSignIn}
-        />
-        <LinkContainer
-          name={ROUTE_LABELS.SIGN_UP}
-          route={ROUTE.SIGN_UP}
-          isSelectedNow={isSignUp}
-        />
+        <LinkContainer route={ROUTE.SIGN_IN} isSelectedNow={isSignIn}>
+          <LoginSharp />
+        </LinkContainer>
+        <LinkContainer route={ROUTE.SIGN_UP} isSelectedNow={isSignUp}>
+          <HowToRegSharp />
+        </LinkContainer>
       </>
     )}
   </StyledNavbar>
