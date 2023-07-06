@@ -14,7 +14,6 @@ export enum COLORS {
   HEADER_LINK_HOVER = '#ece9e9',
   HEADER_LINK_ACTIVE = '#d2d1d1',
   WHITE = '#fff',
-  //new palette
   FIELD_BACKGROUND = '#f3f5f9',
   FIELD_BACKGROUND_DARK = '#dbdcdd',
   FIELD_BACKGROUND_HOVER = '#e4e4e6',
