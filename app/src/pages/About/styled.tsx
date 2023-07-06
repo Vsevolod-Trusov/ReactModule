@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { Box } from '@mui/material';
 
 import { COLORS } from 'config/colors';
-import blocksImage from 'assets/images/block.jpg';
 
 const Wrapper = styled(Box)({
   height: '100vh',
