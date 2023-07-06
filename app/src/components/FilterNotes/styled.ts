@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 
-import { StyledFormControl } from '../FormControlLayout/styled';
+import { StyledFormControl } from 'components/FormControlLayout/styled';
+import { COLORS } from 'config/colors';
 
 const StyledFormControlLayout = styled(StyledFormControl)({
   display: 'flex',
@@ -24,4 +25,21 @@ const StyledTextField = styled(TextField)({
   lineHeight: '1.25rem',
 });
 
-export { StyledFormControlLayout, StyledTextField };
+const StyledButton = styled(Button)({
+  '&.MuiButtonBase-root': {
+    '&.MuiButton-root': {
+      color: COLORS.WHITE,
+      backgroundColor: COLORS.MAIN_BUTTON_COLOR,
+      '&:hover': {
+        backgroundColor: COLORS.MAIN_BUTTON_COLOR_HOVER,
+        transition: '.2s',
+      },
+      '&:active': {
+        backgroundColor: COLORS.MAIN_BUTTON_COLOR_ACTIVE,
+        transition: '.2s',
+      },
+    },
+  },
+});
+
+export { StyledFormControlLayout, StyledTextField, StyledButton };

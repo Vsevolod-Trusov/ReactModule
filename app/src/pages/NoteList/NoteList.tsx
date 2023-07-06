@@ -9,7 +9,7 @@ import {
   StyledNoteListWrapper,
   StyledOutletWrapper,
   StyledInfinityScrollWrapper,
-  StyledButton,
+  StyledCreateButton,
 } from './styled';
 import { BUTTON_TEXT } from './constants';
 
@@ -21,13 +21,13 @@ const NoteList: FC<TNoteListProps> = ({
     <Box>
       <FilterNotes isShared={false} filterByName={false} />
       <FilterNotes isShared={false} filterByName={true} />
-      <StyledButton
+      <StyledCreateButton
         type='button'
         variant={'contained'}
         onClick={handleNavigateToCreate}
       >
         {BUTTON_TEXT}
-      </StyledButton>
+      </StyledCreateButton>
       <StyledInfinityScrollWrapper>
         <InfinityScroll
           isShared={false}

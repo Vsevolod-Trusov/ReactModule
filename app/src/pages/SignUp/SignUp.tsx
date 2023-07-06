@@ -13,7 +13,7 @@ import {
   PASSWORD_FIELD,
   PASSWORD_PLACEHOLDER,
 } from 'config/globalConstants';
-import { StyledTextField } from 'components/FilterNotes/styled';
+import { StyledButton, StyledTextField } from 'components/FilterNotes/styled';
 
 import {
   BIRTHDAY_FIELD,
@@ -120,9 +120,9 @@ const SignUp: FC<ISignUp> = ({ submit }) => (
             </Box>
           </StyledInputsWrapper>
           <Box>
-            <Button type='submit' variant={'contained'}>
+            <StyledButton type='submit' variant={'contained'}>
               {SUBMIT_BUTTON}
-            </Button>
+            </StyledButton>
           </Box>
           <Box>
             <StyledLink to={ROUTE.SIGN_IN}>Sign in?</StyledLink>

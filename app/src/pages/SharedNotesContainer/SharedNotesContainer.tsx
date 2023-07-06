@@ -9,7 +9,7 @@ import { selectFirstName } from 'store/slices/user.slice';
 import { setSelectedNote } from 'store/slices/notes.slice';
 
 import {
-  StyledButton,
+  StyledCreateButton,
   StyledInfinityScrollWrapper,
   StyledNoteListWrapper,
   StyledOutletWrapper,
@@ -40,13 +40,13 @@ const SharedNotesContainer: FC = () => {
         <Box>
           <FilterNotes isShared={true} />
           <FilterNotes isShared={true} filterByName={true} />
-          <StyledButton
+          <StyledCreateButton
             type='button'
             variant={'contained'}
             onClick={handleNavigateToCreate}
           >
             {BUTTON_TEXT}
-          </StyledButton>
+          </StyledCreateButton>
           <StyledInfinityScrollWrapper>
             <InfinityScroll
               isShared={true}

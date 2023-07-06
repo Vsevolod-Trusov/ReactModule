@@ -1,13 +1,15 @@
 import styled from 'styled-components';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 
 import { COLORS } from 'config/colors';
+import { StyledButton } from 'components/FilterNotes/styled';
 
 const StyledNoteListWrapper = styled(Box)({
   display: 'flex',
   marginTop: '0.5rem',
+  gap: '0.2rem',
   '&>div:first-child': {
-    minWidth: '35%',
+    minWidth: '23%',
     '&>div': {
       width: '100%',
       '&>div': {
@@ -27,13 +29,13 @@ const StyledOutletWrapper = styled(Box)({
 const StyledInfinityScrollWrapper = styled(Box)({
   marginTop: '0.5rem',
   padding: '0.4rem 0.4rem 0.4rem 0',
-  backgroundColor: COLORS.NOTE_BACKGROUND,
+  backgroundColor: COLORS.FIELD_BACKGROUND,
   borderRadius: '0.5rem',
   boxShadow:
     '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
 });
 
-const StyledButton = styled(Button)({
+const StyledCreateButton = styled(StyledButton)({
   width: '100%',
   borderRadius: '0.5rem',
   boxShadow:
@@ -44,5 +46,5 @@ export {
   StyledNoteListWrapper,
   StyledOutletWrapper,
   StyledInfinityScrollWrapper,
-  StyledButton,
+  StyledCreateButton,
 };

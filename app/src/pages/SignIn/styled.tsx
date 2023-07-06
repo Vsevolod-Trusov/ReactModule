@@ -16,9 +16,12 @@ const SignUpForm = styled(StyledForm)({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-
+  backgroundColor: COLORS.FIELD_BACKGROUND,
   button: {
     marginTop: '1rem',
+  },
+  input: {
+    backgroundColor: COLORS.WHITE,
   },
 });
 
@@ -30,11 +33,17 @@ const StyledLink = styled(Link)({
   textAlign: 'center',
   color: COLORS.LINK_DEFAULT,
   textDecoration: 'underline',
-
   ':hover': {
     color: COLORS.LINK_HOVER,
     transition: '.2s',
   },
 });
 
-export { StyledWrapper, SignUpForm, StyledLink };
+const StyledSignForm = styled(StyledForm)({
+  backgroundColor: COLORS.FIELD_BACKGROUND,
+  input: {
+    backgroundColor: COLORS.WHITE,
+  },
+});
+
+export { StyledWrapper, SignUpForm, StyledLink, StyledSignForm };

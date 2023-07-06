@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { Box } from '@mui/material';
 import { useQueryClient } from '@tanstack/react-query';

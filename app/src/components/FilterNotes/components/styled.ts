@@ -6,26 +6,32 @@ import { COLORS } from 'config/colors';
 import { StyledTextField } from '../styled';
 
 const StyledFilterForm = styled(Form)({
-  display: 'flex',
-  justifyContent: 'space-between',
-  width: '100%',
+  display: 'grid',
+  gridTemplateColumns: '2fr 1fr',
+  gridTemplateRows: '100%',
+  alignItems: 'center',
+  gap: '10%',
+  padding: '0.5rem 0',
   marginBottom: '0.5rem',
-  padding: '0 0.5rem',
   borderRadius: '0.5rem',
   boxShadow:
     '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-  backgroundColor: COLORS.NOTE_BACKGROUND,
-  '& > div': {
-    display: 'flex',
-    width: '90%',
-    margin: '0.4rem',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-    input: {
-      display: 'inline',
-      maxHeight: '0.4rem',
-      width: '20vw',
+  backgroundColor: COLORS.FIELD_BACKGROUND,
+  margin: '0.4rem',
+  input: {
+    maxHeight: '0.4rem',
+  },
+  '&>div:first-child': {
+    width: '100%',
+    margin: '0 auto',
+    div: {
+      width: '100%',
     },
+  },
+  '&>div:last-child': {
+    display: 'flex',
+    minWidth: '100%',
+    justifyContent: 'space-around',
   },
 });
 

@@ -6,6 +6,7 @@ export const HOVER_NODE_SHADOW = 'rgba(113, 113, 215, 100)';
 
 export const EMPTY_LINE = '';
 export const SLICE_POSITION = 20;
+export const TITLE_POSITION = 5;
 export const BUTTON_TEXT = 'Create new note';
 
 export const INITIAL_STATE: TNote = {

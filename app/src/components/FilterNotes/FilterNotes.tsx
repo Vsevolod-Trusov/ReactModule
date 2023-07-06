@@ -17,7 +17,7 @@ import {
 } from './constants';
 
 import { FilterForm } from './components';
-import { StyledFormControlLayout } from './styled';
+import { StyledFormControlLayout, StyledButton } from './styled';
 import { StyledFilterInput } from './components/styled';
 import { IFilterNotes, IFilterValues } from './types';
 
@@ -39,13 +39,9 @@ const FilterNotes: FC<IFilterNotes> = ({
     >
       {({ handleSubmit, handleChange, resetForm, values, errors, touched }) => (
         <FilterForm onSubmit={handleSubmit}>
-          <StyledFormControlLayout
-            margin={'normal'}
-            variant={'filled'}
-            size={'medium'}
-          >
-            {filterByName ? (
-              <>
+          {filterByName ? (
+            <>
+              <Box>
                 <StyledFilterInput
                   id={TITLE_FIELD}
                   name={TITLE_FIELD}
@@ -56,12 +52,16 @@ const FilterNotes: FC<IFilterNotes> = ({
                   error={touched.title && !!errors?.title}
                   onChange={handleChange}
                 />
-                <Button type='submit' variant={'contained'}>
+              </Box>
+              <Box>
+                <StyledButton type='submit' variant={'contained'}>
                   <FilterAlt />
-                </Button>
-              </>
-            ) : (
-              <>
+                </StyledButton>
+              </Box>
+            </>
+          ) : (
+            <>
+              <Box>
                 <StyledFilterInput
                   id={DATE_CREATION_FIELD}
                   name={DATE_CREATION_FIELD}
@@ -76,7 +76,9 @@ const FilterNotes: FC<IFilterNotes> = ({
                     }, START_TIMEOUT);
                   }}
                 />
-                <Button
+              </Box>
+              <Box>
+                <StyledButton
                   type='button'
                   variant={'contained'}
                   onClick={() => {
@@ -85,10 +87,10 @@ const FilterNotes: FC<IFilterNotes> = ({
                   }}
                 >
                   <Refresh />
-                </Button>
-              </>
-            )}
-          </StyledFormControlLayout>
+                </StyledButton>
+              </Box>
+            </>
+          )}
         </FilterForm>
       )}
     </Formik>

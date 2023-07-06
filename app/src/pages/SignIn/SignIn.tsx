@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Formik } from 'formik';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 
-import { Form, Title, FormControlLayout } from 'components';
+import { Title, FormControlLayout } from 'components';
 import {
   EMAIL_FIELD,
   EMAIL_PLACEHOLDER,
@@ -11,10 +11,10 @@ import {
 } from 'config/globalConstants';
 import { signInValidationSchema } from 'validations';
 import { ROUTE } from 'config/constants/routes';
-import { StyledTextField } from 'components/FilterNotes/styled';
+import { StyledButton, StyledTextField } from 'components/FilterNotes/styled';
 
 import { INITIAL_SIGNIN, SUBMIT_BUTTON, TITLE } from './constants';
-import { StyledLink, StyledWrapper } from './styled';
+import { StyledLink, StyledWrapper, StyledSignForm } from './styled';
 import { ICredentials, ISignIn } from './types';
 
 const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => (
@@ -27,7 +27,7 @@ const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => (
       onSubmit={(values: ICredentials) => handleSignIn(values)}
     >
       {({ handleSubmit, handleChange, touched, values, errors }) => (
-        <Form onSubmit={handleSubmit} isSignUp={false}>
+        <StyledSignForm onSubmit={handleSubmit}>
           <Title variant={'h1'}>{TITLE}</Title>
           <FormControlLayout
             margin={'normal'}
@@ -58,14 +58,14 @@ const SignIn: FC<ISignIn> = ({ handleSubmit: handleSignIn }) => (
               fullWidth
               onChange={handleChange}
             />
-            <Button type='submit' variant={'contained'}>
+            <StyledButton type='submit' variant={'contained'}>
               {SUBMIT_BUTTON}
-            </Button>
+            </StyledButton>
             <Box>
               <StyledLink to={ROUTE.SIGN_UP}>Sign up?</StyledLink>
             </Box>
           </FormControlLayout>
-        </Form>
+        </StyledSignForm>
       )}
     </Formik>
   </StyledWrapper>

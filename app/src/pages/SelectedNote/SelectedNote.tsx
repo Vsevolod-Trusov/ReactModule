@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { Button, Box } from '@mui/material';
+import { FC } from 'react';
+import { Box } from '@mui/material';
 
 import { Title } from 'components';
 import { formatDate, sliceText } from 'utils';
@@ -14,6 +14,7 @@ import { ISelectedNote } from './types';
 import { EDIT, FIELDS, SELECT_NOTE } from './constants';
 import { SHARE } from '../EditNoteForm/constants';
 import { SLICE_POSITION } from '../NoteList/constants';
+import { StyledButton } from 'components/FilterNotes/styled';
 
 const SelectedNote: FC<ISelectedNote> = ({
   note,
@@ -34,22 +35,20 @@ const SelectedNote: FC<ISelectedNote> = ({
             <Box>{sliceText(note.description, SLICE_POSITION)}</Box>
           </StyleInfoBox>
           <StyledSelectedButtonWrapper>
-            <Button
+            <StyledButton
               variant='contained'
-              color='primary'
               type='button'
               onClick={handleNavigateToEdit}
             >
               {EDIT}
-            </Button>
-            <Button
+            </StyledButton>
+            <StyledButton
               variant='contained'
-              color='primary'
               type='submit'
               onClick={() => handleShareNote()}
             >
               {SHARE}
-            </Button>
+            </StyledButton>
           </StyledSelectedButtonWrapper>
         </Box>
       </StyledSelectedNoteWrapper>

@@ -1,9 +1,10 @@
-import React, { FC } from 'react';
-import { TextField, Button } from '@mui/material';
+import { FC } from 'react';
+import { TextField } from '@mui/material';
 
 import { StyledButtonWrapper } from 'pages/SelectedNote/styled';
 import { Title } from 'components';
 import { formatDate } from 'utils';
+import { StyledButton } from 'components/FilterNotes/styled';
 
 import {
   EDIT_LABEL,
@@ -54,14 +55,13 @@ const EditNoteForm: FC<IEditNodeForm> = ({
           onChange={handleSetDescription}
         />
         <StyledButtonWrapper>
-          <Button
+          <StyledButton
             variant='contained'
-            color='primary'
             type='submit'
             onClick={handleEditNote}
           >
             {EDIT}
-          </Button>
+          </StyledButton>
         </StyledButtonWrapper>
       </StyledEditNodeForm>
     </StyledEditNodeFormWrapper>

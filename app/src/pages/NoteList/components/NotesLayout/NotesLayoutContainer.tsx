@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { Box } from '@mui/material';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { setPostNotes } from 'store/slices/notes.slice';
+import { selectNote, setPostNotes } from 'store/slices/notes.slice';
 import { NOTES_LAYOUT_ID } from 'pages/SignIn/constants';
 import { Loader } from 'components';
 
@@ -25,7 +25,7 @@ const NotesLayoutContainer: FC<IInfinityScroll> = ({
   hasMore,
 }) => {
   const dispatch = useDispatch();
-
+  const { id } = useSelector(selectNote);
   const handleDragDrop = (results) => {
     const { source, destination, type } = results;
 
@@ -61,6 +61,7 @@ const NotesLayoutContainer: FC<IInfinityScroll> = ({
                     <NotesLayout
                       notes={notes}
                       handleSetSelectedNote={handleSetSelectedNote}
+                      selectedNoteId={id}
                     />
                   </Box>
                 </InfiniteScroll>

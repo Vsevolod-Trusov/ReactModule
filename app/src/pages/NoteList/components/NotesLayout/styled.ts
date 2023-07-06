@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import { Box } from '@mui/material';
 
 import { COLORS } from 'config/colors';
+import { StyledButton } from 'components/FilterNotes/styled';
+
+import { INotesButton, IStyleNote } from './types';
 
 const StyledNotesLayout = styled(Box)({
   display: 'block',
@@ -11,40 +14,49 @@ const StyledNotesLayout = styled(Box)({
   marginTop: '0.5rem',
   height: '71vh',
   overflowY: 'scroll',
-});
-
-const StyledNoteWrapper = styled(Box)({
-  backgroundImage: `linear-gradient(-180deg, ${COLORS.GRADIENT_START} 0%, ${COLORS.GRADIENT_END} 100%)`,
-  borderRadius: '20px',
-  transition: 'all .3s',
-  ':hover': {
-    boxShadow: `0px 0px 30px 1px ${COLORS.NOTE_SHADOW}`,
-  },
-  ':active': {
-    boxShadow: `0px 0px 30px 1px ${COLORS.NOTE_SHADOW}`,
+  '&>div': {
+    '&>div': {
+      overflow: 'hidden !important',
+    },
   },
 });
 
-const StyledNote = styled(Box)({
+const StyledNote = styled(Box)<IStyleNote>(({ selected }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   padding: '1rem',
-  margin: '1rem 1 rem 0 1rem',
-  backgroundColor: COLORS.NOTE_BACKGROUND,
+  marginTop: '1rem',
+  backgroundColor: `${
+    selected ? COLORS.MAIN_BUTTON_COLOR : COLORS.FIELD_BACKGROUND_DARK
+  }`,
+  transform: selected && 'scale(0.985)',
+  borderRadius: '2rem',
   transition: 'all .2s',
+  color: selected && COLORS.WHITE,
   ':hover': {
-    transform: 'scale(0.985)',
-    borderRadius: '20px',
+    backgroundColor: selected
+      ? COLORS.MAIN_BUTTON_COLOR_ACTIVE
+      : COLORS.FIELD_BACKGROUND_HOVER,
+    transition: '.2s',
   },
   ':active': {
-    transform: 'scale(0.985)',
-    borderRadius: '20px',
+    backgroundColor: selected
+      ? COLORS.MAIN_BUTTON_COLOR_ACTIVE
+      : COLORS.FIELD_BACKGROUND_HOVER,
+    transition: '.2s',
   },
-});
+}));
 
-const StyledOutputLine = styled(Box)({
+const StyledOutputLine = styled(Box)<INotesButton>(({ selected }) => ({
   marginTop: '0.5rem',
+  color: selected ? COLORS.WHITE : COLORS.SECOND_TEXT_COLOR,
+}));
+
+const StyledDescription = styled(StyledOutputLine)({
+  fontSize: '1rem',
+  fontWeight: '900',
+  fontFamily: 'Montserrat-Thin',
 });
 
 const StyledLoaderWrapper = styled(Box)({
@@ -58,11 +70,76 @@ const StyledNotification = styled(Box)({
   textAlign: 'center',
 });
 
+const StyledNoteHeader = styled(Box)({
+  position: 'relative',
+  display: 'grid',
+  gridTemplateColumns: '1fr',
+  alignItems: 'center',
+  gridTemplateRows: '100%',
+  minWidth: '100%',
+  '&>div:first-child': {
+    margin: '0 auto',
+  },
+  '&>div:last-child': {
+    position: 'absolute',
+    right: '2%',
+  },
+});
+
+const StyledNoteBody = styled(Box)({
+  display: 'grid',
+  gridTemplateColumns: '1fr',
+  gridTemplateRows: '60% 40%',
+  alignItems: 'center',
+  justifyItems: 'flex-start',
+  placeItems: 'center',
+  minWidth: '100%',
+  minHeight: '12vh',
+  '&>div:last-child': {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
+    gridTemplateRows: '100%',
+    margin: '0 auto',
+    justifyItems: 'center',
+    alignItems: 'center',
+    placeItems: 'center',
+    gap: '5%',
+    button: {
+      display: 'flex',
+      maxWidth: '100%',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      gap: '5%',
+    },
+  },
+});
+
+const StyledNotesButton = styled(StyledButton)<INotesButton>(
+  ({ selected }) => ({
+    '&.MuiButtonBase-root': {
+      '&.MuiButton-root': {
+        backgroundColor: `${
+          selected ? COLORS.MAIN_COLOR_DARK : COLORS.MAIN_BUTTON_COLOR
+        }`,
+        color: selected && COLORS.WHITE,
+        '&:hover': {
+          backgroundColor: `${
+            selected ? COLORS.MAIN_COLOR_LIGHT : COLORS.MAIN_BUTTON_COLOR_HOVER
+          }`,
+        },
+      },
+    },
+  }),
+);
+
 export {
   StyledNotesLayout,
   StyledLoaderWrapper,
   StyledNote,
   StyledOutputLine,
   StyledNotification,
-  StyledNoteWrapper,
+  StyledNoteHeader,
+  StyledNoteBody,
+  StyledNotesButton,
+  StyledDescription,
 };
