@@ -2,6 +2,7 @@ import { Link, Box } from '@mui/material';
 import styled from 'styled-components';
 
 import { COLORS } from 'config/colors';
+import logo from 'assets/images/bigLogo.svg';
 
 const StyledNavbar = styled(Box)({
   display: 'flex',
@@ -27,6 +28,11 @@ const StyledHeaderWrapper = styled(Box)({
   color: COLORS.MAIN_NAVBAR_FONT_COLOR,
   padding: '0.8rem 0',
   textAlign: 'center',
+  backgroundImage: `url(${logo})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundClip: 'border-box',
+  backgroundOrigin: 'border-box',
+  backgroundPosition: 'center',
 });
 
 const StyledLink = styled(Link)({

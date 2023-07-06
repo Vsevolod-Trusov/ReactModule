@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import {
-  EventNote,
   LoginSharp,
   HowToRegSharp,
   AccountBox,
@@ -26,9 +25,7 @@ const Navbar: FC<INavbar> = ({
   isSignUp,
 }) => (
   <StyledNavbar>
-    <StyledHeaderWrapper>
-      <EventNote />
-    </StyledHeaderWrapper>
+    <StyledHeaderWrapper />
     <LinkContainer
       route={ROUTE.PROFILE}
       isNoteLink={true}
