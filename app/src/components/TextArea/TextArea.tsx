@@ -7,10 +7,10 @@ import { StyledTextAreaField } from './styled';
 const TextArea: FC<FieldAttributes<TextFieldProps>> = ({
   name,
   value,
-  onChange,
   placeholder,
   helperText,
   error,
+  onChange,
 }) => (
   <>
     <StyledTextAreaField
@@ -19,10 +19,10 @@ const TextArea: FC<FieldAttributes<TextFieldProps>> = ({
       value={value}
       placeholder={placeholder}
       helperText={helperText}
-      error={error}
       variant='outlined'
       margin='normal'
       rows={4}
+      error={error}
       fullWidth
       multiline
       onChange={onChange}

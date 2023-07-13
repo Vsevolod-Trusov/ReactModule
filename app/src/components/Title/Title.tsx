@@ -5,4 +5,5 @@ const Title: FC<PropsWithChildren<TypographyProps>> = ({
   variant,
   children,
 }) => <Typography variant={variant}>{children}</Typography>;
+
 export default Title;

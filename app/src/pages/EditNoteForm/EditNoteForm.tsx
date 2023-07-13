@@ -18,8 +18,8 @@ import { StyledEditNodeForm, StyledEditNodeFormWrapper } from './styled';
 
 const EditNoteForm: FC<IEditNodeForm> = ({
   note,
-  handleSetDescription,
   description,
+  handleSetDescription,
   handleEditNote,
 }) => {
   const { title, dateCreation } = note;

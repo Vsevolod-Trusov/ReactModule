@@ -8,10 +8,10 @@ import {
   setReduxNotes,
 } from 'store/slices/notes.slice';
 import { editNote } from 'api/notes';
+import { EMPTY_LINE } from 'pages/NoteList/constants';
 
 import { IEditNodeProps } from './types';
 import EditNoteForm from './EditNoteForm';
-import { EMPTY_LINE } from '../NoteList/constants';
 
 const EditNoteContainer: FC<IEditNodeProps> = ({ isShared }) => {
   const selectedNote: TNote = useSelector(selectNote);
@@ -19,7 +19,7 @@ const EditNoteContainer: FC<IEditNodeProps> = ({ isShared }) => {
   const dispatch = useDispatch();
 
   const [description, setDescription] = useState<string>(
-    selectedNote ? selectedNote?.description : EMPTY_LINE,
+    selectedNote?.description || EMPTY_LINE,
   );
 
   const mutation = editNote(selectedNote.id, isShared);
