@@ -13,7 +13,7 @@ import {
   setReduxNotes,
 } from 'store/slices/notes.slice';
 import { TNote } from 'pages/NoteList/types';
-import { FILTER_TYPES } from 'components/FilterNotes/constants';
+import { filterNotes, isThereNextPage } from 'utils';
 
 import { TResponseError } from '../types';
 import { apiClient } from '../base';
@@ -26,18 +26,7 @@ const getNotes = (): UseInfiniteQueryResult<TNote[], TResponseError> => {
   const filter = useSelector(selectFilter);
   const handleSuccess = (data: InfiniteData<TNote[]>) => {
     if (filter.type) {
-      data.pages = data.pages.map((page) =>
-        page.filter((note: TNote) => {
-          if (filter.type === FILTER_TYPES.DATE) {
-            return (
-              new Date(filter.value).toISOString() ===
-              new Date(note.dateCreation).toISOString()
-            );
-          } else {
-            return note.title === filter.value;
-          }
-        }),
-      );
+      data.pages = filterNotes(data.pages, filter.type, filter.value);
     }
 
     const notes = data.pages.flat();
@@ -49,18 +38,20 @@ const getNotes = (): UseInfiniteQueryResult<TNote[], TResponseError> => {
     [QUERY_KEYS.NOTES],
     async ({ pageParam = START_PAGE }) => {
       const url = `${FETCH_URLS.NOTES}?page=${pageParam}&limit=${PAGE_ELEMENTS_LIMIT}&author=${email}`;
-      return await apiClient.get(url).then((response) => response.data);
+      const response = await apiClient.get(url);
+
+      return response.data;
     },
     {
       onSuccess: handleSuccess,
       retry: false,
       refetchOnWindowFocus: false,
       getNextPageParam: (currentPage, allPages) => {
-        return currentPage.length < PAGE_ELEMENTS_LIMIT
-          ? false
-          : !currentPage.length
-          ? false
-          : allPages.length + 1;
+        return isThereNextPage(
+          currentPage.length,
+          !currentPage.length,
+          allPages.length,
+        );
       },
     },
   );

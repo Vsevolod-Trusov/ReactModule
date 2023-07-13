@@ -1,5 +1,3 @@
-import { LOCAL_STARAGE_NAMES } from 'config/globalConstants';
-
 import { TNote } from './types';
 
 export const SELECTED_NODE_SHADOW = 'rgba(79, 208, 79, 100)';
@@ -13,18 +11,10 @@ export const TITLE_POSITION = 5;
 export const BUTTON_TEXT = 'Create new note';
 
 export const INITIAL_STATE: TNote = {
-  id:
-    JSON.parse(localStorage.getItem(LOCAL_STARAGE_NAMES.SELECTED))?.id ||
-    NULL_VALUE,
-  title:
-    JSON.parse(localStorage.getItem(LOCAL_STARAGE_NAMES.SELECTED))?.title ||
-    EMPTY_LINE,
-  description:
-    JSON.parse(localStorage.getItem(LOCAL_STARAGE_NAMES.SELECTED))
-      ?.description || EMPTY_LINE,
-  dateCreation:
-    JSON.parse(localStorage.getItem(LOCAL_STARAGE_NAMES.SELECTED))
-      ?.dateCreation || NULL_VALUE,
+  id: NULL_VALUE,
+  title: EMPTY_LINE,
+  description: EMPTY_LINE,
+  dateCreation: NULL_VALUE,
 };
 
 export const INITIAL_USER_STATE = {

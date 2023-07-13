@@ -2,16 +2,19 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { INITIAL_STATE } from 'pages/NoteList/constants';
 import { INITIAL_FILTER } from 'components/FilterNotes/constants';
+import { LOCAL_STARAGE_NAMES } from 'config/globalConstants';
 
 import { RootState } from '../store';
 
 export const notesSlice = createSlice({
-  name: 'notes',
+  name: LOCAL_STARAGE_NAMES.USER,
   initialState: {
     notes: [],
     postNotes: [],
     shared: [],
-    selectedNote: INITIAL_STATE,
+    selectedNote:
+      JSON.parse(localStorage.getItem(LOCAL_STARAGE_NAMES.SELECTED)) ||
+      INITIAL_STATE,
     filter: INITIAL_FILTER,
   },
   reducers: {

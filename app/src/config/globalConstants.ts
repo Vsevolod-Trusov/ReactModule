@@ -28,4 +28,5 @@ export const enum LOCAL_STARAGE_NAMES {
   PASSWORD = 'password',
   EMAIL = 'email',
   SELECTED = 'selected',
+  NOTE = 'note',
 }
