@@ -1,4 +1,4 @@
-import { ISignUpForm } from '../../pages/SignUp/types';
+import { FormikHelpers } from 'formik';
 
 export interface IFilterProps {
   isShared: boolean;
@@ -6,7 +6,10 @@ export interface IFilterProps {
 }
 
 export interface IFilterNotes {
-  submit: (values: IFilterValues) => void;
+  submit: (
+    values: IFilterValues,
+    { resetForm }: FormikHelpers<IFilterValues>,
+  ) => void;
   handleRefresh?: () => void;
   filterByName?: boolean;
 }

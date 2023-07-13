@@ -1,4 +1,5 @@
 import { EMPTY_LINE } from 'pages/NoteList/constants';
+
 import { IFilterValues } from './types';
 
 export const FILTER_VALUES: IFilterValues = {

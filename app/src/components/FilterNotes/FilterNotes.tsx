@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Formik } from 'formik';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { Refresh, FilterAlt } from '@mui/icons-material';
 
 import {
@@ -15,14 +15,13 @@ import {
   FILTER_BY_NAME_VALUES,
   START_TIMEOUT,
 } from './constants';
-
 import { FilterForm } from './components';
-import { StyledFormControlLayout, StyledButton } from './styled';
+import { StyledButton } from './styled';
 import { StyledFilterInput } from './components/styled';
-import { IFilterNotes, IFilterValues } from './types';
+import { IFilterNotes } from './types';
 
 const FilterNotes: FC<IFilterNotes> = ({
-  submit: filter,
+  submit: filterHandler,
   handleRefresh,
   filterByName,
 }) => (
@@ -32,10 +31,7 @@ const FilterNotes: FC<IFilterNotes> = ({
       validationSchema={filterByName ? filterByNameSchema : filterSchema}
       validateOnChange={false}
       validateOnBlur={false}
-      onSubmit={(values: IFilterValues, { resetForm }) => {
-        filter(values);
-        filterByName && resetForm();
-      }}
+      onSubmit={filterHandler}
     >
       {({ handleSubmit, handleChange, resetForm, values, errors, touched }) => (
         <FilterForm onSubmit={handleSubmit}>
