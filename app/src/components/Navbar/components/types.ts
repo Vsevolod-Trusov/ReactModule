@@ -1,5 +1,5 @@
 export interface INavbar {
-  isUserAuthorized: boolean | string;
+  isUserAuthorized: boolean;
   isProfile: boolean;
   isNotes: boolean;
   isShared: boolean;

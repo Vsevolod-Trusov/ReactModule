@@ -3,7 +3,7 @@ import { Box, Button } from '@mui/material';
 
 import { Wrapper } from 'pages/About/styled';
 import { COLORS } from 'config/colors';
-import imageBack from 'assets/images/imageBack.jpg';
+import { imageBack } from 'assets/images';
 import { StyledLink } from 'pages/SignIn/styled';
 
 const ProfileWrapper = styled(Wrapper)({

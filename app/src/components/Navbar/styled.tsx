@@ -2,7 +2,7 @@ import { Link, Box } from '@mui/material';
 import styled from 'styled-components';
 
 import { COLORS } from 'config/colors';
-import logo from 'assets/images/bigLogo.svg';
+import { logo } from 'assets/images';
 
 const StyledNavbar = styled(Box)({
   display: 'flex',
@@ -26,13 +26,8 @@ const StyledHeaderWrapper = styled(Box)({
   width: '100%',
   backgroundColor: COLORS.MAIN_COLOR_DARK,
   color: COLORS.MAIN_NAVBAR_FONT_COLOR,
-  padding: '0.8rem 0',
   textAlign: 'center',
-  backgroundImage: `url(${logo})`,
-  backgroundRepeat: 'no-repeat',
-  backgroundClip: 'border-box',
-  backgroundOrigin: 'border-box',
-  backgroundPosition: 'center',
+  background: `url(${logo}) center / auto no-repeat content-box content-box ${COLORS.MAIN_COLOR_DARK}`,
 });
 
 const StyledLink = styled(Link)({
@@ -51,9 +46,7 @@ const StyledLink = styled(Link)({
     transition: '.2s',
   },
   '&.MuiTypography-root': {
-    '&.MuiTypography-root': {
-      color: COLORS.MAIN_NAVBAR_FONT_COLOR,
-    },
+    color: COLORS.MAIN_NAVBAR_FONT_COLOR,
   },
 });
 

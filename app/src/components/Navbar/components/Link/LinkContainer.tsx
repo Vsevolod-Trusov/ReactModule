@@ -16,42 +16,35 @@ import Link from './Link';
 const LinkContainer: FC<PropsWithChildren<ILinkContainer>> = ({
   name,
   route,
+  children,
   isExit,
   isNoteLink,
   isSelectedNow,
-  children,
 }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  if (isExit) {
-    return (
-      <Link
-        isSelectedNow={isSelectedNow}
-        onClick={() => {
-          window.localStorage.clear();
-          dispatch(setUser(INITIAL_USER_STATE));
-          navigate(ROUTE.SIGN_IN);
-        }}
-      >
-        <ExitToApp />
-      </Link>
-    );
-  }
+  const handleClick = () => {
+    if (isNoteLink) {
+      localStorage.removeItem(LOCAL_STARAGE_NAMES.SELECTED);
+      dispatch(setFilter(INITIAL_FILTER));
+      dispatch(setSelectedNote(INITIAL_STATE));
+    }
+    navigate(route ? route : ROUTE.NOT_FOUND);
+  };
 
-  return (
-    <Link
-      name={name}
-      isSelectedNow={isSelectedNow}
-      onClick={() => {
-        if (isNoteLink) {
-          localStorage.removeItem(LOCAL_STARAGE_NAMES.SELECTED);
-          dispatch(setFilter(INITIAL_FILTER));
-          dispatch(setSelectedNote(INITIAL_STATE));
-        }
-        navigate(route ? route : ROUTE.NOT_FOUND);
-      }}
-    >
+  const handleExitLinkClick = () => {
+    window.localStorage.clear();
+    dispatch(setUser(INITIAL_USER_STATE));
+    navigate(ROUTE.SIGN_IN);
+  };
+
+  return isExit ? (
+    <Link isSelectedNow={isSelectedNow} onClick={handleExitLinkClick}>
+      <ExitToApp />
+    </Link>
+  ) : (
+    <Link name={name} isSelectedNow={isSelectedNow} onClick={handleClick}>
       {children}
     </Link>
   );

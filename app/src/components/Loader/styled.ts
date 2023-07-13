@@ -7,7 +7,7 @@ const StyledIndicator = styled(Box)({
   width: '60px',
   height: '30px',
   position: 'relative',
-  zIndex: '4',
+  zIndex: 4,
 });
 
 const StyledCircle = styled(Box)({
@@ -38,7 +38,7 @@ const StyledShadow = styled(Box)({
   position: 'absolute',
   top: '30px',
   transformOrigin: '50%',
-  zIndex: '3',
+  zIndex: 3,
   left: '15%',
   filter: 'blur(1px)',
   animation: `typing-shadow046 0.5s alternate infinite ease`,

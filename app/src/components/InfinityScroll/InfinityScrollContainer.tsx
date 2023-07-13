@@ -11,8 +11,8 @@ import { Loader } from 'components';
 import { START } from './constants';
 
 const InfinityScrollContainer: FC<TInfinityScrollProps> = ({
-  handleSetSelectedNote,
   isShared,
+  handleSetSelectedNote,
 }) => {
   const { data, hasNextPage, fetchNextPage, isLoading } = isShared
     ? getSharedNotes()
@@ -22,15 +22,11 @@ const InfinityScrollContainer: FC<TInfinityScrollProps> = ({
   const dataLength =
     data?.pages.reduce((total, page) => total + page.length, START) || START;
 
-  if (isLoading) {
-    return (
-      <StyledLoaderWrapper>
-        <Loader />
-      </StyledLoaderWrapper>
-    );
-  }
-
-  return (
+  return isLoading ? (
+    <StyledLoaderWrapper>
+      <Loader />
+    </StyledLoaderWrapper>
+  ) : (
     <NotesLayoutContainer
       notes={postData}
       dataLength={dataLength}
@@ -40,4 +36,5 @@ const InfinityScrollContainer: FC<TInfinityScrollProps> = ({
     />
   );
 };
+
 export default InfinityScrollContainer;

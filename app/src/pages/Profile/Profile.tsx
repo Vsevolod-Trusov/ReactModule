@@ -10,7 +10,7 @@ import {
 
 import { formatDate } from 'utils';
 import { Title } from 'components';
-import profile from 'assets/images/cat.jpg';
+import { profile } from 'assets/images';
 
 import {
   ProfilePageWrapper,
