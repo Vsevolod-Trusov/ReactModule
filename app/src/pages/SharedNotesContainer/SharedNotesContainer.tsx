@@ -16,16 +16,21 @@ import {
 } from '../NoteList/styled';
 import { TNote } from '../NoteList/types';
 import { BUTTON_TEXT } from '../NoteList/constants';
+import { LOCAL_STARAGE_NAMES } from 'config/globalConstants';
 
 const SharedNotesContainer: FC = () => {
   const firstname = useSelector(selectFirstName);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isNotUserAuthorized =
-    !window.localStorage.getItem('email') || !firstname;
+    !JSON.parse(window.localStorage.getItem(LOCAL_STARAGE_NAMES.EMAIL)) ||
+    !firstname;
 
   const handleSelectNode = (item: TNote) => {
-    window.localStorage.setItem('selected', JSON.stringify(item));
+    window.localStorage.setItem(
+      LOCAL_STARAGE_NAMES.SELECTED,
+      JSON.stringify(item),
+    );
     dispatch(setSelectedNote(item));
     navigate(ROUTE.SELECTED_SHARE);
   };

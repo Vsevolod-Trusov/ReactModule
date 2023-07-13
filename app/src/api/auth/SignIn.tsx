@@ -1,17 +1,17 @@
 import { useMutation, UseMutationResult } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useSnackbar } from 'notistack';
 
 import { setUser } from 'store/slices/user.slice';
-import { QUERY_KEYS } from 'config/globalConstants';
+import { LOCAL_STARAGE_NAMES, QUERY_KEYS } from 'config/globalConstants';
 import { ROUTE } from 'config/constants/routes';
-import { useSnackbar } from 'notistack';
 
 import { TResponseError } from '../types';
 import { FETCH_URLS } from '../constants';
 import { apiClient } from '../base';
 import { TUser, ISignUpResponse } from './types';
-import { RESPONSES } from './constants';
+import { errorSnackbar, RESPONSES, successSnackbar } from './constants';
 
 const useSignIn = (): UseMutationResult<TUser, TResponseError> => {
   const dispatch = useDispatch();
@@ -23,10 +23,7 @@ const useSignIn = (): UseMutationResult<TUser, TResponseError> => {
     );
 
     if (!foundUserByEmail) {
-      return enqueueSnackbar(RESPONSES.WRONG_EMAIL, {
-        variant: 'error',
-        autoHideDuration: 1000,
-      });
+      return enqueueSnackbar(RESPONSES.WRONG_EMAIL, errorSnackbar);
     }
 
     const foundUserByPasswordAndEmail = users.find(
@@ -34,35 +31,15 @@ const useSignIn = (): UseMutationResult<TUser, TResponseError> => {
     );
 
     if (!foundUserByPasswordAndEmail) {
-      return enqueueSnackbar(RESPONSES.WRONG_PASSWORD, {
-        variant: 'error',
-        autoHideDuration: 1000,
-      });
+      return enqueueSnackbar(RESPONSES.WRONG_PASSWORD, errorSnackbar);
     }
 
-    enqueueSnackbar(RESPONSES.SUCCESS, {
-      variant: 'success',
-      autoHideDuration: 1000,
-    });
+    enqueueSnackbar(RESPONSES.SUCCESS, successSnackbar);
 
     dispatch(setUser(foundUserByPasswordAndEmail));
-    window.localStorage.setItem('id', foundUserByPasswordAndEmail?.id);
-    window.localStorage.setItem('email', foundUserByPasswordAndEmail?.email);
     window.localStorage.setItem(
-      'firstname',
-      foundUserByPasswordAndEmail?.firstName,
-    );
-    window.localStorage.setItem(
-      'lastname',
-      foundUserByPasswordAndEmail?.lastName,
-    );
-    window.localStorage.setItem(
-      'birthday',
-      foundUserByPasswordAndEmail?.birthday,
-    );
-    window.localStorage.setItem(
-      'password',
-      foundUserByPasswordAndEmail?.password,
+      LOCAL_STARAGE_NAMES.USER,
+      JSON.stringify(foundUserByPasswordAndEmail),
     );
     navigate(ROUTE.PROFILE);
   };

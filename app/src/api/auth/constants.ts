@@ -5,5 +5,16 @@ export const RESPONSES = {
   SUCH_EMAIL_USED: 'Such email already used',
   CONFIRM_PASSWORDS: 'Confirm password not passed',
 };
-
 export const AUTO_HIDE_DURATION = 1000;
+export const enum VARIANTS {
+  ERROR = 'error',
+  SUCCESS = 'success',
+}
+export const errorSnackbar = {
+  variant: VARIANTS.ERROR,
+  autoHideDuration: AUTO_HIDE_DURATION,
+};
+export const successSnackbar = {
+  variant: VARIANTS.SUCCESS,
+  autoHideDuration: AUTO_HIDE_DURATION,
+};
