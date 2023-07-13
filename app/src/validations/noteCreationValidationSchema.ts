@@ -10,4 +10,5 @@ const noteCreationValidationSchema = object().shape({
     .required(VALIDATION_ERRORS.DESCRIPTION_REQUIRED)
     .min(LENGTH_SIZES.THREE, VALIDATION_ERRORS.DESCRIPTION_INVALID),
 });
+
 export default noteCreationValidationSchema;

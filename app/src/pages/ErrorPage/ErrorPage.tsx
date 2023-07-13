@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Button } from '@mui/material';
 
 import { IErrorPage } from './types';

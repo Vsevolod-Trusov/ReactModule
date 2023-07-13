@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { FormControlProps } from '@mui/material/FormControl/FormControl';
 
 import { StyledFormControl } from './styled';

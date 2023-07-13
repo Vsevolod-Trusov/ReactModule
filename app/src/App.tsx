@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { Navbar } from 'components';
@@ -15,4 +15,5 @@ const App: FC = () => (
     </StyledNavbarWrapper>
   </StyledApp>
 );
+
 export default App;

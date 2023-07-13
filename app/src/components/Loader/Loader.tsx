@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { StyledIndicator, StyledCircle, StyledShadow } from './styled';
 
 const Loader = () => (
