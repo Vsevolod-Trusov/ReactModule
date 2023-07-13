@@ -18,6 +18,7 @@ const useSignIn = (): UseMutationResult<TUser, TResponseError> => {
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const handleSuccess = ({ users, email, password }: ISignUpResponse) => {
+    console.log(users);
     const foundUserByEmail: TUser = users.find(
       (user: TUser) => user.email === email,
     );
@@ -50,9 +51,9 @@ const useSignIn = (): UseMutationResult<TUser, TResponseError> => {
     mutationFn: async ({ email, password }: TUser) => {
       const url = `${FETCH_URLS.USERS}`;
 
-      const users = await apiClient.get(url).then((response) => response.data);
+      const response = await apiClient.get(url);
 
-      return { users: users, email: email, password: password };
+      return { users: response.data, email: email, password: password };
     },
 
     onSuccess: handleSuccess,

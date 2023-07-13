@@ -4,6 +4,7 @@ import {
   useQuery,
 } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
+import { useSnackbar } from 'notistack';
 
 import { QUERY_KEYS } from 'config/globalConstants';
 import { ROUTE } from 'config/constants/routes';
@@ -14,8 +15,7 @@ import { TResponseError } from '../types';
 import { FETCH_URLS } from '../constants';
 import { apiClient } from '../base';
 import { TUser } from './types';
-import { useSnackbar } from 'notistack';
-import { AUTO_HIDE_DURATION, RESPONSES } from './constants';
+import { errorSnackbar, RESPONSES, successSnackbar } from './constants';
 
 export const useSignUp = (): UseMutationResult<TUser, TResponseError> => {
   const navigate = useNavigate();
@@ -25,7 +25,9 @@ export const useSignUp = (): UseMutationResult<TUser, TResponseError> => {
     queryKey: [QUERY_KEYS.USERS],
     queryFn: async () => {
       const url = `${FETCH_URLS.USERS}`;
-      return await apiClient.get(url).then((response) => response.data);
+      const response = await apiClient.get(url);
+
+      return response.data;
     },
   });
 
@@ -34,19 +36,13 @@ export const useSignUp = (): UseMutationResult<TUser, TResponseError> => {
   };
 
   const handleSuccess = () => {
-    enqueueSnackbar(RESPONSES.SUCCESS, {
-      variant: 'success',
-      autoHideDuration: AUTO_HIDE_DURATION,
-    });
+    enqueueSnackbar(RESPONSES.SUCCESS, successSnackbar);
 
     navigate(ROUTE.SIGN_IN);
   };
 
   const handleError = (error) => {
-    enqueueSnackbar(error.message, {
-      variant: 'error',
-      autoHideDuration: AUTO_HIDE_DURATION,
-    });
+    enqueueSnackbar(error.message, errorSnackbar);
   };
 
   return useMutation({
