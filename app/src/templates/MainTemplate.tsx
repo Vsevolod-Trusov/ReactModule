@@ -3,10 +3,10 @@ import { Outlet } from 'react-router-dom';
 
 import { Navbar } from 'components';
 
-import { StyledApp, StyledNavbarWrapper, StyledOutlet } from './styled';
+import { StyledApp, StyledNavbarWrapper, StyledOutlet } from '../styled';
 
-const App: FC = () => (
-  <StyledApp className='App'>
+const MainTemplate: FC = () => (
+  <StyledApp>
     <StyledNavbarWrapper>
       <Navbar />
       <StyledOutlet>
@@ -16,4 +16,4 @@ const App: FC = () => (
   </StyledApp>
 );
 
-export default App;
+export default MainTemplate;
