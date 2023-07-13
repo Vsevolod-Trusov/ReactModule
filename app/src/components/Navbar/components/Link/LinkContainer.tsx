@@ -9,6 +9,7 @@ import { INITIAL_STATE, INITIAL_USER_STATE } from 'pages/NoteList/constants';
 import { setFilter, setSelectedNote } from 'store/slices/notes.slice';
 import { setUser } from 'store/slices/user.slice';
 import { INITIAL_FILTER } from 'components/FilterNotes/constants';
+import { LOCAL_STARAGE_NAMES } from 'config/globalConstants';
 
 import Link from './Link';
 
@@ -44,7 +45,7 @@ const LinkContainer: FC<PropsWithChildren<ILinkContainer>> = ({
       isSelectedNow={isSelectedNow}
       onClick={() => {
         if (isNoteLink) {
-          localStorage.removeItem('selected');
+          localStorage.removeItem(LOCAL_STARAGE_NAMES.SELECTED);
           dispatch(setFilter(INITIAL_FILTER));
           dispatch(setSelectedNote(INITIAL_STATE));
         }

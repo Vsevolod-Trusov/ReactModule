@@ -1,3 +1,5 @@
+import { LOCAL_STARAGE_NAMES } from 'config/globalConstants';
+
 import { TNote } from './types';
 
 export const SELECTED_NODE_SHADOW = 'rgba(79, 208, 79, 100)';
@@ -5,21 +7,28 @@ export const DEFAULT_NODE_SHADOW = ' rgba(0, 0, 0, 0.1)';
 export const HOVER_NODE_SHADOW = 'rgba(113, 113, 215, 100)';
 
 export const EMPTY_LINE = '';
+export const NULL_VALUE = null;
 export const SLICE_POSITION = 20;
 export const TITLE_POSITION = 5;
 export const BUTTON_TEXT = 'Create new note';
 
 export const INITIAL_STATE: TNote = {
-  id: JSON.parse(localStorage.getItem('selected'))?.id || null,
-  title: JSON.parse(localStorage.getItem('selected'))?.title || EMPTY_LINE,
+  id:
+    JSON.parse(localStorage.getItem(LOCAL_STARAGE_NAMES.SELECTED))?.id ||
+    NULL_VALUE,
+  title:
+    JSON.parse(localStorage.getItem(LOCAL_STARAGE_NAMES.SELECTED))?.title ||
+    EMPTY_LINE,
   description:
-    JSON.parse(localStorage.getItem('selected'))?.description || EMPTY_LINE,
+    JSON.parse(localStorage.getItem(LOCAL_STARAGE_NAMES.SELECTED))
+      ?.description || EMPTY_LINE,
   dateCreation:
-    JSON.parse(localStorage.getItem('selected'))?.dateCreation || null,
+    JSON.parse(localStorage.getItem(LOCAL_STARAGE_NAMES.SELECTED))
+      ?.dateCreation || NULL_VALUE,
 };
 
 export const INITIAL_USER_STATE = {
-  id: null,
+  id: NULL_VALUE,
   firstName: EMPTY_LINE,
   lastName: EMPTY_LINE,
   birthday: EMPTY_LINE,

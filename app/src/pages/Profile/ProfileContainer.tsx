@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux';
 
 import { selectFirstName, selectUser } from 'store/slices/user.slice';
 import { ROUTE } from 'config/constants/routes';
+import { LOCAL_STARAGE_NAMES } from 'config/globalConstants';
 
 import Profile from './Profile';
 import { ProfileWrapper } from './styled';
-import { LOCAL_STARAGE_NAMES } from 'config/globalConstants';
 
 const ProfileContainer = () => {
   const firstname = useSelector(selectFirstName);

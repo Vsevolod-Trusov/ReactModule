@@ -7,6 +7,7 @@ import { InfinityScroll, FilterNotes } from 'components';
 import { ROUTE } from 'config/constants/routes';
 import { selectFirstName } from 'store/slices/user.slice';
 import { setSelectedNote } from 'store/slices/notes.slice';
+import { LOCAL_STARAGE_NAMES } from 'config/globalConstants';
 
 import {
   StyledCreateButton,
@@ -16,7 +17,6 @@ import {
 } from '../NoteList/styled';
 import { TNote } from '../NoteList/types';
 import { BUTTON_TEXT } from '../NoteList/constants';
-import { LOCAL_STARAGE_NAMES } from 'config/globalConstants';
 
 const SharedNotesContainer: FC = () => {
   const firstname = useSelector(selectFirstName);

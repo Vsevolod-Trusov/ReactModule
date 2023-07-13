@@ -18,6 +18,7 @@ export const EMAIL_PLACEHOLDER = 'Enter email';
 export const PASSWORD_PLACEHOLDER = 'Enter password';
 export const EMAIL_FIELD = 'email';
 export const PASSWORD_FIELD = 'password';
+export const DEFAULT_ID_VALUE = -1;
 export const enum LOCAL_STARAGE_NAMES {
   USER = 'user',
   ID = 'id',
