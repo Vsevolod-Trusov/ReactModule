@@ -31,9 +31,8 @@ export const useSignUp = (): UseMutationResult<TUser, TResponseError> => {
     },
   });
 
-  const isSuchUserWithEmailExists = (newUser: IUser) => {
-    return users.find((user: TUser) => user.email === newUser.email);
-  };
+  const isSuchUserWithEmailExists = (newUser: IUser) =>
+    users.find((user: TUser) => user.email === newUser.email);
 
   const handleSuccess = () => {
     enqueueSnackbar(RESPONSES.SUCCESS, successSnackbar);

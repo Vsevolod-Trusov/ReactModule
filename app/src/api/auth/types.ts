@@ -1,10 +1,15 @@
 export type TUser = {
-  id?: string;
-  email?: string;
-  firstName?: string;
-  lastName?: string;
-  birthday?: string;
-  password?: string;
+  id: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  birthday: string;
+  password: string;
+};
+
+export type TUserParameters = {
+  email: string;
+  password: string;
 };
 
 export interface ISignUpResponse {

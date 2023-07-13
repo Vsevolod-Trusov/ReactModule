@@ -10,15 +10,14 @@ import { ROUTE } from 'config/constants/routes';
 import { TResponseError } from '../types';
 import { FETCH_URLS } from '../constants';
 import { apiClient } from '../base';
-import { TUser, ISignUpResponse } from './types';
+import { TUser, ISignUpResponse, TUserParameters } from './types';
 import { errorSnackbar, RESPONSES, successSnackbar } from './constants';
 
-const useSignIn = (): UseMutationResult<TUser, TResponseError> => {
+const useSignIn = (): UseMutationResult<TUserParameters, TResponseError> => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const handleSuccess = ({ users, email, password }: ISignUpResponse) => {
-    console.log(users);
     const foundUserByEmail: TUser = users.find(
       (user: TUser) => user.email === email,
     );
@@ -50,7 +49,6 @@ const useSignIn = (): UseMutationResult<TUser, TResponseError> => {
 
     mutationFn: async ({ email, password }: TUser) => {
       const url = `${FETCH_URLS.USERS}`;
-
       const response = await apiClient.get(url);
 
       return { users: response.data, email: email, password: password };
