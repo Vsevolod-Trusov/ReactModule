@@ -17,10 +17,8 @@ const EditNoteContainer: FC<IEditNodeProps> = ({ isShared }) => {
   const selectedNote: TNote = useSelector(selectNote);
   const savedNotes: TNote[] = useSelector(selectNotes);
   const dispatch = useDispatch();
-
-  const [description, setDescription] = useState<string>(
-    selectedNote?.description || EMPTY_LINE,
-  );
+  const INITIAL_DESCRIPTION = selectedNote?.description || EMPTY_LINE;
+  const [description, setDescription] = useState<string>(INITIAL_DESCRIPTION);
 
   const mutation = editNote(selectedNote.id, isShared);
 
