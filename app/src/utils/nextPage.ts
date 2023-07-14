@@ -7,7 +7,7 @@ const isThereNextPage = (
 ) =>
   currentPageLength < PAGE_ELEMENTS_LIMIT
     ? false
-    : !isCurrentPageLength
+    : isCurrentPageLength
     ? false
     : allPagesLength + INCREMENT_VALUE;
 
