@@ -133,7 +133,7 @@ const StyledButton = styled(Button)({
 
 const StyledAddingInfoWrapper = styled(Box)({
   display: 'grid',
-  gridTemplateRows: '20% 80%',
+  gridTemplateRows: '25% 70%',
   gridTemplateColumns: '1fr',
   alignSelf: 'flex-end',
   margin: '3rem auto',
@@ -141,6 +141,8 @@ const StyledAddingInfoWrapper = styled(Box)({
   height: '95%',
 
   '&>div': {
+    height: '100%',
+    width: '100%',
     padding: '1rem',
     borderRadius: '1rem',
     background: COLORS.FIELD_BACKGROUND,
