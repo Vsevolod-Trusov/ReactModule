@@ -21,8 +21,9 @@ const AboutContainer = styled(Box)({
   display: 'grid',
   width: '100%',
   height: '100%',
-  gridTemplateRows: '1fr 1.5fr',
+  gridTemplateRows: '1fr 3fr',
   gridTemplateColumns: '1fr',
+  gap: '1%',
 });
 
 const StyledHeader = styled(Box)({
