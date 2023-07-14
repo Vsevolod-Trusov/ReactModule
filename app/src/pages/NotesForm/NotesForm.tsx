@@ -6,6 +6,7 @@ import { Title, TextArea } from 'components';
 import { noteCreationValidationSchema } from 'validations';
 import { StyledFormControl } from 'components/FormControlLayout/styled';
 import { StyledTextField } from 'components/FilterNotes/styled';
+import { StyledForm } from 'components/Form/styled';
 
 import {
   DESCRIPTION_FIELD,
@@ -16,7 +17,7 @@ import {
   BUTTON_TEXT,
   DATA_FORM_ID,
 } from './constants';
-import { StyledFormWrapper, StyledNoteForm } from './styled';
+import { StyledFormWrapper } from './styled';
 import { INotesForm, INotesValues } from './types';
 
 const NotesForm: FC<INotesForm> = ({ handleSubmit }) => (
@@ -32,7 +33,7 @@ const NotesForm: FC<INotesForm> = ({ handleSubmit }) => (
     >
       {({ handleSubmit, handleChange, touched, values, errors }) => (
         <Box>
-          <StyledNoteForm onSubmit={handleSubmit}>
+          <StyledForm onSubmit={handleSubmit}>
             <Title variant={'h1'}>Create</Title>
             <StyledFormControl
               margin={'normal'}
@@ -65,7 +66,7 @@ const NotesForm: FC<INotesForm> = ({ handleSubmit }) => (
                 {BUTTON_TEXT}
               </Button>
             </StyledFormControl>
-          </StyledNoteForm>
+          </StyledForm>
         </Box>
       )}
     </Formik>

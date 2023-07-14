@@ -3,3 +3,6 @@ export const enum FORMAT_DATE {
   ZERO = '0',
   ADD_DATE_VALUE = 1,
 }
+export const ZERO_VALUE = 0;
+export const DATE_DEVIDER = 'T';
+export const TIME_PART = 'T00:00:00.000Z';

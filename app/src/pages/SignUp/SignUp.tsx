@@ -1,12 +1,11 @@
 import { FC } from 'react';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { Formik } from 'formik';
 
 import { Title } from 'components';
 import { signUpValidationSchema } from 'validations';
 import { SignUpForm, StyledLink, StyledWrapper } from 'pages/SignIn/styled';
 import { ROUTE } from 'config/constants/routes';
-
 import {
   EMAIL_FIELD,
   EMAIL_PLACEHOLDER,

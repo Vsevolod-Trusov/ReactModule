@@ -20,9 +20,9 @@ import NotesLayout from './NotesLayout';
 const NotesLayoutContainer: FC<IInfinityScroll> = ({
   notes,
   dataLength,
-  handleSetSelectedNote,
-  setNotes,
   hasMore,
+  setNotes,
+  handleSetSelectedNote,
 }) => {
   const dispatch = useDispatch();
   const { id } = useSelector(selectNote);

@@ -8,7 +8,7 @@ import { StyledLink } from 'pages/SignIn/styled';
 
 const ProfileWrapper = styled(Wrapper)({
   margin: '0 auto',
-  padding: '0',
+  padding: 0,
   width: '90vw',
   fontSize: '1.2rem',
 });
@@ -16,7 +16,7 @@ const ProfileWrapper = styled(Wrapper)({
 const ProfilePageWrapper = styled(Box)({
   width: '100%',
   height: '90%',
-  padding: '0',
+  padding: 0,
 });
 
 const ProfilePageContainer = styled(Box)({
@@ -110,8 +110,8 @@ const StyledImage = styled('img')({
   objectFit: 'cover',
   objectPosition: '0 0.2px',
   position: 'absolute',
-  top: '0',
-  left: '0',
+  top: 0,
+  left: 0,
   border: `5px solid ${COLORS.WHITE}`,
   borderRadius: '50rem',
 });
@@ -174,7 +174,7 @@ const StyledList = styled(Box)({
 });
 
 const StyledProfileLink = styled(StyledLink)({
-  margin: '0',
+  margin: 0,
   color: COLORS.BLACK,
   fontSize: '1rem',
   textDecoration: 'none',

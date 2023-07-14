@@ -8,7 +8,7 @@ const signInValidationSchema = object().shape({
     .email(VALIDATION_ERRORS.EMAIL_VALIDATION),
   password: string()
     .required(VALIDATION_ERRORS.PASSWORD_REQUIRED)
-    .min(LENGTH_SIZES.EIGHT, VALIDATION_ERRORS.PASSWORD_VALIDATION),
+    .min(LENGTH_SIZES.PASSWORD_LENGTH, VALIDATION_ERRORS.PASSWORD_VALIDATION),
 });
 
 export default signInValidationSchema;

@@ -1,12 +1,9 @@
 import styled from 'styled-components';
 
-import { StyledForm } from 'components/Form/styled';
 import { StyledWrapper } from 'pages/SignIn/styled';
 import { COLORS } from 'config/colors';
 
-const StyledNoteForm = styled(StyledForm)({});
-
-const StyledFormWrapper = styled(StyledWrapper)({
+export const StyledFormWrapper = styled(StyledWrapper)({
   justifyContent: 'center',
   alignItems: 'center',
   '&>div': {
@@ -36,5 +33,3 @@ const StyledFormWrapper = styled(StyledWrapper)({
     },
   },
 });
-
-export { StyledFormWrapper, StyledNoteForm };

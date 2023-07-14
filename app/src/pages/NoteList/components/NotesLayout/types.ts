@@ -1,9 +1,10 @@
-import { TNote } from 'pages/NoteList/types';
 import { PropsWithChildren } from 'react';
 
+import { TNote } from 'pages/NoteList/types';
+
 export interface INodesLayout {
-  title?: string;
   notes: TNote[];
+  title?: string;
   handleSetSelectedNote?: (item: TNote) => void;
 }
 
@@ -14,9 +15,9 @@ export interface INotes {
 }
 
 export interface IInfinityScroll extends INodesLayout {
-  dataLength?: number;
   hasMore: boolean;
   setNotes: () => void;
+  dataLength?: number;
 }
 
 export interface IStyleNote extends PropsWithChildren {
