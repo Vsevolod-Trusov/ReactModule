@@ -25,72 +25,70 @@ const FilterNotes: FC<IFilterNotes> = ({
   handleRefresh,
   filterByName,
 }) => (
-  <Box>
-    <Formik
-      initialValues={filterByName ? FILTER_BY_NAME_VALUES : FILTER_VALUES}
-      validationSchema={filterByName ? filterByNameSchema : filterSchema}
-      validateOnChange={false}
-      validateOnBlur={false}
-      onSubmit={filterHandler}
-    >
-      {({ handleSubmit, handleChange, resetForm, values, errors, touched }) => (
-        <FilterForm onSubmit={handleSubmit}>
-          {filterByName ? (
-            <>
-              <Box>
-                <StyledFilterInput
-                  id={TITLE_FIELD}
-                  name={TITLE_FIELD}
-                  placeholder={TITLE_PLACEHOLDER}
-                  type={'text'}
-                  value={values.title}
-                  helperText={touched.title && errors?.title}
-                  error={touched.title && !!errors?.title}
-                  onChange={handleChange}
-                />
-              </Box>
-              <Box>
-                <StyledButton type='submit' variant={'contained'}>
-                  <FilterAlt />
-                </StyledButton>
-              </Box>
-            </>
-          ) : (
-            <>
-              <Box>
-                <StyledFilterInput
-                  id={DATE_CREATION_FIELD}
-                  name={DATE_CREATION_FIELD}
-                  type={'date'}
-                  value={values.dateCreation}
-                  helperText={touched.dateCreation && errors?.dateCreation}
-                  error={touched.dateCreation && !!errors.dateCreation}
-                  onChange={(e) => {
-                    handleChange(e);
-                    setTimeout(() => {
-                      handleSubmit();
-                    }, START_TIMEOUT);
-                  }}
-                />
-              </Box>
-              <Box>
-                <StyledButton
-                  type='button'
-                  variant={'contained'}
-                  onClick={() => {
-                    resetForm();
-                    handleRefresh();
-                  }}
-                >
-                  <Refresh />
-                </StyledButton>
-              </Box>
-            </>
-          )}
-        </FilterForm>
-      )}
-    </Formik>
-  </Box>
+  <Formik
+    initialValues={filterByName ? FILTER_BY_NAME_VALUES : FILTER_VALUES}
+    validationSchema={filterByName ? filterByNameSchema : filterSchema}
+    validateOnChange={false}
+    validateOnBlur={false}
+    onSubmit={filterHandler}
+  >
+    {({ handleSubmit, handleChange, resetForm, values, errors, touched }) => (
+      <FilterForm onSubmit={handleSubmit}>
+        {filterByName ? (
+          <>
+            <Box>
+              <StyledFilterInput
+                id={TITLE_FIELD}
+                name={TITLE_FIELD}
+                placeholder={TITLE_PLACEHOLDER}
+                type={'text'}
+                value={values.title}
+                helperText={touched.title && errors?.title}
+                error={touched.title && !!errors?.title}
+                onChange={handleChange}
+              />
+            </Box>
+            <Box>
+              <StyledButton type='submit' variant={'contained'}>
+                <FilterAlt />
+              </StyledButton>
+            </Box>
+          </>
+        ) : (
+          <>
+            <Box>
+              <StyledFilterInput
+                id={DATE_CREATION_FIELD}
+                name={DATE_CREATION_FIELD}
+                type={'date'}
+                value={values.dateCreation}
+                helperText={touched.dateCreation && errors?.dateCreation}
+                error={touched.dateCreation && !!errors.dateCreation}
+                onChange={(e) => {
+                  handleChange(e);
+                  setTimeout(() => {
+                    handleSubmit();
+                  }, START_TIMEOUT);
+                }}
+              />
+            </Box>
+            <Box>
+              <StyledButton
+                type='button'
+                variant={'contained'}
+                onClick={() => {
+                  resetForm();
+                  handleRefresh();
+                }}
+              >
+                <Refresh />
+              </StyledButton>
+            </Box>
+          </>
+        )}
+      </FilterForm>
+    )}
+  </Formik>
 );
 
 export default FilterNotes;

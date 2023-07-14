@@ -9,11 +9,12 @@ const StyledNoteListWrapper = styled(Box)({
   marginTop: '0.5rem',
   gap: '0.2rem',
   '&>div:first-child': {
-    minWidth: '23%',
+    minWidth: '28%',
     '&>div': {
       width: '100%',
       '&>div': {
         width: '100%',
+        padding: '0 0.5rem',
       },
     },
   },

@@ -9,7 +9,7 @@ import { NOTES_LAYOUT_ID } from 'pages/SignIn/constants';
 import { Loader } from 'components';
 
 import { IInfinityScroll } from './types';
-import { DROPPABLE_ID, NO_NOTES } from './constants';
+import { DROPPABLE_ID, NO_NOTES, GROUP_TYPE } from './constants';
 import {
   StyledNotesLayout,
   StyledLoaderWrapper,
@@ -29,7 +29,7 @@ const NotesLayoutContainer: FC<IInfinityScroll> = ({
   const handleDragDrop = (results) => {
     const { source, destination, type } = results;
 
-    if (type === 'group') {
+    if (type === GROUP_TYPE) {
       const reorderedStores = [...notes];
       const storeSourceIndex = source.index;
       const storeDestinationIndex = destination.index;
@@ -44,7 +44,7 @@ const NotesLayoutContainer: FC<IInfinityScroll> = ({
       {notes.length ? (
         <DragDropContext onDragEnd={handleDragDrop}>
           <StyledNotesLayout id={NOTES_LAYOUT_ID}>
-            <Droppable droppableId={DROPPABLE_ID} type={'group'}>
+            <Droppable droppableId={DROPPABLE_ID} type={GROUP_TYPE}>
               {(provided) => (
                 <InfiniteScroll
                   dataLength={dataLength}

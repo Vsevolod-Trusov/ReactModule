@@ -97,13 +97,13 @@ const StyledNoteBody = styled(Box)({
   minHeight: '12vh',
   '&>div:last-child': {
     display: 'grid',
+    width: '100%',
     gridTemplateColumns: '1fr 1fr',
     gridTemplateRows: '100%',
     margin: '0 auto',
     justifyItems: 'center',
     alignItems: 'center',
     placeItems: 'center',
-    gap: '5%',
     button: {
       display: 'flex',
       maxWidth: '100%',

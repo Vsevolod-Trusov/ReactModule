@@ -42,13 +42,11 @@ const FilterNotesContainer: FC<IFilterProps> = ({ filterByName }) => {
   };
 
   return (
-    <Box>
-      <FilterNotes
-        submit={filterHandler}
-        handleRefresh={handleRefresh}
-        filterByName={filterByName}
-      />
-    </Box>
+    <FilterNotes
+      submit={filterHandler}
+      handleRefresh={handleRefresh}
+      filterByName={filterByName}
+    />
   );
 };
 

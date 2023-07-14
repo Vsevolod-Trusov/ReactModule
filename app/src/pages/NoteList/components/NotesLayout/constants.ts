@@ -4,3 +4,4 @@ export const enum LABELS {
   EDIT = 'Edit',
   SHARE = 'Share',
 }
+export const GROUP_TYPE = 'group';
