@@ -39,36 +39,32 @@ const SharedNotesContainer: FC = () => {
     navigate(ROUTE.SHARED_FORM);
   };
 
-  if (!isNotUserAuthorized) {
-    return (
-      <StyledNoteListWrapper>
-        <Box>
-          <FilterNotes isShared={true} />
-          <FilterNotes isShared={true} filterByName={true} />
-          <StyledCreateButton
-            type='button'
-            variant={'contained'}
-            onClick={handleNavigateToCreate}
-          >
-            {BUTTON_TEXT}
-          </StyledCreateButton>
-          <StyledInfinityScrollWrapper>
-            <InfinityScroll
-              isShared={true}
-              handleSetSelectedNote={handleSelectNode}
-            />
-          </StyledInfinityScrollWrapper>
-        </Box>
-        <StyledOutletWrapper>
-          <Outlet />
-        </StyledOutletWrapper>
-      </StyledNoteListWrapper>
-    );
-  }
-
-  if (isNotUserAuthorized) {
-    return <Navigate to={ROUTE.SIGN_IN} />;
-  }
+  return !isNotUserAuthorized ? (
+    <StyledNoteListWrapper>
+      <Box>
+        <FilterNotes isShared={true} />
+        <FilterNotes isShared={true} filterByName={true} />
+        <StyledCreateButton
+          type='button'
+          variant={'contained'}
+          onClick={handleNavigateToCreate}
+        >
+          {BUTTON_TEXT}
+        </StyledCreateButton>
+        <StyledInfinityScrollWrapper>
+          <InfinityScroll
+            isShared={true}
+            handleSetSelectedNote={handleSelectNode}
+          />
+        </StyledInfinityScrollWrapper>
+      </Box>
+      <StyledOutletWrapper>
+        <Outlet />
+      </StyledOutletWrapper>
+    </StyledNoteListWrapper>
+  ) : (
+    <Navigate to={ROUTE.SIGN_IN} />
+  );
 };
 
 export default SharedNotesContainer;
