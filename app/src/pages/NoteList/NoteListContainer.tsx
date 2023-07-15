@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ROUTE } from 'config/constants/routes';
 import { selectFirstName } from 'store/slices/user.slice';
 import { setSelectedNote } from 'store/slices/notes.slice';
-import { LOCAL_STARAGE_NAMES } from 'config/globalConstants';
+import { LOCAL_STORAGE_NAMES } from 'config/globalConstants';
 
 import { TNote } from './types';
 import NoteList from './NoteList';
@@ -15,7 +15,7 @@ const NoteListContainer: FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = JSON.parse(
-    window.localStorage.getItem(LOCAL_STARAGE_NAMES.USER),
+    window.localStorage.getItem(LOCAL_STORAGE_NAMES.USER),
   );
 
   if (!user || !firstname) {
@@ -23,7 +23,7 @@ const NoteListContainer: FC = () => {
   }
   const handleSelectNode = (item: TNote) => {
     window.localStorage.setItem(
-      LOCAL_STARAGE_NAMES.SELECTED,
+      LOCAL_STORAGE_NAMES.SELECTED,
       JSON.stringify(item),
     );
     dispatch(setSelectedNote(item));

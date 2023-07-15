@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { TNote, TUpdateNote } from 'pages/NoteList/types';
-import { LOCAL_STARAGE_NAMES, QUERY_KEYS } from 'config/globalConstants';
+import { LOCAL_STORAGE_NAMES, QUERY_KEYS } from 'config/globalConstants';
 import { ROUTE } from 'config/constants/routes';
 import { setSelectedNote } from 'store/slices/notes.slice';
 import { INITIAL_STATE } from 'pages/NoteList/constants';
@@ -23,7 +23,7 @@ const editNote = (id, isShared): UseMutationResult<TNote[], TResponseError> => {
 
   const handleSuccess = () => {
     queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.NOTES] });
-    localStorage.removeItem(LOCAL_STARAGE_NAMES.SELECTED);
+    localStorage.removeItem(LOCAL_STORAGE_NAMES.SELECTED);
     dispatch(setSelectedNote(INITIAL_STATE));
 
     navigate(isShared ? ROUTE.SHARED : ROUTE.NOTES);

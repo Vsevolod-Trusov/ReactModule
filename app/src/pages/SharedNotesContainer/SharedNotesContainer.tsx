@@ -7,7 +7,7 @@ import { InfinityScroll, FilterNotes } from 'components';
 import { ROUTE } from 'config/constants/routes';
 import { selectFirstName } from 'store/slices/user.slice';
 import { setSelectedNote } from 'store/slices/notes.slice';
-import { LOCAL_STARAGE_NAMES } from 'config/globalConstants';
+import { LOCAL_STORAGE_NAMES } from 'config/globalConstants';
 
 import {
   StyledCreateButton,
@@ -23,12 +23,12 @@ const SharedNotesContainer: FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isNotUserAuthorized =
-    !JSON.parse(window.localStorage.getItem(LOCAL_STARAGE_NAMES.EMAIL)) &&
+    !JSON.parse(window.localStorage.getItem(LOCAL_STORAGE_NAMES.EMAIL)) &&
     !firstname;
 
   const handleSelectNode = (item: TNote) => {
     window.localStorage.setItem(
-      LOCAL_STARAGE_NAMES.SELECTED,
+      LOCAL_STORAGE_NAMES.SELECTED,
       JSON.stringify(item),
     );
     dispatch(setSelectedNote(item));

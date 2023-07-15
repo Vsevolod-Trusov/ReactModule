@@ -9,7 +9,7 @@ import {
   TITLE_POSITION,
 } from 'pages/NoteList/constants';
 import { TNote } from 'pages/NoteList/types';
-import { formatDate, sliceText } from 'utils';
+import { formatDate, getPrettyDate, sliceText } from 'utils';
 import { Title } from 'components';
 
 import {
@@ -53,7 +53,7 @@ const NotesLayout: FC<INotes> = ({
                   <Box>
                     <StyledOutputLine selected={selectedNoteId === note.id}>
                       {note.dateCreation
-                        ? formatDate(new Date(note.dateCreation))
+                        ? getPrettyDate(new Date(note.dateCreation))
                         : EMPTY_LINE}
                     </StyledOutputLine>
                   </Box>

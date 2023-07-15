@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 
 import { setUser } from 'store/slices/user.slice';
-import { LOCAL_STARAGE_NAMES, QUERY_KEYS } from 'config/globalConstants';
+import { LOCAL_STORAGE_NAMES, QUERY_KEYS } from 'config/globalConstants';
 import { ROUTE } from 'config/constants/routes';
 
 import { TResponseError } from '../types';
@@ -38,7 +38,7 @@ const useSignIn = (): UseMutationResult<TUserParameters, TResponseError> => {
 
     dispatch(setUser(foundUserByPasswordAndEmail));
     window.localStorage.setItem(
-      LOCAL_STARAGE_NAMES.USER,
+      LOCAL_STORAGE_NAMES.USER,
       JSON.stringify(foundUserByPasswordAndEmail),
     );
     navigate(ROUTE.PROFILE);

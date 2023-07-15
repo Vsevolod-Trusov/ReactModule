@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { LOCAL_STARAGE_NAMES } from 'config/globalConstants';
+import { LOCAL_STORAGE_NAMES } from 'config/globalConstants';
 import { INITIAL_USER_STATE } from 'pages/NoteList/constants';
 
 import { RootState } from '../store';
 
 export const userSlice = createSlice({
-  name: LOCAL_STARAGE_NAMES.USER,
+  name: LOCAL_STORAGE_NAMES.USER,
   initialState:
-    JSON.parse(localStorage.getItem(LOCAL_STARAGE_NAMES.USER)) ||
+    JSON.parse(localStorage.getItem(LOCAL_STORAGE_NAMES.USER)) ||
     INITIAL_USER_STATE,
   reducers: {
     setUser: (state, { payload }) => ({ ...state, ...payload }),

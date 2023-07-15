@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { selectFirstName, selectUser } from 'store/slices/user.slice';
 import { ROUTE } from 'config/constants/routes';
-import { LOCAL_STARAGE_NAMES } from 'config/globalConstants';
+import { LOCAL_STORAGE_NAMES } from 'config/globalConstants';
 
 import Profile from './Profile';
 import { ProfileWrapper } from './styled';
@@ -12,7 +12,7 @@ const ProfileContainer = () => {
   const firstname = useSelector(selectFirstName);
   const { id, password, ...user } = useSelector(selectUser);
   const savedUser = JSON.parse(
-    window.localStorage.getItem(LOCAL_STARAGE_NAMES.USER),
+    window.localStorage.getItem(LOCAL_STORAGE_NAMES.USER),
   );
 
   if (!savedUser || !firstname) {
