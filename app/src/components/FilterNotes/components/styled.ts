@@ -2,8 +2,7 @@ import { Form } from 'formik';
 import styled from 'styled-components';
 
 import { COLORS } from 'config/colors';
-
-import { StyledTextField } from '../styled';
+import { StyledTextField } from 'components/FilterNotes/styled';
 
 const StyledFilterForm = styled(Form)({
   display: 'grid',

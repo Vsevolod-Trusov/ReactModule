@@ -1,4 +1,4 @@
-import { TNote } from '../NoteList/types';
+import { TNote } from 'pages/NoteList/types';
 
 export interface ISelectedNote {
   note: TNote;

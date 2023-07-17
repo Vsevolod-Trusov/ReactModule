@@ -1,7 +1,6 @@
-import { sliceText } from '.';
+import sliceText from './formatText';
 
 const INPUT_TEXT = 'Hello world';
-const SECOND_TEXT = 'Vsevolod';
 const LENGTH = 5;
 
 describe('set to test format text', () => {

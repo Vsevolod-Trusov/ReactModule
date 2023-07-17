@@ -3,8 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { INITIAL_STATE } from 'pages/NoteList/constants';
 import { INITIAL_FILTER } from 'components/FilterNotes/constants';
 import { LOCAL_STORAGE_NAMES } from 'config/globalConstants';
-
-import { RootState } from '../store';
+import { RootState } from 'store/store';
 
 export const notesSlice = createSlice({
   name: LOCAL_STORAGE_NAMES.USER,

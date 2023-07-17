@@ -9,7 +9,6 @@ export enum MOCKED {
   INSTAGRAM = 'Instagram',
   FACEBOOK = 'Facebook',
 }
-
 export enum HREFS {
   FACEBOOK = 'https://ru-ru.facebook.com/',
   TWITTER = 'https://twitter.com/',

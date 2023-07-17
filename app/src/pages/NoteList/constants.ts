@@ -3,7 +3,6 @@ import { TNote } from './types';
 export const SELECTED_NODE_SHADOW = 'rgba(79, 208, 79, 100)';
 export const DEFAULT_NODE_SHADOW = ' rgba(0, 0, 0, 0.1)';
 export const HOVER_NODE_SHADOW = 'rgba(113, 113, 215, 100)';
-
 export const EMPTY_LINE = '';
 export const NULL_VALUE = null;
 export const SLICE_POSITION = 20;
@@ -16,7 +15,6 @@ export const INITIAL_STATE: TNote = {
   description: EMPTY_LINE,
   dateCreation: NULL_VALUE,
 };
-
 export const INITIAL_USER_STATE = {
   id: NULL_VALUE,
   firstName: EMPTY_LINE,

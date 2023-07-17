@@ -10,7 +10,6 @@ export const SIGNUP_VALUES: ISignUpForm = {
   password: EMPTY_LINE,
   confirmPassword: EMPTY_LINE,
 };
-
 export const FIRST_NAME_FIELD = 'firstName';
 export const LAST_NAME_FIELD = 'lastName';
 export const BIRTHDAY_FIELD = 'birthday';

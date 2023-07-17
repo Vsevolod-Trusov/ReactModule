@@ -10,10 +10,10 @@ import { QUERY_KEYS } from 'config/globalConstants';
 import { ROUTE } from 'config/constants/routes';
 import { IUser } from 'pages/SignUp/types';
 import { stringIsEquals } from 'utils';
+import { TResponseError } from 'api/types';
+import { FETCH_URLS } from 'api/constants';
+import { apiClient } from 'api/base';
 
-import { TResponseError } from '../types';
-import { FETCH_URLS } from '../constants';
-import { apiClient } from '../base';
 import { TUser } from './types';
 import { errorSnackbar, RESPONSES, successSnackbar } from './constants';
 
@@ -24,7 +24,7 @@ export const useSignUp = (): UseMutationResult<TUser, TResponseError> => {
   const { data: users } = useQuery({
     queryKey: [QUERY_KEYS.USERS],
     queryFn: async () => {
-      const url = `${FETCH_URLS.USERS}`;
+      const url = FETCH_URLS.USERS;
       const response = await apiClient.get(url);
 
       return response.data;

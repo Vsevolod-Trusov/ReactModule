@@ -1,9 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
-import MontserratWoff from 'assets/fonts/Montserrat/Montserrat.woff';
-import MontserratWoff2 from 'assets/fonts/Montserrat/Montserrat.woff2';
-import MontserratThinWoff from 'assets/fonts/Montserrat/Montserrat-Thin.woff';
-import MontserratThinWoff2 from 'assets/fonts/Montserrat/Montserrat-Thin.woff2';
+import {
+  MontserratThinWoff,
+  MontserratThinWoff2,
+  MontserratWoff,
+  MontserratWoff2,
+} from 'assets/fonts';
 
 const globalStyles = () => {
   return createGlobalStyle`

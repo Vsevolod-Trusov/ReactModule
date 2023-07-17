@@ -11,10 +11,9 @@ import { LOCAL_STORAGE_NAMES, QUERY_KEYS } from 'config/globalConstants';
 import { ROUTE } from 'config/constants/routes';
 import { setSelectedNote } from 'store/slices/notes.slice';
 import { INITIAL_STATE } from 'pages/NoteList/constants';
-
-import { TResponseError } from '../types';
-import { apiClient } from '../base';
-import { FETCH_URLS } from '../constants';
+import { TResponseError } from 'api/types';
+import { apiClient } from 'api/base';
+import { FETCH_URLS } from 'api/constants';
 
 const editNote = (id, isShared): UseMutationResult<TNote[], TResponseError> => {
   const navigate = useNavigate();

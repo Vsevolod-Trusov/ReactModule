@@ -6,10 +6,10 @@ import { useSnackbar } from 'notistack';
 import { setUser } from 'store/slices/user.slice';
 import { LOCAL_STORAGE_NAMES, QUERY_KEYS } from 'config/globalConstants';
 import { ROUTE } from 'config/constants/routes';
+import { TResponseError } from 'api/types';
+import { FETCH_URLS } from 'api/constants';
+import { apiClient } from 'api/base';
 
-import { TResponseError } from '../types';
-import { FETCH_URLS } from '../constants';
-import { apiClient } from '../base';
 import { TUser, ISignUpResponse, TUserParameters } from './types';
 import { errorSnackbar, RESPONSES, successSnackbar } from './constants';
 
@@ -48,7 +48,7 @@ const useSignIn = (): UseMutationResult<TUserParameters, TResponseError> => {
     mutationKey: [QUERY_KEYS.USERS],
 
     mutationFn: async ({ email, password }: TUser) => {
-      const url = `${FETCH_URLS.USERS}`;
+      const url = FETCH_URLS.USERS;
       const response = await apiClient.get(url);
 
       return { users: response.data, email: email, password: password };

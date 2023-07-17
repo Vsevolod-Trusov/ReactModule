@@ -14,10 +14,10 @@ import {
 } from 'store/slices/notes.slice';
 import { TNote } from 'pages/NoteList/types';
 import { filterNotes, isThereNextPage } from 'utils';
+import { TResponseError } from 'api/types';
+import { apiClient } from 'api/base';
+import { FETCH_URLS, PAGE_ELEMENTS_LIMIT } from 'api/constants';
 
-import { TResponseError } from '../types';
-import { apiClient } from '../base';
-import { FETCH_URLS, PAGE_ELEMENTS_LIMIT } from '../constants';
 import { START_PAGE } from './constants';
 
 const getNotes = (): UseInfiniteQueryResult<TNote[], TResponseError> => {

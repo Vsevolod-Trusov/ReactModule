@@ -5,10 +5,10 @@ import { RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { SnackbarProvider } from 'notistack';
 
-import router from './components/Router';
-import globalStyles from './assets/styles';
-import store from './store/store';
-import theme from './config/constants/theme/theme';
+import router from 'components/Router';
+import globalStyles from 'assets/styles';
+import store from 'store/store';
+import theme from 'config/constants/theme/theme';
 
 const Global = globalStyles();
 

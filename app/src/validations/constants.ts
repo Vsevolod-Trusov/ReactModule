@@ -18,7 +18,6 @@ export enum VALIDATION_ERRORS {
   DESCRIPTION_REQUIRED = 'Description is required',
   DESCRIPTION_INVALID = 'Min description length: 3',
 }
-
 export enum LENGTH_SIZES {
   NAMES_LENGTH = 3,
   PASSWORD_LENGTH = 8,

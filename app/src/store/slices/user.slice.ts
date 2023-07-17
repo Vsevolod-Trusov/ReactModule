@@ -2,8 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { LOCAL_STORAGE_NAMES } from 'config/globalConstants';
 import { INITIAL_USER_STATE } from 'pages/NoteList/constants';
-
-import { RootState } from '../store';
+import { RootState } from 'store/store';
 
 export const userSlice = createSlice({
   name: LOCAL_STORAGE_NAMES.USER,

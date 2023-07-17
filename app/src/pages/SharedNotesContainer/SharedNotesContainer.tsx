@@ -8,15 +8,14 @@ import { ROUTE } from 'config/constants/routes';
 import { selectFirstName } from 'store/slices/user.slice';
 import { setSelectedNote } from 'store/slices/notes.slice';
 import { LOCAL_STORAGE_NAMES } from 'config/globalConstants';
-
 import {
   StyledCreateButton,
   StyledInfinityScrollWrapper,
   StyledNoteListWrapper,
   StyledOutletWrapper,
-} from '../NoteList/styled';
-import { TNote } from '../NoteList/types';
-import { BUTTON_TEXT } from '../NoteList/constants';
+} from 'pages/NoteList/styled';
+import { TNote } from 'pages/NoteList/types';
+import { BUTTON_TEXT } from 'pages/NoteList/constants';
 
 const SharedNotesContainer: FC = () => {
   const firstname = useSelector(selectFirstName);
