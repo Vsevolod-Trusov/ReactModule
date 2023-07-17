@@ -19,6 +19,7 @@ import {
   StyledNoteBody,
   StyledNotesButton,
   StyledDescription,
+  StyledNoteLayoutWrapper,
 } from './styled';
 import { INotes } from './types';
 import { LABELS } from './constants';
@@ -32,7 +33,7 @@ const NotesLayout: FC<INotes> = ({
     {notes?.map((note: TNote, index) => (
       <Draggable draggableId={note.testId} key={note.testId} index={index}>
         {(provided) => (
-          <Box
+          <StyledNoteLayoutWrapper
             {...provided.dragHandleProps}
             {...provided.draggableProps}
             ref={provided.innerRef}
@@ -87,7 +88,7 @@ const NotesLayout: FC<INotes> = ({
                 </StyledNoteBody>
               </StyledNote>
             </Box>
-          </Box>
+          </StyledNoteLayoutWrapper>
         )}
       </Draggable>
     ))}

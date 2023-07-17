@@ -51,7 +51,9 @@ const StyledLink = styled(Link)({
 });
 
 const StyledSelectedLink = styled(StyledLink)({
-  color: `${COLORS.WHITE} !important`,
+  '&.MuiTypography-root': {
+    color: `${COLORS.WHITE}`,
+  },
   backgroundColor: COLORS.MAIN_COLOR_DARK,
   borderBottom: `3px solid ${COLORS.WHITE}`,
   '&:hover': {

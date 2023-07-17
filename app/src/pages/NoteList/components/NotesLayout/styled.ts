@@ -14,11 +14,6 @@ const StyledNotesLayout = styled(Box)({
   marginTop: '0.5rem',
   height: '71vh',
   overflowY: 'scroll',
-  '&>div': {
-    '&>div': {
-      overflow: 'hidden !important',
-    },
-  },
 });
 
 const StyledNote = styled(Box)<IStyleNote>(({ selected }) => ({
@@ -131,6 +126,10 @@ const StyledNotesButton = styled(StyledButton)<INotesButton>(
   }),
 );
 
+const StyledNoteLayoutWrapper = styled(Box)({
+  overflow: 'hidden',
+});
+
 export {
   StyledNotesLayout,
   StyledLoaderWrapper,
@@ -141,4 +140,5 @@ export {
   StyledNoteBody,
   StyledNotesButton,
   StyledDescription,
+  StyledNoteLayoutWrapper,
 };

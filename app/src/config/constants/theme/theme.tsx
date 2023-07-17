@@ -2,12 +2,6 @@ import { createTheme } from '@mui/material';
 
 import { COLORS } from 'config/colors';
 
-declare module '@mui/material/TextField' {
-  interface TextFieldPropsVariantOverrides {
-    my: true;
-  }
-}
-
 const theme = createTheme({
   typography: {
     fontFamily: 'Montserrat',
