@@ -66,20 +66,6 @@ const theme = createTheme({
         },
       },
     },
-    MuiButton: {
-      variants: [
-        {
-          props: { variant: 'contained' },
-          style: {
-            backgroundColor: COLORS.BORDER_COLOR,
-            '&:hover': {
-              backgroundColor: COLORS.BORDER_COLOR_HOVER,
-              transition: '.2s',
-            },
-          },
-        },
-      ],
-    },
   },
 });
 

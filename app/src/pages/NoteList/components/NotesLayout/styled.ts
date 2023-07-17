@@ -49,7 +49,6 @@ const StyledNote = styled(Box)<IStyleNote>(({ selected }) => ({
 }));
 
 const StyledOutputLine = styled(Box)<INotesButton>(({ selected }) => ({
-  marginTop: '0.5rem',
   color: selected ? COLORS.WHITE : COLORS.SECOND_TEXT_COLOR,
 }));
 

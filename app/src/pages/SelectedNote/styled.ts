@@ -27,8 +27,8 @@ const StyledNoteWrapper = styled(Box)({
 const StyledSelectedNoteWrapper = styled(StyledNoteWrapper)({
   '&>div:first-child': {
     display: 'grid',
-    gridTemplateRows: '0.2fr 0.2fr 0.2fr 0.2fr',
-    justifyContent: 'space-evenly',
+    gridTemplateRows: '1fr 1fr 1fr 1fr',
+    justifyContent: 'center',
     alignItems: 'center',
     minWidth: '50%',
     maxWidth: '50%',

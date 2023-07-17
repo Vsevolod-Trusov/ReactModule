@@ -9,7 +9,7 @@ import {
   TITLE_POSITION,
 } from 'pages/NoteList/constants';
 import { TNote } from 'pages/NoteList/types';
-import { formatDate, getPrettyDate, sliceText } from 'utils';
+import { getPrettyDate, sliceText } from 'utils';
 import { Title } from 'components';
 
 import {
