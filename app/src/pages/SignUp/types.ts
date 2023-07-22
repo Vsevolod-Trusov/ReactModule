@@ -4,8 +4,8 @@ export interface ISignUp {
 }
 
 export interface IUser {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   birthday: Date;
   email: string;
   password: string;
@@ -13,8 +13,8 @@ export interface IUser {
 }
 
 export interface ISignUpForm {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   birthday: Date | string;
   email: string;
   password: string;

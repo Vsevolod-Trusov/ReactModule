@@ -10,8 +10,8 @@ const SignUpContainer: FC = () => {
 
   const submit = (values: ISignUpForm): void => {
     mutation.mutate({
-      firstName: values.firstName,
-      lastName: values.lastName,
+      firstname: values.firstname,
+      lastname: values.lastname,
       birthday: new Date(values.birthday),
       email: values.email,
       password: values.password,

@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { SnackbarProvider } from 'notistack';
+import { CookiesProvider } from 'react-cookie';
 
 import router from './components/Router';
 import globalStyles from './assets/styles';
@@ -19,15 +20,17 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <>
-    <Global />
-    <ThemeProvider theme={theme}>
-      <QueryClientProvider client={client}>
-        <Provider store={store}>
-          <SnackbarProvider>
-            <RouterProvider router={router} />
-          </SnackbarProvider>
-        </Provider>
-      </QueryClientProvider>
-    </ThemeProvider>
+    <CookiesProvider>
+      <Global />
+      <ThemeProvider theme={theme}>
+        <QueryClientProvider client={client}>
+          <Provider store={store}>
+            <SnackbarProvider>
+              <RouterProvider router={router} />
+            </SnackbarProvider>
+          </Provider>
+        </QueryClientProvider>
+      </ThemeProvider>
+    </CookiesProvider>
   </>,
 );

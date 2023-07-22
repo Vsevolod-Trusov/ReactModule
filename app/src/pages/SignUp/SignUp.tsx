@@ -48,11 +48,11 @@ const SignUp: FC<ISignUp> = ({ submit }) => (
                 name={FIRST_NAME_FIELD}
                 placeholder={FIRSTNAME_PLACEHOLDER}
                 type={'text'}
-                value={values.firstName}
-                helperText={touched.firstName && errors?.firstName}
+                value={values.firstname}
+                helperText={touched.firstname && errors?.firstname}
                 margin={'normal'}
                 fullWidth
-                error={touched.firstName && !!errors?.firstName}
+                error={touched.firstname && !!errors?.firstname}
                 onChange={handleChange}
               />
               <StyledTextField
@@ -60,10 +60,10 @@ const SignUp: FC<ISignUp> = ({ submit }) => (
                 name={LAST_NAME_FIELD}
                 placeholder={LASTNAME_PLACEHOLDER}
                 type={'text'}
-                value={values.lastName}
-                helperText={touched.lastName && errors?.lastName}
+                value={values.lastname}
+                helperText={touched.lastname && errors?.lastname}
                 margin={'normal'}
-                error={touched.lastName && !!errors?.lastName}
+                error={touched.lastname && !!errors?.lastname}
                 fullWidth
                 onChange={handleChange}
               />

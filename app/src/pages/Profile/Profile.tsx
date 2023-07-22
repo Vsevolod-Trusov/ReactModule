@@ -29,7 +29,7 @@ import {
 import { LIKE_SUBMIT, FIELDS, MOCKED, HREFS } from './constants';
 import { IProfile } from './types';
 
-const Profile: FC<IProfile> = ({ firstName, lastName, email, birthday }) => (
+const Profile: FC<IProfile> = ({ firstname, lastname, email, birthday }) => (
   <ProfilePageWrapper>
     <ProfilePageContainer>
       <InfoWrapper>
@@ -44,7 +44,7 @@ const Profile: FC<IProfile> = ({ firstName, lastName, email, birthday }) => (
           <Box />
           <StyledProfileInfo>
             <Title variant={'h1'}>
-              {firstName} {lastName}
+              {firstname} {lastname}
             </Title>
             <Box>
               <Box>{email}</Box>

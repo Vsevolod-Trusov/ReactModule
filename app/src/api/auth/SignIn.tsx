@@ -17,30 +17,27 @@ const useSignIn = (): UseMutationResult<TUserParameters, TResponseError> => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
-  const handleSuccess = ({ users, email, password }: ISignUpResponse) => {
-    const foundUserByEmail: TUser = users.find(
-      (user: TUser) => user.email === email,
-    );
+  const handleSuccess = ({ user, email, password }: ISignUpResponse) => {
+    // const foundUserByEmail: TUser = users.find(
+    //   (user: TUser) => user.email === email,
+    // );
 
-    if (!foundUserByEmail) {
-      return enqueueSnackbar(RESPONSES.WRONG_EMAIL, errorSnackbar);
-    }
+    // if (!foundUserByEmail) {
+    //   return enqueueSnackbar(RESPONSES.WRONG_EMAIL, errorSnackbar);
+    // }
 
-    const foundUserByPasswordAndEmail = users.find(
-      (user: TUser) => user.password === password && user.email === email,
-    );
+    // const foundUserByPasswordAndEmail = users.find(
+    //   (user: TUser) => user.password === password && user.email === email,
+    // );
 
-    if (!foundUserByPasswordAndEmail) {
-      return enqueueSnackbar(RESPONSES.WRONG_PASSWORD, errorSnackbar);
-    }
+    // if (!foundUserByPasswordAndEmail) {
+    //   return enqueueSnackbar(RESPONSES.WRONG_PASSWORD, errorSnackbar);
+    // }
 
     enqueueSnackbar(RESPONSES.SUCCESS, successSnackbar);
 
-    dispatch(setUser(foundUserByPasswordAndEmail));
-    window.localStorage.setItem(
-      LOCAL_STORAGE_NAMES.USER,
-      JSON.stringify(foundUserByPasswordAndEmail),
-    );
+    dispatch(setUser(user));
+    window.localStorage.setItem(LOCAL_STORAGE_NAMES.USER, JSON.stringify(user));
     navigate(ROUTE.PROFILE);
   };
 
@@ -48,10 +45,10 @@ const useSignIn = (): UseMutationResult<TUserParameters, TResponseError> => {
     mutationKey: [QUERY_KEYS.USERS],
 
     mutationFn: async ({ email, password }: TUser) => {
-      const url = `${FETCH_URLS.USERS}`;
-      const response = await apiClient.get(url);
+      const url = `${FETCH_URLS.SIGN_IN}`;
+      const response = await apiClient.post(url, { email, password });
 
-      return { users: response.data, email: email, password: password };
+      return { user: response.data, email: email, password: password };
     },
 
     onSuccess: handleSuccess,
