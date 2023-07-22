@@ -17,8 +17,8 @@ export const INITIAL_STATE: TNote = {
 };
 export const INITIAL_USER_STATE = {
   id: NULL_VALUE,
-  firstName: EMPTY_LINE,
-  lastName: EMPTY_LINE,
+  firstname: EMPTY_LINE,
+  lastname: EMPTY_LINE,
   birthday: EMPTY_LINE,
   email: EMPTY_LINE,
   password: EMPTY_LINE,

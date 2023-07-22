@@ -22,8 +22,8 @@ export const DEFAULT_ID_VALUE = -1;
 export const enum LOCAL_STORAGE_NAMES {
   USER = 'user',
   ID = 'id',
-  FIRSTNAME = 'firstname',
-  LASTNAME = 'lastname',
+  firstname = 'firstname',
+  lastname = 'lastname',
   BIRTHDAY = 'birthday',
   PASSWORD = 'password',
   EMAIL = 'email',

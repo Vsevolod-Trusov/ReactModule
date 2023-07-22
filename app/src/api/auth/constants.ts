@@ -18,3 +18,6 @@ export const successSnackbar = {
   variant: VARIANTS.SUCCESS,
   autoHideDuration: AUTO_HIDE_DURATION,
 };
+export enum ROLES {
+  USER = 'user',
+}

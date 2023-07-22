@@ -3,10 +3,10 @@ import { date, object, string } from 'yup';
 import { LENGTH_SIZES, VALIDATION_ERRORS } from './constants';
 
 const signUpValidationSchema = object().shape({
-  firstName: string()
+  firstname: string()
     .required(VALIDATION_ERRORS.FIRST_NAME_REQUIRED)
     .min(LENGTH_SIZES.NAMES_LENGTH, VALIDATION_ERRORS.FIRST_NAME_VALIDATION),
-  lastName: string()
+  lastname: string()
     .required(VALIDATION_ERRORS.LAST_NAME_REQUIRED)
     .min(LENGTH_SIZES.NAMES_LENGTH, VALIDATION_ERRORS.LAST_NAME_VALIDATION),
   birthday: date()

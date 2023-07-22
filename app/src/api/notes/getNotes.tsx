@@ -38,7 +38,7 @@ const getNotes = (): UseInfiniteQueryResult<TNote[], TResponseError> => {
     [QUERY_KEYS.NOTES],
     async ({ pageParam = START_PAGE }) => {
       const url = `${FETCH_URLS.NOTES}?page=${pageParam}&limit=${PAGE_ELEMENTS_LIMIT}&author=${email}`;
-      const response = await apiClient.get(url);
+      const response = await apiClient.get(url, { withCredentials: true });
 
       return response.data;
     },
