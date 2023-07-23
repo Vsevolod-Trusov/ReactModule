@@ -18,22 +18,6 @@ const useSignIn = (): UseMutationResult<TUserParameters, TResponseError> => {
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const handleSuccess = ({ user, email, password }: ISignUpResponse) => {
-    // const foundUserByEmail: TUser = users.find(
-    //   (user: TUser) => user.email === email,
-    // );
-
-    // if (!foundUserByEmail) {
-    //   return enqueueSnackbar(RESPONSES.WRONG_EMAIL, errorSnackbar);
-    // }
-
-    // const foundUserByPasswordAndEmail = users.find(
-    //   (user: TUser) => user.password === password && user.email === email,
-    // );
-
-    // if (!foundUserByPasswordAndEmail) {
-    //   return enqueueSnackbar(RESPONSES.WRONG_PASSWORD, errorSnackbar);
-    // }
-
     enqueueSnackbar(RESPONSES.SUCCESS, successSnackbar);
 
     dispatch(setUser(user));
@@ -41,17 +25,22 @@ const useSignIn = (): UseMutationResult<TUserParameters, TResponseError> => {
     navigate(ROUTE.PROFILE);
   };
 
+  const handleError = ({ message }: TResponseError) => {
+    enqueueSnackbar(message, errorSnackbar);
+  };
+
   return useMutation({
     mutationKey: [QUERY_KEYS.USERS],
 
     mutationFn: async ({ email, password }: TUser) => {
-      const url = `${FETCH_URLS.SIGN_IN}`;
+      const url = FETCH_URLS.SIGN_IN;
       const response = await apiClient.post(url, { email, password });
 
       return { user: response.data, email: email, password: password };
     },
 
     onSuccess: handleSuccess,
+    onError: handleError,
     retry: false,
   });
 };

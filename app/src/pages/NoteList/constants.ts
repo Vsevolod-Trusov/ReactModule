@@ -26,8 +26,7 @@ export const INITIAL_USER_STATE = {
 
 export const NOTES: TNote[] = [
   {
-    id: 1,
-    testId: '1',
+    id: '1',
     title: 'Node #1',
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
@@ -36,8 +35,7 @@ export const NOTES: TNote[] = [
   },
 
   {
-    id: 2,
-    testId: '2',
+    id: '2',
     title: 'Node #2',
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
@@ -46,8 +44,7 @@ export const NOTES: TNote[] = [
   },
 
   {
-    id: 3,
-    testId: '3',
+    id: '3',
     title: 'Node #3',
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
@@ -56,8 +53,7 @@ export const NOTES: TNote[] = [
   },
 
   {
-    id: 4,
-    testId: '4',
+    id: '4',
     title: 'Node #4',
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
@@ -66,8 +62,7 @@ export const NOTES: TNote[] = [
   },
 
   {
-    id: 5,
-    testId: '5',
+    id: '5',
     title: 'Node #5',
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",

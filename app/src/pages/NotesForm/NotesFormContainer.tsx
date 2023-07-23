@@ -16,7 +16,6 @@ const NotesFormContainer: FC = () => {
 
   const submit = (values: INotesValues): void => {
     create.mutate({
-      id: null,
       title: sliceText(values.title, SLICE_POSITION),
       description: values.description,
       dateCreation: getDateNowFormatting(),

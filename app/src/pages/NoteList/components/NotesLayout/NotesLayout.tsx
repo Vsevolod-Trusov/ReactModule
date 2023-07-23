@@ -31,7 +31,7 @@ const NotesLayout: FC<INotes> = ({
 }) => (
   <>
     {notes?.map((note: TNote, index) => (
-      <Draggable draggableId={note.testId} key={note.testId} index={index}>
+      <Draggable draggableId={note.id} key={note.id} index={index}>
         {(provided) => (
           <StyledNoteLayoutWrapper
             {...provided.dragHandleProps}

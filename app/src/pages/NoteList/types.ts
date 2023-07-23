@@ -1,12 +1,11 @@
 import { Dispatch, SetStateAction } from 'react';
 
 export type TNote = {
-  id: number | null;
+  id: string;
   title: string;
   description: string;
   dateCreation: Date | null;
   author?: string;
-  testId?: string;
   isShared?: boolean;
 };
 

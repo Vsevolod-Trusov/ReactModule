@@ -18,30 +18,40 @@ import { apiClient } from 'api/base';
 import { FETCH_URLS, PAGE_ELEMENTS_LIMIT } from 'api/constants';
 
 import { START_PAGE } from './constants';
+import { EMPTY_LINE } from 'pages/NoteList/constants';
+import { enqueueSnackbar } from 'notistack';
+import { errorSnackbar } from 'api/auth/constants';
 
 const getSharedNotes = (): UseInfiniteQueryResult<TNote[], TResponseError> => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
   const handleSuccess = (data: InfiniteData<TNote[]>) => {
-    if (filter.type) {
-      data.pages = filterNotes(data.pages, filter.type, filter.value);
-    }
-
     const notes = data.pages.flat();
     dispatch(setShared(notes));
     dispatch(setPostNotes([...notes]));
   };
 
+  const handleError = ({ message }: TResponseError) => {
+    enqueueSnackbar(message, errorSnackbar);
+  };
+
   return useInfiniteQuery(
     [QUERY_KEYS.NOTES],
     async ({ pageParam = START_PAGE }) => {
-      const url = `${FETCH_URLS.NOTES}?page=${pageParam}&limit=${PAGE_ELEMENTS_LIMIT}&isShared=true`;
+      const filterQuery = filter?.type
+        ? `&${filter.type}=${filter.value}`
+        : EMPTY_LINE;
+
+      if (filter?.type) pageParam = START_PAGE;
+      const url = `${FETCH_URLS.NOTES}?page=${pageParam}&limit=${PAGE_ELEMENTS_LIMIT}&isShared=true${filterQuery}`;
+
       const response = await apiClient.get(url);
 
       return response.data;
     },
     {
       onSuccess: handleSuccess,
+      onError: handleError,
       retry: false,
       refetchOnWindowFocus: false,
       getNextPageParam: (currentPage, allPages) => {

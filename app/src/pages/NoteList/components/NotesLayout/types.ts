@@ -11,7 +11,7 @@ export interface INodesLayout {
 export interface INotes {
   notes: TNote[];
   handleSetSelectedNote: (item: TNote) => void;
-  selectedNoteId?: number;
+  selectedNoteId?: string;
 }
 
 export interface IInfinityScroll extends INodesLayout {

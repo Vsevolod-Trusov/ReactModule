@@ -19,31 +19,44 @@ import { apiClient } from 'api/base';
 import { FETCH_URLS, PAGE_ELEMENTS_LIMIT } from 'api/constants';
 
 import { START_PAGE } from './constants';
+import { EMPTY_LINE } from 'pages/NoteList/constants';
+import { enqueueSnackbar } from 'notistack';
+import { errorSnackbar } from 'api/auth/constants';
 
-const getNotes = (): UseInfiniteQueryResult<TNote[], TResponseError> => {
+const getNotes = (): UseInfiniteQueryResult<TNote, TResponseError> => {
   const email = useSelector(selectEmail);
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
-  const handleSuccess = (data: InfiniteData<TNote[]>) => {
-    if (filter.type) {
-      data.pages = filterNotes(data.pages, filter.type, filter.value);
-    }
 
+  const handleSuccess = async (data: InfiniteData<TNote>) => {
     const notes = data.pages.flat();
     dispatch(setReduxNotes(notes));
     dispatch(setPostNotes([...notes]));
   };
 
+  const handleError = ({ message }: TResponseError) => {
+    enqueueSnackbar(message, errorSnackbar);
+  };
+
   return useInfiniteQuery(
     [QUERY_KEYS.NOTES],
     async ({ pageParam = START_PAGE }) => {
-      const url = `${FETCH_URLS.NOTES}?page=${pageParam}&limit=${PAGE_ELEMENTS_LIMIT}&author=${email}`;
-      const response = await apiClient.get(url, { withCredentials: true });
+      const filter = JSON.parse(window.localStorage.getItem('filter'));
+
+      const filterQuery = filter?.type
+        ? `&${filter.type}=${filter.value}`
+        : EMPTY_LINE;
+
+      if (filter?.type) pageParam = START_PAGE;
+
+      const url = `${FETCH_URLS.NOTES}?page=${pageParam}&limit=${PAGE_ELEMENTS_LIMIT}&author=${email}${filterQuery}`;
+      const response = await apiClient.get(url);
 
       return response.data;
     },
     {
       onSuccess: handleSuccess,
+      onError: handleError,
       retry: false,
       refetchOnWindowFocus: false,
       getNextPageParam: (currentPage, allPages) => {
