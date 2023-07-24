@@ -31,10 +31,6 @@ const getSharedNotes = (): UseInfiniteQueryResult<TNote[], TResponseError> => {
     dispatch(setPostNotes([...notes]));
   };
 
-  const handleError = ({ message }: TResponseError) => {
-    enqueueSnackbar(message, errorSnackbar);
-  };
-
   return useInfiniteQuery(
     [QUERY_KEYS.NOTES],
     async ({ pageParam = START_PAGE }) => {
@@ -51,7 +47,6 @@ const getSharedNotes = (): UseInfiniteQueryResult<TNote[], TResponseError> => {
     },
     {
       onSuccess: handleSuccess,
-      onError: handleError,
       retry: false,
       refetchOnWindowFocus: false,
       getNextPageParam: (currentPage, allPages) => {
