@@ -21,3 +21,6 @@ export const successSnackbar = {
 export enum ROLES {
   USER = 'user',
 }
+
+export const X_REFRESH_TOKEN = 'x-refresh-token';
+export const X_ACCESS_TOKEN = 'x-access-token';

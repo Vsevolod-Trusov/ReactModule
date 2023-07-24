@@ -11,7 +11,13 @@ import { TResponseError } from '../types';
 import { FETCH_URLS } from '../constants';
 import { apiClient } from '../base';
 import { TUser, ISignUpResponse, TUserParameters } from './types';
-import { errorSnackbar, RESPONSES, successSnackbar } from './constants';
+import {
+  errorSnackbar,
+  RESPONSES,
+  successSnackbar,
+  X_ACCESS_TOKEN,
+  X_REFRESH_TOKEN,
+} from './constants';
 
 const useSignIn = (): UseMutationResult<TUserParameters, TResponseError> => {
   const dispatch = useDispatch();
@@ -35,7 +41,14 @@ const useSignIn = (): UseMutationResult<TUserParameters, TResponseError> => {
     mutationFn: async ({ email, password }: TUser) => {
       const url = FETCH_URLS.SIGN_IN;
       const response = await apiClient.post(url, { email, password });
-
+      window.sessionStorage.setItem(
+        X_REFRESH_TOKEN,
+        response.headers[X_REFRESH_TOKEN],
+      );
+      window.sessionStorage.setItem(
+        X_ACCESS_TOKEN,
+        response.headers[X_ACCESS_TOKEN],
+      );
       return { user: response.data, email: email, password: password };
     },
 
