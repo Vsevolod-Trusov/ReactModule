@@ -15,7 +15,11 @@ import {
 import { filterNotes, isThereNextPage } from 'utils';
 import { TResponseError } from 'api/types';
 import { apiClient } from 'api/base';
-import { FETCH_URLS, PAGE_ELEMENTS_LIMIT } from 'api/constants';
+import {
+  FETCH_URLS,
+  INCREMENT_VALUE,
+  PAGE_ELEMENTS_LIMIT,
+} from 'api/constants';
 
 import { START_PAGE } from './constants';
 import { EMPTY_LINE } from 'pages/NoteList/constants';
@@ -50,11 +54,11 @@ const getSharedNotes = (): UseInfiniteQueryResult<TNote[], TResponseError> => {
       retry: false,
       refetchOnWindowFocus: false,
       getNextPageParam: (currentPage, allPages) => {
-        return isThereNextPage(
-          currentPage.length,
-          !currentPage.length,
-          allPages.length,
-        );
+        currentPage.length < PAGE_ELEMENTS_LIMIT
+          ? false
+          : !currentPage.length
+          ? false
+          : allPages.length + INCREMENT_VALUE;
       },
     },
   );
