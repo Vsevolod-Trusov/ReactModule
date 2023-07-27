@@ -49,7 +49,7 @@ const useSignIn = (): UseMutationResult<TUserParameters, TResponseError> => {
         X_ACCESS_TOKEN,
         response.headers[X_ACCESS_TOKEN],
       );
-      return { user: response.data, email: email, password: password };
+      return { user: response.data.user, email: email, password: password };
     },
 
     onSuccess: handleSuccess,
