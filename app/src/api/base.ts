@@ -9,7 +9,7 @@ import {
 } from './auth/constants';
 
 export const apiClient = axios.create({
-  baseURL: 'http://localhost:4000', //MOCK_API_ADDRESS,
+  baseURL: MOCK_API_ADDRESS, //,
   withCredentials: true,
 });
 
