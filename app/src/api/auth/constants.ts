@@ -24,3 +24,5 @@ export enum ROLES {
 
 export const X_REFRESH_TOKEN = 'x-refresh-token';
 export const X_ACCESS_TOKEN = 'x-access-token';
+export const ACCESS_TOKEN = 'accessToken';
+export const REFRESH_TOKEN = 'refreshToken';
