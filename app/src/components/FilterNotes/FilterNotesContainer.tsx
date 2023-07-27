@@ -45,7 +45,6 @@ const FilterNotesContainer: FC<IFilterProps> = ({ filterByName }) => {
       queryKey: [QUERY_KEYS.NOTES],
     });
     resetForm();
-    window.localStorage.removeItem(FILTER_FIELD);
   };
 
   const handleRefresh = () => {
